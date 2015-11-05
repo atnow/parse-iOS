@@ -1,0 +1,60 @@
+//
+//  MenuViewController.swift
+//  now
+//
+//  Created by Benjamin Holland on 10/20/15.
+//  Copyright © 2015 Ben Ribovich. All rights reserved.
+//
+
+import UIKit
+
+class MenuViewController: UITableViewController{
+
+    @IBOutlet var menuTableView: UITableView! {
+        didSet{
+            menuTableView.delegate = self
+            menuTableView.bounces = false
+        }
+    }
+    @IBOutlet var profileImageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
+        profileImageView.clipsToBounds = true
+
+    }
+    
+    private func roundingUIView(let aView: UIView!, let cornerRadiusParam: CGFloat!) {
+        aView.clipsToBounds = true
+        aView.layer.cornerRadius = cornerRadiusParam
+    }
+    
+    struct Notifications {
+        static let HomeSelected = "HomeSelected"
+        static let NotificationsSelected = "NotificationsSelected"
+        static let SettingsSelected = "SettingsSelected"
+        static let HelpCenterSelected = "HelpCenterSelected"
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = indexPath.item
+        let center = NSNotificationCenter.defaultCenter()
+        
+        switch item {
+        case 0:
+            center.postNotification(NSNotification(name: Notifications.HomeSelected, object: self))
+        case 1:
+            center.postNotification(NSNotification(name: Notifications.NotificationsSelected, object: self))
+        case 2:
+            center.postNotification(NSNotification(name: Notifications.SettingsSelected, object: self))
+        case 3:
+            center.postNotification(NSNotification(name: Notifications.HelpCenterSelected, object: self))
+        default:
+            print("Unrecognized menu index")
+            return
+        }
+        let cvc = self.parentViewController as! ContainerViewController
+        cvc.hideMenu()
+    }
+}
