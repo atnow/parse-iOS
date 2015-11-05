@@ -8,19 +8,12 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController{
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-        
-        // Uncomment to automatically sign in the user.
-        GIDSignIn.sharedInstance().signInSilently()
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +23,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     
     
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
-    }
     
 
 

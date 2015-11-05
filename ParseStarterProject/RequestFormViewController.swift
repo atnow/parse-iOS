@@ -14,25 +14,6 @@ class RequestFormViewController: UIViewController {
     
     
     
-    var service: GTLServiceAtnow {
-        if _service != nil{
-            return _service!
-        }
-        _service = GTLServiceAtnow()
-        
-        // Setup
-        
-        if isLocalHostTesting {
-            _service?.rpcURL = NSURL(string: localHostRpcUrl)
-            _service?.fetcherService.allowLocalhostRequest = true
-        }
-        _service?.retryEnabled = true
-        _service?.apiVersion = "v1"
-        return _service!
-    }
-    
-    var _service : GTLServiceAtnow?
-    
     @IBOutlet weak var descriptionTextField: UITextField!
     
     @IBOutlet weak var priceTextField: UITextField!
@@ -46,31 +27,31 @@ class RequestFormViewController: UIViewController {
     
     @IBAction func submitPressed(sender: AnyObject) {
         
-        let newTask = GTLAtnowTask()
-        newTask.title = descriptionTextField.text
-        newTask.price = NSNumber(integer: Int(priceTextField.text!)!)
-        newTask.taskLocation = locationTextField.text
-        newTask.descriptionProperty = instructionsView.text
-        newTask.timeRequested = NSNumber(integer: Int(datePicker.date.timeIntervalSince1970))
-        insertTaskToBackend(newTask)
+//        let newTask = Task()
+//        newTask.title = descriptionTextField.text
+//        newTask.price = NSNumber(integer: Int(priceTextField.text!)!)
+//        newTask.taskLocation = locationTextField.text
+//        newTask.descriptionProperty = instructionsView.text
+//        newTask.timeRequested = NSNumber(integer: Int(datePicker.date.timeIntervalSince1970))
+//        insertTaskToBackend(newTask)
         
     }
     
-    func insertTaskToBackend(newTask: GTLAtnowTask){
+    func insertTaskToBackend(newTask: Task){
         
-        let query = GTLQueryAtnow.queryForTasksInsertWithObject(newTask) as GTLQueryAtnow
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        service.executeQuery(query) { (ticket, response, error) -> Void in
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            if error != nil{
-                self._showErrorDialog(error!)
-                return
-            }
-            let returnedTask = response as! GTLAtnowTask
-            newTask.taskId = returnedTask.taskId
-            
-        }
+//        let query = GTLQueryAtnow.queryForTasksInsertWithObject(newTask) as GTLQueryAtnow
+//        
+//        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+//        service.executeQuery(query) { (ticket, response, error) -> Void in
+//            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+//            if error != nil{
+//                self._showErrorDialog(error!)
+//                return
+//            }
+//            let returnedTask = response as! GTLAtnowTask
+//            newTask.taskId = returnedTask.taskId
+//            
+//        }
     }
     
     
@@ -99,12 +80,12 @@ class RequestFormViewController: UIViewController {
     
     //MARK: - Private helper methods
     
-    func _showErrorDialog(error: NSError){
-        let alertController = UIAlertController(title: "Endpoints Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-        alertController.addAction(defaultAction)
-        presentViewController(alertController, animated: true, completion: nil)
-    }
+//    func _showErrorDialog(error: NSError){
+//        let alertController = UIAlertController(title: "Endpoints Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
+//        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+//        alertController.addAction(defaultAction)
+//        presentViewController(alertController, animated: true, completion: nil)
+//    }
 
 
 }

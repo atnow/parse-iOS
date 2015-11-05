@@ -17,26 +17,7 @@ class HomeViewController : UITableViewController {
     
     var tasks: [Task] = taskData
     
-    var gtlTasks = [GTLAtnowTask]()
-    
-    var service: GTLServiceAtnow {
-        if _service != nil{
-            return _service!
-        }
-         _service = GTLServiceAtnow()
-        
-        // Setup 
-        
-        if isLocalHostTesting {
-            _service?.rpcURL = NSURL(string: localHostRpcUrl)
-            _service?.fetcherService.allowLocalhostRequest = true
-        }
-        _service?.retryEnabled = true
-        _service?.apiVersion = "v1"
-        return _service!
-    }
-   
-    var _service : GTLServiceAtnow?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +32,6 @@ class HomeViewController : UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        _queryForQuotes()
     }
     
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
@@ -68,34 +48,34 @@ class HomeViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gtlTasks.count
+        return tasks.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
             var cell: UITableViewCell
             
-            if gtlTasks.count==0 {
+            if tasks.count==0 {
                 cell = tableView.dequeueReusableCellWithIdentifier(noTasksCellIdentifier, forIndexPath: indexPath)
                 
             } else {
                 cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath)
 
-                print(indexPath.row)
-                let task = gtlTasks[indexPath.row] as GTLAtnowTask
-                print(task.JSONValueForKey("description"))
-                print(task.description)
-                if let descriptionLabel = cell.viewWithTag(100) as? UILabel {
-                let description = task.JSONValueForKey("description")
-                descriptionLabel.text = "\(description)"
-                }
-
-                if let priceLabel = cell.viewWithTag(101) as? UILabel {
-                    let price = task.JSONValueForKey("price")
-                    print(price)
-                    priceLabel.text = "$" + String(price)
-                    
-                }
+//                print(indexPath.row)
+//                let task = tasks[indexPath.row] as Task
+//                print(task.JSONValueForKey("description"))
+//                print(task.description)
+//                if let descriptionLabel = cell.viewWithTag(100) as? UILabel {
+//                let description = task.JSONValueForKey("description")
+//                descriptionLabel.text = "\(description)"
+//                }
+//
+//                if let priceLabel = cell.viewWithTag(101) as? UILabel {
+//                    let price = task.JSONValueForKey("price")
+//                    print(price)
+//                    priceLabel.text = "$" + String(price)
+//                    
+//                }
 //                if let expirationLabel = cell.viewWithTag(102) as? UILabel {
 //                    //let exp = task.JSONValueForKey("timeRequested")
 //                  //  let expDate = NSDate(exp)
@@ -123,26 +103,26 @@ class HomeViewController : UITableViewController {
     }
     
     //MARK: - Private helper methods
-    
-    func _showErrorDialog(error: NSError){
-        let alertController = UIAlertController(title: "Endpoints Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-        alertController.addAction(defaultAction)
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    func _queryForQuotes() {
-        let query = GTLQueryAtnow.queryForTasksList() as GTLQueryAtnow
-        
-        service.executeQuery(query) { (ticket, response, error) -> Void in
-            if error != nil {
-                self._showErrorDialog(error!)
-            } else {
-                let taskCollection = response as! GTLAtnowTaskCollection
-                self.gtlTasks = taskCollection.items() as! [GTLAtnowTask]
-            }
-            self.tableView.reloadData()
-        }
-    }
+//    
+//    func _showErrorDialog(error: NSError){
+//        let alertController = UIAlertController(title: "Endpoints Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
+//        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+//        alertController.addAction(defaultAction)
+//        presentViewController(alertController, animated: true, completion: nil)
+//    }
+//    
+//    func _queryForQuotes() {
+//        let query = GTLQueryAtnow.queryForTasksList() as GTLQueryAtnow
+//        
+//        service.executeQuery(query) { (ticket, response, error) -> Void in
+//            if error != nil {
+//                self._showErrorDialog(error!)
+//            } else {
+//                let taskCollection = response as! GTLAtnowTaskCollection
+//                self.gtlTasks = taskCollection.items() as! [GTLAtnowTask]
+//            }
+//            self.tableView.reloadData()
+//        }
+//    }
     
 }

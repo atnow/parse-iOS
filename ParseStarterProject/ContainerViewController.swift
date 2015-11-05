@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ContainerViewController: UIViewController {
     var leftViewController: UIViewController? {
@@ -72,6 +73,19 @@ class ContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (PFUser.currentUser() == nil) {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
+                self.presentViewController(viewController, animated: true, completion: { () -> Void in
+                    self.instanstiateContainer()
+                })
+            })
+        }
+
+    }
+    
+    func instanstiateContainer(){
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainNavigationController: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
