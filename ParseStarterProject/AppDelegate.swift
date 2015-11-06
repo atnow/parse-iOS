@@ -15,7 +15,7 @@ import Parse
 // import ParseUI
 
 // If you want to use Crash Reporting - uncomment this line
-// import ParseCrashReporting
+//import ParseCrashReporting
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ParseCrashReporting.enable()
         //
         // Uncomment and fill in with your Parse credentials:
-        // Parse.setApplicationId("your_application_id", clientKey: "your_client_key")
+        Parse.setApplicationId("0oeGyi6DM6AwliCkDTBxr14OLcrgV3MYx1Gc4wHK", clientKey: "MzWJgp2L5jN8OLB9dQpsD5XjbyDDvqp4TOhttkEr")
         //
         // If you are using Facebook, uncomment and add your FacebookAppID to your bundle's plist as
         // described here: https://developers.facebook.com/docs/getting-started/facebook-sdk-for-ios/
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // PFFacebookUtils.initializeFacebook()
         // ****************************************************************************
 
-        PFUser.enableAutomaticUser()
+        //PFUser.enableAutomaticUser()
 
         let defaultACL = PFACL();
 
