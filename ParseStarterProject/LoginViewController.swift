@@ -19,6 +19,10 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var confirmPassword: UITextField!
     
     
+    @IBOutlet weak var loginUsername: UITextField!
+    @IBOutlet weak var loginPassword: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +32,38 @@ class LoginViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func onLogin(sender: UIButton) {
+        
+        var username = self.loginUsername.text
+        var password = self.loginPassword.text
+        
+        // Validate the text fields
+        // Run a spinner to show a task in progress
+        var spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+        spinner.startAnimating()
+            
+        // Send a request to login
+        PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
+                
+            // Stop the spinner
+            spinner.stopAnimating()
+                
+            if ((user) != nil) {
+                var alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainNavigationController") as! UIViewController
+                        self.presentViewController(viewController, animated: true, completion: nil)
+                    })
+                    
+                } else {
+                    var alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+            })
+        }
     
     
     
