@@ -11,14 +11,6 @@ import Parse
 
 class LoginViewController: UIViewController{
     
-    
-    @IBOutlet weak var fullName: UITextField!
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var confirmPassword: UITextField!
-    
-    
     @IBOutlet weak var loginUsername: UITextField!
     @IBOutlet weak var loginPassword: UITextField!
     
@@ -35,87 +27,45 @@ class LoginViewController: UIViewController{
     
     @IBAction func onLogin(sender: UIButton) {
         
-        var username = self.loginUsername.text
-        var password = self.loginPassword.text
+        let username = self.loginUsername.text
+        let password = self.loginPassword.text
         
         // Validate the text fields
         // Run a spinner to show a task in progress
-        var spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+        let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
         spinner.startAnimating()
-            
+        
         // Send a request to login
         PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
-                
+            
             // Stop the spinner
             spinner.stopAnimating()
-                
+            
+            let verified: Bool = user!["emailVerified"] as! Bool
+            
             if ((user) != nil) {
-                var alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
+                if (verified==false){
+                    let alert = UIAlertView(title: "email not verified", message: "please verify the email address: " + (user?.email)!, delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                     
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController") as! UIViewController
+                } else{
+                    let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
                         self.presentViewController(viewController, animated: true, completion: nil)
                     })
-                    
-                } else {
-                    var alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
                 }
-            })
-        }
-    
-    
-    
-    @IBAction func onSignUp(sender: UIButton) {
-        let fullNameText  = self.fullName.text
-        let emailText = self.email.text
-        let usernameText = self.username.text
-        let passwordText = self.password.text
-        let confirmPasswordText = self.confirmPassword.text
-        
-        if usernameText?.characters.count < 5 {
-            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            
-        } else if passwordText?.characters.count < 8 {
-            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-        
-        } else if passwordText! != confirmPasswordText!{
-            let alert = UIAlertView(title: "Invalid", message: "Passwords do not match", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-        }
-        
-        var newUser = PFUser()
-        newUser.username = usernameText
-        newUser.email = emailText! + "@dartmouth.edu"
-        newUser.password = passwordText
-        newUser["fullName"] = fullNameText
-        
-        // Sign up the user asynchronously
-        newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
-            
-            // Stop the spinner
-            if ((error) != nil) {
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
                 
             } else {
-                let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
+                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
-                    self.presentViewController(viewController, animated: true, completion: nil)
-                })
             }
+            
         })
-        
-        
     }
-
     
-
 
     /*
     // MARK: - Navigation

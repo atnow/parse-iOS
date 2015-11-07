@@ -10,44 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParseStarterProject/LoginViewController.swift"
-            timestampString = "468526503.807043"
+            timestampString = "468616436.170119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "onSignUp(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ParseStarterProject/LoginViewController.swift"
-            timestampString = "468526503.807043"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "onSignUp(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ParseStarterProject/LoginViewController.swift"
-            timestampString = "468526503.807043"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "onSignUp(_:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "onLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

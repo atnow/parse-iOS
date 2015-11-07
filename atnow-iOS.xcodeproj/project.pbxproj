@@ -15,6 +15,7 @@
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
+		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF691BEC0FB300F31E6D /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -45,6 +46,7 @@
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B567DF691BEC0FB300F31E6D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewController.swift; sourceTree = "<group>"; };
 		B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
 				B567DF761BEC0FBC00F31E6D /* MainViewController.swift */,
 				B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */,
+				B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */,
 				B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */,
 				B567DF791BEC0FBC00F31E6D /* Task.swift */,
 				B567DF7A1BEC0FBC00F31E6D /* User.swift */,
@@ -250,6 +253,7 @@
 				B567DF821BEC0FBC00F31E6D /* Task.swift in Sources */,
 				B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */,
 				B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */,
+				B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */,
 				B567DF7F1BEC0FBC00F31E6D /* MainViewController.swift in Sources */,
 				B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */,
 				B567DF7E1BEC0FBC00F31E6D /* RequestFormViewController.swift in Sources */,
