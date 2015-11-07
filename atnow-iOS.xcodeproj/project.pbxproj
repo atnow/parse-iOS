@@ -28,6 +28,7 @@
 		B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF821BEC0FBC00F31E6D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF791BEC0FBC00F31E6D /* Task.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF831BEC0FBC00F31E6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF7A1BEC0FBC00F31E6D /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B567DF791BEC0FBC00F31E6D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B567DF7A1BEC0FBC00F31E6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				B567DF721BEC0FBC00F31E6D /* SampleData.swift */,
 				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
+				C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */,
 				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
 				B567DF761BEC0FBC00F31E6D /* MainViewController.swift */,
 				B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */,
@@ -242,6 +245,7 @@
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				B567DF7B1BEC0FBC00F31E6D /* SampleData.swift in Sources */,
 				B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */,
+				C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */,
 				B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */,
 				B567DF821BEC0FBC00F31E6D /* Task.swift in Sources */,
 				B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */,

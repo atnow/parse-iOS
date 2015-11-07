@@ -54,7 +54,7 @@ class LoginViewController: UIViewController{
                     alert.show()
                     
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainNavigationController") as! UIViewController
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController") as! UIViewController
                         self.presentViewController(viewController, animated: true, completion: nil)
                     })
                     
@@ -105,7 +105,7 @@ class LoginViewController: UIViewController{
                 let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainNavigationController")
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
                     self.presentViewController(viewController, animated: true, completion: nil)
                 })
             }

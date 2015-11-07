@@ -21,7 +21,6 @@ class ContainerViewController: UIViewController {
         }
         
         didSet{
-            
             self.view!.addSubview(self.leftViewController!.view)
             self.addChildViewController(self.leftViewController!)
         }
@@ -72,6 +71,7 @@ class ContainerViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        print("view did load")
         super.viewDidLoad()
         if (PFUser.currentUser() == nil) {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -79,8 +79,12 @@ class ContainerViewController: UIViewController {
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
                 self.presentViewController(viewController, animated: true, completion: { () -> Void in
                     self.instanstiateContainer()
+
                 })
             })
+        }
+        else{
+            instanstiateContainer()
         }
 
     }
