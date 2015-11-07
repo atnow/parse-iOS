@@ -147,7 +147,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-CB-B48">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-CB-B48" userLabel="Title Text Field">
                                 <rect key="frame" x="36" y="110" width="303" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -168,7 +168,7 @@
                                     <!--2015-10-28 22:43:00 +0000-->
                                 </date>
                             </datePicker>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Further Instructions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sr5-1W-hYp">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Further Instructions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sr5-1W-hYp" userLabel="Instructions Text View">
                                 <rect key="frame" x="36" y="400" width="303" height="103"/>
                                 <color key="textColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -190,10 +190,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="datePicker" destination="0sP-qF-Cxe" id="5Bg-WY-QI2"/>
-                        <outlet property="descriptionTextField" destination="JeG-CB-B48" id="zYo-ZY-39h"/>
-                        <outlet property="instructionsView" destination="sr5-1W-hYp" id="hhf-Um-4WC"/>
+                        <outlet property="instructionsTextView" destination="sr5-1W-hYp" id="OcZ-Un-vcd"/>
                         <outlet property="locationTextField" destination="YmC-WK-rb9" id="BSd-ez-PC2"/>
                         <outlet property="priceTextField" destination="ma9-SD-9TA" id="bnT-ei-L96"/>
+                        <outlet property="titleTextField" destination="JeG-CB-B48" id="w36-hB-IdS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5F-rj-7hw" userLabel="First Responder" sceneMemberID="firstResponder"/>

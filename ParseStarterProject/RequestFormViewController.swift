@@ -7,58 +7,46 @@
 //
 
 import UIKit
-
+import Parse
 
 
 class RequestFormViewController: UIViewController {
     
-    
-    
-    @IBOutlet weak var descriptionTextField: UITextField!
-    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var instructionsTextView: UITextView!
     @IBOutlet weak var priceTextField: UITextField!
-
     @IBOutlet weak var locationTextField: UITextField!
-    
     @IBOutlet weak var datePicker: UIDatePicker!
-    
-    @IBOutlet weak var instructionsView: UITextView!
     
     
     @IBAction func submitPressed(sender: AnyObject) {
         
-//        let newTask = Task()
-//        newTask.title = descriptionTextField.text
-//        newTask.price = NSNumber(integer: Int(priceTextField.text!)!)
-//        newTask.taskLocation = locationTextField.text
-//        newTask.descriptionProperty = instructionsView.text
-//        newTask.timeRequested = NSNumber(integer: Int(datePicker.date.timeIntervalSince1970))
-//        insertTaskToBackend(newTask)
-        
-    }
-    
-    func insertTaskToBackend(newTask: Task){
-        
-//        let query = GTLQueryAtnow.queryForTasksInsertWithObject(newTask) as GTLQueryAtnow
-//        
-//        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-//        service.executeQuery(query) { (ticket, response, error) -> Void in
-//            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//            if error != nil{
-//                self._showErrorDialog(error!)
-//                return
-//            }
-//            let returnedTask = response as! GTLAtnowTask
-//            newTask.taskId = returnedTask.taskId
-//            
-//        }
+        let newTask = PFObject(className: "Task")
+        newTask["title"] = self.titleTextField.text
+        newTask["description"] = self.instructionsTextView.text
+        newTask["price"] = NSNumber(integer: Int(priceTextField.text!)!)
+        newTask["expiration"] = datePicker.date
+        newTask["requester"] = PFUser.currentUser()
+        newTask.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                let alert = UIAlertView(title: "Success!", message: "This task has been created", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+                
+            } else {
+                // There was a problem, check error.description
+                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+            }
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        instructionsView.layer.borderWidth = 1
-        instructionsView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        instructionsTextView.layer.borderWidth = 1
+        instructionsTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         // Do any additional setup after loading the view.
     }
 
