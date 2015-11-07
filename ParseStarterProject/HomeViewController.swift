@@ -27,6 +27,8 @@ class HomeViewController : UITableViewController {
         let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
         self.navigationItem.rightBarButtonItem = composeButton
         self.navigationItem.leftBarButtonItem = homeButton
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+
 
     }
     
