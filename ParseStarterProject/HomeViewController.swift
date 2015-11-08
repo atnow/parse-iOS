@@ -46,7 +46,8 @@ class HomeViewController : PFQueryTableViewController {
             query.cachePolicy = .CacheThenNetwork
         }
         
-        query.orderByDescending("createdAt")
+        query.whereKey("expiration", greaterThan: NSDate())
+        query.orderByAscending("expiration")
         
         return query
     }

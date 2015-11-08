@@ -18,6 +18,7 @@
 		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
 		B55888A01BEE989900ACF3A5 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */; };
+		B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF691BEC0FB300F31E6D /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -48,6 +49,7 @@
 		B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
 		B558889E1BEE987E00ACF3A5 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		B567DF691BEC0FB300F31E6D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewController.swift; sourceTree = "<group>"; };
 		B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */,
 				B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */,
 				B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */,
+				B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */,
 				B567DF791BEC0FBC00F31E6D /* Task.swift */,
 				B567DF7A1BEC0FBC00F31E6D /* User.swift */,
 				B567DF691BEC0FB300F31E6D /* MenuViewController.swift */,
@@ -252,6 +255,7 @@
 				B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */,
 				C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */,
 				B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */,
+				B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */,
 				B567DF821BEC0FBC00F31E6D /* Task.swift in Sources */,
 				B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */,
 				B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */,
