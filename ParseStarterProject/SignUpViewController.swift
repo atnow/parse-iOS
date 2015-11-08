@@ -25,11 +25,8 @@ class SignUpViewController: UIViewController {
         let confirmPasswordText = self.confirmPasswordField.text
         
         let alertController = UIAlertController(title: "Invalid", message: "Username must be greater than 5 characters", preferredStyle: .Alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-        
-        alertController.addAction(cancelAction)
+
         alertController.addAction(OKAction)
        
         if usernameText?.characters.count < 5 {
@@ -59,13 +56,11 @@ class SignUpViewController: UIViewController {
 
             if ((error) != nil) {
                 let errorAlertController = UIAlertController(title: "Error", message: "\(error)",preferredStyle: .Alert)
-                errorAlertController.addAction(cancelAction)
                 errorAlertController.addAction(OKAction)
                 self.presentViewController(errorAlertController, animated: true) {}
                 
             } else {
                 let successAlertController = UIAlertController(title: "Success", message: "Signed Up! Please verify email.",preferredStyle: .Alert)
-                successAlertController.addAction(cancelAction)
                 successAlertController.addAction(OKAction)
                 self.presentViewController(successAlertController, animated: true) {}
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in

@@ -31,26 +31,19 @@ class RequestFormViewController: UIViewController {
         newTask.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-                // The object has been saved.
+                
+                // Task has been saved.
                 let successAlertController = UIAlertController(title: "Success!", message: "This task has been created", preferredStyle: .Alert)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                
-                successAlertController.addAction(cancelAction)
                 successAlertController.addAction(OKAction)
-                
                 self.presentViewController(successAlertController, animated: true) {}
                 
             } else {
+                
+                //Issue saving task
                 let errorAlertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                
-                errorAlertController.addAction(cancelAction)
                 errorAlertController.addAction(OKAction)
-                
                 self.presentViewController(errorAlertController, animated: true) {}
             }
         }
@@ -79,14 +72,4 @@ class RequestFormViewController: UIViewController {
     }
     */
     
-    //MARK: - Private helper methods
-    
-//    func _showErrorDialog(error: NSError){
-//        let alertController = UIAlertController(title: "Endpoints Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
-//        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-//        alertController.addAction(defaultAction)
-//        presentViewController(alertController, animated: true, completion: nil)
-//    }
-
-
 }

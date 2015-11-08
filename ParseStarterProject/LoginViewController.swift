@@ -14,7 +14,6 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var loginUsername: UITextField!
     @IBOutlet weak var loginPassword: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,17 +40,13 @@ class LoginViewController: UIViewController{
             // Stop the spinner
             spinner.stopAnimating()
             
-            let verified: Bool = user!["emailVerified"] as! Bool
-            
             if ((user) != nil) {
+                let verified: Bool = user!["emailVerified"] as! Bool
                 if (verified==false){
                     
                     let emailAlertController = UIAlertController(title: "email not verified", message: "please verify the email address: " + (user?.email)!, preferredStyle: .Alert)
-                    
-                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
                     let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                    
-                    emailAlertController.addAction(cancelAction)
+
                     emailAlertController.addAction(OKAction)
                     
                     self.presentViewController(emailAlertController, animated: true) {}
@@ -59,11 +54,8 @@ class LoginViewController: UIViewController{
                 } else{
                     
                     let successAlertController = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
-                    
-                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
                     let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                    
-                    successAlertController.addAction(cancelAction)
+
                     successAlertController.addAction(OKAction)
                     
                     self.presentViewController(successAlertController, animated: true) {}
@@ -76,12 +68,8 @@ class LoginViewController: UIViewController{
                 
             } else {
                 
-                let errorAlertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+                let errorAlertController = UIAlertController(title: "Login error", message: "Username or password incorrect", preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                
-                errorAlertController.addAction(cancelAction)
                 errorAlertController.addAction(OKAction)
                 
                 self.presentViewController(errorAlertController, animated: true) {}
