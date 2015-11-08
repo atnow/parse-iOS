@@ -7,17 +7,67 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 let isLocalHostTesting = false
 let localHostRpcUrl = "https://localhost:8080/_ah/api/rpc?prettyPrint=false"
 let noTasksCellIdentifier = "NoTasksCell"
 var initialQueryComplete = false
 
-class HomeViewController : UITableViewController {
+class HomeViewController : PFQueryTableViewController {
     
     var tasks: [Task] = taskData
     
 
+    override init(style: UITableViewStyle, className: String?) {
+        super.init(style: style, className: className)
+        parseClassName = "Task"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        parseClassName = "Task"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+    
+    
+    override func queryForTable() -> PFQuery {
+        let query = PFQuery(className: self.parseClassName!)
+        
+        // If no objects are loaded in memory, we look to the cache first to fill the table
+        // and then subsequently do a query against the network.
+        if self.objects!.count == 0 {
+            query.cachePolicy = .CacheThenNetwork
+        }
+        
+        query.orderByDescending("createdAt")
+        
+        return query
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+        let cellIdentifier = "cell"
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
+        if cell == nil {
+            cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
+        }
+        
+        // Configure the cell to show todo item with a priority at the bottom
+        if let object = object {
+            cell!.textLabel?.text = object["title"] as? String
+//            let priority = object["priority"] as? String
+//            cell!.detailTextLabel?.text = "Priority \(priority)"
+        }
+        
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,54 +89,54 @@ class HomeViewController : UITableViewController {
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }
+//    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//    
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tasks.count
+//    }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
-        -> UITableViewCell {
-            var cell: UITableViewCell
-            
-            if tasks.count==0 {
-                cell = tableView.dequeueReusableCellWithIdentifier(noTasksCellIdentifier, forIndexPath: indexPath)
-                
-            } else {
-                cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath)
-
-//                print(indexPath.row)
-//                let task = tasks[indexPath.row] as Task
-//                print(task.JSONValueForKey("description"))
-//                print(task.description)
-//                if let descriptionLabel = cell.viewWithTag(100) as? UILabel {
-//                let description = task.JSONValueForKey("description")
-//                descriptionLabel.text = "\(description)"
-//                }
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
+//        -> UITableViewCell {
+//            var cell: UITableViewCell
+//            
+//            if tasks.count==0 {
+//                cell = tableView.dequeueReusableCellWithIdentifier(noTasksCellIdentifier, forIndexPath: indexPath)
+//                
+//            } else {
+//                cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath)
 //
-//                if let priceLabel = cell.viewWithTag(101) as? UILabel {
-//                    let price = task.JSONValueForKey("price")
-//                    print(price)
-//                    priceLabel.text = "$" + String(price)
-//                    
-//                }
-//                if let expirationLabel = cell.viewWithTag(102) as? UILabel {
-//                    //let exp = task.JSONValueForKey("timeRequested")
-//                  //  let expDate = NSDate(exp)
-//                   // expirationLabel.text =  + "h"
-//                }
-            }
-            
-          return cell
-    }
+////                print(indexPath.row)
+////                let task = tasks[indexPath.row] as Task
+////                print(task.JSONValueForKey("description"))
+////                print(task.description)
+////                if let descriptionLabel = cell.viewWithTag(100) as? UILabel {
+////                let description = task.JSONValueForKey("description")
+////                descriptionLabel.text = "\(description)"
+////                }
+////
+////                if let priceLabel = cell.viewWithTag(101) as? UILabel {
+////                    let price = task.JSONValueForKey("price")
+////                    print(price)
+////                    priceLabel.text = "$" + String(price)
+////                    
+////                }
+////                if let expirationLabel = cell.viewWithTag(102) as? UILabel {
+////                    //let exp = task.JSONValueForKey("timeRequested")
+////                  //  let expDate = NSDate(exp)
+////                   // expirationLabel.text =  + "h"
+////                }
+//            }
+//            
+//          return cell
+//    }
     
     func insertNewTask(sender: AnyObject) {
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("RequestForm")
