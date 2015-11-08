@@ -60,13 +60,15 @@ class SignUpViewController: UIViewController {
                 self.presentViewController(errorAlertController, animated: true) {}
                 
             } else {
-                let successAlertController = UIAlertController(title: "Success", message: "Signed Up! Please verify email.",preferredStyle: .Alert)
-                successAlertController.addAction(OKAction)
-                self.presentViewController(successAlertController, animated: true) {}
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
-                    self.presentViewController(viewController, animated: true, completion: nil)
+                let OKSignUpAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
+                        self.presentViewController(viewController, animated: true, completion: nil)
                     })
+                }
+                let successAlertController = UIAlertController(title: "Success", message: "Signed Up! Please verify email.",preferredStyle: .Alert)
+                successAlertController.addAction(OKSignUpAction)
+                self.presentViewController(successAlertController, animated: true) {}
                 }
             })
         }
