@@ -24,20 +24,31 @@ class SignUpViewController: UIViewController {
         let passwordText = self.passwordField.text
         let confirmPasswordText = self.confirmPasswordField.text
         
+        let alertController = UIAlertController(title: "Invalid", message: "Username must be greater than 5 characters", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+       
         if usernameText?.characters.count < 5 {
-            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+        
+            self.presentViewController(alertController, animated: true) {}
             
         } else if passwordText?.characters.count < 8 {
-            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            
+        
+            alertController.message = "Password must be greater than 8 characters"
+            self.presentViewController(alertController, animated: true) {}
+
         } else if passwordText! != confirmPasswordText!{
-            let alert = UIAlertView(title: "Invalid", message: "Passwords do not match", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            
+            alertController.message = "Passwords do not match"
+            self.presentViewController(alertController, animated: true) {}
+
         } else{
         
-        var newUser = PFUser()
+        let newUser = PFUser()
         newUser.username = usernameText
         newUser.email = emailText! + "@dartmouth.edu"
         newUser.password = passwordText
@@ -45,21 +56,24 @@ class SignUpViewController: UIViewController {
         
         // Sign up the user asynchronously
         newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
-            
-            // Stop the spinner
+
             if ((error) != nil) {
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let errorAlertController = UIAlertController(title: "Error", message: "\(error)",preferredStyle: .Alert)
+                errorAlertController.addAction(cancelAction)
+                errorAlertController.addAction(OKAction)
+                self.presentViewController(errorAlertController, animated: true) {}
                 
             } else {
-                let alert = UIAlertView(title: "Success", message: "Signed Up! Please verify email.", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let successAlertController = UIAlertController(title: "Success", message: "Signed Up! Please verify email.",preferredStyle: .Alert)
+                successAlertController.addAction(cancelAction)
+                successAlertController.addAction(OKAction)
+                self.presentViewController(successAlertController, animated: true) {}
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
                     self.presentViewController(viewController, animated: true, completion: nil)
-                })
-            }
-        })
+                    })
+                }
+            })
         }
     }
     

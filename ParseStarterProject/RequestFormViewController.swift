@@ -27,21 +27,34 @@ class RequestFormViewController: UIViewController {
         newTask["price"] = NSNumber(integer: Int(priceTextField.text!)!)
         newTask["expiration"] = datePicker.date
         newTask["requester"] = PFUser.currentUser()
+        
         newTask.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
-                let alert = UIAlertView(title: "Success!", message: "This task has been created", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let successAlertController = UIAlertController(title: "Success!", message: "This task has been created", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                
+                successAlertController.addAction(cancelAction)
+                successAlertController.addAction(OKAction)
+                
+                self.presentViewController(successAlertController, animated: true) {}
                 
             } else {
-                // There was a problem, check error.description
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let errorAlertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                
+                errorAlertController.addAction(cancelAction)
+                errorAlertController.addAction(OKAction)
+                
+                self.presentViewController(errorAlertController, animated: true) {}
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

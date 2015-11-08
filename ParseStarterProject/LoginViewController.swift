@@ -45,13 +45,29 @@ class LoginViewController: UIViewController{
             
             if ((user) != nil) {
                 if (verified==false){
-                    let alert = UIAlertView(title: "email not verified", message: "please verify the email address: " + (user?.email)!, delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
+                    
+                    let emailAlertController = UIAlertController(title: "email not verified", message: "please verify the email address: " + (user?.email)!, preferredStyle: .Alert)
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                    
+                    emailAlertController.addAction(cancelAction)
+                    emailAlertController.addAction(OKAction)
+                    
+                    self.presentViewController(emailAlertController, animated: true) {}
                     
                 } else{
-                    let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
                     
+                    let successAlertController = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                    
+                    successAlertController.addAction(cancelAction)
+                    successAlertController.addAction(OKAction)
+                    
+                    self.presentViewController(successAlertController, animated: true) {}
+
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
                         self.presentViewController(viewController, animated: true, completion: nil)
@@ -59,10 +75,17 @@ class LoginViewController: UIViewController{
                 }
                 
             } else {
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                
+                let errorAlertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                
+                errorAlertController.addAction(cancelAction)
+                errorAlertController.addAction(OKAction)
+                
+                self.presentViewController(errorAlertController, animated: true) {}
             }
-            
         })
     }
     
