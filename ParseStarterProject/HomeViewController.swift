@@ -52,18 +52,41 @@ class HomeViewController : PFQueryTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
-        let cellIdentifier = "cell"
+        let cellIdentifier = "TaskCell"
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
+            //cell = UITableViewCell(style: .Default, reuseIdentifier: "TaskCell") as? PFTableViewCell
+            
             cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
         
         // Configure the cell to show todo item with a priority at the bottom
         if let object = object {
-            cell!.textLabel?.text = object["title"] as? String
+//            cell!.textLabel?.text = object["title"] as? String
 //            let priority = object["priority"] as? String
 //            cell!.detailTextLabel?.text = "Priority \(priority)"
+            
+            
+            if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
+                let description = object["title"]
+                descriptionLabel.text = "\(description)"
+            }
+            
+            if let priceLabel = cell!.viewWithTag(101) as? UILabel {
+                let price = object["price"]
+                priceLabel.text = "$" + String(price)
+                
+            }
+            if let expirationLabel = cell!.viewWithTag(102) as? UILabel {
+                let exp = object["expiration"] as! NSDate
+                let date = NSDate()
+                let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
+
+                expirationLabel.text = "\(Int(timeToExpire/60))" + ":" + "\(timeToExpire%60)"
+            }
+            
+            
         }
         
         return cell
