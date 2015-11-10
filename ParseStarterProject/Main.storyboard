@@ -268,6 +268,7 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="acceptButton" destination="tJf-Pw-h2p" id="m3V-UH-2DF"/>
                         <outlet property="titleLabel" destination="z4C-G4-FWF" id="BJO-Gw-Jum"/>
                     </connections>
                 </viewController>

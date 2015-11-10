@@ -27,7 +27,7 @@ class RequestFormViewController: UIViewController {
         newTask["price"] = NSNumber(integer: Int(priceTextField.text!)!)
         newTask["expiration"] = datePicker.date
         newTask["requester"] = PFUser.currentUser()
-        
+        newTask.ACL?.setPublicWriteAccess(true)
         newTask.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {

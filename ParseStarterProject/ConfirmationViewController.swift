@@ -16,13 +16,18 @@ class ConfirmationViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var acceptButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = selectedTask!["title"]! as? String
+        if ((selectedTask!["accepter"] as! PFUser) == PFUser.currentUser()){
+            acceptButton.hidden = true
+        }
 
         // Do any additional setup after loading the view.
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,7 +36,7 @@ class ConfirmationViewController: UIViewController {
     
     @IBAction func acceptTask(sender: UIButton) {
         
-        
+
         selectedTask!["accepter"] = PFUser.currentUser()
         selectedTask!.ACL?.setPublicWriteAccess(false)
         selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
