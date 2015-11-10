@@ -25,6 +25,8 @@ class ConfirmationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         acceptButton.layer.cornerRadius = 0.5 * acceptButton.bounds.size.width
+        acceptButton.layer.borderColor = UIColor.cyanColor().CGColor
+        acceptButton.layer.borderWidth = 2
         titleLabel.text = selectedTask!["title"]! as? String
        // let priceNum = selectedTask!["price"] as! NSNumber
         //priceLabel.text = "Price: $\(priceNum)"
