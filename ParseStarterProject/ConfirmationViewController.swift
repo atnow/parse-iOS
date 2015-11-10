@@ -42,14 +42,18 @@ class ConfirmationViewController: UIViewController {
         selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
             if(!succeeded){
                 let errorAlertController = UIAlertController(title: "Oops!", message: "Task already claimed", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+
                 errorAlertController.addAction(OKAction)
                 
                 self.presentViewController(errorAlertController, animated: true) {}
-                
             }
             else{
-                
                 self.navigationController?.popViewControllerAnimated(true)
             }
         })
