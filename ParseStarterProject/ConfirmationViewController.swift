@@ -27,9 +27,26 @@ class ConfirmationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         acceptButton.layer.cornerRadius = 0.5 * acceptButton.bounds.size.width
-        acceptButton.layer.borderColor = UIColor.cyanColor().CGColor
         acceptButton.layer.borderWidth = 2
+        acceptButton.layer.borderColor = UIColor.cyanColor().CGColor
+        if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
+            acceptButton.setTitle("Cancel", forState: UIControlState.Normal)
+            acceptButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+            acceptButton.layer.borderColor = UIColor.redColor().CGColor
+        }
+            
+        else if(selectedTask!["accepter"] != nil){
+            if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
+                acceptButton.setTitle("Accepted", forState: UIControlState.Normal)
+                acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                acceptButton.enabled = false
+            }
+        }
+        
+        
         let priceNum = selectedTask!["price"] as! NSNumber
         titleLabel.text = (selectedTask!["title"]! as? String)! + "($\(priceNum))"
         if (selectedTask!["taskLocation"] != nil){
@@ -47,14 +64,6 @@ class ConfirmationViewController: UIViewController {
        // instructionsView.text = selectedTask!["description"]! as? String
     
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        if(selectedTask!["accepter"] != nil){
-            if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
-                acceptButton.hidden = true
-            }
-        }
     }
 
 
