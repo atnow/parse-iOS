@@ -27,8 +27,7 @@ class ConfirmationViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         if(selectedTask!["accepter"] != nil){
-            print(selectedTask!["accepter"])
-            if ((selectedTask!["accepter"] as! PFUser) == PFUser.currentUser()){
+            if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
                 acceptButton.hidden = true
             }
         }
