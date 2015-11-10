@@ -16,8 +16,11 @@ class ConfirmationViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var userFullName: UILabel!
+    @IBOutlet weak var userRating: UILabel!
     
     @IBOutlet weak var instructionsView: UITextView!
+    @IBOutlet weak var taskLocationLabel: UILabel!
     
     
     @IBOutlet weak var acceptButton: UIButton!
@@ -27,9 +30,16 @@ class ConfirmationViewController: UIViewController {
         acceptButton.layer.cornerRadius = 0.5 * acceptButton.bounds.size.width
         acceptButton.layer.borderColor = UIColor.cyanColor().CGColor
         acceptButton.layer.borderWidth = 2
-        titleLabel.text = selectedTask!["title"]! as? String
-       // let priceNum = selectedTask!["price"] as! NSNumber
-        //priceLabel.text = "Price: $\(priceNum)"
+        let priceNum = selectedTask!["price"] as! NSNumber
+        titleLabel.text = (selectedTask!["title"]! as? String)! + "($\(priceNum))"
+        if (selectedTask!["taskLocation"] != nil){
+            taskLocationLabel.text = selectedTask!["taskLocation"]! as? String
+        } else {
+            taskLocationLabel.hidden = true
+        }
+        
+        userFullName.text = PFUser.currentUser()!["fullName"]! as? String
+        
         //let date = NSDate()
        // let expDate = selectedTask!["expiration"] as! NSDate
        // let timeToExpire = Int(expDate.timeIntervalSinceDate(date)/60)
