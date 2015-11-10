@@ -16,11 +16,25 @@ class ConfirmationViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var expirationLabel: UILabel!
+    
+    @IBOutlet weak var instructionsView: UITextView!
+    
+    
     @IBOutlet weak var acceptButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = selectedTask!["title"]! as? String
+        let priceNum = selectedTask!["price"] as! NSNumber
+        priceLabel.text = "Price: $\(priceNum)"
+        let date = NSDate()
+        let expDate = selectedTask!["expiration"] as! NSDate
+        let timeToExpire = Int(expDate.timeIntervalSinceDate(date)/60)
+        expirationLabel.text = "Expires: \(Int(timeToExpire/60))" + ":" + "\(timeToExpire%60)"
+        instructionsView.text = selectedTask!["description"]! as? String
     
         // Do any additional setup after loading the view.
     }
