@@ -17,8 +17,6 @@ var initialQueryComplete = false
 
 class HomeViewController : PFQueryTableViewController {
     
-    var tasks: [Task] = taskData
-    
 
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
@@ -57,9 +55,9 @@ class HomeViewController : PFQueryTableViewController {
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
-            //cell = UITableViewCell(style: .Default, reuseIdentifier: "TaskCell") as? PFTableViewCell
+            cell = UITableViewCell(style: .Default, reuseIdentifier: "TaskCell") as? PFTableViewCell
             
-            cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
+            //cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
         
         // Configure the cell to show todo item with a priority at the bottom
@@ -104,6 +102,17 @@ class HomeViewController : PFQueryTableViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
 
 
+    }
+    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "taskDetail") {
+            let svc = segue.destinationViewController as! ConfirmationViewController;
+            let selectedIndex = self.tableView.indexPathForCell(sender as! PFTableViewCell)
+            svc.selectedTask = self.objectAtIndexPath(selectedIndex)! as PFObject
+            
+            
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

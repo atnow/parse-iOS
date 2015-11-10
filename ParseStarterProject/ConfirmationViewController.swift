@@ -11,8 +11,15 @@ import Parse
 
 class ConfirmationViewController: UIViewController {
 
+    var selectedTask : PFObject?
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = selectedTask!["title"]! as? String
 
         // Do any additional setup after loading the view.
     }
@@ -23,6 +30,21 @@ class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func acceptTask(sender: UIButton) {
+        
+        
+        selectedTask!["accepter"] = PFUser.currentUser()
+        selectedTask!.ACL?.setPublicWriteAccess(false)
+        selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            if(!succeeded){
+                let errorAlertController = UIAlertController(title: "Oops!", message: "Task already claimed", preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                errorAlertController.addAction(OKAction)
+                
+                self.presentViewController(errorAlertController, animated: true) {}
+                
+            }
+        })
+        self.navigationController?.popViewControllerAnimated(true)
         
         
     }
