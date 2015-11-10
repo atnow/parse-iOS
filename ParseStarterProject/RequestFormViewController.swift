@@ -24,9 +24,12 @@ class RequestFormViewController: UIViewController {
         let newTask = PFObject(className: "Task")
         newTask["title"] = self.titleTextField.text
         newTask["description"] = self.instructionsTextView.text
+        newTask["taskLocation"] = self.locationTextField.text
         newTask["price"] = NSNumber(integer: Int(priceTextField.text!)!)
         newTask["expiration"] = datePicker.date
         newTask["requester"] = PFUser.currentUser()
+        newTask["accepted"] = false
+        
         newTask.ACL?.setPublicWriteAccess(true)
         newTask.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
