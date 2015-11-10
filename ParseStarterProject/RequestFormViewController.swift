@@ -34,7 +34,13 @@ class RequestFormViewController: UIViewController {
                 
                 // Task has been saved.
                 let successAlertController = UIAlertController(title: "Success!", message: "This task has been created", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+
                 successAlertController.addAction(OKAction)
                 self.presentViewController(successAlertController, animated: true) {}
                 
@@ -42,7 +48,13 @@ class RequestFormViewController: UIViewController {
                 
                 //Issue saving task
                 let errorAlertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+
                 errorAlertController.addAction(OKAction)
                 self.presentViewController(errorAlertController, animated: true) {}
             }

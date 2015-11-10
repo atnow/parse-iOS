@@ -21,11 +21,17 @@ class ConfirmationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = selectedTask!["title"]! as? String
-        if ((selectedTask!["accepter"] as! PFUser) == PFUser.currentUser()){
-            acceptButton.hidden = true
-        }
-
+    
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if(selectedTask!["accepter"] != nil){
+            print(selectedTask!["accepter"])
+            if ((selectedTask!["accepter"] as! PFUser) == PFUser.currentUser()){
+                acceptButton.hidden = true
+            }
+        }
     }
 
 
