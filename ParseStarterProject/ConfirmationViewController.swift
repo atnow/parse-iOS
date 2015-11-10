@@ -48,8 +48,12 @@ class ConfirmationViewController: UIViewController {
                 self.presentViewController(errorAlertController, animated: true) {}
                 
             }
+            else{
+                
+                self.navigationController?.popViewControllerAnimated(true)
+            }
         })
-        self.navigationController?.popViewControllerAnimated(true)
+        
         
         
     }
