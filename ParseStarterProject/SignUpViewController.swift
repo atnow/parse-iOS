@@ -13,14 +13,12 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
     
     @IBAction func onSignUp(sender: UIButton) {
         let fullNameText  = self.fullNameField.text
         let emailText = self.emailField.text
-        let usernameText = self.usernameField.text
         let passwordText = self.passwordField.text
         let confirmPasswordText = self.confirmPasswordField.text
         
@@ -29,11 +27,7 @@ class SignUpViewController: UIViewController {
 
         alertController.addAction(OKAction)
        
-        if usernameText?.characters.count < 5 {
-        
-            self.presentViewController(alertController, animated: true) {}
-            
-        } else if passwordText?.characters.count < 8 {
+        if passwordText?.characters.count < 8 {
         
             alertController.message = "Password must be greater than 8 characters"
             self.presentViewController(alertController, animated: true) {}
@@ -46,7 +40,7 @@ class SignUpViewController: UIViewController {
         } else{
         
         let newUser = PFUser()
-        newUser.username = usernameText
+        newUser.username = emailText! + "@dartmouth.edu"
         newUser.email = emailText! + "@dartmouth.edu"
         newUser.password = passwordText
         newUser["fullName"] = fullNameText

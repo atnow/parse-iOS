@@ -11,7 +11,7 @@ import Parse
 
 class LoginViewController: UIViewController{
     
-    @IBOutlet weak var loginUsername: UITextField!
+    @IBOutlet weak var loginEmail: UITextField!
     @IBOutlet weak var loginPassword: UITextField!
     
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class LoginViewController: UIViewController{
     
     @IBAction func onLogin(sender: UIButton) {
         
-        let username = self.loginUsername.text
+        let email = self.loginEmail.text
         let password = self.loginPassword.text
         
         // Validate the text fields
@@ -34,40 +34,37 @@ class LoginViewController: UIViewController{
         let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
         spinner.startAnimating()
         
+        
         // Send a request to login
-        PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
-            
-            // Stop the spinner
+        PFUser.logInWithUsernameInBackground(email!, password: password!, block: { (user, error) -> Void in
             spinner.stopAnimating()
-            
             if ((user) != nil) {
                 let verified: Bool = user!["emailVerified"] as! Bool
                 if (verified==false){
-                    
-                    let emailAlertController = UIAlertController(title: "email not verified", message: "please verify the email address: " + (user?.email)!, preferredStyle: .Alert)
+                    PFUser.logOut()
+                    let emailAlertController = UIAlertController(title: "email not verified", message: "please verify the email address: " + (user!["email"] as! String), preferredStyle: .Alert)
                     let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-
+                    
                     emailAlertController.addAction(OKAction)
                     
                     self.presentViewController(emailAlertController, animated: true) {}
                     
-                } else{
-                    
-                    let successAlertController = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
-                            self.presentViewController(viewController, animated: true, completion: nil)
-                        })
-                    }
-
-                    successAlertController.addAction(OKAction)
+                }
+                
+                let successAlertController = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.presentViewController(successAlertController, animated: true) {}
-                    })                    
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
+                        self.presentViewController(viewController, animated: true, completion: nil)
+                    })
                 }
+                
+                successAlertController.addAction(OKAction)
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.presentViewController(successAlertController, animated: true) {}
+                })
                 
             } else {
                 
@@ -78,7 +75,56 @@ class LoginViewController: UIViewController{
                 self.presentViewController(errorAlertController, animated: true) {}
             }
         })
+        
     }
+    
+//    func attemptLogin(password:String?, email: String?){
+//        
+//        // Send a request to login
+//        PFUser.logInWithUsernameInBackground(email!, password: password!, block: { (user, error) -> Void in
+//
+//            
+//            if ((user) != nil) {
+//                let verified: Bool = user!["emailVerified"] as! Bool
+//                if (verified==false){
+//                    
+//                    let emailAlertController = UIAlertController(title: "email not verified", message: "please verify the email address: " + (user!["email"] as! String), preferredStyle: .Alert)
+//                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+//                    
+//                    emailAlertController.addAction(OKAction)
+//                    
+//                    self.presentViewController(emailAlertController, animated: true) {}
+//                    PFUser.logOut()
+//                }
+//                
+//                let successAlertController = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
+//                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+//                    
+//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
+//                        self.presentViewController(viewController, animated: true, completion: nil)
+//                    })
+//                }
+//                
+//                successAlertController.addAction(OKAction)
+//                
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    self.presentViewController(successAlertController, animated: true) {}
+//                })
+//                
+//            } else {
+//                
+//                let errorAlertController = UIAlertController(title: "Login error", message: "Username or password incorrect", preferredStyle: .Alert)
+//                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+//                errorAlertController.addAction(OKAction)
+//                
+//                self.presentViewController(errorAlertController, animated: true) {}
+//            }
+//        })
+//        
+//        
+//        
+//    }
     
 
     /*
