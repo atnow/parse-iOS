@@ -51,20 +51,23 @@ class LoginViewController: UIViewController{
                     
                 }
                 
-                let successAlertController = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
-                        self.presentViewController(viewController, animated: true, completion: nil)
-                    })
-                }
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
+                self.presentViewController(viewController, animated: true, completion: nil)
                 
-                successAlertController.addAction(OKAction)
-                
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.presentViewController(successAlertController, animated: true) {}
-                })
+//                let successAlertController = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
+//                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+//                    
+//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
+//                        self.presentViewController(viewController, animated: true, completion: nil)
+//                    })
+//                }
+//                
+//                successAlertController.addAction(OKAction)
+//                
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    self.presentViewController(successAlertController, animated: true) {}
+//                })
                 
             } else {
                 
