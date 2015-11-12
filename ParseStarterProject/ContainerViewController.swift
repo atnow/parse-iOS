@@ -45,13 +45,13 @@ class ContainerViewController: UIViewController {
     
     var menuShown: Bool = false
     
-    @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
-        showMenu()
-        
-    }
-    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
-        hideMenu()
-    }
+//    @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
+//        showMenu()
+//        
+//    }
+//    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
+//        hideMenu()
+//    }
     
     
     func showMenu() {
@@ -60,6 +60,9 @@ class ContainerViewController: UIViewController {
             }, completion: { (Bool) -> Void in
                 self.menuShown = true
         })
+        let tap = UITapGestureRecognizer(target: self, action: Selector("hideMenu"))
+        self.rightViewController!.view.addGestureRecognizer(tap)
+        self.rightViewController!.navigationController?.navigationBar.addGestureRecognizer(tap)
     }
     
     func hideMenu() {
@@ -68,6 +71,8 @@ class ContainerViewController: UIViewController {
             }, completion: { (Bool) -> Void in
                 self.menuShown = false
         })
+        self.rightViewController?.navigationController?.navigationBar.gestureRecognizers?.removeAll()
+        self.rightViewController!.view.gestureRecognizers?.removeAll()
     }
     
     override func viewDidLoad() {
