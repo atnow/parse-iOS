@@ -12,7 +12,7 @@ import ParseUI
 
 class MyTasksViewController: HomeViewController {
 
-    override func queryForTable() -> PFQuery {
+      override func queryForTable() -> PFQuery {
        
         let acceptorQuery = PFQuery(className: "Task")
         acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
@@ -29,8 +29,7 @@ class MyTasksViewController: HomeViewController {
             query.cachePolicy = .CacheThenNetwork
         }
         
-        
-        query.orderByAscending("expiration")
+        query.orderByDescending("expiration")
         return query
     }
     
@@ -51,6 +50,13 @@ class MyTasksViewController: HomeViewController {
             //            let priority = object["priority"] as? String
             //            cell!.detailTextLabel?.text = "Priority \(priority)"
             
+            if(object["accepted"] as! Bool == true){
+                if ((object["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
+                    let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.05)
+                    cell?.backgroundColor = newColor
+                    
+                }
+            }
             
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
                 let description = object["title"]
@@ -66,8 +72,11 @@ class MyTasksViewController: HomeViewController {
                 let exp = object["expiration"] as! NSDate
                 let date = NSDate()
                 let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
+                expirationLabel.text = "\(Int(timeToExpire/60))" + "h " + "\(timeToExpire%60)" + "m"
+                if timeToExpire <= 0 {
+                    expirationLabel.text = "Expired"
+                }
                 
-                expirationLabel.text = "\(Int(timeToExpire/60))" + ":" + "\(timeToExpire%60)"
             }
             
             
