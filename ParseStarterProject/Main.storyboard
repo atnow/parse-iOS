@@ -547,24 +547,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ben H" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
+                                <rect key="frame" x="236" y="125" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="lD8-zl-wQk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
+                                <rect key="frame" x="181" y="279" width="239" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="jkT-7Q-2LX"/>
+                                    <constraint firstAttribute="width" constant="239" id="u0e-0n-hwD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-Q3-ApH">
-                                <rect key="frame" x="270" y="186" width="60" height="30"/>
+                                <rect key="frame" x="270" y="481" width="60" height="30"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOutAction:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="wD9-V0-M8G"/>
                                 </connections>
                             </button>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
+                                <rect key="frame" x="225" y="344" width="150" height="39"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="C2v-Vn-112"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ORP-Q3-ApH" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="PcX-Kn-HGi"/>
-                            <constraint firstItem="ORP-Q3-ApH" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="166" id="oTC-Vu-GUc"/>
+                            <constraint firstItem="YeA-TO-gny" firstAttribute="centerX" secondItem="CR2-lO-ONW" secondAttribute="centerX" id="5oo-Sh-uVM"/>
+                            <constraint firstItem="CR2-lO-ONW" firstAttribute="centerY" secondItem="JaO-Jw-4au" secondAttribute="centerY" id="JXA-GY-RuD"/>
+                            <constraint firstItem="ORP-Q3-ApH" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="98" id="Jwe-vR-NNp"/>
+                            <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="23" id="Rpy-VE-aZh"/>
+                            <constraint firstItem="CR2-lO-ONW" firstAttribute="top" secondItem="YeA-TO-gny" secondAttribute="bottom" constant="26" id="ZX7-wR-GA4"/>
+                            <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="hq8-77-bk8"/>
+                            <constraint firstItem="ORP-Q3-ApH" firstAttribute="centerX" secondItem="ya3-3e-bRG" secondAttribute="centerX" id="lrJ-4h-5TX"/>
+                            <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="ya3-3e-bRG" secondAttribute="centerX" id="onY-Wa-wEU"/>
+                            <constraint firstItem="YeA-TO-gny" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="105" id="t17-lC-boy"/>
+                            <constraint firstItem="hXK-Ng-1Gg" firstAttribute="top" secondItem="ORP-Q3-ApH" secondAttribute="bottom" constant="89" id="wo9-dm-8Ug"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profilePicture" destination="YeA-TO-gny" id="LVb-Vf-f7b"/>
+                        <outlet property="starRatings" destination="ya3-3e-bRG" id="huy-Az-2an"/>
+                        <outlet property="userFullNameLabel" destination="CR2-lO-ONW" id="nCE-lp-Fjb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lq-Qn-oRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678" y="674"/>
+            <point key="canvasLocation" x="2718" y="674"/>
         </scene>
         <!--Help Center-->
         <scene sceneID="fdV-1L-nxN">
@@ -827,10 +876,29 @@
             </objects>
             <point key="canvasLocation" x="1818.5" y="-978.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="NXH-yQ-JCy">
+            <objects>
+                <viewController id="Toh-ue-A7q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xNs-HZ-J4o"/>
+                        <viewControllerLayoutGuide type="bottom" id="RcT-dL-xbK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pAM-WS-ZCH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="itz-e8-hCS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Ben H" width="50" height="50"/>
         <image name="Home Icon" width="35" height="28"/>
+        <image name="StarEmpty" width="22" height="22"/>
+        <image name="StarFull" width="22" height="22"/>
         <image name="User Icon" width="25" height="25"/>
     </resources>
 </document>

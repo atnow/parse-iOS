@@ -11,6 +11,13 @@ import Parse
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profilePicture: UIImageView!
+    
+    @IBOutlet weak var userFullNameLabel: UILabel!
+    
+    @IBOutlet weak var starRatings: FloatRatingView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +27,7 @@ class ProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     @IBAction func signOutAction(sender: AnyObject) {
