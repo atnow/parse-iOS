@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="a8s-wU-BAM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -609,17 +610,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk">
+                                <rect key="frame" x="236" y="125" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MIf-oX-9qk" secondAttribute="height" multiplier="1:1" id="jQG-80-6Xu"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeProfilePicture:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="krT-jj-bmn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="centerX" secondItem="CR2-lO-ONW" secondAttribute="centerX" id="5oo-Sh-uVM"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerY" secondItem="JaO-Jw-4au" secondAttribute="centerY" id="JXA-GY-RuD"/>
                             <constraint firstItem="ORP-Q3-ApH" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="98" id="Jwe-vR-NNp"/>
+                            <constraint firstItem="MIf-oX-9qk" firstAttribute="centerX" secondItem="YeA-TO-gny" secondAttribute="centerX" id="Lqa-3k-l6R"/>
                             <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="23" id="Rpy-VE-aZh"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="top" secondItem="YeA-TO-gny" secondAttribute="bottom" constant="26" id="ZX7-wR-GA4"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="hq8-77-bk8"/>
                             <constraint firstItem="ORP-Q3-ApH" firstAttribute="centerX" secondItem="ya3-3e-bRG" secondAttribute="centerX" id="lrJ-4h-5TX"/>
+                            <constraint firstItem="MIf-oX-9qk" firstAttribute="leading" secondItem="YeA-TO-gny" secondAttribute="trailing" constant="-128" id="nrV-6p-rOv"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="ya3-3e-bRG" secondAttribute="centerX" id="onY-Wa-wEU"/>
+                            <constraint firstItem="MIf-oX-9qk" firstAttribute="top" secondItem="YeA-TO-gny" secondAttribute="bottom" constant="-128" id="pDU-oA-RgV"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="105" id="t17-lC-boy"/>
                             <constraint firstItem="hXK-Ng-1Gg" firstAttribute="top" secondItem="ORP-Q3-ApH" secondAttribute="bottom" constant="89" id="wo9-dm-8Ug"/>
                         </constraints>

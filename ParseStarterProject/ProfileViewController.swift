@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profilePicture: UIImageView!
     
@@ -18,10 +18,45 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var starRatings: FloatRatingView!
     
     
+    let imagePicker = UIImagePickerController()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+        
+        let user = PFUser.currentUser()
+        
+        userFullNameLabel.text = user!["fullName"] as! String!
+        if user!["rating"] != nil {
+            starRatings.rating = user!["rating"] as! Float!
+        }
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func changeProfilePicture(sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        print("button click")
+        presentViewController(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profilePicture.contentMode = .ScaleAspectFit
+            profilePicture.image = pickedImage
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
