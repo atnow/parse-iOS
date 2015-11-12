@@ -50,13 +50,13 @@ class MyTasksViewController: HomeViewController {
             //            let priority = object["priority"] as? String
             //            cell!.detailTextLabel?.text = "Priority \(priority)"
             
-            if(object["accepted"] as! Bool == true){
-                if ((object["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
-                    let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.05)
-                    cell?.backgroundColor = newColor
-                    
-                }
+           
+            if ((object["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
+                let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.05)
+                cell?.backgroundColor = newColor
+                
             }
+            
             
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
                 let description = object["title"]

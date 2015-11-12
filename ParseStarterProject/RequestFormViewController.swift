@@ -29,6 +29,8 @@ class RequestFormViewController: UIViewController {
         newTask["expiration"] = datePicker.date
         newTask["requester"] = PFUser.currentUser()
         newTask["accepted"] = false
+        newTask["completed"] = false
+        newTask["confirmed"] = false
         
         newTask.ACL?.setPublicWriteAccess(true)
         newTask.saveInBackgroundWithBlock {

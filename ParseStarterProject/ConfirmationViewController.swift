@@ -13,10 +13,17 @@ class ConfirmationViewController: UIViewController {
 
     var selectedTask : PFObject?
     var currentState = stateType.available
+    var myTask = false
+    
     enum stateType{
-        case myTask
-        case accepted
         case available
+        case accepted
+        case completed
+        case confirmed
+//        case myTask
+//        case accepted
+//        case available
+        
     }
     
     
@@ -31,29 +38,81 @@ class ConfirmationViewController: UIViewController {
     
     @IBOutlet weak var acceptButton: UIButton!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         acceptButton.layer.cornerRadius = 0.5 * acceptButton.bounds.size.width
         acceptButton.layer.borderWidth = 2
         acceptButton.layer.borderColor = UIColor.cyanColor().CGColor
+        acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
+        
+        cancelButton.layer.cornerRadius = 10
+        cancelButton.layer.borderWidth = 2
+        cancelButton.layer.borderColor = UIColor.redColor().CGColor
+        
         if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
-            acceptButton.setTitle("Cancel", forState: UIControlState.Normal)
-            acceptButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-            acceptButton.layer.borderColor = UIColor.redColor().CGColor
-            currentState = .myTask
+            myTask = true
+            //currentState = .myTask
+            acceptButton.titleLabel?.numberOfLines = 2
+            if((selectedTask!["completed"] as! Bool) == true){
+                
+                if((selectedTask!["confirmed"] as! Bool) == true){
+                    currentState = .confirmed
+                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    acceptButton.setTitle("Complete", forState: UIControlState.Normal)
+                    acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
+                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    
+                }
+                
+                else{
+                    currentState = .completed
+                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
+                    acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
+                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                }
+                
+                
+            }
+            
+            else if((selectedTask!["accepted"] as! Bool) == true ){
+                acceptButton.enabled = false
+                let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
+                acceptButton.layer.borderColor = color.CGColor
+                acceptButton.setTitle("Task \r\n" + "accepted", forState: UIControlState.Normal)
+                acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
+                acceptButton.setTitleColor(color, forState: UIControlState.Normal)
+                
+                
+            }
+            
+            else{ //not accepted yet
+                acceptButton.enabled = false
+                currentState = .available
+                acceptButton.setTitle("Task \r\n" + "requested", forState: UIControlState.Normal)
+                acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
+                
+            }
         }
             
         else if((selectedTask!["accepted"] as! Bool) == true){
+            myTask = false
             if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
                 acceptButton.titleLabel?.numberOfLines = 2
                 acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
-                acceptButton.setTitle("Accepted \r\n" + "Click to relinquish task", forState: UIControlState.Normal)
+                acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
                 acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
                 acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                 acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                 currentState = .accepted
             }
+        }
+        else{ //state is available
+            myTask = false
+            cancelButton.hidden = true
         }
         
         
@@ -85,15 +144,25 @@ class ConfirmationViewController: UIViewController {
     
     @IBAction func buttonClick(sender: UIButton) {
         
-        switch currentState{
-        case .available:
-            acceptTask()
-        case .accepted:
-            unacceptTask()
-        case .myTask:
-            cancelTask()
-        default:
-            print("Invalid State")
+        if (myTask){
+            switch currentState{
+            case .completed:
+                confirmTask()
+            default:
+                print("Invalid State")
+            }
+            
+        }
+        else{
+            switch currentState{
+            case .available:
+                acceptTask()
+            case .accepted:
+                completeTask()
+            default:
+                print("Invalid State")
+            }
+            
         }
         
     }
@@ -129,7 +198,7 @@ class ConfirmationViewController: UIViewController {
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.selectedTask!["accepted"] = false
-                //self.selectedTask!["accepter"] = NSNull()
+                self.selectedTask!["accepter"] = NSNull()
                 self.selectedTask?.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in
                     if (success) {
@@ -167,7 +236,86 @@ class ConfirmationViewController: UIViewController {
         
         
     }
+    
+    func completeTask(){
+        
+        selectedTask!["completed"] = true
+        selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            if(!succeeded){
+                let errorAlertController = UIAlertController(title: "Oops!", message: "Something went wrong", preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+                
+                errorAlertController.addAction(OKAction)
+                
+                self.presentViewController(errorAlertController, animated: true) {}
+            }
+            else{
+                let successController = UIAlertController(title: "Thank you!", message: "The requester will  be notified and you will recieve payment shortly", preferredStyle: .Alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+                successController.addAction(OKAction)
+                self.presentViewController(successController, animated: true){}
 
+            }
+        })
+    }
+    
+    func confirmTask(){
+        
+        selectedTask!["confirmed"] = true
+        selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+            if(!succeeded){
+                let errorAlertController = UIAlertController(title: "Oops!", message: "Something went wrong", preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+                
+                errorAlertController.addAction(OKAction)
+                
+                self.presentViewController(errorAlertController, animated: true) {}
+            }
+            else{
+                let successController = UIAlertController(title: "Thank you!", message: "The payment has been made", preferredStyle: .Alert)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+                }
+                successController.addAction(OKAction)
+                self.presentViewController(successController, animated: true){}
+                
+            }
+        })
+        
+        
+    }
+
+    @IBAction func cancelButtonAction(sender: UIButton) {
+        
+        
+        if(myTask){
+            
+            cancelTask()
+        }
+        
+        else{
+            
+            unacceptTask()
+        }
+        
+        
+    }
     /*
     // MARK: - Navigation
 
