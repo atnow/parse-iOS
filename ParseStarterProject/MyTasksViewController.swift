@@ -13,7 +13,15 @@ import ParseUI
 class MyTasksViewController: HomeViewController {
 
     override func queryForTable() -> PFQuery {
-        let query = PFQuery(className: self.parseClassName!)
+       
+        let acceptorQuery = PFQuery(className: "Task")
+        acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
+        
+        let requesterQuery = PFQuery(className: "Task")
+        requesterQuery.whereKey("requester", equalTo: PFUser.currentUser()!)
+        
+
+        let query = PFQuery.orQueryWithSubqueries([acceptorQuery, requesterQuery])
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
@@ -21,9 +29,7 @@ class MyTasksViewController: HomeViewController {
             query.cachePolicy = .CacheThenNetwork
         }
         
-       // query.whereKey("expiration", greaterThan: NSDate())
-        query.whereKey("accepter", equalTo: PFUser.currentUser()! )
-        query.whereKey("requester", equalTo: PFUser.currentUser()! )
+        
         query.orderByAscending("expiration")
         return query
     }

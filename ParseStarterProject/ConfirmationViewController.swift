@@ -65,7 +65,8 @@ class ConfirmationViewController: UIViewController {
             taskLocationLabel.hidden = true
         }
         
-        userFullName.text = PFUser.currentUser()!["fullName"]! as? String
+        userFullName.text = PFUser.currentUser()!["fullName"] as? String
+        
         
         //let date = NSDate()
        // let expDate = selectedTask!["expiration"] as! NSDate
