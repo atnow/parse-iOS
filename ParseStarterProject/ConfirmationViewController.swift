@@ -102,11 +102,11 @@ class ConfirmationViewController: UIViewController {
         selectedTask!["accepter"] = PFUser.currentUser()
         selectedTask!["accepted"] = true
         selectedTask!.ACL?.setPublicWriteAccess(false)
+        selectedTask!.ACL?.setWriteAccess(true, forUser: PFUser.currentUser()!)
         selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
             if(!succeeded){
                 let errorAlertController = UIAlertController(title: "Oops!", message: "Task already claimed", preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.navigationController?.popViewControllerAnimated(true)
                     })
@@ -129,8 +129,15 @@ class ConfirmationViewController: UIViewController {
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.selectedTask!["accepted"] = false
-                self.selectedTask!["accepter"] = nil
-                self.selectedTask?.saveInBackground()
+                //self.selectedTask!["accepter"] = NSNull()
+                self.selectedTask?.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                    } else {
+                        print(error)
+                    }
+                }
                 self.navigationController?.popViewControllerAnimated(true)
             })
         }
