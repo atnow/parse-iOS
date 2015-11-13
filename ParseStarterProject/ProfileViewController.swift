@@ -19,29 +19,41 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     let imagePicker = UIImagePickerController()
-
+    
+    var user : PFUser? = PFUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        
-        let user = PFUser.currentUser()
+        PFUser.currentUser()?.fetchInBackgroundWithBlock({ (response, error) -> Void in })
+        user = PFUser.currentUser()
         
         userFullNameLabel.text = user!["fullName"] as! String!
-        if user!["rating"] != nil {
+        if user?["rating"] != nil {
             starRatings.rating = user!["rating"] as! Float!
         }
         
-
         // Do any additional setup after loading the view.
     }
     
     @IBAction func changeProfilePicture(sender: UIButton) {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        print("button click")
-        presentViewController(imagePicker, animated: true, completion: nil)
+        let profileChangeMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        self.imagePicker.allowsEditing = false
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) in }
+        let takePictureAction = UIAlertAction(title: "Take new picture", style: .Default) { (action) in
+            self.imagePicker.sourceType = .Camera
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        }
         
+        let libraryPictureAction = UIAlertAction(title: "Choose picture", style: .Default) { (action) in
+            self.imagePicker.sourceType = .PhotoLibrary
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+        }
+    
+        profileChangeMenu.addAction(takePictureAction)
+        profileChangeMenu.addAction(libraryPictureAction)
+        profileChangeMenu.addAction(cancelAction)
+        self.presentViewController(profileChangeMenu, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController,
@@ -49,6 +61,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profilePicture.contentMode = .ScaleAspectFit
             profilePicture.image = pickedImage
+            let imageData = UIImageJPEGRepresentation(pickedImage, 0.1)
+            let imageFile = PFFile(name:"image.png", data: imageData!)
+            self.user!["profilePicture"] = imageFile
+            
+            self.user?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+                if(succeeded == true){
+                    //
+                }
+                else{
+                    print(error)
+                }
+            })
         }
         
         dismissViewControllerAnimated(true, completion: nil)
