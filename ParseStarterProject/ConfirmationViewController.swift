@@ -28,17 +28,13 @@ class ConfirmationViewController: UIViewController {
     
     
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var userFullName: UILabel!
-    @IBOutlet weak var userRating: UILabel!
-    
+    @IBOutlet weak var ratingStarView: FloatRatingView!
     @IBOutlet weak var instructionsView: UITextView!
     @IBOutlet weak var taskLocationLabel: UILabel!
-    
-    
     @IBOutlet weak var acceptButton: UIButton!
-    
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var requesterPicture: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +43,8 @@ class ConfirmationViewController: UIViewController {
         acceptButton.layer.borderWidth = 2
         acceptButton.layer.borderColor = UIColor.cyanColor().CGColor
         acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
+        acceptButton.titleLabel?.numberOfLines = 2
+        acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
         cancelButton.layer.cornerRadius = 10
         cancelButton.layer.borderWidth = 2
@@ -55,27 +53,23 @@ class ConfirmationViewController: UIViewController {
         if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
             myTask = true
             //currentState = .myTask
-            acceptButton.titleLabel?.numberOfLines = 2
+            
             if((selectedTask!["completed"] as! Bool) == true){
                 
                 if((selectedTask!["confirmed"] as! Bool) == true){
                     currentState = .confirmed
+                    acceptButton.enabled = false
                     acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
                     acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
-                    
                 }
-                
                 else{
                     currentState = .completed
                     acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
-                    acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
                     acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                 }
-                
-                
+
             }
             
             else if((selectedTask!["accepted"] as! Bool) == true ){
@@ -83,38 +77,51 @@ class ConfirmationViewController: UIViewController {
                 let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
                 acceptButton.layer.borderColor = color.CGColor
                 acceptButton.setTitle("Task \r\n" + "accepted", forState: UIControlState.Normal)
-                acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
                 acceptButton.setTitleColor(color, forState: UIControlState.Normal)
-                
-                
             }
             
             else{ //not accepted yet
                 acceptButton.enabled = false
                 currentState = .available
                 acceptButton.setTitle("Task \r\n" + "requested", forState: UIControlState.Normal)
-                acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
-                
             }
         }
             
         else if((selectedTask!["accepted"] as! Bool) == true){
             myTask = false
+            cancelButton.setTitle("Decline Task", forState: .Normal)
             if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
-                acceptButton.titleLabel?.numberOfLines = 2
-                acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
-                acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
-                acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
-                acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
-                acceptButton.layer.borderColor = UIColor.greenColor().CGColor
-                currentState = .accepted
+                
+                if((selectedTask!["confirmed"] as! Bool) == true){
+                    currentState = .confirmed
+                    acceptButton.enabled = false
+                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    acceptButton.setTitle("Complete", forState: UIControlState.Normal)
+                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                }
+                
+                else if((selectedTask!["completed"] as! Bool) == true){
+                    currentState = .completed
+                    acceptButton.enabled = false
+                    let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
+                    acceptButton.layer.borderColor = color.CGColor
+                    acceptButton.setTitle("Waiting \r\n for confirmation", forState: UIControlState.Normal)
+                    acceptButton.setTitleColor(color, forState: UIControlState.Normal)
+
+                }
+                else{
+                    currentState = .accepted
+                    acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
+                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    currentState = .accepted
+                }
             }
         }
         else{ //state is available
             myTask = false
             cancelButton.hidden = true
         }
-        
         
         let priceNum = selectedTask!["price"] as! NSNumber
         titleLabel.text = (selectedTask!["title"]! as? String)! + "($\(priceNum))"
@@ -123,10 +130,23 @@ class ConfirmationViewController: UIViewController {
         } else {
             taskLocationLabel.hidden = true
         }
-        
-        userFullName.text = PFUser.currentUser()!["fullName"] as? String
-        
-        
+        let query = PFQuery(className:"_User")
+        query.getObjectInBackgroundWithId(selectedTask!["requester"].objectId!!) {
+            (user: PFObject?, error: NSError?) -> Void in
+            if error == nil {
+                self.userFullName.text = user!["fullName"] as? String
+                let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+                imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                    let image: UIImage! = UIImage(data: imageData!)!
+                    self.requesterPicture.image = image
+                })
+                self.ratingStarView.rating = user!["rating"] as! Float
+                
+                
+            } else {
+                print(error)
+            }
+        }
         //let date = NSDate()
        // let expDate = selectedTask!["expiration"] as! NSDate
        // let timeToExpire = Int(expDate.timeIntervalSinceDate(date)/60)
@@ -143,7 +163,6 @@ class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func buttonClick(sender: UIButton) {
-        
         if (myTask){
             switch currentState{
             case .completed:
@@ -151,7 +170,6 @@ class ConfirmationViewController: UIViewController {
             default:
                 print("Invalid State")
             }
-            
         }
         else{
             switch currentState{
@@ -162,11 +180,8 @@ class ConfirmationViewController: UIViewController {
             default:
                 print("Invalid State")
             }
-            
         }
-        
     }
- 
     func acceptTask() {
         selectedTask!["accepter"] = PFUser.currentUser()
         selectedTask!["accepted"] = true
@@ -180,16 +195,13 @@ class ConfirmationViewController: UIViewController {
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
-
                 errorAlertController.addAction(OKAction)
-                
                 self.presentViewController(errorAlertController, animated: true) {}
             }
             else{
                 self.navigationController?.popViewControllerAnimated(true)
             }
         })
-        
     }
     
     func unacceptTask(){
@@ -210,12 +222,9 @@ class ConfirmationViewController: UIViewController {
                 self.navigationController?.popViewControllerAnimated(true)
             })
         }
-        
         errorAlertController.addAction(cancelAction)
         errorAlertController.addAction(OKAction)
         self.presentViewController(errorAlertController, animated: true) {}
-        
-        
     }
     
     func cancelTask(){
@@ -231,10 +240,7 @@ class ConfirmationViewController: UIViewController {
         errorAlertController.addAction(cancelAction)
         errorAlertController.addAction(OKAction)
         self.presentViewController(errorAlertController, animated: true) {}
-        
-        
-        
-        
+   
     }
     
     func completeTask(){
@@ -248,9 +254,7 @@ class ConfirmationViewController: UIViewController {
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
-                
                 errorAlertController.addAction(OKAction)
-                
                 self.presentViewController(errorAlertController, animated: true) {}
             }
             else{
@@ -263,7 +267,6 @@ class ConfirmationViewController: UIViewController {
                 }
                 successController.addAction(OKAction)
                 self.presentViewController(successController, animated: true){}
-
             }
         })
     }
@@ -279,9 +282,7 @@ class ConfirmationViewController: UIViewController {
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
-                
                 errorAlertController.addAction(OKAction)
-                
                 self.presentViewController(errorAlertController, animated: true) {}
             }
             else{
@@ -297,24 +298,15 @@ class ConfirmationViewController: UIViewController {
                 
             }
         })
-        
-        
     }
 
     @IBAction func cancelButtonAction(sender: UIButton) {
-        
-        
         if(myTask){
-            
             cancelTask()
         }
-        
         else{
-            
             unacceptTask()
         }
-        
-        
     }
     /*
     // MARK: - Navigation
