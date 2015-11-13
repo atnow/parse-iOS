@@ -50,6 +50,9 @@ class ConfirmationViewController: UIViewController {
         cancelButton.layer.borderWidth = 2
         cancelButton.layer.borderColor = UIColor.redColor().CGColor
         
+        requesterPicture.layer.cornerRadius = 0.5 * self.requesterPicture.bounds.size.width
+        requesterPicture.clipsToBounds = true
+        
         if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
             myTask = true
             //currentState = .myTask
@@ -124,7 +127,7 @@ class ConfirmationViewController: UIViewController {
         }
         
         let priceNum = selectedTask!["price"] as! NSNumber
-        titleLabel.text = (selectedTask!["title"]! as? String)! + "($\(priceNum))"
+        titleLabel.text = (selectedTask!["title"]! as? String)! + " ($\(priceNum))"
         if (selectedTask!["taskLocation"] != nil){
             taskLocationLabel.text = selectedTask!["taskLocation"]! as? String
         } else {
@@ -136,13 +139,14 @@ class ConfirmationViewController: UIViewController {
             if error == nil {
                 self.userFullName.text = user!["fullName"] as? String
                 let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
-                imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                    let image: UIImage! = UIImage(data: imageData!)!
-                    self.requesterPicture.image = image
-                })
+                if(imageFromParse != nil){
+                    imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                        let image: UIImage! = UIImage(data: imageData!)!
+                        self.requesterPicture.image = image
+                    })
+                }
+
                 self.ratingStarView.rating = user!["rating"] as! Float
-                
-                
             } else {
                 print(error)
             }
@@ -155,8 +159,7 @@ class ConfirmationViewController: UIViewController {
     
         // Do any additional setup after loading the view.
     }
-
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
