@@ -13,9 +13,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet weak var profilePicture: UIImageView!
     
+    
+    
     @IBOutlet weak var userFullNameLabel: UILabel!
     
     @IBOutlet weak var starRatings: FloatRatingView!
+    
+    @IBOutlet weak var editButton: UIButton!
+    
+    @IBOutlet weak var logoutButton: UIButton!
     
     
     let imagePicker = UIImagePickerController()
@@ -34,6 +40,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         // Do any additional setup after loading the view.
+        
+        logoutButton.layer.borderWidth = 2
+        logoutButton.layer.borderColor = UIColor.blueColor().CGColor
+        editButton.layer.borderWidth = 2
+        let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
+        editButton.layer.borderColor = color.CGColor
+        editButton.setTitleColor(color, forState: .Normal)
+
+    }
+    
+    @IBAction func editProfile(sender: AnyObject) {
+        
     }
     
     @IBAction func changeProfilePicture(sender: UIButton) {
