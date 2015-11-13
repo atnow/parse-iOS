@@ -52,7 +52,7 @@ class MyTasksViewController: HomeViewController {
             
            
             if ((object["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
-                let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.05)
+                let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.1)
                 cell?.backgroundColor = newColor
                 
             }
