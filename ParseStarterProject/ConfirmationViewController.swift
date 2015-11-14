@@ -145,7 +145,7 @@ class ConfirmationViewController: UIViewController {
                         self.requesterPicture.image = image
                     })
                 }
-
+                
                 self.ratingStarView.rating = user!["rating"] as! Float
             } else {
                 print(error)

@@ -17,7 +17,7 @@ class RequestFormViewController: UIViewController {
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
+    @IBOutlet weak var submitButton: UIButton!
     
     @IBAction func submitPressed(sender: AnyObject) {
         
@@ -70,6 +70,16 @@ class RequestFormViewController: UIViewController {
         super.viewDidLoad()
         instructionsTextView.layer.borderWidth = 1
         instructionsTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        
+        let blueColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
+        submitButton.titleLabel?.textColor = blueColor
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = blueColor.CGColor
+        submitButton.layer.cornerRadius = 8
+        
+        datePicker.layer.cornerRadius = 8
+        instructionsTextView.layer.cornerRadius = 8
+        
         // Do any additional setup after loading the view.
     }
 

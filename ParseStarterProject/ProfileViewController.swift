@@ -13,8 +13,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet weak var profilePicture: UIImageView!
     
-    
-    
     @IBOutlet weak var userFullNameLabel: UILabel!
     
     @IBOutlet weak var starRatings: FloatRatingView!
@@ -39,14 +37,38 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             starRatings.rating = user!["rating"] as! Float!
         }
         
+        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+        if(imageFromParse != nil){
+            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                let image: UIImage! = UIImage(data: imageData!)!
+                self.profilePicture.image = image
+            })
+        }
+        
+        
+        profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+        profilePicture.clipsToBounds = true
+        
+                let logoutColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
+        
+        self.profilePicture.layer.borderWidth = 3
+        self.profilePicture.layer.borderColor = logoutColor.CGColor
+        
+        
         // Do any additional setup after loading the view.
         
-        logoutButton.layer.borderWidth = 2
-        logoutButton.layer.borderColor = UIColor.blueColor().CGColor
-        editButton.layer.borderWidth = 2
-        let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
-        editButton.layer.borderColor = color.CGColor
-        editButton.setTitleColor(color, forState: .Normal)
+       
+        logoutButton.layer.borderWidth = 1
+        logoutButton.layer.borderColor = logoutColor.CGColor
+        logoutButton.layer.cornerRadius = 8
+
+        
+        
+        editButton.layer.borderWidth = 1
+        // color = UIColor(red: 255/255, green: 122/255, blue: 61/255, alpha: 1)
+        editButton.layer.borderColor = logoutColor.CGColor
+        editButton.setTitleColor(logoutColor, forState: .Normal)
+        editButton.layer.cornerRadius = 8
 
     }
     
