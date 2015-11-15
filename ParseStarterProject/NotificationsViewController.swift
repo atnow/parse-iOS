@@ -40,6 +40,7 @@ class NotificationsViewController: PFQueryTableViewController  {
         }
         
         query.whereKey("owner", equalTo: PFUser.currentUser()!)
+        query.includeKey("task")
 
         
         return query
@@ -61,10 +62,7 @@ class NotificationsViewController: PFQueryTableViewController  {
             //            cell!.textLabel?.text = object["title"] as? String
             //            let priority = object["priority"] as? String
             //            cell!.detailTextLabel?.text = "Priority \(priority)"
-            
 
-            
-            
             if let descriptionLabel = cell!.viewWithTag(201) as? UILabel {
                 
                 let taskQuery = PFQuery(className: "Task")
@@ -73,12 +71,11 @@ class NotificationsViewController: PFQueryTableViewController  {
                     taskQuery.includeKey("requester")
                     taskQuery.getObjectInBackgroundWithId(task.objectId!!, block: { (updatedTask, error) -> Void in
                         if (error == nil){
-                            print(updatedTask)
+                   
                             let description : String
                             let taskName = updatedTask!["title"] as! String
                             let acceptName = updatedTask!["accepter"]["fullName"] as! String
                             let requestName = updatedTask!["requester"]["fullName"] as! String
-                            print(task)
                             
                             switch object["type"] as! String{
                                 
@@ -101,17 +98,22 @@ class NotificationsViewController: PFQueryTableViewController  {
                         }
 
                     })
-                }
-                
-
-                
+               }
 
             }
-            
-            
         }
         
+        
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "notificationDetail") {
+            let svc = segue.destinationViewController as! ConfirmationViewController;
+            let selectedIndex = self.tableView.indexPathForCell(sender as! PFTableViewCell)
+            svc.selectedTask = self.objectAtIndexPath(selectedIndex)!["task"] as? PFObject
+            
+        }
     }
     
     override func viewDidLoad() {

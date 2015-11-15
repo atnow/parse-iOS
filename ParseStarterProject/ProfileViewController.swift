@@ -34,20 +34,32 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if user?.username==nil{
             user = PFUser.currentUser()
         }
-        userFullNameLabel.text = user!["fullName"] as! String!
-        if user?["rating"] != nil {
-            starRatings.rating = user!["rating"]["rating"] as! Float!
+        
+        let query = PFQuery(className: "_User")
+        query.includeKey("rating")
+        query.getObjectInBackgroundWithId((user?.objectId)!) { (result, error) -> Void in
+            if error==nil{
+                self.user = result as? PFUser
+                if self.user?["rating"] != nil {
+                    self.starRatings.rating = self.user!["rating"]["rating"] as! Float!
+                    
+                    self.userFullNameLabel.text = self.user!["fullName"] as! String!
+                    
+                    let imageFromParse = self.user!.objectForKey("profilePicture") as? PFFile
+                    if(imageFromParse != nil){
+                        imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                            let image: UIImage! = UIImage(data: imageData!)!
+                            self.profilePicture.image = image
+                        })
+                    }
+                    
+                }
+
+            } else{
+                print(error)
+            }
         }
-        
-        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
-        if(imageFromParse != nil){
-            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                let image: UIImage! = UIImage(data: imageData!)!
-                self.profilePicture.image = image
-            })
-        }
-        
-        
+
         designHelper.formatButton(logoutButton)
         designHelper.formatButton(editButton)
         designHelper.formatPicture(profilePicture)
