@@ -14,7 +14,7 @@ class NotificationsViewController: PFQueryTableViewController  {
 
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
-        parseClassName = "Notification"
+        parseClassName = "User"
         pullToRefreshEnabled = true
         paginationEnabled = true
         objectsPerPage = 25
@@ -22,7 +22,7 @@ class NotificationsViewController: PFQueryTableViewController  {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        parseClassName = "Notification"
+        parseClassName = "User"
         pullToRefreshEnabled = true
         paginationEnabled = true
         objectsPerPage = 25
