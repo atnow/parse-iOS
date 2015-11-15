@@ -12,13 +12,25 @@ import Parse
 
 class MenuViewController: UITableViewController{
 
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
+    @IBOutlet weak var emailAddress: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
     
+    @IBOutlet weak var starLabel: FloatRatingView!
     @IBOutlet weak var notificationsLabel: UILabel!
     
     @IBOutlet weak var settingsLabel: UILabel!
     
     @IBOutlet weak var helpCenterLabel: UILabel!
+    
+    @IBOutlet weak var homeIcon: UIImageView!
+    
+    @IBOutlet weak var bellIcon: UIImageView!
+    
+    @IBOutlet weak var settingsIcon: UIImageView!
+    
+    @IBOutlet weak var lifebuoyIcon: UIImageView!
     
     let designHelper = DesignHelper()
     
@@ -30,11 +42,26 @@ class MenuViewController: UITableViewController{
     }
     @IBOutlet var profileImageView: UIImageView!
     
+    var user: PFUser? =  PFUser()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+        homeIcon.image = homeIcon.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        bellIcon.image = bellIcon.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        settingsIcon.image = settingsIcon.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        lifebuoyIcon.image = lifebuoyIcon.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        
+        homeIcon.tintColor = designHelper.baseColor
+        bellIcon.tintColor = designHelper.baseColor
+        settingsIcon.tintColor = designHelper.baseColor
+        lifebuoyIcon.tintColor = designHelper.baseColor
+        
+        fullNameLabel.textColor = designHelper.baseColor
+        
+        let mercuryColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+        self.tableView.backgroundColor = mercuryColor
         let user = PFUser.currentUser()
-        if (user != nil){
+        if (self.user != nil){
             let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
             if(imageFromParse != nil){
                 imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
@@ -42,8 +69,24 @@ class MenuViewController: UITableViewController{
                     self.profileImageView.image = image
                 })
             }
+            fullNameLabel.text = user!["fullName"] as? String
+            emailAddress.text = user!.email as String!
+            emailAddress.textColor = designHelper.baseColor
+            
+            let query = PFQuery(className: "_User")
+            query.includeKey("rating")
+            query.getObjectInBackgroundWithId((user?.objectId)!) { (result, error) -> Void in
+                if error==nil{
+                    self.user = result as? PFUser
+                    if user?["rating"] != nil {
+                        self.starLabel.rating = self.user!["rating"]["rating"] as! Float!
+                    }
+                    
+                } else{
+                    print(error)
+                }
+            }
         }
-        
 
         designHelper.formatPicture(profileImageView)
         homeLabel.textColor = designHelper.baseColor
@@ -103,5 +146,16 @@ class MenuViewController: UITableViewController{
         }
         let cvc = self.parentViewController as! ContainerViewController
         cvc.hideMenu()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier=="showProfile"){
+            
+            let user = sender as! PFUser
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            profileViewController.user = user
+            
+        }
     }
 }
