@@ -14,6 +14,8 @@ class ConfirmationViewController: UIViewController {
     var selectedTask : PFObject?
     var currentState = stateType.available
     var myTask = false
+    var requester : PFUser?
+    var accepter: PFUser?
     
     enum stateType{
         case available
@@ -33,6 +35,8 @@ class ConfirmationViewController: UIViewController {
     @IBOutlet weak var instructionsView: UITextView!
     @IBOutlet weak var taskLocationLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
+    
+    @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var requesterPicture: UIImageView!
     
@@ -46,11 +50,16 @@ class ConfirmationViewController: UIViewController {
         acceptButton.titleLabel?.numberOfLines = 2
         acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        cancelButton.layer.cornerRadius = 10
-        cancelButton.layer.borderWidth = 2
+        cancelButton.layer.cornerRadius = 8
+        cancelButton.layer.borderWidth = 1
         cancelButton.layer.borderColor = UIColor.redColor().CGColor
         
-        requesterPicture.layer.cornerRadius = 0.5 * self.requesterPicture.bounds.size.width
+        buttonImage.hidden = true
+        buttonImage.layer.cornerRadius = 0.5*buttonImage.frame.size.width
+        buttonImage.clipsToBounds = true
+
+        
+        requesterPicture.layer.cornerRadius = 0.5 * self.requesterPicture.frame.size.width
         requesterPicture.clipsToBounds = true
         
         if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
@@ -79,8 +88,32 @@ class ConfirmationViewController: UIViewController {
                 acceptButton.enabled = false
                 let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
                 acceptButton.layer.borderColor = color.CGColor
-                acceptButton.setTitle("Task \r\n" + "accepted", forState: UIControlState.Normal)
+                acceptButton.setTitle("Task \r\n accepted", forState: UIControlState.Normal)
                 acceptButton.setTitleColor(color, forState: UIControlState.Normal)
+                
+                buttonImage.hidden=false
+                let accepterQuery = PFQuery(className:"_User")
+                accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
+                    (user: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        self.accepter = user as? PFUser
+                        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+                        if(imageFromParse != nil){
+                            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                                let image: UIImage! = UIImage(data: imageData!)!
+                                self.buttonImage.image = image
+                            })
+                        }
+                        
+                    } else {
+                        print(error)
+                    }
+                }
+                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed")
+                buttonImage.tag = 2
+                buttonImage.addGestureRecognizer(recognizer)
+                
+                
             }
             
             else{ //not accepted yet
@@ -137,6 +170,7 @@ class ConfirmationViewController: UIViewController {
         query.getObjectInBackgroundWithId(selectedTask!["requester"].objectId!!) {
             (user: PFObject?, error: NSError?) -> Void in
             if error == nil {
+                self.requester = user as? PFUser
                 self.userFullName.text = user!["fullName"] as? String
                 let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
                 if(imageFromParse != nil){
@@ -147,6 +181,10 @@ class ConfirmationViewController: UIViewController {
                 }
 
                 self.ratingStarView.rating = user!["rating"] as! Float
+                
+                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed")
+                self.requesterPicture.tag = 1
+                self.requesterPicture.addGestureRecognizer(recognizer)
             } else {
                 print(error)
             }
@@ -309,6 +347,35 @@ class ConfirmationViewController: UIViewController {
         }
         else{
             unacceptTask()
+        }
+    }
+    
+    
+    func picturePressed(sender:UIImageView){
+        
+        
+        if(sender.tag == 1){
+            performSegueWithIdentifier("showProfile", sender: requester)
+        }
+        
+        else if(sender.tag == 2){
+            performSegueWithIdentifier("showProfile", sender: accepter)
+            
+        }
+        
+        
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier=="showProfile"){
+            
+            let user = sender as! PFUser
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            profileViewController.user = user
+            
         }
     }
     /*
