@@ -51,6 +51,7 @@ class HomeViewController : PFQueryTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         let cellIdentifier = "TaskCell"
+        tableView.sectionHeaderHeight = 10
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
@@ -64,6 +65,7 @@ class HomeViewController : PFQueryTableViewController {
 //            cell!.textLabel?.text = object["title"] as? String
 //            let priority = object["priority"] as? String
 //            cell!.detailTextLabel?.text = "Priority \(priority)"
+            //cell!.imageView!.frame = CGRectOffset(cell!.frame, 10, 10)
             
             
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {

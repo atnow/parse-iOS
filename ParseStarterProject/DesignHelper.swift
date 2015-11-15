@@ -11,7 +11,7 @@ import UIKit
 
 public class DesignHelper {
     
-    let baseColor = UIColor(red: 69/255, green: 252/255, blue: 203/255, alpha: 0.9)
+    let baseColor = UIColor(red: 235/255, green: 100/255, blue: 203/255, alpha: 0.9)
     
     func formatButton (button: UIButton){
         button.layer.cornerRadius = 8

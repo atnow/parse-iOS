@@ -35,6 +35,7 @@ class MyTasksViewController: HomeViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        tableView.sectionHeaderHeight = 2
         let cellIdentifier = "MyTaskCell"
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
