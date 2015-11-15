@@ -10,40 +10,64 @@ import UIKit
 import Parse
 import ParseUI
 
-class NotificationsViewController: PFQueryTableViewController  {
-
+class NotificationsViewController: MenuItemTableViewController  {
+    
+    override init(style: UITableViewStyle, className: String?) {
+        super.init(style: style, className: className)
+        parseClassName = "Notification"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        parseClassName = "Notification"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+    
     var notifications: NSMutableArray?
     
-    override func viewDidLoad() {
-        let query = PFUser.query()
-        query?.whereKey("objectId", equalTo: PFUser.currentUser()!.objectId!)
-        query?.includeKey("notifications")
-        query?.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
-            if (error == nil){
-                
-                let user = objects?[0] as! PFUser
-                self.notifications = user.objectForKey("notifications") as? NSMutableArray
-                
-            }
-        })
+    override func queryForTable() -> PFQuery {
+        let query = PFQuery(className: self.parseClassName!)
         
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return (notifications?.count)!
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-        
-        if let descriptionLabel = cell.viewWithTag(201) as? UILabel {
-            
-            let notification = notifications![indexPath.row]
-            let description = notification["type"]
-            descriptionLabel.text = "\(description)"
+        // If no objects are loaded in memory, we look to the cache first to fill the table
+        // and then subsequently do a query against the network.
+        if self.objects!.count == 0 {
+            query.cachePolicy = .CacheThenNetwork
         }
-
+        
+        query.whereKey("owner", equalTo: PFUser.currentUser()!)
+        
+        return query
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        let cellIdentifier = "NotificationCell"
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: "NotificationCell") as? PFTableViewCell
+            
+        }
+        
+        // Configure the cell to show todo item with a priority at the bottom
+        if let object = object {
+            //            cell!.textLabel?.text = object["title"] as? String
+            //            let priority = object["priority"] as? String
+            //            cell!.detailTextLabel?.text = "Priority \(priority)"
+            
+            
+            if let descriptionLabel = cell!.viewWithTag(201) as? UILabel {
+                let description = object["type"]
+                descriptionLabel.text = "\(description)"
+            }
+            
+            
+        }
         
         return cell
     }
