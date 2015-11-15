@@ -76,7 +76,6 @@ class ContainerViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        print("view did load")
         super.viewDidLoad()
         if (PFUser.currentUser() == nil) {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in

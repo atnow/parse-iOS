@@ -282,8 +282,17 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-Lr-1gX">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-Lr-1gX">
                                 <rect key="frame" x="42" y="86" width="90" height="90"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="CCF-iU-IOT">
+                                <rect key="frame" x="165" y="452" width="45" height="45"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3Qd-Vf-IpX"/>
+                                    <constraint firstAttribute="width" constant="45" id="BYv-y6-yEG"/>
+                                    <constraint firstAttribute="width" secondItem="CCF-iU-IOT" secondAttribute="height" multiplier="1:1" id="epq-ZW-dJM"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,21 +300,26 @@
                             <constraint firstItem="Z1e-Rq-Ewq" firstAttribute="leading" secondItem="ZLv-VL-aeM" secondAttribute="leadingMargin" constant="135" id="0Ia-8D-edt"/>
                             <constraint firstItem="2II-mf-Tpn" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="NRP-b1-Bge"/>
                             <constraint firstItem="kcU-Zh-rcz" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="U3L-zA-Z7s"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="z4C-G4-FWF" secondAttribute="leading" id="ayv-sT-fhE"/>
                             <constraint firstItem="tJf-Pw-h2p" firstAttribute="top" secondItem="z4C-G4-FWF" secondAttribute="bottom" constant="85" id="bk3-G9-RMJ"/>
                             <constraint firstItem="tjH-fs-4oY" firstAttribute="leading" secondItem="ZLv-VL-aeM" secondAttribute="leadingMargin" constant="135" id="huC-ZT-Q0q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z4C-G4-FWF" secondAttribute="trailing" id="mjH-ub-bJQ"/>
                             <constraint firstItem="tJf-Pw-h2p" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="pcI-aM-w3n"/>
+                            <constraint firstItem="CCF-iU-IOT" firstAttribute="centerX" secondItem="tJf-Pw-h2p" secondAttribute="centerX" id="wDQ-I1-w2L"/>
                             <constraint firstItem="z4C-G4-FWF" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="wRj-M5-xCg"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
                         <outlet property="acceptButton" destination="tJf-Pw-h2p" id="m3V-UH-2DF"/>
+                        <outlet property="buttonImage" destination="CCF-iU-IOT" id="FxL-nv-Nsg"/>
                         <outlet property="cancelButton" destination="2II-mf-Tpn" id="Jer-ZI-h8Y"/>
                         <outlet property="ratingStarView" destination="Z1e-Rq-Ewq" id="w38-3N-xzo"/>
                         <outlet property="requesterPicture" destination="G4f-Lr-1gX" id="FpQ-BE-G6O"/>
                         <outlet property="taskLocationLabel" destination="kcU-Zh-rcz" id="oUU-On-EX7"/>
                         <outlet property="titleLabel" destination="z4C-G4-FWF" id="BJO-Gw-Jum"/>
                         <outlet property="userFullName" destination="tjH-fs-4oY" id="rm5-Yz-HnI"/>
+                        <segue destination="1Tg-mC-jcl" kind="show" identifier="showProfile" id="4HL-Or-5if"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pe-al-Dmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,16 +591,16 @@
                         <viewControllerLayoutGuide type="bottom" id="hXK-Ng-1Gg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaO-Jw-4au">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
                                 <rect key="frame" x="236" y="125" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="BZo-Ar-Gmt"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
                                 <rect key="frame" x="181" y="279" width="239" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="239" id="OIM-et-RXK"/>
@@ -596,7 +610,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk">
                                 <rect key="frame" x="236" y="125" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="1ox-bt-f2Z"/>
@@ -606,7 +620,7 @@
                                     <action selector="changeProfilePicture:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="krT-jj-bmn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-DU-5k8">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-DU-5k8">
                                 <rect key="frame" x="236" y="410" width="139" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="139" id="mfr-yZ-kM9"/>
@@ -617,14 +631,14 @@
                                     <action selector="editProfile:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="Jdg-NZ-Wk6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-Q3-ApH">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-Q3-ApH">
                                 <rect key="frame" x="236" y="466" width="139" height="30"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOutAction:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="wD9-V0-M8G"/>
                                 </connections>
                             </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
                                 <rect key="frame" x="248" y="366" width="115" height="27"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -933,5 +947,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fw4-vi-jMP"/>
+        <segue reference="4HL-Or-5if"/>
     </inferredMetricsTieBreakers>
 </document>

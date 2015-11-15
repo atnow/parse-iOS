@@ -1,8 +1,8 @@
 //
-//  MyTasksViewController.swift
+//  NotificationsViewController.swift
 //  atnow-iOS
 //
-//  Created by Benjamin Holland on 11/10/15.
+//  Created by Ben Ribovich on 11/14/15.
 //  Copyright © 2015 Parse. All rights reserved.
 //
 
@@ -10,18 +10,27 @@ import UIKit
 import Parse
 import ParseUI
 
-class MyTasksViewController: HomeViewController {
+class NotificationsViewController: PFQueryTableViewController  {
 
-      override func queryForTable() -> PFQuery {
-       
-        let acceptorQuery = PFQuery(className: "Task")
-        acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
-        
-        let requesterQuery = PFQuery(className: "Task")
-        requesterQuery.whereKey("requester", equalTo: PFUser.currentUser()!)
-        
-
-        let query = PFQuery.orQueryWithSubqueries([acceptorQuery, requesterQuery])
+    override init(style: UITableViewStyle, className: String?) {
+        super.init(style: style, className: className)
+        parseClassName = "Notification"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        parseClassName = "Notification"
+        pullToRefreshEnabled = true
+        paginationEnabled = true
+        objectsPerPage = 25
+    }
+    
+    
+    override func queryForTable() -> PFQuery {
+        let query = PFQuery(className: self.parseClassName!)
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
@@ -29,17 +38,20 @@ class MyTasksViewController: HomeViewController {
             query.cachePolicy = .CacheThenNetwork
         }
         
-        query.orderByDescending("expiration")
+        query.whereKey("expiration", greaterThan: NSDate())
+        query.whereKey("accepted", equalTo: false )
+        query.orderByAscending("expiration")
+        
         return query
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        let cellIdentifier = "MyTaskCell"
+        let cellIdentifier = "TaskCell"
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "MyTaskCell") as? PFTableViewCell
+            cell = UITableViewCell(style: .Default, reuseIdentifier: "TaskCell") as? PFTableViewCell
             
             //cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
@@ -49,13 +61,6 @@ class MyTasksViewController: HomeViewController {
             //            cell!.textLabel?.text = object["title"] as? String
             //            let priority = object["priority"] as? String
             //            cell!.detailTextLabel?.text = "Priority \(priority)"
-            
-           
-            if ((object["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
-                let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.1)
-                cell?.backgroundColor = newColor
-                
-            }
             
             
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
@@ -74,10 +79,6 @@ class MyTasksViewController: HomeViewController {
                 let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
                 let days = "\(Int(timeToExpire/1440))" + "d "
                 expirationLabel.text = days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
-                if timeToExpire <= 0 {
-                    expirationLabel.text = "Expired"
-                }
-                
             }
             
             
@@ -85,6 +86,8 @@ class MyTasksViewController: HomeViewController {
         
         return cell
     }
+
+    
 
     /*
     // MARK: - Navigation

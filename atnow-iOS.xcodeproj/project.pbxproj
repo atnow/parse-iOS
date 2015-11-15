@@ -15,8 +15,8 @@
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
-		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
+		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; };
+		B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; };
 		B55888A01BEE989900ACF3A5 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */; };
 		B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -36,6 +36,24 @@
 		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; settings = {ASSET_TAGS = (); }; };
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */; };
+		B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */; };
+		B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF691BEC0FB300F31E6D /* MenuViewController.swift */; };
+		B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */; };
+		B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */; };
+		B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */; };
+		B567DF7B1BEC0FBC00F31E6D /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF721BEC0FBC00F31E6D /* SampleData.swift */; };
+		B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */; };
+		B567DF7D1BEC0FBC00F31E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B567DF741BEC0FBC00F31E6D /* Main.storyboard */; };
+		B567DF7E1BEC0FBC00F31E6D /* RequestFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */; };
+		B567DF7F1BEC0FBC00F31E6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF761BEC0FBC00F31E6D /* MainViewController.swift */; };
+		B567DF801BEC0FBC00F31E6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */; };
+		B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */; };
+		B567DF821BEC0FBC00F31E6D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF791BEC0FBC00F31E6D /* Task.swift */; };
+		B567DF831BEC0FBC00F31E6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF7A1BEC0FBC00F31E6D /* User.swift */; };
+		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; };
+		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
+		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +88,7 @@
 		B567DF7A1BEC0FBC00F31E6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
+		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +162,7 @@
 				B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */,
 				B567DF6D1BEC0FB300F31E6D /* now-Bridging-Header.h */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
+				C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -203,7 +223,7 @@
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 7XFNV3AD43;
+						DevelopmentTeam = 69693KY5R2;
 					};
 				};
 			};
@@ -259,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */,
 				B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */,
 				B567DF831BEC0FBC00F31E6D /* User.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
