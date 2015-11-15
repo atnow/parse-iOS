@@ -109,7 +109,7 @@ class ConfirmationViewController: UIViewController {
                         print(error)
                     }
                 }
-                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed")
+                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
                 buttonImage.tag = 2
                 buttonImage.addGestureRecognizer(recognizer)
                 
@@ -182,7 +182,7 @@ class ConfirmationViewController: UIViewController {
 
                 self.ratingStarView.rating = user!["rating"] as! Float
                 
-                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed")
+                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
                 self.requesterPicture.tag = 1
                 self.requesterPicture.addGestureRecognizer(recognizer)
             } else {
@@ -351,14 +351,14 @@ class ConfirmationViewController: UIViewController {
     }
     
     
-    func picturePressed(sender:UIImageView){
+    func picturePressed(sender:UITapGestureRecognizer){
         
-        
-        if(sender.tag == 1){
+        let view = sender.view
+        if(view!.tag == 1){
             performSegueWithIdentifier("showProfile", sender: requester)
         }
         
-        else if(sender.tag == 2){
+        else if(view!.tag == 2){
             performSegueWithIdentifier("showProfile", sender: accepter)
             
         }
