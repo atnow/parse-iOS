@@ -288,7 +288,7 @@
                                 <rect key="frame" x="42" y="86" width="90" height="90"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="CCF-iU-IOT">
-                                <rect key="frame" x="162" y="456" width="45" height="45"/>
+                                <rect key="frame" x="165" y="452" width="45" height="45"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="3Qd-Vf-IpX"/>
@@ -302,8 +302,10 @@
                             <constraint firstItem="Z1e-Rq-Ewq" firstAttribute="leading" secondItem="ZLv-VL-aeM" secondAttribute="leadingMargin" constant="135" id="0Ia-8D-edt"/>
                             <constraint firstItem="2II-mf-Tpn" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="NRP-b1-Bge"/>
                             <constraint firstItem="kcU-Zh-rcz" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="U3L-zA-Z7s"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="z4C-G4-FWF" secondAttribute="leading" id="ayv-sT-fhE"/>
                             <constraint firstItem="tJf-Pw-h2p" firstAttribute="top" secondItem="z4C-G4-FWF" secondAttribute="bottom" constant="85" id="bk3-G9-RMJ"/>
                             <constraint firstItem="tjH-fs-4oY" firstAttribute="leading" secondItem="ZLv-VL-aeM" secondAttribute="leadingMargin" constant="135" id="huC-ZT-Q0q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z4C-G4-FWF" secondAttribute="trailing" id="mjH-ub-bJQ"/>
                             <constraint firstItem="tJf-Pw-h2p" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="pcI-aM-w3n"/>
                             <constraint firstItem="CCF-iU-IOT" firstAttribute="centerX" secondItem="tJf-Pw-h2p" secondAttribute="centerX" id="wDQ-I1-w2L"/>
                             <constraint firstItem="z4C-G4-FWF" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="wRj-M5-xCg"/>

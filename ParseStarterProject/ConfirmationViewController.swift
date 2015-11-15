@@ -159,12 +159,21 @@ class ConfirmationViewController: UIViewController {
             cancelButton.hidden = true
         }
         
+        titleLabel.adjustsFontSizeToFitWidth = true
         let priceNum = selectedTask!["price"] as! NSNumber
         titleLabel.text = (selectedTask!["title"]! as? String)! + " ($\(priceNum))"
+        
+        
+        let date = NSDate()
+        let exp = selectedTask!["expiration"]
+        let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
+        let days = "\(Int(timeToExpire/1440))" + "d "
+        let expiration =  days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
+        
         if (selectedTask!["taskLocation"] != nil){
-            taskLocationLabel.text = selectedTask!["taskLocation"]! as? String
+            taskLocationLabel.text = "Deliver to " + (selectedTask!["taskLocation"]! as? String)! + " in " + expiration
         } else {
-            taskLocationLabel.hidden = true
+            taskLocationLabel.text = expiration
         }
         let query = PFQuery(className:"_User")
         query.getObjectInBackgroundWithId(selectedTask!["requester"].objectId!!) {
