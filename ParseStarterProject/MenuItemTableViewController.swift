@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class MenuItemTableViewController: PFQueryTableViewController {
+class MenuItemTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
