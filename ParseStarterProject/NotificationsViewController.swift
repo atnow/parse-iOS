@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class NotificationsViewController: MenuItemTableViewController  {
+class NotificationsViewController: PFQueryTableViewController  {
     
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
@@ -70,6 +70,33 @@ class NotificationsViewController: MenuItemTableViewController  {
         }
         
         return cell
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = false
+        let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
+        self.navigationItem.leftBarButtonItem = homeButton
+        self.navigationItem.title = self.title
+        
+    }
+    
+    func showMenu(sender: AnyObject){
+        let CVC = self.navigationController?.parentViewController as! ContainerViewController
+        CVC.showMenu()
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     

@@ -16,6 +16,7 @@ class ConfirmationViewController: UIViewController {
     var myTask = false
     var requester : PFUser?
     var accepter: PFUser?
+    let designHelper = DesignHelper()
     
     enum stateType{
         case available
@@ -50,8 +51,7 @@ class ConfirmationViewController: UIViewController {
         acceptButton.titleLabel?.numberOfLines = 2
         acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        cancelButton.layer.cornerRadius = 8
-        cancelButton.layer.borderWidth = 1
+        designHelper.formatButton(cancelButton)
         cancelButton.layer.borderColor = UIColor.redColor().CGColor
         
         buttonImage.hidden = true
@@ -252,8 +252,20 @@ class ConfirmationViewController: UIViewController {
             }
             else{
                 self.navigationController?.popViewControllerAnimated(true)
+                let notification = PFObject(className:"notification")
+                notification["owner"] = self.requester
+                notification["type"] = "claimed"
+                notification["isRead"] = false
+                notification["task"] = self.selectedTask
+                notification.saveInBackgroundWithBlock { (object, error) -> Void in
+                    if (error == nil){
+                        print(error)
+                        
+                    }
+                }
             }
         })
+                
     }
     
     func unacceptTask(){
