@@ -252,7 +252,7 @@ class ConfirmationViewController: UIViewController {
             }
             else{
                 self.navigationController?.popViewControllerAnimated(true)
-                let notification = PFObject(className:"notification")
+                let notification = PFObject(className:"Notification")
                 notification["owner"] = self.requester
                 notification["type"] = "claimed"
                 notification["isRead"] = false

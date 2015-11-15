@@ -40,6 +40,7 @@ class NotificationsViewController: PFQueryTableViewController  {
         }
         
         query.whereKey("owner", equalTo: PFUser.currentUser()!)
+
         
         return query
     }
@@ -60,9 +61,24 @@ class NotificationsViewController: PFQueryTableViewController  {
             //            let priority = object["priority"] as? String
             //            cell!.detailTextLabel?.text = "Priority \(priority)"
             
+
+            
             
             if let descriptionLabel = cell!.viewWithTag(201) as? UILabel {
-                let description = object["type"]
+                let description : String
+                switch object["type"] as! String{
+                    
+                case "claimed":
+                    description = "Your task" + "\(object["task"]["title"])" + "was claimed by " + "\(object["task"]["accepter"]!!["fullName"])"
+                case "completed":
+                    description = "Your task" + "\(object["task"]["title"])" + "was completed by " + "\(object["task"]["accepter"]!!["fullName"])"
+                case "confirmed":
+                    description = "\(object["task"]["accepter"]!!["fullName"])" + " confirmed your completion of " + "\(object["task"]["title"])"
+                default:
+                    description = " "
+                    
+                    
+                }
                 descriptionLabel.text = "\(description)"
             }
             
