@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var logoutButton: UIButton!
     
+    let designHelper = DesignHelper()
     
     let imagePicker = UIImagePickerController()
     
@@ -49,21 +50,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
         profilePicture.clipsToBounds = true
         
-                let logoutColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
+        let logoutColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
         
-        self.profilePicture.layer.borderWidth = 3
+        self.profilePicture.layer.borderWidth = 2
         self.profilePicture.layer.borderColor = logoutColor.CGColor
         
+
         
         // Do any additional setup after loading the view.
         
        
-        logoutButton.layer.borderWidth = 1
-        logoutButton.layer.borderColor = logoutColor.CGColor
-        logoutButton.layer.cornerRadius = 8
+//        logoutButton.layer.borderWidth = 1
+//        logoutButton.layer.borderColor = logoutColor.CGColor
+//        logoutButton.layer.cornerRadius = 8
+        
+        designHelper.formatButton(logoutButton)
 
         
-        
+    
         editButton.layer.borderWidth = 1
         // color = UIColor(red: 255/255, green: 122/255, blue: 61/255, alpha: 1)
         editButton.layer.borderColor = logoutColor.CGColor
