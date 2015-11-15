@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         userFullNameLabel.text = user!["fullName"] as! String!
         if user?["rating"] != nil {
-            starRatings.rating = user!["rating"] as! Float!
+            starRatings.rating = user!["rating"]["rating"] as! Float!
         }
         
         let imageFromParse = user!.objectForKey("profilePicture") as? PFFile

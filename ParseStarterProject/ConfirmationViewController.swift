@@ -175,7 +175,9 @@ class ConfirmationViewController: UIViewController {
         } else {
             taskLocationLabel.text = expiration
         }
+        
         let query = PFQuery(className:"_User")
+        query.includeKey("rating")
         query.getObjectInBackgroundWithId(selectedTask!["requester"].objectId!!) {
             (user: PFObject?, error: NSError?) -> Void in
             if error == nil {
@@ -189,7 +191,7 @@ class ConfirmationViewController: UIViewController {
                     })
                 }
                 
-                self.ratingStarView.rating = user!["rating"] as! Float
+                self.ratingStarView.rating = user!["rating"]["rating"] as! Float
                 
                 let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
                 self.requesterPicture.tag = 1
