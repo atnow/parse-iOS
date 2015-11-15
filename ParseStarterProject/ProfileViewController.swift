@@ -36,6 +36,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         userFullNameLabel.text = user!["fullName"] as! String!
         if user?["rating"] != nil {
+            let rating = user!["rating"]
             starRatings.rating = user!["rating"]["rating"] as! Float!
         }
         
