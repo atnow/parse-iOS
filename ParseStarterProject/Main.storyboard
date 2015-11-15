@@ -202,7 +202,7 @@
         <!--Home-->
         <scene sceneID="aQo-ob-iWM">
             <objects>
-                <navigationController id="Rc6-EI-hPm" sceneMemberID="viewController">
+                <navigationController id="Rc6-EI-hPm" customClass="HomeTasksNavigationControllerViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="Home Icon" id="qQo-vl-hpv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="dGc-Bl-OeG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -329,7 +329,7 @@
         <!--My Tasks-->
         <scene sceneID="WpO-db-Ggh">
             <objects>
-                <navigationController id="39l-5j-jDo" sceneMemberID="viewController">
+                <navigationController id="39l-5j-jDo" customClass="MyTasksNavigationControllerViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Tasks" image="User Icon" id="4XW-Hn-otp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rcF-IR-L0I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -607,6 +607,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
                                 <rect key="frame" x="68" y="323" width="239" height="47"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="CR2-lO-ONW" secondAttribute="height" multiplier="239:47" id="4sS-Ye-iIf"/>
                                     <constraint firstAttribute="width" constant="239" id="OIM-et-RXK"/>
                                     <constraint firstAttribute="height" constant="47" id="gmp-Ul-Lfe"/>
                                 </constraints>
@@ -614,9 +615,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk">
+                                <rect key="frame" x="123" y="169" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="p6w-yI-KkU"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeProfilePicture:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="krT-jj-bmn"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-DU-5k8">
                                 <rect key="frame" x="123" y="428" width="139" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="8Sd-DU-5k8" secondAttribute="height" multiplier="139:30" id="AVQ-Ez-YLu"/>
                                     <constraint firstAttribute="width" constant="139" id="mfr-yZ-kM9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -627,13 +638,16 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-Q3-ApH">
                                 <rect key="frame" x="123" y="484" width="139" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ORP-Q3-ApH" secondAttribute="height" multiplier="139:30" id="0Nh-M8-s0a"/>
+                                </constraints>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOutAction:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="wD9-V0-M8G"/>
                                 </connections>
                             </button>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
-                                <rect key="frame" x="135" y="410" width="115" height="1"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
+                                <rect key="frame" x="114" y="378" width="156" height="20.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
@@ -649,29 +663,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk">
-                                <rect key="frame" x="123" y="169" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="p6w-yI-KkU"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="changeProfilePicture:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="krT-jj-bmn"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="top" secondItem="YeA-TO-gny" secondAttribute="bottom" constant="26" id="7As-Yd-Gtb"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerY" secondItem="JaO-Jw-4au" secondAttribute="centerY" constant="2.5" id="AvA-R6-Vp4"/>
-                            <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="40" id="DsN-Xw-fmR"/>
                             <constraint firstItem="hXK-Ng-1Gg" firstAttribute="top" secondItem="ORP-Q3-ApH" secondAttribute="bottom" constant="104" id="H0h-IR-42M"/>
                             <constraint firstItem="8Sd-DU-5k8" firstAttribute="trailing" secondItem="ORP-Q3-ApH" secondAttribute="trailing" id="QfL-el-90D"/>
-                            <constraint firstItem="8Sd-DU-5k8" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="17" id="UVV-Pu-NeC"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="centerX" secondItem="CR2-lO-ONW" secondAttribute="centerX" id="W9e-1U-45Q"/>
                             <constraint firstItem="ORP-Q3-ApH" firstAttribute="leading" secondItem="8Sd-DU-5k8" secondAttribute="leading" id="Wfb-vA-saC"/>
                             <constraint firstItem="MIf-oX-9qk" firstAttribute="leading" secondItem="YeA-TO-gny" secondAttribute="leading" id="aHB-iS-NSL"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="ya3-3e-bRG" secondAttribute="centerX" constant="-5" id="aPG-y1-0Q3"/>
-                            <constraint firstItem="ya3-3e-bRG" firstAttribute="trailing" secondItem="8Sd-DU-5k8" secondAttribute="trailing" constant="-12" id="dqn-Gu-4Tz"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="width" secondItem="MIf-oX-9qk" secondAttribute="height" multiplier="1:1" id="eW0-mV-bf7"/>
                             <constraint firstItem="ORP-Q3-ApH" firstAttribute="top" secondItem="8Sd-DU-5k8" secondAttribute="bottom" constant="26" id="lM8-9K-Y3W"/>
                             <constraint firstItem="MIf-oX-9qk" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="105" id="tWB-nh-SSJ"/>
@@ -919,10 +921,10 @@
             </objects>
             <point key="canvasLocation" x="-136.5" y="23.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="49e-Tb-3d3" customClass="tabBarControllerViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="DYj-bD-QI2"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -949,7 +951,7 @@
         <image name="clock" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fw4-vi-jMP"/>
+        <segue reference="LMe-HV-aCZ"/>
         <segue reference="4HL-Or-5if"/>
     </inferredMetricsTieBreakers>
 </document>

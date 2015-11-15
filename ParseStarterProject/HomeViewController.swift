@@ -12,6 +12,8 @@ import ParseUI
 
 class HomeViewController : PFQueryTableViewController {
     
+    let designHelper = DesignHelper()
+    
 
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
@@ -96,7 +98,11 @@ class HomeViewController : PFQueryTableViewController {
         let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
         self.navigationItem.rightBarButtonItem = composeButton
         self.navigationItem.leftBarButtonItem = homeButton
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:
+            UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
     }
 
 

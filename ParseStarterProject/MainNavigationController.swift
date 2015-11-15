@@ -15,11 +15,13 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
     private var settingsSelectedObserver: NSObjectProtocol?
     private var helpCenterSelectedObserver: NSObjectProtocol?
     
+    let designHelper = DesignHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
-        //self.navigationItem.leftBarButtonItem = homeButton
-        
+       // self.navigationBar.backgroundColor = designHelper.baseColor
+        let barColor = designHelper.baseColor.colorWithAlphaComponent(0.1)
+        self.navigationBar.barTintColor = barColor
     }
     
     override func viewWillAppear(animated: Bool) {
