@@ -51,7 +51,6 @@ class HomeViewController : PFQueryTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         let cellIdentifier = "TaskCell"
-        tableView.sectionHeaderHeight = 10
         
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {

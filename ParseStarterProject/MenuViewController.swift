@@ -62,13 +62,13 @@ class MenuViewController: UITableViewController{
         static let HelpCenterSelected = "HelpCenterSelected"
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell?.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
-//        let backgroundView = UIView()
-//        backgroundView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
-//        cell?.backgroundView = backgroundView
-    }
+//    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        let cell = tableView.cellForRowAtIndexPath(indexPath)
+//        cell?.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+////        let backgroundView = UIView()
+////        backgroundView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+////        cell?.backgroundView = backgroundView
+//    }
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
