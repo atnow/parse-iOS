@@ -66,14 +66,18 @@ class NotificationsViewController: PFQueryTableViewController  {
             
             if let descriptionLabel = cell!.viewWithTag(201) as? UILabel {
                 let description : String
+                let taskName = "\(object["task"]["title"])"
+                let acceptName = "\(object["task"]["accepter"]!!["fullName"])"
+                let requestName = "\(object["task"]["requester"]!!["fullName"])"
+                
                 switch object["type"] as! String{
                     
                 case "claimed":
-                    description = "Your task" + "\(object["task"]["title"])" + "was claimed by " + "\(object["task"]["accepter"]!!["fullName"])"
+                    description = "Your task" + taskName + "was claimed by " + acceptName
                 case "completed":
-                    description = "Your task" + "\(object["task"]["title"])" + "was completed by " + "\(object["task"]["accepter"]!!["fullName"])"
+                    description = "Your task" + taskName + "was completed by " + acceptName
                 case "confirmed":
-                    description = "\(object["task"]["accepter"]!!["fullName"])" + " confirmed your completion of " + "\(object["task"]["title"])"
+                    description = requestName + " confirmed your completion of " + taskName
                 default:
                     description = " "
                     
