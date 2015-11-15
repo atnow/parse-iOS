@@ -188,7 +188,7 @@ class ConfirmationViewController: UIViewController {
                         self.requesterPicture.image = image
                     })
                 }
-
+                
                 self.ratingStarView.rating = user!["rating"] as! Float
                 
                 let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")

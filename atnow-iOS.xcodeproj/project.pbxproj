@@ -18,6 +18,24 @@
 		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; };
 		B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; };
 		B55888A01BEE989900ACF3A5 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */; };
+		B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF691BEC0FB300F31E6D /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF7B1BEC0FBC00F31E6D /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF721BEC0FBC00F31E6D /* SampleData.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF7D1BEC0FBC00F31E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B567DF741BEC0FBC00F31E6D /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		B567DF7E1BEC0FBC00F31E6D /* RequestFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF7F1BEC0FBC00F31E6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF761BEC0FBC00F31E6D /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF801BEC0FBC00F31E6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF821BEC0FBC00F31E6D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF791BEC0FBC00F31E6D /* Task.swift */; settings = {ASSET_TAGS = (); }; };
+		B567DF831BEC0FBC00F31E6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF7A1BEC0FBC00F31E6D /* User.swift */; settings = {ASSET_TAGS = (); }; };
+		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; settings = {ASSET_TAGS = (); }; };
+		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */; };
 		B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */; };
 		B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF691BEC0FB300F31E6D /* MenuViewController.swift */; };
@@ -69,6 +87,7 @@
 		B567DF791BEC0FBC00F31E6D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B567DF7A1BEC0FBC00F31E6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
+		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +149,7 @@
 				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
 				B567DF761BEC0FBC00F31E6D /* MainViewController.swift */,
 				B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */,
+				B5CE33D91BF7FF78003A166D /* DesignHelper.swift */,
 				B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */,
 				B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */,
 				B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */,
@@ -266,6 +286,7 @@
 				B567DF7B1BEC0FBC00F31E6D /* SampleData.swift in Sources */,
 				B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */,
 				C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */,
+				B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */,
 				B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */,
 				B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */,
 				B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */,
