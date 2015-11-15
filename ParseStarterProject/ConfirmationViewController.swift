@@ -331,6 +331,19 @@ class ConfirmationViewController: UIViewController {
                 }
                 successController.addAction(OKAction)
                 self.presentViewController(successController, animated: true){}
+                
+                let notification = PFObject(className:"Notification")
+                notification["owner"] = self.requester
+                notification["type"] = "completed"
+                notification["isRead"] = false
+                notification["task"] = self.selectedTask
+                notification.saveInBackgroundWithBlock { (object, error) -> Void in
+                    if (error == nil){
+                        print(error)
+                        
+                    }
+                }
+                
             }
         })
     }
@@ -360,6 +373,17 @@ class ConfirmationViewController: UIViewController {
                 successController.addAction(OKAction)
                 self.presentViewController(successController, animated: true){}
                 
+                let notification = PFObject(className:"Notification")
+                notification["owner"] = self.accepter
+                notification["type"] = "confirmed"
+                notification["isRead"] = false
+                notification["task"] = self.selectedTask
+                notification.saveInBackgroundWithBlock { (object, error) -> Void in
+                    if (error == nil){
+                        print(error)
+                        
+                    }
+                }
             }
         })
     }
