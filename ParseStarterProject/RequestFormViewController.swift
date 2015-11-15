@@ -68,9 +68,18 @@ class RequestFormViewController: UIViewController {
         }
     }
     
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         designHelper.formatButton(submitButton)
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         instructionsTextView.layer.borderWidth = 1
         instructionsTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         datePicker.layer.cornerRadius = 8

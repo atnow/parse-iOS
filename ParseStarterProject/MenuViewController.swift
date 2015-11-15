@@ -34,12 +34,14 @@ class MenuViewController: UITableViewController{
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
         let user = PFUser.currentUser()
-        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
-        if(imageFromParse != nil){
-            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                let image: UIImage! = UIImage(data: imageData!)!
-                self.profileImageView.image = image
-            })
+        if (user != nil){
+            let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+            if(imageFromParse != nil){
+                imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                    let image: UIImage! = UIImage(data: imageData!)!
+                    self.profileImageView.image = image
+                })
+            }
         }
         
 
