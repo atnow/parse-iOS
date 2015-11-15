@@ -119,6 +119,8 @@ class NotificationsViewController: PFQueryTableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -126,8 +128,10 @@ class NotificationsViewController: PFQueryTableViewController  {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
         self.navigationItem.leftBarButtonItem = homeButton
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.title = self.title
         
     }
