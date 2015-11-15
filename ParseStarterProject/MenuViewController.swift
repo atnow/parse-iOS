@@ -32,7 +32,7 @@ class MenuViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = PFUser.currentUser()
-        profileImageView.image = user!["profilePicture"] as! UIImage
+ //       profileImageView.image = user!["profilePicture"] as! UIImage
         designHelper.formatPicture(profileImageView)
         homeLabel.textColor = designHelper.baseColor
         notificationsLabel.textColor = designHelper.baseColor
