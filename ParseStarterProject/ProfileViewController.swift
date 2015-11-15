@@ -31,8 +31,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         imagePicker.delegate = self
         PFUser.currentUser()?.fetchInBackgroundWithBlock({ (response, error) -> Void in })
-        user = PFUser.currentUser()
-        
+        if user?.username==nil{
+            user = PFUser.currentUser()
+        }
         userFullNameLabel.text = user!["fullName"] as! String!
         if user?["rating"] != nil {
             starRatings.rating = user!["rating"] as! Float!
@@ -47,33 +48,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
         
-        profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
-        profilePicture.clipsToBounds = true
-        
-        let logoutColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
-        
-        self.profilePicture.layer.borderWidth = 2
-        self.profilePicture.layer.borderColor = logoutColor.CGColor
-        
-
-        
-        // Do any additional setup after loading the view.
-        
-       
-//        logoutButton.layer.borderWidth = 1
-//        logoutButton.layer.borderColor = logoutColor.CGColor
-//        logoutButton.layer.cornerRadius = 8
-        
         designHelper.formatButton(logoutButton)
-
+        designHelper.formatButton(editButton)
+        designHelper.formatPicture(profilePicture)
         
-    
-        editButton.layer.borderWidth = 1
-        // color = UIColor(red: 255/255, green: 122/255, blue: 61/255, alpha: 1)
-        editButton.layer.borderColor = logoutColor.CGColor
-        editButton.setTitleColor(logoutColor, forState: .Normal)
-        editButton.layer.cornerRadius = 8
-
     }
     
     @IBAction func editProfile(sender: AnyObject) {
@@ -105,6 +83,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profilePicture.contentMode = .ScaleAspectFit
             profilePicture.image = pickedImage
+            designHelper.formatPicture(profilePicture)
             let imageData = UIImageJPEGRepresentation(pickedImage, 0.1)
             let imageFile = PFFile(name:"image.png", data: imageData!)
             self.user!["profilePicture"] = imageFile

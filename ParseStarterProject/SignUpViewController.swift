@@ -15,6 +15,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    let designHelper = DesignHelper()
     
     @IBAction func onSignUp(sender: UIButton) {
         let fullNameText  = self.fullNameField.text
@@ -70,8 +74,8 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        designHelper.formatButton(signUpButton)
+        designHelper.formatButton(cancelButton)
     }
 
     override func didReceiveMemoryWarning() {

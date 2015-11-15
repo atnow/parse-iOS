@@ -10,6 +10,16 @@ import UIKit
 
 class MenuViewController: UITableViewController{
 
+    @IBOutlet weak var homeLabel: UILabel!
+    
+    @IBOutlet weak var notificationsLabel: UILabel!
+    
+    @IBOutlet weak var settingsLabel: UILabel!
+    
+    @IBOutlet weak var helpCenterLabel: UILabel!
+    
+    let designHelper = DesignHelper()
+    
     @IBOutlet var menuTableView: UITableView! {
         didSet{
             menuTableView.delegate = self
@@ -20,9 +30,11 @@ class MenuViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
-        profileImageView.clipsToBounds = true
-
+        designHelper.formatPicture(profileImageView)
+        homeLabel.textColor = designHelper.baseColor
+        notificationsLabel.textColor = designHelper.baseColor
+        settingsLabel.textColor = designHelper.baseColor
+        helpCenterLabel.textColor = designHelper.baseColor
     }
     
     private func roundingUIView(let aView: UIView!, let cornerRadiusParam: CGFloat!) {

@@ -19,6 +19,8 @@ class RequestFormViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var submitButton: UIButton!
     
+    let designHelper = DesignHelper()
+    
     @IBAction func submitPressed(sender: AnyObject) {
         
         let newTask = PFObject(className: "Task")
@@ -68,15 +70,9 @@ class RequestFormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        designHelper.formatButton(submitButton)
         instructionsTextView.layer.borderWidth = 1
         instructionsTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
-        
-        let blueColor = UIColor(red: 0, green: 0.478431, blue: 1, alpha: 1)
-        submitButton.titleLabel?.textColor = blueColor
-        submitButton.layer.borderWidth = 1
-        submitButton.layer.borderColor = blueColor.CGColor
-        submitButton.layer.cornerRadius = 8
-        
         datePicker.layer.cornerRadius = 8
         instructionsTextView.layer.cornerRadius = 8
         

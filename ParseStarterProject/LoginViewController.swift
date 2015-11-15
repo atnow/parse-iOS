@@ -17,9 +17,14 @@ class LoginViewController: UIViewController{
     
     @IBOutlet weak var singUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+    
+    let designHelper = DesignHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        designHelper.formatButton(singUpButton)
+        designHelper.formatButton(loginButton)
+        titleLabel.textColor = designHelper.baseColor
     }
 
     override func didReceiveMemoryWarning() {
