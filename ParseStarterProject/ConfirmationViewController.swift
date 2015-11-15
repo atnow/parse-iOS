@@ -80,6 +80,16 @@ class ConfirmationViewController: UIViewController {
                     acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
                     acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    let accepterQuery = PFQuery(className:"_User")
+                    accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
+                        (user: PFObject?, error: NSError?) -> Void in
+                        if error == nil {
+                            self.accepter = user as? PFUser
+                            
+                        } else {
+                            print(error)
+                        }
+                    }
                 }
 
             }
@@ -258,7 +268,7 @@ class ConfirmationViewController: UIViewController {
                 notification["isRead"] = false
                 notification["task"] = self.selectedTask
                 notification.saveInBackgroundWithBlock { (object, error) -> Void in
-                    if (error == nil){
+                    if (error != nil){
                         print(error)
                         
                     }
@@ -338,7 +348,7 @@ class ConfirmationViewController: UIViewController {
                 notification["isRead"] = false
                 notification["task"] = self.selectedTask
                 notification.saveInBackgroundWithBlock { (object, error) -> Void in
-                    if (error == nil){
+                    if (error != nil){
                         print(error)
                         
                     }
@@ -367,23 +377,23 @@ class ConfirmationViewController: UIViewController {
                 
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        let notification = PFObject(className:"Notification")
+                        notification["owner"] = self.accepter
+                        notification["type"] = "confirmed"
+                        notification["isRead"] = false
+                        notification["task"] = self.selectedTask
+                        notification.saveInBackgroundWithBlock { (object, error) -> Void in
+                            if (error != nil){
+                                print(error)
+                                
+                            }
+                        }
+
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
                 successController.addAction(OKAction)
                 self.presentViewController(successController, animated: true){}
-                
-                let notification = PFObject(className:"Notification")
-                notification["owner"] = self.accepter
-                notification["type"] = "confirmed"
-                notification["isRead"] = false
-                notification["task"] = self.selectedTask
-                notification.saveInBackgroundWithBlock { (object, error) -> Void in
-                    if (error == nil){
-                        print(error)
-                        
-                    }
-                }
             }
         })
     }
