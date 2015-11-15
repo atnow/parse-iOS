@@ -1,3 +1,4 @@
+
 //
 //  MenuViewController.swift
 //  now
@@ -31,6 +32,7 @@ class MenuViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
         let user = PFUser.currentUser()
         let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
         if(imageFromParse != nil){
@@ -60,10 +62,30 @@ class MenuViewController: UITableViewController{
         static let HelpCenterSelected = "HelpCenterSelected"
     }
     
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+//        let backgroundView = UIView()
+//        backgroundView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+//        cell?.backgroundView = backgroundView
+    }
+    
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = indexPath.item
-        let center = NSNotificationCenter.defaultCenter()
         
+        let item = indexPath.item
+//        let cell = tableView.cellForRowAtIndexPath(indexPath)
+//        cell?.contentView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+
+        
+        
+//        let cell = tableView.cellForRowAtIndexPath(indexPath)
+//        let backgroundView = UIView()
+//        //backgroundView.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+//        cell?.backgroundView = backgroundView
+////        cell?.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
+//
+        let center = NSNotificationCenter.defaultCenter()
         switch item {
         case 0:
             center.postNotification(NSNotification(name: Notifications.HomeSelected, object: self))
