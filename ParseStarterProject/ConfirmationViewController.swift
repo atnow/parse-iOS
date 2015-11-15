@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ConfirmationViewController: UIViewController {
+class ConfirmationViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     var selectedTask : PFObject?
     var currentState = stateType.available
@@ -206,6 +206,8 @@ class ConfirmationViewController: UIViewController {
                 let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
                 self.requesterPicture.tag = 1
                 self.requesterPicture.addGestureRecognizer(recognizer)
+                
+
             } else {
                 print(error)
             }
@@ -398,6 +400,37 @@ class ConfirmationViewController: UIViewController {
         })
     }
 
+    
+    
+    @IBAction func infoAction(sender: UIButton) {
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let instructionsVC = storyboard.instantiateViewControllerWithIdentifier("InstructionsViewController")
+        instructionsVC.modalPresentationStyle = .Popover
+        instructionsVC.preferredContentSize = CGSizeMake(300, 200)
+        let popoverVC = instructionsVC.popoverPresentationController
+        popoverVC?.permittedArrowDirections = .Up
+        popoverVC?.delegate = self
+        popoverVC?.sourceView = sender
+        popoverVC?.sourceRect = CGRect(
+            x: sender.frame.width/2,
+            y: sender.frame.height/2,
+            width: 1,
+            height: 1)
+        
+        if let descriptionLabel = instructionsVC.view.viewWithTag(300) as? UITextView {
+            let description = selectedTask!["description"]
+            descriptionLabel.text = "\(description)"
+        }
+        self.presentViewController(instructionsVC, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyleForPresentationController(
+        controller: UIPresentationController) -> UIModalPresentationStyle {
+            return .None
+    }
+    
     @IBAction func cancelButtonAction(sender: UIButton) {
         if(myTask){
             cancelTask()
@@ -419,10 +452,7 @@ class ConfirmationViewController: UIViewController {
             performSegueWithIdentifier("showProfile", sender: accepter)
             
         }
-        
-        
-        
-        
+  
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
