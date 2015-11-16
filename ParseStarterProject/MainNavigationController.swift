@@ -14,6 +14,7 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
     private var notificationsSelectedObserver: NSObjectProtocol?
     private var settingsSelectedObserver: NSObjectProtocol?
     private var helpCenterSelectedObserver: NSObjectProtocol?
+    private var pictureSelectedObserver: NSObjectProtocol?
     
     let designHelper = DesignHelper()
     
@@ -37,6 +38,12 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
     private func addObservers() {
         let center = NSNotificationCenter.defaultCenter()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        pictureSelectedObserver = center.addObserverForName(MenuViewController.Notifications.PictureSelected, object: nil, queue: nil) { (notification: NSNotification!) in
+            let hvc = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
+            self.setViewControllers([hvc], animated: false)
+            
+        }
         
         homeSelectedObserver = center.addObserverForName(MenuViewController.Notifications.HomeSelected, object: nil, queue: nil) { (notification: NSNotification!) in
             let hvc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
@@ -62,6 +69,7 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
             self.setViewControllers([hvc], animated: false)
             
         }
+        
 
     }
     

@@ -29,6 +29,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationController?.navigationBarHidden = false
+        let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
+        self.navigationItem.leftBarButtonItem = homeButton
+        self.navigationItem.title = self.title
+        
         imagePicker.delegate = self
         PFUser.currentUser()?.fetchInBackgroundWithBlock({ (response, error) -> Void in })
         if user?.username==nil{
@@ -132,6 +138,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
             self.presentViewController(viewController, animated: true, completion: nil)
         })
+    }
+    
+    func showMenu(sender: AnyObject){
+        let CVC = self.navigationController?.parentViewController as! ContainerViewController
+        CVC.showMenu()
+        
     }
 
     /*

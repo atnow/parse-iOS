@@ -93,6 +93,17 @@ class MenuViewController: UITableViewController{
         notificationsLabel.textColor = designHelper.baseColor
         settingsLabel.textColor = designHelper.baseColor
         helpCenterLabel.textColor = designHelper.baseColor
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: "profileShow:")
+        self.profileImageView.addGestureRecognizer(recognizer)
+    }
+    
+    func profileShow(sender: UITapGestureRecognizer) {
+        let center = NSNotificationCenter.defaultCenter()
+        center.postNotification(NSNotification(name: Notifications.PictureSelected, object: self))
+        let cvc = self.parentViewController as! ContainerViewController
+        cvc.hideMenu()
+        
     }
     
     private func roundingUIView(let aView: UIView!, let cornerRadiusParam: CGFloat!) {
@@ -105,6 +116,7 @@ class MenuViewController: UITableViewController{
         static let NotificationsSelected = "NotificationsSelected"
         static let SettingsSelected = "SettingsSelected"
         static let HelpCenterSelected = "HelpCenterSelected"
+        static let PictureSelected = "PictureSelected"
     }
     
 //    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -148,14 +160,5 @@ class MenuViewController: UITableViewController{
         cvc.hideMenu()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if(segue.identifier=="showProfile"){
-            
-            let user = sender as! PFUser
-            let profileViewController = segue.destinationViewController as! ProfileViewController
-            profileViewController.user = user
-            
-        }
-    }
+
 }
