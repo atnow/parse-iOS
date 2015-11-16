@@ -239,6 +239,10 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4C-G4-FWF">
                                 <rect key="frame" x="52" y="208" width="270" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="z4C-G4-FWF" secondAttribute="height" multiplier="90:11" id="DXY-0f-lCe"/>
+                                    <constraint firstAttribute="width" constant="270" id="SSt-XP-YNn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -616,19 +620,19 @@
             <objects>
                 <tableViewController storyboardIdentifier="NotificationsViewController" title="Notifications" id="J83-lx-UXs" customClass="NotificationsViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JOX-vT-LYa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" id="TSb-Ip-g8v" customClass="PFTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TSb-Ip-g8v" id="miy-8a-mbQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obg-WR-nOC">
-                                            <rect key="frame" x="17" y="11" width="364" height="21"/>
+                                            <rect key="frame" x="17" y="8" width="350" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -646,10 +650,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notifications" id="MdT-5I-pzi"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEt-Ha-yf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911" y="-43"/>
+            <point key="canvasLocation" x="1910.5" y="-43.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="CGL-ul-fUN">
@@ -729,13 +734,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
-                                <rect key="frame" x="123" y="125" width="128" height="128"/>
+                                <rect key="frame" x="124" y="125" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="N2P-e8-chj"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
-                                <rect key="frame" x="68" y="279" width="239" height="47"/>
+                                <rect key="frame" x="69" y="279" width="239" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="KdS-jQ-QG5"/>
                                     <constraint firstAttribute="width" constant="239" id="z0Q-IO-hNW"/>
@@ -745,7 +750,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk">
-                                <rect key="frame" x="123" y="125" width="128" height="128"/>
+                                <rect key="frame" x="124" y="125" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="FRp-w3-s4t"/>
                                 </constraints>
@@ -754,7 +759,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-DU-5k8">
-                                <rect key="frame" x="123" y="410" width="139" height="30"/>
+                                <rect key="frame" x="124" y="410" width="139" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="139" id="H4M-YT-GRB"/>
                                     <constraint firstAttribute="width" secondItem="8Sd-DU-5k8" secondAttribute="height" multiplier="139:30" id="S9m-rh-s5r"/>
@@ -766,7 +771,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-Q3-ApH">
-                                <rect key="frame" x="123" y="466" width="139" height="30"/>
+                                <rect key="frame" x="124" y="466" width="139" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ORP-Q3-ApH" secondAttribute="height" multiplier="139:30" id="MYQ-jm-3BH"/>
                                 </constraints>
@@ -776,7 +781,7 @@
                                 </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
-                                <rect key="frame" x="121" y="350" width="132" height="18"/>
+                                <rect key="frame" x="122" y="350" width="132" height="18"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ya3-3e-bRG" secondAttribute="height" multiplier="22:3" id="XIn-XF-Nxf"/>
@@ -883,6 +888,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BgX-rV-cUr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="49e-Tb-3d3" kind="relationship" relationship="rootViewController" id="5Sx-eM-0Sc"/>
@@ -1088,7 +1097,7 @@
         <image name="settings-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fw4-vi-jMP"/>
         <segue reference="4HL-Or-5if"/>
+        <segue reference="7jG-dT-Oxw"/>
     </inferredMetricsTieBreakers>
 </document>

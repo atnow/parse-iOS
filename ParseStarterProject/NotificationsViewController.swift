@@ -41,6 +41,7 @@ class NotificationsViewController: PFQueryTableViewController  {
         
         query.whereKey("owner", equalTo: PFUser.currentUser()!)
         query.includeKey("task")
+        query.orderByDescending("createdAt")
 
         
         return query
