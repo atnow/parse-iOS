@@ -54,6 +54,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         
         designHelper.formatButton(cancelButton)
         cancelButton.layer.borderColor = UIColor.redColor().CGColor
+        cancelButton.setTitleColor(UIColor.redColor(), forState: .Normal)
         cancelButton.hidden = true
         
         buttonImage.hidden = true
