@@ -408,7 +408,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let instructionsVC = storyboard.instantiateViewControllerWithIdentifier("InstructionsViewController")
         instructionsVC.modalPresentationStyle = .Popover
-        instructionsVC.preferredContentSize = CGSizeMake(300, 200)
+        instructionsVC.preferredContentSize = CGSizeMake(400, 400)
         let popoverVC = instructionsVC.popoverPresentationController
         popoverVC?.permittedArrowDirections = .Up
         popoverVC?.delegate = self

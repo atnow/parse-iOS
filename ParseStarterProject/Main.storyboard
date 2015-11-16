@@ -232,7 +232,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4C-G4-FWF">
-                                <rect key="frame" x="16" y="208" width="335" height="33"/>
+                                <rect key="frame" x="52" y="208" width="270" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="DOy-nM-pVT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -290,7 +293,7 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKH-yQ-Gdw">
-                                <rect key="frame" x="172" y="284" width="30" height="30"/>
+                                <rect key="frame" x="325" y="211" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HKH-yQ-Gdw" secondAttribute="height" multiplier="1:1" id="0Nf-P1-1RL"/>
                                     <constraint firstAttribute="width" constant="30" id="1qJ-Ma-QVh"/>
@@ -305,14 +308,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Z1e-Rq-Ewq" firstAttribute="leading" secondItem="ZLv-VL-aeM" secondAttribute="leadingMargin" constant="135" id="0Ia-8D-edt"/>
-                            <constraint firstItem="HKH-yQ-Gdw" firstAttribute="top" secondItem="kcU-Zh-rcz" secondAttribute="bottom" constant="8" id="A0o-Lc-Lv6"/>
-                            <constraint firstItem="HKH-yQ-Gdw" firstAttribute="centerX" secondItem="kcU-Zh-rcz" secondAttribute="centerX" id="Fc3-t7-zSS"/>
+                            <constraint firstItem="HKH-yQ-Gdw" firstAttribute="leading" secondItem="z4C-G4-FWF" secondAttribute="trailing" constant="3" id="GNi-JT-6YK"/>
                             <constraint firstItem="2II-mf-Tpn" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="NRP-b1-Bge"/>
+                            <constraint firstItem="HKH-yQ-Gdw" firstAttribute="leading" secondItem="z4C-G4-FWF" secondAttribute="trailing" constant="3" id="TeK-2v-2t5"/>
                             <constraint firstItem="kcU-Zh-rcz" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="U3L-zA-Z7s"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="z4C-G4-FWF" secondAttribute="leading" id="ayv-sT-fhE"/>
                             <constraint firstItem="tJf-Pw-h2p" firstAttribute="top" secondItem="z4C-G4-FWF" secondAttribute="bottom" constant="85" id="bk3-G9-RMJ"/>
                             <constraint firstItem="tjH-fs-4oY" firstAttribute="leading" secondItem="ZLv-VL-aeM" secondAttribute="leadingMargin" constant="135" id="huC-ZT-Q0q"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z4C-G4-FWF" secondAttribute="trailing" id="mjH-ub-bJQ"/>
                             <constraint firstItem="tJf-Pw-h2p" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="pcI-aM-w3n"/>
                             <constraint firstItem="z4C-G4-FWF" firstAttribute="centerX" secondItem="ZLv-VL-aeM" secondAttribute="centerX" id="wRj-M5-xCg"/>
                         </constraints>
@@ -332,12 +333,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pe-al-Dmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3892" y="-1788"/>
+            <point key="canvasLocation" x="3891.5" y="-1788.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RkN-7k-nom">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zO9-8A-X09" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="InstructionsViewController" id="UjJ-V2-2Fu" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gFz-7k-woW"/>
@@ -358,6 +358,7 @@
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="100" height="100"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zO9-8A-X09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4538" y="-1784"/>
         </scene>
