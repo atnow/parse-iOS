@@ -43,16 +43,18 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let baseColor = designHelper.baseColor
         acceptButton.layer.cornerRadius = 0.5 * acceptButton.bounds.size.width
         acceptButton.layer.borderWidth = 2
-        acceptButton.layer.borderColor = UIColor.cyanColor().CGColor
+        acceptButton.layer.borderColor = baseColor.CGColor
+        acceptButton.setTitleColor(baseColor, forState: .Normal)
         acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
         acceptButton.titleLabel?.numberOfLines = 2
         acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
         designHelper.formatButton(cancelButton)
         cancelButton.layer.borderColor = UIColor.redColor().CGColor
+        cancelButton.hidden = true
         
         buttonImage.hidden = true
         buttonImage.layer.cornerRadius = 0.5*buttonImage.frame.size.width
@@ -71,15 +73,15 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 if((selectedTask!["confirmed"] as! Bool) == true){
                     currentState = .confirmed
                     acceptButton.enabled = false
-                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                 }
                 else{
                     currentState = .completed
-                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
-                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                     let accepterQuery = PFQuery(className:"_User")
                     accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                         (user: PFObject?, error: NSError?) -> Void in
@@ -96,10 +98,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             
             else if((selectedTask!["accepted"] as! Bool) == true ){
                 acceptButton.enabled = false
-                let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
-                acceptButton.layer.borderColor = color.CGColor
+                //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
+                //acceptButton.layer.borderColor = color.CGColor
                 acceptButton.setTitle("Task \r\n accepted", forState: UIControlState.Normal)
-                acceptButton.setTitleColor(color, forState: UIControlState.Normal)
+                //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
                 
                 buttonImage.hidden=false
                 let accepterQuery = PFQuery(className:"_User")
@@ -127,6 +129,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             }
             
             else{ //not accepted yet
+                cancelButton.hidden = false
                 acceptButton.enabled = false
                 currentState = .available
                 acceptButton.setTitle("Task \r\n" + "requested", forState: UIControlState.Normal)
@@ -141,25 +144,26 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 if((selectedTask!["confirmed"] as! Bool) == true){
                     currentState = .confirmed
                     acceptButton.enabled = false
-                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                 }
                 
                 else if((selectedTask!["completed"] as! Bool) == true){
                     currentState = .completed
                     acceptButton.enabled = false
-                    let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
-                    acceptButton.layer.borderColor = color.CGColor
+                    //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
+                    //acceptButton.layer.borderColor = color.CGColor
                     acceptButton.setTitle("Waiting \r\n for confirmation", forState: UIControlState.Normal)
-                    acceptButton.setTitleColor(color, forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
 
                 }
                 else{
+                    cancelButton.hidden = false
                     currentState = .accepted
                     acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
-                    acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
-                    acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     currentState = .accepted
                 }
             }
