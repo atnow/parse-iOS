@@ -189,6 +189,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         } else {
             taskLocationLabel.text = expiration
         }
+        taskLocationLabel.adjustsFontSizeToFitWidth=true
         
         let query = PFQuery(className:"_User")
         query.includeKey("rating")
