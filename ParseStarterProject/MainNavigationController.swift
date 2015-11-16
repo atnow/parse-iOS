@@ -20,7 +20,7 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.navigationBar.backgroundColor = designHelper.baseColor
+       // self.navigationBar.backvarundColor = designHelper.baseColor
         let barColor = designHelper.baseColor.colorWithAlphaComponent(0.1)
         self.navigationBar.barTintColor = barColor
     }
@@ -40,7 +40,8 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         pictureSelectedObserver = center.addObserverForName(MenuViewController.Notifications.PictureSelected, object: nil, queue: nil) { (notification: NSNotification!) in
-            let hvc = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
+            let hvc = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
+            hvc.fromMenu = true
             self.setViewControllers([hvc], animated: false)
             
         }
