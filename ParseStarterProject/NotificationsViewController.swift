@@ -41,6 +41,7 @@ class NotificationsViewController: PFQueryTableViewController  {
         
         query.whereKey("owner", equalTo: PFUser.currentUser()!)
         query.includeKey("task")
+        query.orderByDescending("createdAt")
 
         
         return query
@@ -80,11 +81,11 @@ class NotificationsViewController: PFQueryTableViewController  {
                             switch object["type"] as! String{
                                 
                             case "claimed":
-                                description = "Your task " + taskName + " was claimed by " + acceptName
+                                description = "Your task \"" + taskName + "\" was claimed by " + acceptName
                             case "completed":
-                                description = "Your task " + taskName + " was completed by " + acceptName
+                                description = "Your task \"" + taskName + "\" was completed by " + acceptName
                             case "confirmed":
-                                description = requestName + " confirmed your completion of " + taskName
+                                description = requestName + " confirmed your completion of \"" + taskName + "\""
                             default:
                                 description = " "
                                 
