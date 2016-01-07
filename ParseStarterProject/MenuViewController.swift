@@ -61,7 +61,7 @@ class MenuViewController: UITableViewController{
         let mercuryColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         self.tableView.backgroundColor = mercuryColor
         let user = PFUser.currentUser()
-        if (self.user != nil){
+        if (self.user?.username != nil){
             let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
             if(imageFromParse != nil){
                 imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
