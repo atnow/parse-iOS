@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import Venmo_iOS_SDK
 
 class HomeViewController : PFQueryTableViewController {
     
@@ -104,6 +105,33 @@ class HomeViewController : PFQueryTableViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
+    
+        Venmo.sharedInstance().defaultTransactionMethod = VENTransactionMethod.API
+//        
+//        Venmo.sharedInstance().requestPermissions(["make_payments", "access_profile"]) { (success, error) -> Void in
+//            if (success){
+//
+//            }
+//            else{
+//                
+//            }
+//        }
+        
+//        Venmo.sharedInstance().sendPaymentTo("3039479387", amount: 10, note: "Testing", completionHandler: { (transaction, success, error) -> Void in
+//            if(success){
+//                print(":)")
+//            }
+//            else{
+//                print(error)
+//            }
+//        })
+        
+        let user = PFUser.currentUser()!
+        
+//        user["venmoPhoneNumber"] = Venmo.sharedInstance().session.user.primaryPhone
+        user["venmoAccessToken"] = Venmo.sharedInstance().session.accessToken
+        
+        user.saveInBackground()
     }
 
 
