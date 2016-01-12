@@ -11,6 +11,8 @@ import UIKit
 
 import Parse
 
+import Venmo_iOS_SDK
+
 // If you want to use any of the UI components, uncomment this line
 import ParseUI
 
@@ -45,6 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ****************************************************************************
 
         //PFUser.enableAutomaticUser()
+
+//                
+//        [Venmo startWithAppId:@"VENMO_APP_ID" secret:@"VENMO_APP_SECRET" name:@"VENMO_APP_NAME"];
+        
+        Venmo.startWithAppId("3411", secret:"LVEekVZUCTYjaDJkTqfq9rbj9F5hdEwG", name:"Atnow")
 
         let defaultACL = PFACL();
 
@@ -129,6 +136,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
         }
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if Venmo.sharedInstance().handleOpenURL(url){
+            return true;
+        }
+        return false;
     }
 
     ///////////////////////////////////////////////////////////
