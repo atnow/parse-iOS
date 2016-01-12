@@ -126,6 +126,12 @@ class HomeViewController : PFQueryTableViewController {
 //            }
 //        })
         
+        let user = PFUser.currentUser()!
+        
+//        user["venmoPhoneNumber"] = Venmo.sharedInstance().session.user.primaryPhone
+        user["venmoAccessToken"] = Venmo.sharedInstance().session.accessToken
+        
+        user.saveInBackground()
     }
 
 
