@@ -263,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="3883.5" y="-2554.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Pay View Controller-->
         <scene sceneID="KKm-gZ-rPl">
             <objects>
-                <viewController id="KjD-Vj-guX" sceneMemberID="viewController">
+                <viewController id="KjD-Vj-guX" customClass="PayViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OUc-AI-gce"/>
                         <viewControllerLayoutGuide type="bottom" id="rPz-tN-slk"/>

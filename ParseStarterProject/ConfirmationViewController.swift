@@ -326,7 +326,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     }
     
     func rate(){
-        
+        let transitionDelegate = TransitioningDelegate()
+        let vc = PayViewController()
+        vc.transitioningDelegate = transitionDelegate
+        presentViewController(vc, animated: true, completion: nil)
         
     }
     
@@ -452,6 +455,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 self.presentViewController(errorAlertController, animated: true) {}
             }
             else{
+                self.rate()
                 /*let successController = UIAlertController(title: "Thank you!", message: "The payment has been made", preferredStyle: .Alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
