@@ -1,0 +1,6 @@
+framework module Pods_atnow_iOS {
+  umbrella header "Pods-atnow-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
