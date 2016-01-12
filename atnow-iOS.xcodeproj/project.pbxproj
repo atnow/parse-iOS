@@ -41,6 +41,8 @@
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
+		C0B167471C4599B100BC045C /* ModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B167461C4599B100BC045C /* ModalPresentationController.swift */; };
+		C0B167491C459C3400BC045C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B167481C459C3400BC045C /* PayViewController.swift */; };
 		C0DE8EE61C458B5F00714EFB /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C0B167461C4599B100BC045C /* ModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationController.swift; sourceTree = "<group>"; };
+		C0B167481C459C3400BC045C /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		DEAFF6623AAA449D05092E4E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3293BF138AA72421D44702E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +145,8 @@
 				B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */,
 				B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */,
 				B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */,
+				C0B167461C4599B100BC045C /* ModalPresentationController.swift */,
+				C0B167481C459C3400BC045C /* PayViewController.swift */,
 				B567DF721BEC0FBC00F31E6D /* SampleData.swift */,
 				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
@@ -337,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */,
+				C0B167491C459C3400BC045C /* PayViewController.swift in Sources */,
 				C0DE8EE61C458B5F00714EFB /* (null) in Sources */,
 				B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */,
 				B52E93491BF8303E00B373D3 /* tabBarControllerViewController.swift in Sources */,
@@ -347,6 +354,7 @@
 				C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */,
 				B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */,
 				B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */,
+				C0B167471C4599B100BC045C /* ModalPresentationController.swift in Sources */,
 				B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */,
 				B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */,
 				B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */,
