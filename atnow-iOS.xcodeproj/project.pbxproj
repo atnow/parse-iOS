@@ -40,6 +40,7 @@
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
+		C0DE8EE61C458B5F00714EFB /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE8EE51C458B5F00714EFB /* PayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C0DE8EE51C458B5F00714EFB /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */,
 				B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */,
 				B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */,
+				C0DE8EE51C458B5F00714EFB /* PayViewController.swift */,
 				B567DF791BEC0FBC00F31E6D /* Task.swift */,
 				B567DF7A1BEC0FBC00F31E6D /* User.swift */,
 				B567DF691BEC0FB300F31E6D /* MenuViewController.swift */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */,
+				C0DE8EE61C458B5F00714EFB /* PayViewController.swift in Sources */,
 				B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */,
 				B52E93491BF8303E00B373D3 /* tabBarControllerViewController.swift in Sources */,
 				B567DF831BEC0FBC00F31E6D /* User.swift in Sources */,
@@ -392,7 +396,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "";
@@ -413,7 +417,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "";

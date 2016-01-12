@@ -80,9 +80,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 }
                 else{
                     currentState = .completed
-                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
-                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    cancelButton.setTitle("Report", forState: UIControlState.Normal)
+                    cancelButton.hidden = false
                     let accepterQuery = PFQuery(className:"_User")
                     accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                         (user: PFObject?, error: NSError?) -> Void in
@@ -325,6 +325,77 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
    
     }
     
+    func rate(){
+        
+        
+    }
+    
+    func report(){
+        
+        let reporter : PFUser?
+        let offender : PFUser?
+        if(myTask){
+            reporter = requester
+            offender = accepter
+            
+        }
+        else{
+            reporter = accepter
+            offender = requester
+        }
+        
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Report " + "\(offender!["fullName"])", message: "Enter your claim here", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            //textField.text = "Some default text."
+        })
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Report", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            //print("Text field: \(textField.text)")
+            
+            let newReport = PFObject(className: "Report")
+            newReport["dealtWith"] = false
+            newReport["detail"] = textField.text
+            newReport["offender"] = offender
+            newReport["reporter"] = reporter
+            newReport["Task"] = self.selectedTask
+            
+            newReport.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if(success){
+                    let submittedAlertController = UIAlertController(title: "Response Submitted", message: "Thank you for your report. We are looking into it and will get back to you shortly", preferredStyle: .Alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                        
+                    }
+                    submittedAlertController.addAction(OKAction)
+                    self.presentViewController(submittedAlertController, animated: true){}
+    
+                }
+                    
+                else{
+                    //Issue saving report
+                    let errorAlertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+                    
+                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    }
+                    errorAlertController.addAction(OKAction)
+                    self.presentViewController(errorAlertController, animated: true) {}
+                }
+            })
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in
+            
+        }))
+        
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
     func completeTask(){
         
         selectedTask!["completed"] = true
@@ -381,7 +452,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 self.presentViewController(errorAlertController, animated: true) {}
             }
             else{
-                let successController = UIAlertController(title: "Thank you!", message: "The payment has been made", preferredStyle: .Alert)
+                /*let successController = UIAlertController(title: "Thank you!", message: "The payment has been made", preferredStyle: .Alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -401,7 +472,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     })
                 }
                 successController.addAction(OKAction)
-                self.presentViewController(successController, animated: true){}
+                self.presentViewController(successController, animated: true){}*/
             }
         })
     }
@@ -439,7 +510,12 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     
     @IBAction func cancelButtonAction(sender: UIButton) {
         if(myTask){
-            cancelTask()
+            switch currentState{
+            case stateType.completed:
+                report()
+            default:
+                cancelTask()
+            }
         }
         else{
             unacceptTask()
