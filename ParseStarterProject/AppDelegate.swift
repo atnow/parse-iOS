@@ -47,22 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ****************************************************************************
 
         //PFUser.enableAutomaticUser()
-
-//                
-//        [Venmo startWithAppId:@"VENMO_APP_ID" secret:@"VENMO_APP_SECRET" name:@"VENMO_APP_NAME"];
         
         Venmo.startWithAppId("3411", secret:"LVEekVZUCTYjaDJkTqfq9rbj9F5hdEwG", name:"Atnow")
         
-//        [[Venmo sharedInstance] requestPermissions:@[VENPermissionMakePayments,
-//        VENPermissionAccessProfile]
-//        withCompletionHandler:^(BOOL success, NSError *error) {
-//            if (success) {
-//                // :)
-//            }
-//            else {
-//                // :(
-//            }
-//        }];
         
 
         let defaultACL = PFACL();

@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Venmo_iOS_SDK
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -17,9 +18,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var starRatings: FloatRatingView!
     
-    @IBOutlet weak var editButton: UIButton!
-    
     @IBOutlet weak var logoutButton: UIButton!
+    
+    @IBOutlet weak var venmoSwitch: UISwitch!
     
     let designHelper = DesignHelper()
     
@@ -71,14 +72,50 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
 
         designHelper.formatButton(logoutButton)
-        designHelper.formatButton(editButton)
         designHelper.formatPicture(profilePicture)
         
     }
     
-    @IBAction func editProfile(sender: AnyObject) {
+    @IBAction func onSwitch(sender: UISwitch) {
         
+        if(venmoSwitch.on) {
+            //  Venmo permission requests
+            //  Only happens if the user hasn't already authorized Venmo
+            //if(!Venmo.sharedInstance().isSessionValid()){
+                Venmo.sharedInstance().requestPermissions(["make_payments", "access_profile", "phone_number"]) { (success, error) -> Void in
+                    if (success){
+                        let successAlertController = UIAlertController(title: "Success!", message: "All future transactions will go through venmo", preferredStyle: .Alert)
+                        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.navigationController?.popViewControllerAnimated(true)
+                            })
+                        }
+                        successAlertController.addAction(OKAction)
+                        
+                        // Save venmo information in Parse
+                        
+  //                      self.user!["venmoPhoneNumber"] = Venmo.sharedInstance().session.user.primaryPhone
+                        self.user!["venmoAccessToken"] = Venmo.sharedInstance().session.accessToken
+                        self.user!.saveInBackground()
+                        
+                        self.presentViewController(successAlertController, animated: true) {}
+                    }
+                    else{
+                        let errorAlertController = UIAlertController(title: "Oops!", message: "Something went wrong while authorizing venmo. Please try again later.", preferredStyle: .Alert)
+                        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.navigationController?.popViewControllerAnimated(true)
+                            })
+                        }
+                        errorAlertController.addAction(OKAction)
+                        self.presentViewController(errorAlertController, animated: true) {}
+                    }
+                }
+            //}
+        }
     }
+
+    
     
     @IBAction func changeProfilePicture(sender: UIButton) {
         let profileChangeMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
