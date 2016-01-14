@@ -326,10 +326,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     }
     
     func rate(){
-        let transitionDelegate = TransitioningDelegate()
-        let vc = PayViewController()
-        vc.transitioningDelegate = transitionDelegate
-        presentViewController(vc, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let payViewController: PayViewController = storyboard.instantiateViewControllerWithIdentifier("PayViewController") as! PayViewController
+        self.navigationController?.pushViewController(payViewController, animated: false);
+
         
     }
     
@@ -441,8 +441,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     }
     
     func confirmTask(){
-        
-        selectedTask!["confirmed"] = true
+        self.rate()
+        /*selectedTask!["confirmed"] = true
         selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
             if(!succeeded){
                 let errorAlertController = UIAlertController(title: "Oops!", message: "Something went wrong", preferredStyle: .Alert)
@@ -478,7 +478,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 successController.addAction(OKAction)
                 self.presentViewController(successController, animated: true){}*/
             }
-        })
+        })*/
     }
 
     
