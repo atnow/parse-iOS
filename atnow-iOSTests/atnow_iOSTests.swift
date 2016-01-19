@@ -13,19 +13,20 @@ import ParseUI
 
 class atnow_iOSTests: XCTestCase {
     
+    let user = PFUser()
+    let task = PFObject(className: "Task")
+
     override func setUp() {
-        super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let user = PFUser()
-        user.email = "Test User"
+        super.setUp()
+        
+        user.email = "test@dartmouth.edu"
         user.password = "password"
         
         PFUser.logInWithUsernameInBackground(user.email!, password: user.password!, block: { (user, error) -> Void in
             
         })
         
-        
-        let task = PFObject(className: "Task")
         task["title"] = "Test Task"
         task["description"] = "Test Description"
         task["expiration"] = NSDate(timeIntervalSinceNow: 1000)
@@ -35,13 +36,21 @@ class atnow_iOSTests: XCTestCase {
         task["accepted"] = false
         task["completed"] = false
         task["confirmed"] = false
-        
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+    
+    func testPostTask(){
+        task.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+            XCTAssert(succeeded)
+            print("Hello")
+        }
+    }
+    
+    
     
     func testExample() {
         // This is an example of a functional test case.
