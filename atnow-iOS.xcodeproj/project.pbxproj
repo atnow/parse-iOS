@@ -19,6 +19,7 @@
 		B52E93491BF8303E00B373D3 /* tabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */; };
 		B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */; };
 		B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */; };
+		B5474A521C4EB3C000E55194 /* atnow_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */; };
 		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; };
 		B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; };
 		B55888A01BEE989900ACF3A5 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */; };
@@ -38,12 +39,23 @@
 		B567DF821BEC0FBC00F31E6D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF791BEC0FBC00F31E6D /* Task.swift */; };
 		B567DF831BEC0FBC00F31E6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF7A1BEC0FBC00F31E6D /* User.swift */; };
 		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; };
+		B5BE29F41C4EBDF800F8340A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; };
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
 		C0B167491C459C3400BC045C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B167481C459C3400BC045C /* PayViewController.swift */; };
 		C0DE8EE61C458B5F00714EFB /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B5474A541C4EB3C000E55194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81BA813D1A49DA1800E65899 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81BA81441A49DA1800E65899;
+			remoteInfo = "atnow-iOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		319BCD9A1D9C9C4C72A0B82F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +72,9 @@
 		B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tabBarControllerViewController.swift; path = ../tabBarControllerViewController.swift; sourceTree = "<group>"; };
 		B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTasksNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTasksNavigationControllerViewController.swift; sourceTree = "<group>"; };
+		B5474A4F1C4EB3BF00E55194 /* atnow-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "atnow-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSTests.swift; sourceTree = "<group>"; };
+		B5474A531C4EB3C000E55194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
 		B558889E1BEE987E00ACF3A5 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -105,6 +120,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5474A4C1C4EB3BF00E55194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5BE29F41C4EBDF800F8340A /* ParseUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,6 +145,7 @@
 			children = (
 				81BA81471A49DA1800E65899 /* ParseStarterProject */,
 				814C3AC51B69877600E307BB /* Resources */,
+				B5474A501C4EB3C000E55194 /* atnow-iOSTests */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
 				81BA81461A49DA1800E65899 /* Products */,
 				A8095DDC4BC52056CB612230 /* Pods */,
@@ -132,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				81BA81451A49DA1800E65899 /* atnow-iOS.app */,
+				B5474A4F1C4EB3BF00E55194 /* atnow-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +227,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B5474A501C4EB3C000E55194 /* atnow-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */,
+				B5474A531C4EB3C000E55194 /* Info.plist */,
+			);
+			path = "atnow-iOSTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -226,19 +260,41 @@
 			productReference = 81BA81451A49DA1800E65899 /* atnow-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B5474A4E1C4EB3BF00E55194 /* atnow-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5474A581C4EB3C000E55194 /* Build configuration list for PBXNativeTarget "atnow-iOSTests" */;
+			buildPhases = (
+				B5474A4B1C4EB3BF00E55194 /* Sources */,
+				B5474A4C1C4EB3BF00E55194 /* Frameworks */,
+				B5474A4D1C4EB3BF00E55194 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5474A551C4EB3C000E55194 /* PBXTargetDependency */,
+			);
+			name = "atnow-iOSTests";
+			productName = "atnow-iOSTests";
+			productReference = B5474A4F1C4EB3BF00E55194 /* atnow-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		81BA813D1A49DA1800E65899 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Parse;
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 7XFNV3AD43;
+					};
+					B5474A4E1C4EB3BF00E55194 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 81BA81441A49DA1800E65899;
 					};
 				};
 			};
@@ -256,6 +312,7 @@
 			projectRoot = "";
 			targets = (
 				81BA81441A49DA1800E65899 /* atnow-iOS */,
+				B5474A4E1C4EB3BF00E55194 /* atnow-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -267,6 +324,13 @@
 			files = (
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				B567DF7D1BEC0FBC00F31E6D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5474A4D1C4EB3BF00E55194 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +431,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5474A4B1C4EB3BF00E55194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5474A521C4EB3C000E55194 /* atnow_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5474A551C4EB3C000E55194 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81BA81441A49DA1800E65899 /* atnow-iOS */;
+			targetProxy = B5474A541C4EB3C000E55194 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		81BA81621A49DA1800E65899 /* Debug */ = {
@@ -390,6 +470,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -434,6 +515,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -493,6 +575,47 @@
 			};
 			name = Release;
 		};
+		B5474A561C4EB3C000E55194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 319BCD9A1D9C9C4C72A0B82F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "atnow-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "test.atnow-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/atnow-iOS.app/atnow-iOS";
+			};
+			name = Debug;
+		};
+		B5474A571C4EB3C000E55194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "atnow-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "test.atnow-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/atnow-iOS.app/atnow-iOS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -510,6 +633,15 @@
 			buildConfigurations = (
 				81BA81651A49DA1800E65899 /* Debug */,
 				81BA81661A49DA1800E65899 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5474A581C4EB3C000E55194 /* Build configuration list for PBXNativeTarget "atnow-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5474A561C4EB3C000E55194 /* Debug */,
+				B5474A571C4EB3C000E55194 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
