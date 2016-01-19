@@ -37,6 +37,11 @@
                BlueprintName = "atnow-iOSTests"
                ReferencedContainer = "container:atnow-iOS.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "atnow_iOSTests/unspecifiedMethod_-[atnow_iOSTests (null)]()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
