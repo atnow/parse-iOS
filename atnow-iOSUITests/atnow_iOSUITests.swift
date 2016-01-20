@@ -31,7 +31,6 @@ class atnow_iOSUITests: XCTestCase {
         
         let passwordSecureTextField = app.secureTextFields["password"]
         passwordSecureTextField.tap()
-        passwordSecureTextField.tap()
         passwordSecureTextField.typeText("password")
         app.buttons["Login"].tap()
         
@@ -44,7 +43,30 @@ class atnow_iOSUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testUserLogin() {
+    func testCreateTask() {
+        
+        let app = XCUIApplication()
+        app.navigationBars["Current Tasks"].buttons["Compose"].tap()
+        
+        let descriptionTextField = app.textFields["Description"]
+        descriptionTextField.tap()
+        descriptionTextField.typeText("Test Task")
+        
+        let paymentAmountTextField = app.textFields["Payment amount ($)"]
+        paymentAmountTextField.tap()
+        paymentAmountTextField.tap()
+        paymentAmountTextField.typeText("5")
+        
+        let deliveryLocationOptionalTextField = app.textFields["Delivery location (optional)"]
+        deliveryLocationOptionalTextField.tap()
+        deliveryLocationOptionalTextField.tap()
+        deliveryLocationOptionalTextField.typeText("Test Location")
+        app.datePickers.pickerWheels["Today"].tap()
+        app.buttons["Submit"].tap()
+        app.alerts["Success!"].collectionViews.buttons["OK"].tap()
+        
+        
+
         
         
         
