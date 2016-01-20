@@ -43,6 +43,16 @@
                </Test>
             </SkippedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5BA61371C50222000BA87BA"
+               BuildableName = "atnow-iOSUITests.xctest"
+               BlueprintName = "atnow-iOSUITests"
+               ReferencedContainer = "container:atnow-iOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
