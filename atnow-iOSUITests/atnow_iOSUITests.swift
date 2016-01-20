@@ -22,8 +22,6 @@ class atnow_iOSUITests: XCTestCase {
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-        PFUser.logOut()
-        
         
         let app = XCUIApplication()
         let dartmouthEduEmailTextField = app.textFields["dartmouth.edu email"]
