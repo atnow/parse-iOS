@@ -66,6 +66,7 @@ class PayViewController: UIViewController {
                 }
             }
         }
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     
