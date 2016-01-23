@@ -13,22 +13,18 @@ import Venmo_iOS_SDK
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profilePicture: UIImageView!
-    
     @IBOutlet weak var userFullNameLabel: UILabel!
-    
     @IBOutlet weak var starRatings: FloatRatingView!
-    
     @IBOutlet weak var logoutButton: UIButton!
-    
     @IBOutlet weak var venmoSwitch: UISwitch!
+    @IBOutlet weak var changePictureButton: UIButton!
+    @IBOutlet weak var venmoLabel: UIImageView!
     
     let designHelper = DesignHelper()
-    
     let imagePicker = UIImagePickerController()
-    
     var user : PFUser? = PFUser()
-    
     var fromMenu = false
+    var isOwnProfile : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +38,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         imagePicker.delegate = self
         PFUser.currentUser()?.fetchInBackgroundWithBlock({ (response, error) -> Void in })
-        if user?.username==nil{
+        if user?.username==nil || user?.username == PFUser.currentUser()?.username{
             user = PFUser.currentUser()
+            isOwnProfile = true
         }
         
         let query = PFQuery(className: "_User")
@@ -63,7 +60,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                             self.profilePicture.image = image
                         })
                     }
-                    
                 }
 
             } else{
@@ -73,6 +69,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         designHelper.formatButton(logoutButton)
         designHelper.formatPicture(profilePicture)
+        
+        if(!isOwnProfile){
+            logoutButton.hidden = true
+            venmoSwitch.hidden = true
+            changePictureButton.hidden = true
+            venmoLabel.hidden = true
+        }
         
     }
     
