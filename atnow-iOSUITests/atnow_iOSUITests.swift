@@ -64,11 +64,28 @@ class atnow_iOSUITests: XCTestCase {
         app.datePickers.pickerWheels["Today"].tap()
         app.buttons["Submit"].tap()
         app.alerts["Success!"].collectionViews.buttons["OK"].tap()
-        
-        
+   
         
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testDeleteTask(){
+
+        let app = XCUIApplication()
+        app.tabBars.buttons["My Tasks"].tap()
+        app.tables.staticTexts["15d 23h 50m"].tap()
+        app.buttons["Delete Task"].tap()
+        app.alerts["Are you sure?"].collectionViews.buttons["OK"].tap()
+        
+    }
+    
+    func testLogoutFromProfile(){
+        
+        let app = XCUIApplication()
+        app.navigationBars["My Tasks"].buttons["reveal icon"].tap()
+        app.tables.containingType(.Image, identifier:"User Icon").element.tap()
+        app.buttons["Sign Out"].tap()
     }
     
 }

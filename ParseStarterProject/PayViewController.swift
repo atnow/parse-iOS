@@ -7,12 +7,70 @@
 //
 
 import UIKit
+import Parse
 
 class PayViewController: UIViewController {
     
+    var user : PFUser?
+    var task : PFObject?
+    var image : UIImage!
     
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var taskTitleLabel: UILabel!
+    
+    @IBOutlet weak var floatRatingView: FloatRatingView!
+    
+    @IBOutlet weak var costLabel: UILabel!
 
+    
+    @IBOutlet weak var extraTextField: UITextField!
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /*set up known info*/
+        //picture
+        profileImageView.layer.cornerRadius = 0.5 * self.profileImageView.frame.size.width
+        profileImageView.clipsToBounds = true
+        profileImageView.image = image
+        
+        //name
+        nameLabel.text = user!["fullName"] as? String
+        
+        //task
+        taskTitleLabel.text = "For task \"" + (task!["title"] as? String)! + "\""
+        costLabel.text = "$" + "\(task!["price"] as!  NSNumber)"
+        
+        
+    }
+    
+    
+    
+    @IBAction func submitPressed(sender: UIButton) {
+        let rating = user!["rating"] as! PFObject
+        
+        rating.fetchInBackgroundWithBlock { (existingRating, error) -> Void in
+            if(error==nil){
+                let count = Float(existingRating!["ratingCount"] as! NSNumber)
+                let newScore = (Float(existingRating!["rating"] as! NSNumber)*count + self.floatRatingView.rating)/(count+1) as NSNumber
+                rating["rating"] = newScore
+                rating["ratingCount"] = (count+1)
+                rating.saveInBackgroundWithBlock { (success, error) -> Void in
+                    
+                }
+            }
+        }
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

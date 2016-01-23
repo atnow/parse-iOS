@@ -328,6 +328,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     func rate(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let payViewController: PayViewController = storyboard.instantiateViewControllerWithIdentifier("PayViewController") as! PayViewController
+        payViewController.user = accepter
+        payViewController.task = selectedTask
+        payViewController.image = buttonImage.image
         self.navigationController?.pushViewController(payViewController, animated: false);
 
         
