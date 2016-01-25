@@ -60,33 +60,42 @@ class MenuViewController: UITableViewController{
         
         let mercuryColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         self.tableView.backgroundColor = mercuryColor
-        let user = PFUser.currentUser()
-        if (self.user?.username != nil){
-            let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
-            if(imageFromParse != nil){
-                imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                    let image: UIImage! = UIImage(data: imageData!)!
-                    self.profileImageView.image = image
-                })
+        PFUser.currentUser()?.fetchInBackgroundWithBlock({ (user, error) -> Void in
+            if((error) != nil){
+                print(error)
             }
-            fullNameLabel.text = user!["fullName"] as? String
-            emailAddress.text = user!.email as String!
-            emailAddress.textColor = designHelper.baseColor
-            
-            let query = PFQuery(className: "_User")
-            query.includeKey("rating")
-            query.getObjectInBackgroundWithId((user?.objectId)!) { (result, error) -> Void in
-                if error==nil{
-                    self.user = result as? PFUser
-                    if user?["rating"] != nil {
-                        self.starLabel.rating = self.user!["rating"]["rating"] as! Float!
+            else{
+                let user = PFUser.currentUser()
+                if (self.user?.username != nil){
+                    let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+                    if(imageFromParse != nil){
+                        imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                            let image: UIImage! = UIImage(data: imageData!)!
+                            self.profileImageView.image = image
+                        })
                     }
+                    print(user!["fullName"])
+                    self.fullNameLabel.text = user!["fullName"] as? String
+                    self.emailAddress.text = user!.email as String!
+                    self.emailAddress.textColor = self.designHelper.baseColor
                     
-                } else{
-                    print(error)
+                    let query = PFQuery(className: "_User")
+                    query.includeKey("rating")
+                    query.getObjectInBackgroundWithId((user?.objectId)!) { (result, error) -> Void in
+                        if error==nil{
+                            self.user = result as? PFUser
+                            if user?["rating"] != nil {
+                                self.starLabel.rating = self.user!["rating"]["rating"] as! Float!
+                            }
+                            
+                        } else{
+                            print(error)
+                        }
+                    }
                 }
             }
-        }
+        })
+
 
         designHelper.formatPicture(profileImageView)
         homeLabel.textColor = designHelper.baseColor

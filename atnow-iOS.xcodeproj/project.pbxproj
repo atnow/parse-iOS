@@ -41,6 +41,7 @@
 		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; };
 		B5BA613B1C50222000BA87BA /* atnow_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */; };
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; };
+		B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C02DEB611C4ED873004A5190 /* atnowUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DEB601C4ED873004A5190 /* atnowUserTest.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
@@ -107,6 +108,7 @@
 		B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSUITests.swift; sourceTree = "<group>"; };
 		B5BA613C1C50222000BA87BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
+		B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C02DEB601C4ED873004A5190 /* atnowUserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = atnowUserTest.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				B567DF721BEC0FBC00F31E6D /* SampleData.swift */,
 				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
+				B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */,
 				C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */,
 				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
 				B567DF761BEC0FBC00F31E6D /* MainViewController.swift */,
@@ -473,6 +476,7 @@
 				B567DF7B1BEC0FBC00F31E6D /* SampleData.swift in Sources */,
 				B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */,
 				C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */,
+				B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */,
 				B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */,
 				B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */,
 				B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */,
