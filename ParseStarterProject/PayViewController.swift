@@ -66,7 +66,14 @@ class PayViewController: UIViewController {
                 }
             }
         }
-        self.navigationController?.popViewControllerAnimated(true)
+        task!["confirmed"] = true
+        task?.saveInBackgroundWithBlock({ (success, error) -> Void in
+            if(success){
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        })
+        
+        
     }
     
     

@@ -445,46 +445,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     
     func confirmTask(){
         self.rate()
-        /*selectedTask!["confirmed"] = true
-        selectedTask?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
-            if(!succeeded){
-                let errorAlertController = UIAlertController(title: "Oops!", message: "Something went wrong", preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.navigationController?.popViewControllerAnimated(true)
-                    })
-                }
-                errorAlertController.addAction(OKAction)
-                self.presentViewController(errorAlertController, animated: true) {}
-            }
-            else{
-                self.rate()
-                /*let successController = UIAlertController(title: "Thank you!", message: "The payment has been made", preferredStyle: .Alert)
-                
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let notification = PFObject(className:"Notification")
-                        notification["owner"] = self.accepter
-                        notification["type"] = "confirmed"
-                        notification["isRead"] = false
-                        notification["task"] = self.selectedTask
-                        notification.saveInBackgroundWithBlock { (object, error) -> Void in
-                            if (error != nil){
-                                print(error)
-                                
-                            }
-                        }
 
-                        self.navigationController?.popViewControllerAnimated(true)
-                    })
-                }
-                successController.addAction(OKAction)
-                self.presentViewController(successController, animated: true){}*/
-            }
-        })*/
     }
 
-    
     
     @IBAction func infoAction(sender: UIButton) {
         
