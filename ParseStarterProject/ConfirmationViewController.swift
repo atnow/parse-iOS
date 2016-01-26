@@ -23,8 +23,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         case accepted
         case completed
         case confirmed
-
-        
     }
     
     
@@ -519,6 +517,19 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     func setConfirmed() {
         currentState = stateType.confirmed
         cancelButton.hidden = true
+        let notification = PFObject(className:"Notification")
+        notification["owner"] = self.accepter
+        notification["type"] = "confirmed"
+        notification["isRead"] = false
+        notification["task"] = self.selectedTask
+        notification.saveInBackgroundWithBlock { (object, error) -> Void in
+            if (error != nil){
+                print(error)
+                
+            }
+        }
+        
+    
     }
     /*
     // MARK: - Navigation
