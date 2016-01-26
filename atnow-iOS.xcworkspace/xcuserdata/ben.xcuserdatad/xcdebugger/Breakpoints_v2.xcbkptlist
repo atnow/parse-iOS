@@ -9,46 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ParseStarterProject/MenuViewController.swift"
-            timestampString = "475376829.938074"
+            filePath = "ParseStarterProject/AppDelegate.swift"
+            timestampString = "475464293.035918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "application(_:didRegisterForRemoteNotificationsWithDeviceToken:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "atnow_iOS.MenuViewController.viewDidLoad (atnow_iOS.MenuViewController)() -&gt; ()"
-                  moduleName = "atnow-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ben/cs98/parse-iOS/ParseStarterProject/MenuViewController.swift"
-                  timestampString = "475376836.58102"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "3436">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "atnow_iOS.MenuViewController.(viewDidLoad (atnow_iOS.MenuViewController) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "atnow-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ben/cs98/parse-iOS/ParseStarterProject/MenuViewController.swift"
-                  timestampString = "475376836.581204"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

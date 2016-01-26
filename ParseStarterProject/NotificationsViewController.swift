@@ -42,7 +42,6 @@ class NotificationsViewController: PFQueryTableViewController  {
         query.whereKey("owner", equalTo: PFUser.currentUser()!)
         query.includeKey("task")
         query.orderByDescending("createdAt")
-
         
         return query
     }
@@ -54,16 +53,15 @@ class NotificationsViewController: PFQueryTableViewController  {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "NotificationCell") as? PFTableViewCell
-            
         }
         
         // Configure the cell to show todo item with a priority at the bottom
         if let object = object {
-           // print(object)
+            // print(object)
             //            cell!.textLabel?.text = object["title"] as? String
             //            let priority = object["priority"] as? String
             //            cell!.detailTextLabel?.text = "Priority \(priority)"
-
+            
             if let descriptionLabel = cell!.viewWithTag(201) as? UILabel {
                 
                 let taskQuery = PFQuery(className: "Task")
@@ -72,7 +70,7 @@ class NotificationsViewController: PFQueryTableViewController  {
                     taskQuery.includeKey("requester")
                     taskQuery.getObjectInBackgroundWithId(task.objectId!!, block: { (updatedTask, error) -> Void in
                         if (error == nil){
-                   
+                            
                             let description : String
                             let taskName = updatedTask!["title"] as! String
                             let acceptName = updatedTask!["accepter"]["fullName"] as! String
@@ -89,18 +87,16 @@ class NotificationsViewController: PFQueryTableViewController  {
                             default:
                                 description = " "
                                 
-                                
                             }
                             descriptionLabel.text = "\(description)"
-                            
                         }
                         else{
                             print(error)
                         }
-
+                        
                     })
-               }
-
+                }
+                
             }
         }
         
@@ -119,9 +115,7 @@ class NotificationsViewController: PFQueryTableViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

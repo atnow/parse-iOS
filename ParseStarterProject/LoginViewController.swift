@@ -58,7 +58,7 @@ class LoginViewController: UIViewController{
                     self.presentViewController(emailAlertController, animated: true) {}
                     
                 }
-                
+
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
                 self.presentViewController(viewController, animated: true, completion: nil)
                 
