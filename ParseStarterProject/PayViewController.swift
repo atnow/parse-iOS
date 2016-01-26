@@ -15,6 +15,8 @@ class PayViewController: UIViewController {
     var task : PFObject?
     var image : UIImage!
     
+    var delegate : ConfirmationViewController?
+    
     
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -66,9 +68,11 @@ class PayViewController: UIViewController {
                 }
             }
         }
+        
         task!["confirmed"] = true
         task?.saveInBackgroundWithBlock({ (success, error) -> Void in
             if(success){
+                self.delegate?.setConfirmed()
                 self.navigationController?.popViewControllerAnimated(true)
             }
         })
@@ -89,3 +93,4 @@ class PayViewController: UIViewController {
     */
 
 }
+

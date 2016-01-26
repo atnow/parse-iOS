@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ConfirmationViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class ConfirmationViewController: UIViewController, UIPopoverPresentationControllerDelegate,PayViewControllerDelegate {
 
     var selectedTask : PFObject?
     var currentState = stateType.available
@@ -23,9 +23,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         case accepted
         case completed
         case confirmed
-//        case myTask
-//        case accepted
-//        case available
+
         
     }
     
@@ -65,114 +63,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         requesterPicture.layer.cornerRadius = 0.5 * self.requesterPicture.frame.size.width
         requesterPicture.clipsToBounds = true
         
-        if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
-            myTask = true
-            //currentState = .myTask
-            
-            if((selectedTask!["completed"] as! Bool) == true){
-                
-                if((selectedTask!["confirmed"] as! Bool) == true){
-                    currentState = .confirmed
-                    acceptButton.enabled = false
-                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
-                    acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
-                }
-                else{
-                    currentState = .completed
-                    acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
-                    cancelButton.setTitle("Report", forState: UIControlState.Normal)
-                    cancelButton.hidden = false
-                    let accepterQuery = PFQuery(className:"_User")
-                    accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
-                        (user: PFObject?, error: NSError?) -> Void in
-                        if error == nil {
-                            self.accepter = user as? PFUser
-                            
-                        } else {
-                            print(error)
-                        }
-                    }
-                }
-
-            }
-            
-            else if((selectedTask!["accepted"] as! Bool) == true ){
-                acceptButton.enabled = false
-                //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
-                //acceptButton.layer.borderColor = color.CGColor
-                acceptButton.setTitle("Task \r\n accepted", forState: UIControlState.Normal)
-                //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
-                
-                buttonImage.hidden=false
-                let accepterQuery = PFQuery(className:"_User")
-                accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
-                    (user: PFObject?, error: NSError?) -> Void in
-                    if error == nil {
-                        self.accepter = user as? PFUser
-                        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
-                        if(imageFromParse != nil){
-                            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                                let image: UIImage! = UIImage(data: imageData!)!
-                                self.buttonImage.image = image
-                            })
-                        }
-                        
-                    } else {
-                        print(error)
-                    }
-                }
-                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
-                buttonImage.tag = 2
-                buttonImage.addGestureRecognizer(recognizer)
-                
-                
-            }
-            
-            else{ //not accepted yet
-                cancelButton.hidden = false
-                acceptButton.enabled = false
-                currentState = .available
-                acceptButton.setTitle("Task \r\n" + "requested", forState: UIControlState.Normal)
-            }
-        }
-            
-        else if((selectedTask!["accepted"] as! Bool) == true){
-            myTask = false
-            cancelButton.setTitle("Decline Task", forState: .Normal)
-            if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
-                
-                if((selectedTask!["confirmed"] as! Bool) == true){
-                    currentState = .confirmed
-                    acceptButton.enabled = false
-                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
-                    acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
-                }
-                
-                else if((selectedTask!["completed"] as! Bool) == true){
-                    currentState = .completed
-                    acceptButton.enabled = false
-                    //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
-                    //acceptButton.layer.borderColor = color.CGColor
-                    acceptButton.setTitle("Waiting \r\n for confirmation", forState: UIControlState.Normal)
-                    //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
-
-                }
-                else{
-                    cancelButton.hidden = false
-                    currentState = .accepted
-                    acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
-                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
-                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
-                    currentState = .accepted
-                }
-            }
-        }
-        else{ //state is available
-            myTask = false
-            cancelButton.hidden = true
-        }
         
         titleLabel.adjustsFontSizeToFitWidth = true
         let priceNum = selectedTask!["price"] as! NSNumber
@@ -227,10 +117,117 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
+            myTask = true
+            //currentState = .myTask
+            
+            if((selectedTask!["completed"] as! Bool) == true){
+                
+                if((selectedTask!["confirmed"] as! Bool) == true){
+                    currentState = .confirmed
+                    acceptButton.enabled = false
+                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    acceptButton.setTitle("Complete", forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                }
+                else{
+                    currentState = .completed
+                    acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
+                    cancelButton.setTitle("Report", forState: UIControlState.Normal)
+                    cancelButton.hidden = false
+                    let accepterQuery = PFQuery(className:"_User")
+                    accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
+                        (user: PFObject?, error: NSError?) -> Void in
+                        if error == nil {
+                            self.accepter = user as? PFUser
+                            
+                        } else {
+                            print(error)
+                        }
+                    }
+                }
+                
+            }
+                
+            else if((selectedTask!["accepted"] as! Bool) == true ){
+                acceptButton.enabled = false
+                //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
+                //acceptButton.layer.borderColor = color.CGColor
+                acceptButton.setTitle("Task \r\n accepted", forState: UIControlState.Normal)
+                //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
+                
+                buttonImage.hidden=false
+                let accepterQuery = PFQuery(className:"_User")
+                accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
+                    (user: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        self.accepter = user as? PFUser
+                        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+                        if(imageFromParse != nil){
+                            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                                let image: UIImage! = UIImage(data: imageData!)!
+                                self.buttonImage.image = image
+                            })
+                        }
+                        
+                    } else {
+                        print(error)
+                    }
+                }
+                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
+                buttonImage.tag = 2
+                buttonImage.addGestureRecognizer(recognizer)
+                
+                
+            }
+                
+            else{ //not accepted yet
+                cancelButton.hidden = false
+                acceptButton.enabled = false
+                currentState = .available
+                acceptButton.setTitle("Task \r\n" + "requested", forState: UIControlState.Normal)
+            }
+        }
+            
+        else if((selectedTask!["accepted"] as! Bool) == true){
+            myTask = false
+            cancelButton.setTitle("Decline Task", forState: .Normal)
+            if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
+                
+                if((selectedTask!["confirmed"] as! Bool) == true){
+                    currentState = .confirmed
+                    acceptButton.enabled = false
+                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    acceptButton.setTitle("Complete", forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                }
+                    
+                else if((selectedTask!["completed"] as! Bool) == true){
+                    currentState = .completed
+                    acceptButton.enabled = false
+                    //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
+                    //acceptButton.layer.borderColor = color.CGColor
+                    acceptButton.setTitle("Waiting \r\n for confirmation", forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
+                    
+                }
+                else{
+                    cancelButton.hidden = false
+                    currentState = .accepted
+                    acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
+                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    currentState = .accepted
+                }
+            }
+        }
+        else{ //state is available
+            myTask = false
+            cancelButton.hidden = true
+        }
     }
+
     
     @IBAction func buttonClick(sender: UIButton) {
         if (myTask){
@@ -331,6 +328,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         payViewController.user = accepter
         payViewController.task = selectedTask
         payViewController.image = buttonImage.image
+        payViewController.delegate = self
         self.navigationController?.pushViewController(payViewController, animated: false);
 
         
@@ -517,6 +515,11 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             
         }
     }
+    
+    func setConfirmed() {
+        currentState = stateType.confirmed
+        cancelButton.hidden = true
+    }
     /*
     // MARK: - Navigation
 
@@ -527,4 +530,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     }
     */
 
+}
+
+
+protocol PayViewControllerDelegate{
+    func setConfirmed()
+    
 }
