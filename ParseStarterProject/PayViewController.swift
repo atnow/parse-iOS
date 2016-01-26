@@ -71,12 +71,11 @@ class PayViewController: UIViewController {
         
         task!["confirmed"] = true
         task?.saveInBackgroundWithBlock({ (success, error) -> Void in
-            if(success){
+            if(error==nil){
                 self.delegate?.setConfirmed()
-                self.navigationController?.popViewControllerAnimated(true)
             }
         })
-        
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
     

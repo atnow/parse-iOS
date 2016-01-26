@@ -428,7 +428,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 }
                 
                 let taskName = self.selectedTask!["title"] as! String
-                let acceptName = self.selectedTask!["accepter"]["fullName"] as! String
+                let acceptName = PFUser.currentUser()!["fullName"] as! String
                 let description = "Your task \"" + taskName + "\" was completed by " + acceptName
                 
                 let notification = PFObject(className:"Notification")
@@ -532,7 +532,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         
         let taskName = self.selectedTask!["title"] as! String
        
-        let requestName = self.selectedTask!["requester"]["fullName"] as! String
+        let requestName = self.requester!["fullName"] as! String
         let description = requestName + " confirmed your completion of \"" + taskName + "\""
         
         let notification = PFObject(className:"Notification")
