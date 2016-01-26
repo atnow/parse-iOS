@@ -25,7 +25,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         case confirmed
     }
     
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userFullName: UILabel!
     @IBOutlet weak var ratingStarView: FloatRatingView!
@@ -528,7 +527,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 
             }
         }
-        
     
     }
     /*
@@ -546,5 +544,4 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
 
 protocol PayViewControllerDelegate{
     func setConfirmed()
-    
 }
