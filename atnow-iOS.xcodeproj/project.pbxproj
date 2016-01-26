@@ -342,6 +342,11 @@
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = AQSTG4QDQ6;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					B5474A4E1C4EB3BF00E55194 = {
 						CreatedOnToolsVersion = 7.2;
