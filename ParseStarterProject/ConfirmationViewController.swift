@@ -265,11 +265,17 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             }
             else{
                 self.navigationController?.popViewControllerAnimated(true)
+                
+                let taskName = self.selectedTask!["title"] as! String
+                let acceptName = self.selectedTask!["accepter"]["fullName"] as! String
+                let description = "Your task \"" + taskName + "\" was claimed by " + acceptName
+                
                 let notification = PFObject(className:"Notification")
                 notification["owner"] = self.requester
                 notification["type"] = "claimed"
                 notification["isRead"] = false
                 notification["task"] = self.selectedTask
+                notification["message"] = description
                 notification.saveInBackgroundWithBlock { (object, error) -> Void in
                     if (error != nil){
                         print(error)
@@ -423,11 +429,16 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 successController.addAction(OKAction)
                 self.presentViewController(successController, animated: true){}
                 
+                let taskName = self.selectedTask!["title"] as! String
+                let acceptName = self.selectedTask!["accepter"]["fullName"] as! String
+                let description = "Your task \"" + taskName + "\" was completed by " + acceptName
+                
                 let notification = PFObject(className:"Notification")
                 notification["owner"] = self.requester
                 notification["type"] = "completed"
                 notification["isRead"] = false
                 notification["task"] = self.selectedTask
+                notification["message"] = description
                 notification.saveInBackgroundWithBlock { (object, error) -> Void in
                     if (error != nil){
                         print(error)
@@ -517,11 +528,17 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     func setConfirmed() {
         currentState = stateType.confirmed
         cancelButton.hidden = true
+        
+        let taskName = self.selectedTask!["title"] as! String
+        let requestName = self.selectedTask!["requester"]["fullName"] as! String
+        let description = requestName + " confirmed your completion of \"" + taskName + "\""
+        
         let notification = PFObject(className:"Notification")
         notification["owner"] = self.accepter
         notification["type"] = "confirmed"
         notification["isRead"] = false
         notification["task"] = self.selectedTask
+        notification["message"] = description
         notification.saveInBackgroundWithBlock { (object, error) -> Void in
             if (error != nil){
                 print(error)
