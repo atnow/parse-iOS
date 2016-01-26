@@ -57,51 +57,10 @@ class NotificationsViewController: PFQueryTableViewController  {
         
         // Configure the cell to show todo item with a priority at the bottom
         if let object = object {
-            // print(object)
-            //            cell!.textLabel?.text = object["title"] as? String
-            //            let priority = object["priority"] as? String
-            //            cell!.detailTextLabel?.text = "Priority \(priority)"
-            
             if let descriptionLabel = cell!.viewWithTag(201) as? UILabel {
-                
-//                let taskQuery = PFQuery(className: "Task")
-//                if let task = object["task"] {
-//                    taskQuery.includeKey("accepter")
-//                    taskQuery.includeKey("requester")
-//                    taskQuery.getObjectInBackgroundWithId(task.objectId!!, block: { (updatedTask, error) -> Void in
-//                        if (error == nil){
-//                            
-//                            let description : String
-//                            let taskName = updatedTask!["title"] as! String
-//                            let acceptName = updatedTask!["accepter"]["fullName"] as! String
-//                            let requestName = updatedTask!["requester"]["fullName"] as! String
-//                            
-//                            switch object["type"] as! String{
-//                                
-//                            case "claimed":
-//                                description = "Your task \"" + taskName + "\" was claimed by " + acceptName
-//                            case "completed":
-//                                description = "Your task \"" + taskName + "\" was completed by " + acceptName
-//                            case "confirmed":
-//                                description = requestName + " confirmed your completion of \"" + taskName + "\""
-//                            default:
-//                                description = " "
-//                                
-//                            }
-//                            descriptionLabel.text = "\(description)"
-//                        }
-//                        else{
-//                            print(error)
-//                        }
-//
-//                    })
-//                }
-                
                 descriptionLabel.text = object["message"] as? String
             }
         }
-        
-        
         return cell
     }
     

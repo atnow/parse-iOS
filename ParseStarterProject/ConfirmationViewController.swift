@@ -247,7 +247,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         }
     }
     func acceptTask() {
-        selectedTask!["accepter"] = PFUser.currentUser()
+        self.accepter = PFUser.currentUser()
+        selectedTask!["accepter"] = self.accepter
         selectedTask!["accepted"] = true
         selectedTask!.ACL?.setPublicWriteAccess(false)
         selectedTask!.ACL?.setWriteAccess(true, forUser: PFUser.currentUser()!)
@@ -266,7 +267,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 self.navigationController?.popViewControllerAnimated(true)
                 
                 let taskName = self.selectedTask!["title"] as! String
-                let acceptName = self.selectedTask!["accepter"]["fullName"] as! String
+                let acceptName = self.selectedTask!["accepter"]!["fullName"] as! String
                 let description = "Your task \"" + taskName + "\" was claimed by " + acceptName
                 
                 let notification = PFObject(className:"Notification")
@@ -425,8 +426,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
-                successController.addAction(OKAction)
-                self.presentViewController(successController, animated: true){}
                 
                 let taskName = self.selectedTask!["title"] as! String
                 let acceptName = self.selectedTask!["accepter"]["fullName"] as! String
@@ -443,7 +442,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                         print(error)
                         
                     }
-                }
+                }                
+                successController.addAction(OKAction)
+                self.presentViewController(successController, animated: true){}
+                
                 
             }
         })
@@ -529,6 +531,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         cancelButton.hidden = true
         
         let taskName = self.selectedTask!["title"] as! String
+       
         let requestName = self.selectedTask!["requester"]["fullName"] as! String
         let description = requestName + " confirmed your completion of \"" + taskName + "\""
         

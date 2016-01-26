@@ -20,7 +20,7 @@ Parse.Cloud.afterSave("Notification", function(request, response){
     		Parse.Push.send({
 				where: query, // Set our Installation query
 				data: {
-					alert: "This is a test notification" 
+					alert: notification.get("message")
 				}
 		}	, {
 			success: function() {
