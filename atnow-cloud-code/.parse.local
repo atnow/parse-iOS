@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "atnow"
+    },
+    "atnow": {
+      "applicationId": "0oeGyi6DM6AwliCkDTBxr14OLcrgV3MYx1Gc4wHK"
+    }
+  }
+}

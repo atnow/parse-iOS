@@ -61,7 +61,9 @@ class LoginViewController: UIViewController{
 
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
                 self.presentViewController(viewController, animated: true, completion: nil)
-                
+                let installation = PFInstallation.currentInstallation()
+                installation["user"] = PFUser.currentUser()
+                installation.saveInBackground()
 
                 
             } else {

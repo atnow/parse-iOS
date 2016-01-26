@@ -341,7 +341,7 @@
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 7XFNV3AD43;
+						DevelopmentTeam = AQSTG4QDQ6;
 					};
 					B5474A4E1C4EB3BF00E55194 = {
 						CreatedOnToolsVersion = 7.2;
@@ -629,6 +629,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.parse.atnow;
 				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -651,6 +652,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.parse.atnow;
 				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
