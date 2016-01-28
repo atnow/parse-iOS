@@ -1023,14 +1023,6 @@
                                     <segue destination="MQS-wO-xCc" kind="embed" id="y7k-jW-6Cl"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1V-mW-hwn">
-                                <rect key="frame" x="71" y="184" width="139" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="d1V-mW-hwn" secondAttribute="height" multiplier="139:30" id="B6w-9G-aOQ"/>
-                                    <constraint firstAttribute="width" constant="139" id="Bzg-GZ-B7D"/>
-                                </constraints>
-                                <state key="normal" title="Edit Info"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1038,13 +1030,11 @@
                             <constraint firstItem="MIf-oX-9qk" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="26" id="5DS-kh-hC7"/>
                             <constraint firstItem="ya3-3e-bRG" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="5aP-v9-4dj"/>
                             <constraint firstItem="dJq-y3-6IQ" firstAttribute="width" secondItem="JaO-Jw-4au" secondAttribute="width" id="9CI-go-xuP"/>
-                            <constraint firstItem="d1V-mW-hwn" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="164" id="Apn-Y2-vme"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="FOg-7G-7q3"/>
                             <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="8" id="H4u-aG-lAU"/>
                             <constraint firstItem="MIf-oX-9qk" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="MCq-8f-jWx"/>
                             <constraint firstItem="dBR-mB-U72" firstAttribute="centerY" secondItem="jae-0e-fBe" secondAttribute="centerY" id="Pik-Yq-1GU"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="26" id="Zoe-3a-PSh"/>
-                            <constraint firstItem="MIf-oX-9qk" firstAttribute="leading" secondItem="d1V-mW-hwn" secondAttribute="trailing" constant="56" id="bk4-pT-tYx"/>
                             <constraint firstItem="ORP-Q3-ApH" firstAttribute="leading" secondItem="MIf-oX-9qk" secondAttribute="trailing" constant="37" id="fER-H6-5z3"/>
                             <constraint firstItem="hXK-Ng-1Gg" firstAttribute="top" secondItem="dJq-y3-6IQ" secondAttribute="bottom" id="lV7-gR-UbD"/>
                             <constraint firstItem="dBR-mB-U72" firstAttribute="top" secondItem="MIf-oX-9qk" secondAttribute="bottom" constant="25" id="pa4-Mw-H8M"/>
@@ -1057,7 +1047,6 @@
                     </view>
                     <connections>
                         <outlet property="changePictureButton" destination="MIf-oX-9qk" id="KcH-7L-UUf"/>
-                        <outlet property="editInfoButton" destination="d1V-mW-hwn" id="iui-aa-MLe"/>
                         <outlet property="logoutButton" destination="ORP-Q3-ApH" id="UTz-hJ-3QK"/>
                         <outlet property="profilePicture" destination="YeA-TO-gny" id="LVb-Vf-f7b"/>
                         <outlet property="starRatings" destination="ya3-3e-bRG" id="huy-Az-2an"/>
@@ -1085,7 +1074,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNA-Kt-uLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3518" y="674"/>
+            <point key="canvasLocation" x="3620" y="648"/>
         </scene>
         <!--Help Center-->
         <scene sceneID="fdV-1L-nxN">
