@@ -19,6 +19,7 @@
 		B52E93491BF8303E00B373D3 /* tabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */; };
 		B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */; };
 		B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */; };
+		B54343471C5AA240005922DA /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54343461C5AA240005922DA /* ProfileFeedViewController.swift */; };
 		B5474A521C4EB3C000E55194 /* atnow_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */; };
 		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; };
 		B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; };
@@ -78,6 +79,7 @@
 		B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tabBarControllerViewController.swift; path = ../tabBarControllerViewController.swift; sourceTree = "<group>"; };
 		B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTasksNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTasksNavigationControllerViewController.swift; sourceTree = "<group>"; };
+		B54343461C5AA240005922DA /* ProfileFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFeedViewController.swift; sourceTree = "<group>"; };
 		B5474A4F1C4EB3BF00E55194 /* atnow-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "atnow-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSTests.swift; sourceTree = "<group>"; };
 		B5474A531C4EB3C000E55194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
 				B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */,
 				C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */,
+				B54343461C5AA240005922DA /* ProfileFeedViewController.swift */,
 				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
 				B567DF761BEC0FBC00F31E6D /* MainViewController.swift */,
 				B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */,
@@ -484,6 +487,7 @@
 				B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */,
 				B567DF7E1BEC0FBC00F31E6D /* RequestFormViewController.swift in Sources */,
 				B567DF801BEC0FBC00F31E6D /* LoginViewController.swift in Sources */,
+				B54343471C5AA240005922DA /* ProfileFeedViewController.swift in Sources */,
 				B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
