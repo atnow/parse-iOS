@@ -14,7 +14,6 @@ class MenuViewController: UITableViewController{
 
     @IBOutlet weak var fullNameLabel: UILabel!
     
-    @IBOutlet weak var emailAddress: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
     
     @IBOutlet weak var starLabel: FloatRatingView!
@@ -65,7 +64,7 @@ class MenuViewController: UITableViewController{
                 print(error)
             }
             else{
-                let user = PFUser.currentUser()
+                self.user = PFUser.currentUser()
                 if (self.user?.username != nil){
                     let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
                     if(imageFromParse != nil){
@@ -74,10 +73,10 @@ class MenuViewController: UITableViewController{
                             self.profileImageView.image = image
                         })
                     }
-                    print(user!["fullName"])
-                    self.fullNameLabel.text = user!["fullName"] as? String
-                    self.emailAddress.text = user!.email as String!
-                    self.emailAddress.textColor = self.designHelper.baseColor
+                    print(self.user!["fullName"])
+                    self.fullNameLabel.text = self.user!["fullName"] as? String
+                    //self.emailAddress.text = self.user!.email as String!
+                    //self.emailAddress.textColor = self.designHelper.baseColor
                     
                     let query = PFQuery(className: "_User")
                     query.includeKey("rating")
@@ -92,6 +91,9 @@ class MenuViewController: UITableViewController{
                             print(error)
                         }
                     }
+                }
+                else{
+                    print("nil username")
                 }
             }
         })
