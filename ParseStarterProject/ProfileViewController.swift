@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userFullNameLabel: UILabel!
     @IBOutlet weak var starRatings: FloatRatingView!
-    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var venmoSwitch: UISwitch!
     @IBOutlet weak var changePictureButton: UIButton!
     @IBOutlet weak var venmoLabel: UIImageView!
@@ -77,11 +76,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
 
-        designHelper.formatButton(logoutButton)
         designHelper.formatPicture(profilePicture)
         
         if(!isOwnProfile){
-            logoutButton.hidden = true
             venmoSwitch.hidden = true
             changePictureButton.hidden = true
             venmoLabel.hidden = true

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileFeedViewController: HomeViewController {
 
@@ -14,6 +15,22 @@ class ProfileFeedViewController: HomeViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func queryForTable() -> PFQuery {
+        let query = PFQuery(className: self.parseClassName!)
+        
+        // If no objects are loaded in memory, we look to the cache first to fill the table
+        // and then subsequently do a query against the network.
+        if self.objects!.count == 0 {
+            query.cachePolicy = .CacheThenNetwork
+        }
+        
+        query.whereKey("accepter", equalTo: PFUser.currentUser()! )
+        query.orderByAscending("expiration")
+        
+        return query
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
