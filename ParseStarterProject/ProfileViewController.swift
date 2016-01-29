@@ -19,7 +19,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var venmoSwitch: UISwitch!
     @IBOutlet weak var changePictureButton: UIButton!
     @IBOutlet weak var venmoLabel: UIImageView!
-    @IBOutlet weak var editInfoButton: UIButton!
     
     let designHelper = DesignHelper()
     let imagePicker = UIImagePickerController()
@@ -80,14 +79,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         designHelper.formatButton(logoutButton)
         designHelper.formatPicture(profilePicture)
-        designHelper.formatButton(editInfoButton)
         
         if(!isOwnProfile){
             logoutButton.hidden = true
             venmoSwitch.hidden = true
             changePictureButton.hidden = true
             venmoLabel.hidden = true
-            editInfoButton.hidden = true
         }
         
     }
