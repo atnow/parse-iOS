@@ -37,6 +37,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.navigationItem.title = self.title
         }
         
+
+
+        let settingsButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "displaySettings:")
+        
+        self.navigationItem.rightBarButtonItem = settingsButton
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:
+            UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+
+        
         imagePicker.delegate = self
         PFUser.currentUser()?.fetchInBackgroundWithBlock({ (response, error) -> Void in })
         if user?.username==nil || user?.username == PFUser.currentUser()?.username{
@@ -190,6 +200,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let CVC = self.navigationController?.parentViewController as! ContainerViewController
         CVC.showMenu()
         
+    }
+    func displaySettings(sender: AnyObject){
     }
 
     /*
