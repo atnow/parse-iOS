@@ -128,7 +128,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func changeProfilePicture(sender: UIButton) {
         let profileChangeMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        self.imagePicker.allowsEditing = false
+        self.imagePicker.allowsEditing = true
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) in }
         let takePictureAction = UIAlertAction(title: "Take new picture", style: .Default) { (action) in
             self.imagePicker.sourceType = .Camera
@@ -148,8 +148,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profilePicture.contentMode = .ScaleAspectFit
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             profilePicture.image = pickedImage
             designHelper.formatPicture(profilePicture)
             let imageData = UIImageJPEGRepresentation(pickedImage, 0.1)

@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class ProfileFeedViewController: HomeViewController {
 
@@ -29,6 +30,15 @@ class ProfileFeedViewController: HomeViewController {
         query.orderByAscending("expiration")
         
         return query
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "profileFeedTaskDetail") {
+            let svc = segue.destinationViewController as! ConfirmationViewController;
+            let selectedIndex = self.tableView.indexPathForCell(sender as! PFTableViewCell)
+            svc.selectedTask = self.objectAtIndexPath(selectedIndex)! as PFObject
+            
+        }
     }
 
 
