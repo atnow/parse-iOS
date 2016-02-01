@@ -42,6 +42,7 @@
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C02DEB611C4ED873004A5190 /* atnowUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DEB601C4ED873004A5190 /* atnowUserTest.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
+		C06EBFAC1C5FA28E00A6EAEE /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */; };
 		C0B167491C459C3400BC045C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B167481C459C3400BC045C /* PayViewController.swift */; };
 		C0DE8EE61C458B5F00714EFB /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C02DEB601C4ED873004A5190 /* atnowUserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = atnowUserTest.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFeedViewController.swift; sourceTree = "<group>"; };
 		C0B167481C459C3400BC045C /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		DEAFF6623AAA449D05092E4E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3293BF138AA72421D44702E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				C0B167481C459C3400BC045C /* PayViewController.swift */,
 				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
+				C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */,
 				B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */,
 				C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */,
 				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
@@ -484,6 +487,7 @@
 				B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */,
 				B567DF7E1BEC0FBC00F31E6D /* RequestFormViewController.swift in Sources */,
 				B567DF801BEC0FBC00F31E6D /* LoginViewController.swift in Sources */,
+				C06EBFAC1C5FA28E00A6EAEE /* ProfileFeedViewController.swift in Sources */,
 				B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
