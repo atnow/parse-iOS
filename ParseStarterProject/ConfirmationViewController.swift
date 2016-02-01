@@ -70,9 +70,14 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         let exp = selectedTask!["expiration"]
         let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
         let days = "\(Int(timeToExpire/1440))" + "d "
-        let expiration =  days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
-        
-        if (selectedTask!["taskLocation"] != nil){
+        var expiration : String
+        if timeToExpire <= 0 {
+            expiration = "Expired"
+        }
+        else{
+            expiration =  days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
+        }
+        if (selectedTask!["taskLocation"] != nil && (timeToExpire > 0)){
             taskLocationLabel.text = "Deliver to " + (selectedTask!["taskLocation"]! as? String)! + " in " + expiration
         } else {
             taskLocationLabel.text = expiration
@@ -124,9 +129,11 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 if((selectedTask!["confirmed"] as! Bool) == true){
                     currentState = .confirmed
                     acceptButton.enabled = false
-                    //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+                    let fadeColor = designHelper.fadeColor
+                    acceptButton.layer.borderColor = fadeColor.CGColor
+                    acceptButton.setTitleColor(fadeColor, forState: .Normal)
+                    
                 }
                 else{
                     currentState = .completed
@@ -182,6 +189,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             else{ //not accepted yet
                 cancelButton.hidden = false
                 acceptButton.enabled = false
+                let fadeColor = designHelper.fadeColor
+                acceptButton.layer.borderColor = fadeColor.CGColor
+                acceptButton.setTitleColor(fadeColor, forState: .Normal)
                 currentState = .available
                 acceptButton.setTitle("Task \r\n" + "requested", forState: UIControlState.Normal)
             }
@@ -197,6 +207,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     acceptButton.enabled = false
                     //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
                     acceptButton.setTitle("Complete", forState: UIControlState.Normal)
+                    let fadeColor = designHelper.fadeColor
+                    acceptButton.layer.borderColor = fadeColor.CGColor
+                    acceptButton.setTitleColor(fadeColor, forState: .Normal)
                     //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                 }
                     
@@ -206,6 +219,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
                     //acceptButton.layer.borderColor = color.CGColor
                     acceptButton.setTitle("Waiting \r\n for confirmation", forState: UIControlState.Normal)
+                    let fadeColor = designHelper.fadeColor
+                    acceptButton.layer.borderColor = fadeColor.CGColor
+                    acceptButton.setTitleColor(fadeColor, forState: .Normal)
                     //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
                     
                 }
