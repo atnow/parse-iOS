@@ -31,7 +31,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     @IBOutlet weak var instructionsView: UITextView!
     @IBOutlet weak var taskLocationLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
-    
+    @IBOutlet weak var grayBar: UIView!
     @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var requesterPicture: UIImageView!
@@ -96,14 +96,15 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                         let image: UIImage! = UIImage(data: imageData!)!
                         self.requesterPicture.image = image
+                        self.designHelper.formatPicture(self.requesterPicture)
                     })
                 }
                 
                 self.ratingStarView.rating = user!["rating"]["rating"] as! Float
                 
                 let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
-                self.requesterPicture.tag = 1
-                self.requesterPicture.addGestureRecognizer(recognizer)
+                self.grayBar.tag = 1
+                self.grayBar.addGestureRecognizer(recognizer)
                 
 
             } else {
@@ -117,6 +118,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
        // instructionsView.text = selectedTask!["description"]! as? String
     
         // Do any additional setup after loading the view.
+
     }
     
     override func viewWillAppear(animated: Bool) {
