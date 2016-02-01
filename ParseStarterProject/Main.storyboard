@@ -77,7 +77,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwB-l4-IjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3101.5" y="-1754.5"/>
+            <point key="canvasLocation" x="3837.5" y="-2114.5"/>
         </scene>
         <!--My Tasks-->
         <scene sceneID="atP-P2-siI">
@@ -150,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3j-ab-3Db" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3101.5" y="-962.5"/>
+            <point key="canvasLocation" x="3837.5" y="-778.5"/>
         </scene>
         <!--New task-->
         <scene sceneID="FXh-4o-u9R">
@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5F-rj-7hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3091.5" y="-2547.5"/>
+            <point key="canvasLocation" x="2599.5" y="-2529.5"/>
         </scene>
         <!--Home-->
         <scene sceneID="aQo-ob-iWM">
@@ -385,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQ0-iJ-NfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4594.5" y="-2547.5"/>
+            <point key="canvasLocation" x="5162.5" y="-2543.5"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="x6N-d9-uMC">
@@ -542,7 +542,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pe-al-Dmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3891.5" y="-1788.5"/>
+            <point key="canvasLocation" x="4671.5" y="-1738.5"/>
         </scene>
         <!--Instructions View Controller-->
         <scene sceneID="RkN-7k-nom">
@@ -569,7 +569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO9-8A-X09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4538" y="-1784"/>
+            <point key="canvasLocation" x="5266" y="-1772"/>
         </scene>
         <!--My Tasks-->
         <scene sceneID="WpO-db-Ggh">
@@ -945,18 +945,18 @@
                         <viewControllerLayoutGuide type="bottom" id="hXK-Ng-1Gg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaO-Jw-4au">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
-                                <rect key="frame" x="237" y="148" width="128" height="128"/>
+                                <rect key="frame" x="125" y="192" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YeA-TO-gny" secondAttribute="height" multiplier="1:1" id="QVu-v2-v8Q"/>
                                     <constraint firstAttribute="width" constant="128" id="jc8-Yo-4Ul"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
-                                <rect key="frame" x="181" y="39" width="239" height="47"/>
+                                <rect key="frame" x="68" y="83" width="239" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="239" id="Aqj-hu-3RV"/>
                                     <constraint firstAttribute="width" secondItem="CR2-lO-ONW" secondAttribute="height" multiplier="239:47" id="ldX-MG-1Ve"/>
@@ -973,7 +973,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
-                                <rect key="frame" x="225" y="101" width="151" height="23"/>
+                                <rect key="frame" x="112" y="145" width="151" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ya3-3e-bRG" secondAttribute="height" multiplier="151:23" id="mGX-Cg-pPb"/>
                                     <constraint firstAttribute="width" constant="151" id="whj-v0-S2n"/>
@@ -993,7 +993,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk" userLabel="Change Picture Button">
-                                <rect key="frame" x="236" y="148" width="128" height="128"/>
+                                <rect key="frame" x="124" y="192" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="8kh-YO-z77"/>
                                     <constraint firstAttribute="width" secondItem="MIf-oX-9qk" secondAttribute="height" multiplier="1:1" id="AXl-O5-FkK"/>
@@ -1003,7 +1003,7 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jae-0e-fBe">
-                                <rect key="frame" x="339" y="305" width="51" height="31"/>
+                                <rect key="frame" x="227" y="349" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="cEt-PA-efW"/>
                                     <constraint firstAttribute="width" secondItem="jae-0e-fBe" secondAttribute="height" multiplier="49:31" id="uhT-LL-zAr"/>
@@ -1015,14 +1015,14 @@
                                 </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="venmo-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dBR-mB-U72">
-                                <rect key="frame" x="212" y="310" width="113" height="22"/>
+                                <rect key="frame" x="100" y="354" width="113" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="113" id="Oqa-Ix-CAh"/>
                                     <constraint firstAttribute="width" secondItem="dBR-mB-U72" secondAttribute="height" multiplier="113:22" id="hf1-mh-wbi"/>
                                 </constraints>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09M-4K-dyN">
-                                <rect key="frame" x="0.0" y="375" width="600" height="225"/>
+                                <rect key="frame" x="0.0" y="393" width="375" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="erL-Z0-Ycs"/>
                                 </constraints>
@@ -1043,7 +1043,6 @@
                             <constraint firstItem="MIf-oX-9qk" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="24" id="b4D-4T-1Ps"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="19" id="cir-O5-Gim"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="24" id="eZI-eN-Xk0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="09M-4K-dyN" secondAttribute="trailing" constant="-20" id="jWX-bq-YaQ"/>
                             <constraint firstItem="09M-4K-dyN" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="rut-uB-z3h"/>
                             <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="15" id="sBO-co-CAN"/>
                             <constraint firstItem="hXK-Ng-1Gg" firstAttribute="top" secondItem="09M-4K-dyN" secondAttribute="bottom" id="yDh-nU-hXK"/>
@@ -1334,19 +1333,19 @@
             <objects>
                 <tableViewController storyboardIdentifier="ProfileFeedViewController" clearsSelectionOnViewWillAppear="NO" id="KPi-Pg-Sb0" customClass="ProfileFeedViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="gmi-iw-gnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="63" id="h9E-PQ-aQv" customClass="PFTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="600" height="63"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9E-PQ-aQv" id="12V-MZ-9Us">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skj-PT-2cO">
-                                            <rect key="frame" x="530" y="22" width="37" height="18"/>
+                                            <rect key="frame" x="305" y="22" width="37" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.31764705879999999" green="0.74509803919999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1416,7 +1415,7 @@
         <image name="venmo-icon" width="786" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fw4-vi-jMP"/>
-        <segue reference="mJM-Bd-GXe"/>
+        <segue reference="LMe-HV-aCZ"/>
+        <segue reference="4HL-Or-5if"/>
     </inferredMetricsTieBreakers>
 </document>
