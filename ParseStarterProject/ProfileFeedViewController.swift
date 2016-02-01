@@ -11,9 +11,12 @@ import Parse
 import ParseUI
 
 class ProfileFeedViewController: HomeViewController {
+    
+    var user : PFUser?
 
     override func viewDidLoad() {
-
+//        let parentVC = self.parentViewController as! ProfileViewController
+//        self.user = parentVC.user
         // Do any additional setup after loading the view.
     }
     
@@ -26,7 +29,7 @@ class ProfileFeedViewController: HomeViewController {
             query.cachePolicy = .CacheThenNetwork
         }
         
-        query.whereKey("accepter", equalTo: PFUser.currentUser()! )
+        query.whereKey("requester", equalTo: self.user! )
         query.orderByAscending("expiration")
         
         return query

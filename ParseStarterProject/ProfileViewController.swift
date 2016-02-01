@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var user : PFUser? = PFUser()
     var fromMenu = false
     var isOwnProfile : Bool = false
+    var feedViewController: ProfileFeedViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +44,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:
             UIBarButtonItemStyle.Plain, target: nil, action: nil)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
-
         
         imagePicker.delegate = self
-        PFUser.currentUser()?.fetchInBackgroundWithBlock({ (response, error) -> Void in })
         if user?.username==nil || user?.username == PFUser.currentUser()?.username{
             user = PFUser.currentUser()
             isOwnProfile = true
@@ -195,6 +194,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     func displaySettings(sender: AnyObject){
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier=="showFeed"){
+            self.feedViewController = segue.destinationViewController as? ProfileFeedViewController
+//            PFUser.currentUser()?.fetchInBackgroundWithBlock({ (currUser, error) -> Void in
+//                if((error) != nil){
+//                    print(error)
+//                }
+//                else{
+//                    self.feedViewController?.user = currUser as? PFUser
+//                }
+            if self.user?.username==nil || self.user?.username == PFUser.currentUser()?.username{
+                    self.feedViewController?.user = PFUser.currentUser()
+            } else{
+                self.feedViewController?.user = self.user
+            }
+        }
     }
 
     /*
