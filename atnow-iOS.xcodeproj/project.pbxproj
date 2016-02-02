@@ -43,7 +43,6 @@
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C02DEB611C4ED873004A5190 /* atnowUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DEB601C4ED873004A5190 /* atnowUserTest.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
-		C06EBFAC1C5FA28E00A6EAEE /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */; };
 		C0B167491C459C3400BC045C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B167481C459C3400BC045C /* PayViewController.swift */; };
 		C0DE8EE61C458B5F00714EFB /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */

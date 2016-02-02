@@ -84,12 +84,12 @@ class PayViewController: UIViewController {
                 //handle error
             }
             else {
-                let transactionMessage = (self.user!["fullName"] as! String) + " has confirmed completion of " + (self.task!["title"] as! String)
+                let transactionMessage = (PFUser.currentUser()!["fullName"] as! String) + " has confirmed completion of " + (self.task!["title"] as! String)
                 
                 let recipientHandle = currentAccepter!["venmoPhoneNumber"] as! String
                 let transactionAudience = VENTransactionAudience.Private
                 
-                Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: 1, note: transactionMessage, audience: transactionAudience)
+                Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: self.task!["price"] as! UInt, note: transactionMessage, audience: transactionAudience)
                     { (transaction, success, error) -> Void in
                     if(success){
                         print("success")
