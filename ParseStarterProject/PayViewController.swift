@@ -17,6 +17,7 @@ class PayViewController: UIViewController {
     var image : UIImage!
     
     var delegate : ConfirmationViewController?
+    let designHelper = DesignHelper();
     
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -29,18 +30,27 @@ class PayViewController: UIViewController {
     
     @IBOutlet weak var costLabel: UILabel!
 
-    
     @IBOutlet weak var extraTextField: UITextField!
     
-    
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         /*set up known info*/
         //picture
         profileImageView.layer.cornerRadius = 0.5 * self.profileImageView.frame.size.width
         profileImageView.clipsToBounds = true
+        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+        if(imageFromParse != nil){
+            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                let image: UIImage! = UIImage(data: imageData!)!
+                self.profileImageView.image = image
+                self.designHelper.formatPicture(self.profileImageView)
+            })
+        }
+        designHelper.formatButton(submitButton)
         profileImageView.image = image
         
         //name
@@ -52,8 +62,6 @@ class PayViewController: UIViewController {
         
         
     }
-    
-    
     
     @IBAction func submitPressed(sender: UIButton) {
         let rating = user!["rating"] as! PFObject
@@ -89,7 +97,9 @@ class PayViewController: UIViewController {
                 let recipientHandle = currentAccepter!["venmoPhoneNumber"] as! String
                 let transactionAudience = VENTransactionAudience.Private
                 
-                Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: self.task!["price"] as! UInt, note: transactionMessage, audience: transactionAudience)
+                let total = (self.task!["price"] as! UInt) + UInt(self.extraTextField.text!)!
+                
+                Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: total , note: transactionMessage, audience: transactionAudience)
                     { (transaction, success, error) -> Void in
                     if(success){
                         print("success")
@@ -101,9 +111,6 @@ class PayViewController: UIViewController {
             }
         }
     }
-    
-    
-    
     
     /*
     // MARK: - Navigation

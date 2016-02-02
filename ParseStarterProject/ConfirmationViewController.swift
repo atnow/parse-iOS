@@ -352,8 +352,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         let payViewController: PayViewController = storyboard.instantiateViewControllerWithIdentifier("PayViewController") as! PayViewController
         payViewController.user = accepter
         payViewController.task = selectedTask
-        payViewController.image = buttonImage.image
-        payViewController.delegate = self
         self.navigationController?.pushViewController(payViewController, animated: false);
 
         

@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
 
 
-        let settingsButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "displaySettings:")
+        let settingsButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "displaySettings:")
         
         self.navigationItem.rightBarButtonItem = settingsButton
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:
