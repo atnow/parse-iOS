@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Venmo_iOS_SDK
 
 class PayViewController: UIViewController {
     
@@ -77,8 +78,30 @@ class PayViewController: UIViewController {
             }
         })
         
-        
+        let accepter = task!["accepter"] as! PFUser
+        accepter.fetchInBackgroundWithBlock { (currentAccepter, error) -> Void in
+            if(error != nil){
+                //handle error
+            }
+            else {
+                let transactionMessage = (self.user!["fullName"] as! String) + " has confirmed completion of " + (self.task!["title"] as! String)
+                
+                let recipientHandle = currentAccepter!["venmoPhoneNumber"] as! String
+                let transactionAudience = VENTransactionAudience.Private
+                
+                Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: 1, note: transactionMessage, audience: transactionAudience)
+                    { (transaction, success, error) -> Void in
+                    if(success){
+                        print("success")
+                    }
+                    if ((error) != nil){
+                        print(error)
+                    }
+                }
+            }
+        }
     }
+    
     
     
     
