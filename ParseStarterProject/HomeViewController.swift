@@ -85,6 +85,9 @@ class HomeViewController : PFQueryTableViewController {
                 let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
                 let days = "\(Int(timeToExpire/1440))" + "d "
                 expirationLabel.text = days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
+                if (timeToExpire <= 0) {
+                    expirationLabel.text = "Expired"
+                }
             }
             
             
