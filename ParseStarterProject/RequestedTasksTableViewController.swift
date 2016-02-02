@@ -1,28 +1,30 @@
 //
-//  MyTasksViewController.swift
+//  RequestedTasksTableViewController.swift
 //  atnow-iOS
 //
-//  Created by Benjamin Holland on 11/10/15.
-//  Copyright © 2015 Parse. All rights reserved.
+//  Created by Benjamin Holland on 2/2/16.
+//  Copyright © 2016 Parse. All rights reserved.
 //
 
 import UIKit
 import Parse
 import ParseUI
+import Venmo_iOS_SDK
 
-class MyTasksViewController: HomeViewController {
 
-      override func queryForTable() -> PFQuery {
-       
-        let acceptorQuery = PFQuery(className: "Task")
-        acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
+class RequestedTasksTableViewController: HomeViewController {
+    
+    override func queryForTable() -> PFQuery {
         
-      //  let requesterQuery = PFQuery(className: "Task")
-      // requesterQuery.whereKey("requester", equalTo: PFUser.currentUser()!)
+      //  let acceptorQuery = PFQuery(className: "Task")
+      //  acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
         
-        let query = acceptorQuery
-
-        //let query = PFQuery.orQueryWithSubqueries([acceptorQuery, requesterQuery])
+        let requesterQuery = PFQuery(className: "Task")
+        requesterQuery.whereKey("requester", equalTo: PFUser.currentUser()!)
+        
+        let query = requesterQuery
+        
+      //  let query = PFQuery.orQueryWithSubqueries([acceptorQuery, requesterQuery])
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
@@ -35,7 +37,7 @@ class MyTasksViewController: HomeViewController {
     }
     
     override func viewDidLoad(){
-    
+        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
@@ -56,13 +58,13 @@ class MyTasksViewController: HomeViewController {
             //            let priority = object["priority"] as? String
             //            cell!.detailTextLabel?.text = "Priority \(priority)"
             
-           
+            
 //            if ((object["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
 //                let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.1)
 //                cell?.backgroundColor = newColor
 //                
 //            }
-//            
+            
             
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
                 let description = object["title"]
@@ -91,15 +93,24 @@ class MyTasksViewController: HomeViewController {
         
         return cell
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "requestedTaskDetail") {
+            let svc = segue.destinationViewController as! ConfirmationViewController;
+            let selectedIndex = self.tableView.indexPathForCell(sender as! PFTableViewCell)
+            svc.selectedTask = self.objectAtIndexPath(selectedIndex)! as PFObject
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

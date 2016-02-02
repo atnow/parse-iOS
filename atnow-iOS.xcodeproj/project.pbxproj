@@ -39,6 +39,9 @@
 		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; };
 		B5BA613B1C50222000BA87BA /* atnow_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */; };
 		B5CDE6D51C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */; };
+		B5CDE6D71C61638800B7BB3D /* RequestedTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CDE6D61C61638800B7BB3D /* RequestedTasksTableViewController.swift */; };
+		B5CDE6D91C61639E00B7BB3D /* RequestedTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CDE6D81C61639E00B7BB3D /* RequestedTasksViewController.swift */; };
+		B5CDE6DB1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CDE6DA1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift */; };
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; };
 		B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
@@ -105,6 +108,9 @@
 		B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSUITests.swift; sourceTree = "<group>"; };
 		B5BA613C1C50222000BA87BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTasksSegmentedControlViewController.swift; sourceTree = "<group>"; };
+		B5CDE6D61C61638800B7BB3D /* RequestedTasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedTasksTableViewController.swift; sourceTree = "<group>"; };
+		B5CDE6D81C61639E00B7BB3D /* RequestedTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedTasksViewController.swift; sourceTree = "<group>"; };
+		B5CDE6DA1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedTasksNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +198,9 @@
 				C0B167481C459C3400BC045C /* PayViewController.swift */,
 				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
+				B5CDE6DA1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift */,
+				B5CDE6D61C61638800B7BB3D /* RequestedTasksTableViewController.swift */,
+				B5CDE6D81C61639E00B7BB3D /* RequestedTasksViewController.swift */,
 				B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */,
 				C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */,
 				B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */,
@@ -474,6 +483,7 @@
 				C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */,
 				C0B167491C459C3400BC045C /* PayViewController.swift in Sources */,
 				C0DE8EE61C458B5F00714EFB /* (null) in Sources */,
+				B5CDE6DB1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift in Sources */,
 				B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */,
 				B52E93491BF8303E00B373D3 /* tabBarControllerViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
@@ -481,12 +491,14 @@
 				C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */,
 				B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */,
 				B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */,
+				B5CDE6D71C61638800B7BB3D /* RequestedTasksTableViewController.swift in Sources */,
 				B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */,
 				B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */,
 				B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */,
 				B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */,
 				B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */,
 				B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */,
+				B5CDE6D91C61639E00B7BB3D /* RequestedTasksViewController.swift in Sources */,
 				B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */,
 				B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */,
 				B567DF7F1BEC0FBC00F31E6D /* MainViewController.swift in Sources */,

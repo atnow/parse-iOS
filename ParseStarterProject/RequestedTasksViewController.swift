@@ -1,5 +1,5 @@
 //
-//  HomeTasksSegmentedControlViewController.swift
+//  RequestedTasksViewController.swift
 //  atnow-iOS
 //
 //  Created by Benjamin Holland on 2/2/16.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class MyTasksSegmentedControlViewController: UIViewController {
+class RequestedTasksViewController: UIViewController {
+
+    @IBOutlet weak var stages: UISegmentedControl!
     
     let designHelper = DesignHelper()
     
-    @IBOutlet weak var stages: UISegmentedControl!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let MainNC = self.parentViewController?.parentViewController?.parentViewController as! UINavigationController
         MainNC.navigationBarHidden = true
         let composeButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "insertNewTask:")
@@ -28,11 +28,11 @@ class MyTasksSegmentedControlViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
-
+        
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func changedStage(sender: AnyObject) {
+    @IBAction func stageChanged(sender: UISegmentedControl) {
         
         let currStage = stages.selectedSegmentIndex
         
@@ -41,16 +41,13 @@ class MyTasksSegmentedControlViewController: UIViewController {
             stages.tintColor = designHelper.todoColor
         case 2:
             stages.tintColor = designHelper.awaitingConfirmationColor
-        case 3:
+        case 4:
             stages.tintColor = designHelper.completeColor
         default:
             stages.tintColor = UIColor.blueColor()
         }
-        
-        
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,17 +68,10 @@ class MyTasksSegmentedControlViewController: UIViewController {
         CVC.showMenu()
         
     }
-
+    
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+
