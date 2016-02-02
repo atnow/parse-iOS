@@ -19,6 +19,8 @@ class RequestedTasksTableViewController: HomeViewController {
       //  let acceptorQuery = PFQuery(className: "Task")
       //  acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
         
+        let pvc = self.parentViewController as! RequestedTasksViewController
+        let stages = pvc.stages
         let requesterQuery = PFQuery(className: "Task")
         requesterQuery.whereKey("requester", equalTo: PFUser.currentUser()!)
         
