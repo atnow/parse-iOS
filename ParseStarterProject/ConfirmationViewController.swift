@@ -33,7 +33,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var grayBar: UIView!
     @IBOutlet weak var buttonImage: UIImageView!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var requesterPicture: UIImageView!
     
     override func viewDidLoad() {
@@ -47,10 +47,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         acceptButton.titleLabel?.numberOfLines = 2
         acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        designHelper.formatButton(cancelButton)
-        cancelButton.layer.borderColor = UIColor.redColor().CGColor
-        cancelButton.setTitleColor(UIColor.redColor(), forState: .Normal)
-        cancelButton.hidden = true
+        designHelper.formatButton(reportButton)
+        reportButton.layer.borderColor = UIColor.redColor().CGColor
+        reportButton.setTitleColor(UIColor.redColor(), forState: .Normal)
+        reportButton.hidden = true
         
         buttonImage.hidden = true
         buttonImage.layer.cornerRadius = 0.5*buttonImage.frame.size.width
@@ -140,8 +140,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 else{
                     currentState = .completed
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
-                    cancelButton.setTitle("Report", forState: UIControlState.Normal)
-                    cancelButton.hidden = false
+                    reportButton.setTitle("Report", forState: UIControlState.Normal)
+                    reportButton.hidden = false
                     let accepterQuery = PFQuery(className:"_User")
                     accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                         (user: PFObject?, error: NSError?) -> Void in
@@ -189,7 +189,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             }
                 
             else{ //not accepted yet
-                cancelButton.hidden = false
+                //cancelButton.hidden = false
+                let deleteButton = UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: "cancelTask")
+                self.navigationItem.rightBarButtonItem = deleteButton
                 acceptButton.enabled = false
                 let fadeColor = designHelper.fadeColor
                 acceptButton.layer.borderColor = fadeColor.CGColor
@@ -201,7 +203,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             
         else if((selectedTask!["accepted"] as! Bool) == true){
             myTask = false
-            cancelButton.setTitle("Decline Task", forState: .Normal)
+            reportButton.setTitle("Decline Task", forState: .Normal)
             if ((selectedTask!["accepter"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
                 
                 if((selectedTask!["confirmed"] as! Bool) == true){
@@ -228,7 +230,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     
                 }
                 else{
-                    cancelButton.hidden = false
+                    reportButton.hidden = false
                     currentState = .accepted
                     acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
                     //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
@@ -239,7 +241,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         }
         else{ //state is available
             myTask = false
-            cancelButton.hidden = true
+            reportButton.hidden = true
         }
     }
 
@@ -333,7 +335,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) in }
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.selectedTask?.deleteInBackground()
+                self.selectedTask?.delete(self)
+                //self.selectedTask?.deleteInBackground()
                 self.navigationController?.popViewControllerAnimated(true)
             })
         }
@@ -481,9 +484,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let instructionsVC = storyboard.instantiateViewControllerWithIdentifier("InstructionsViewController")
         instructionsVC.modalPresentationStyle = .Popover
-        instructionsVC.preferredContentSize = CGSizeMake(400, 400)
+        instructionsVC.preferredContentSize = CGSizeMake(400, 300)
         let popoverVC = instructionsVC.popoverPresentationController
-        popoverVC?.permittedArrowDirections = .Up
+        popoverVC?.permittedArrowDirections = .Down
         popoverVC?.delegate = self
         popoverVC?.sourceView = sender
         popoverVC?.sourceRect = CGRect(
@@ -546,7 +549,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     
     func setConfirmed() {
         currentState = stateType.confirmed
-        cancelButton.hidden = true
+        reportButton.hidden = true
         
         let taskName = self.selectedTask!["title"] as! String
        
