@@ -38,6 +38,7 @@
 		B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */; };
 		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; };
 		B5BA613B1C50222000BA87BA /* atnow_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */; };
+		B5CDE6D51C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */; };
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; };
 		B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
@@ -103,6 +104,7 @@
 		B5BA61381C50222000BA87BA /* atnow-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "atnow-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSUITests.swift; sourceTree = "<group>"; };
 		B5BA613C1C50222000BA87BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTasksSegmentedControlViewController.swift; sourceTree = "<group>"; };
 		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				C0B167481C459C3400BC045C /* PayViewController.swift */,
 				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
+				B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */,
 				C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */,
 				B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */,
 				C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */,
@@ -467,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5CDE6D51C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift in Sources */,
 				C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */,
 				C0B167491C459C3400BC045C /* PayViewController.swift in Sources */,
 				C0DE8EE61C458B5F00714EFB /* (null) in Sources */,

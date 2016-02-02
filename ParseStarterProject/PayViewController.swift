@@ -97,7 +97,7 @@ class PayViewController: UIViewController {
                 let recipientHandle = currentAccepter!["venmoPhoneNumber"] as! String
                 let transactionAudience = VENTransactionAudience.Private
                 
-                let total = (self.task!["price"] as! UInt) + UInt(self.extraTextField.text!)!
+                let total = (self.task!["price"] as! UInt)
                 
                 Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: total , note: transactionMessage, audience: transactionAudience)
                     { (transaction, success, error) -> Void in

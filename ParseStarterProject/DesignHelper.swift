@@ -14,6 +14,10 @@ public class DesignHelper {
     let baseColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 1.0)
     let fadeColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 0.2)
     
+    let todoColor = UIColor.orangeColor()
+    let awaitingConfirmationColor = UIColor.blueColor()
+    let completeColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1.0)
+    
     func formatButton (button: UIButton){
         button.layer.cornerRadius = 8
         button.layer.borderWidth = 1

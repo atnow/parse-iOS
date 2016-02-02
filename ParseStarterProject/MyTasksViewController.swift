@@ -33,6 +33,10 @@ class MyTasksViewController: HomeViewController {
         return query
     }
     
+    override func viewDidLoad(){
+    
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         tableView.sectionHeaderHeight = 2
