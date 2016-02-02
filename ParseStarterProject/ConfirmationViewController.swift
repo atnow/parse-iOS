@@ -477,10 +477,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
 
     }
 
-    
     @IBAction func infoAction(sender: UIButton) {
-        
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let instructionsVC = storyboard.instantiateViewControllerWithIdentifier("InstructionsViewController")
         instructionsVC.modalPresentationStyle = .Popover
@@ -523,7 +520,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     
     
     func picturePressed(sender:UITapGestureRecognizer){
-        
         let view = sender.view
         if(view!.tag == 1){
             performSegueWithIdentifier("showProfile", sender: requester)
@@ -533,7 +529,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             performSegueWithIdentifier("showProfile", sender: accepter)
             
         }
-  
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
