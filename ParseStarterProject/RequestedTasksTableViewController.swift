@@ -14,6 +14,9 @@ import Venmo_iOS_SDK
 
 class RequestedTasksTableViewController: HomeViewController {
     
+    var currentTab = 0
+    var query : PFQuery?
+    
     override func queryForTable() -> PFQuery {
         
       //  let acceptorQuery = PFQuery(className: "Task")
@@ -39,6 +42,7 @@ class RequestedTasksTableViewController: HomeViewController {
     }
     
     override func viewDidLoad(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadTable", name: "tabSelected", object: nil)
         
     }
     
@@ -46,28 +50,18 @@ class RequestedTasksTableViewController: HomeViewController {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         tableView.sectionHeaderHeight = 2
         let cellIdentifier = "MyTaskCell"
+      
+        // Configure the cell to show todo item with a priority at the bottom
         
+            
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "MyTaskCell") as? PFTableViewCell
+        cell = UITableViewCell(style: .Default, reuseIdentifier: "MyTaskCell") as? PFTableViewCell
             
-            //cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
+        //cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
         
-        // Configure the cell to show todo item with a priority at the bottom
         if let object = object {
-            //            cell!.textLabel?.text = object["title"] as? String
-            //            let priority = object["priority"] as? String
-            //            cell!.detailTextLabel?.text = "Priority \(priority)"
-            
-            
-//            if ((object["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
-//                let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.1)
-//                cell?.backgroundColor = newColor
-//                
-//            }
-            
-            
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
                 let description = object["title"]
                 descriptionLabel.text = "\(description)"
@@ -90,9 +84,7 @@ class RequestedTasksTableViewController: HomeViewController {
                 
             }
             
-            
         }
-        
         return cell
     }
     
@@ -103,6 +95,29 @@ class RequestedTasksTableViewController: HomeViewController {
             svc.selectedTask = self.objectAtIndexPath(selectedIndex)! as PFObject
             
         }
+    }
+    
+    func loadList(notification: NSNotification){
+        let userInfo = notification.userInfo! as NSDictionary
+        currentTab = userInfo["number"] as! Int
+        self.query = PFQuery(className: "Task")
+        //self.query?.whereKey(""
+        
+    }
+    func findRequestedTaskState(task : PFObject) -> Int{
+        if((task["confirmed"] as! Bool) == true){
+            return 3
+        }
+        else if((task["completed"] as! Bool) == true){
+            return 2
+        }
+        else if((task["accepted"] as! Bool) == true){
+            return 1
+        }
+        else{
+            return 0
+        }
+        
     }
     
     /*

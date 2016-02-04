@@ -37,15 +37,19 @@ class RequestedTasksViewController: UIViewController {
         let currStage = stages.selectedSegmentIndex
         
         switch currStage {
+        case 0:
+            stages.tintColor = designHelper.todoColor
         case 1:
             stages.tintColor = designHelper.todoColor
         case 2:
             stages.tintColor = designHelper.awaitingConfirmationColor
-        case 4:
+        case 3:
             stages.tintColor = designHelper.completeColor
         default:
             stages.tintColor = UIColor.blueColor()
         }
+        NSNotificationCenter.defaultCenter().postNotificationName("tabSelected", object: nil, userInfo: ["number": currStage])
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,9 +72,6 @@ class RequestedTasksViewController: UIViewController {
         CVC.showMenu()
         
     }
-    
-    
-
 
 }
 
