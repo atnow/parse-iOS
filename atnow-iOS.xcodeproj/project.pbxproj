@@ -21,8 +21,8 @@
 		B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */; };
 		B54343491C5B019F005922DA /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54343481C5B019F005922DA /* ProfileFeedViewController.swift */; };
 		B5474A521C4EB3C000E55194 /* atnow_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */; };
+		B54884A21C6A814D004118C1 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54884A11C6A814D004118C1 /* ParseUI.framework */; };
 		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; };
-		B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889E1BEE987E00ACF3A5 /* ParseUI.framework */; };
 		B55888A01BEE989900ACF3A5 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */; };
 		B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */; };
 		B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */; };
@@ -87,9 +87,9 @@
 		B5474A4F1C4EB3BF00E55194 /* atnow-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "atnow-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSTests.swift; sourceTree = "<group>"; };
 		B5474A531C4EB3C000E55194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B54884A11C6A814D004118C1 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		B558889E1BEE987E00ACF3A5 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTasksViewController.swift; sourceTree = "<group>"; };
 		B567DF691BEC0FB300F31E6D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54884A21C6A814D004118C1 /* ParseUI.framework in Frameworks */,
 				B55888A01BEE989900ACF3A5 /* ParseCrashReporting.framework in Frameworks */,
-				B558889F1BEE987E00ACF3A5 /* ParseUI.framework in Frameworks */,
 				81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */,
 				81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */,
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
@@ -228,7 +228,7 @@
 		81BA816A1A49DB5600E65899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B558889E1BEE987E00ACF3A5 /* ParseUI.framework */,
+				B54884A11C6A814D004118C1 /* ParseUI.framework */,
 				B558889C1BEE973500ACF3A5 /* ParseCrashReporting.framework */,
 				81BA816B1A49DB6800E65899 /* Bolts.framework */,
 				81BA816C1A49DB6800E65899 /* Parse.framework */,
@@ -582,6 +582,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PROVISIONING_PROFILE = "a2838c90-e4f4-4bfe-b764-a0ec27928556";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -623,6 +624,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "-fembed-bitcode";
 				PROVISIONING_PROFILE = "a2838c90-e4f4-4bfe-b764-a0ec27928556";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -637,9 +639,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ben Holland (JG8LFU2Z36)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Holland (JG8LFU2Z36)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -648,6 +650,19 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_CFLAGS[arch=*]" = (
+					"$(inherited)",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/CMDQueryStringSerialization.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/SSKeychain.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/VENCore.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/Venmo_iOS_SDK.framework/Headers\"",
+					"-fembed-bitcode",
+				);
+				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.parse.atnow;
 				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "dbe822ec-0ede-4fb1-9f57-be493a660af6";
@@ -661,16 +676,30 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ben Holland (JG8LFU2Z36)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ben Holland (JG8LFU2Z36)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				"OTHER_CFLAGS[arch=*]" = (
+					"$(inherited)",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/CMDQueryStringSerialization.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/SSKeychain.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/VENCore.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/Venmo_iOS_SDK.framework/Headers\"",
+					"-fembed-bitcode",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.parse.atnow;
 				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "dbe822ec-0ede-4fb1-9f57-be493a660af6";
