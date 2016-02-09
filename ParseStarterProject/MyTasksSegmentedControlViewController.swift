@@ -37,16 +37,16 @@ class MyTasksSegmentedControlViewController: UIViewController {
         let currStage = stages.selectedSegmentIndex
         
         switch currStage {
-        case 1:
+        case 0:
             stages.tintColor = designHelper.todoColor
-        case 2:
+        case 1:
             stages.tintColor = designHelper.awaitingConfirmationColor
-        case 3:
+        case 2:
             stages.tintColor = designHelper.completeColor
         default:
             stages.tintColor = UIColor.blueColor()
         }
-        
+         NSNotificationCenter.defaultCenter().postNotificationName("myTasksTabSelected", object: nil, userInfo: ["number": currStage])
         
     }
     
