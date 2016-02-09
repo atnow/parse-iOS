@@ -16,7 +16,7 @@ class RequestedTasksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        stages.tintColor = designHelper.unclaimedColor
         let MainNC = self.parentViewController?.parentViewController?.parentViewController as! UINavigationController
         MainNC.navigationBarHidden = true
         let composeButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "insertNewTask:")
@@ -38,9 +38,9 @@ class RequestedTasksViewController: UIViewController {
         
         switch currStage {
         case 0:
-            stages.tintColor = designHelper.todoColor
+            stages.tintColor = designHelper.unclaimedColor
         case 1:
-            stages.tintColor = designHelper.todoColor
+            stages.tintColor = designHelper.inProgressColor
         case 2:
             stages.tintColor = designHelper.awaitingConfirmationColor
         case 3:

@@ -17,6 +17,7 @@ class MyTasksSegmentedControlViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        stages.tintColor = designHelper.todoColor
         let MainNC = self.parentViewController?.parentViewController?.parentViewController as! UINavigationController
         MainNC.navigationBarHidden = true
         let composeButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "insertNewTask:")
