@@ -90,15 +90,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OIq-ag-e89">
-                                <rect key="frame" x="20" y="78" width="335" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OIq-ag-e89">
+                                <rect key="frame" x="11" y="78" width="353" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="335" id="EXS-2x-Rpe"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="All"/>
                                     <segment title="To-do"/>
-                                    <segment title="Confirm"/>
+                                    <segment title="Awaiting Confirm"/>
                                     <segment title="Complete"/>
                                 </segments>
                                 <connections>

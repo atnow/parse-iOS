@@ -11,31 +11,30 @@ import Parse
 import ParseUI
 
 class MyTasksViewController: HomeViewController {
+    
+    
+    var currentTab = 0
+    var query : PFQuery?
 
       override func queryForTable() -> PFQuery {
-       
+        return self.query!
+    }
+    
+    override func viewDidLoad(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:", name: "myTasksTabSelected", object: nil)
+        
         let acceptorQuery = PFQuery(className: "Task")
         acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
         
-      //  let requesterQuery = PFQuery(className: "Task")
-      // requesterQuery.whereKey("requester", equalTo: PFUser.currentUser()!)
-        
-        let query = acceptorQuery
-
-        //let query = PFQuery.orQueryWithSubqueries([acceptorQuery, requesterQuery])
+        self.query = acceptorQuery
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
         if self.objects!.count == 0 {
-            query.cachePolicy = .CacheThenNetwork
+            self.query!.cachePolicy = .CacheThenNetwork
         }
         
-        query.orderByDescending("expiration")
-        return query
-    }
-    
-    override func viewDidLoad(){
-    
+        self.query!.orderByDescending("expiration")
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
@@ -46,24 +45,10 @@ class MyTasksViewController: HomeViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "MyTaskCell") as? PFTableViewCell
-            
-            //cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
         
         // Configure the cell to show todo item with a priority at the bottom
         if let object = object {
-            //            cell!.textLabel?.text = object["title"] as? String
-            //            let priority = object["priority"] as? String
-            //            cell!.detailTextLabel?.text = "Priority \(priority)"
-            
-           
-//            if ((object["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId) {
-//                let newColor = UIColor(red: 63/255, green: 189/255, blue: 191/255, alpha: 0.1)
-//                cell?.backgroundColor = newColor
-//                
-//            }
-//            
-            
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
                 let description = object["title"]
                 descriptionLabel.text = "\(description)"
@@ -91,6 +76,27 @@ class MyTasksViewController: HomeViewController {
         
         return cell
     }
+    
+    func loadList(notification: NSNotification){
+        let userInfo = notification.userInfo! as NSDictionary
+        currentTab = userInfo["number"] as! Int
+        self.query = PFQuery(className: "Task")
+        switch currentTab {
+        case 0:
+            self.query!.whereKey("accepted", equalTo: true)
+            self.query!.whereKey("completed", equalTo: false)
+        case 1:
+            self.query!.whereKey("completed", equalTo: true)
+            self.query!.whereKey("confirmed", equalTo: false)
+        case 2:
+            self.query!.whereKey("confirmed", equalTo: true)
+        default:
+            break
+        }
+        self.loadObjects()
+        
+    }
+
 
     /*
     // MARK: - Navigation
