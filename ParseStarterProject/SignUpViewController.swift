@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class SignUpViewController: UIViewController {
-
+    
     @IBOutlet weak var fullNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -28,45 +28,51 @@ class SignUpViewController: UIViewController {
         
         let alertController = UIAlertController(title: "Invalid", message: "Username must be greater than 5 characters", preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-
-        alertController.addAction(OKAction)
-       
-        if passwordText?.characters.count < 8 {
         
+        alertController.addAction(OKAction)
+        
+        if passwordText?.characters.count < 8 {
+            
             alertController.message = "Password must be greater than 8 characters"
             self.presentViewController(alertController, animated: true) {}
-
+            
         } else if passwordText! != confirmPasswordText!{
             
             alertController.message = "Passwords do not match"
             self.presentViewController(alertController, animated: true) {}
-
+            
         } else{
-        
-        let newUser = PFUser()
-        newUser.username = emailText! + "@dartmouth.edu"
-        newUser.email = emailText! + "@dartmouth.edu"
-        newUser.password = passwordText
-        newUser["fullName"] = fullNameText
-        
-        // Sign up the user asynchronously
-        newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
-
-            if ((error) != nil) {
-                let errorAlertController = UIAlertController(title: "Error", message: "\(error)",preferredStyle: .Alert)
-                errorAlertController.addAction(OKAction)
-                self.presentViewController(errorAlertController, animated: true) {}
+            
+            let newUser = PFUser()
+            newUser.username = emailText!  + "@dartmouth.edu"
+            newUser.email = emailText! +  "@dartmouth.edu"
+            newUser.password = passwordText
+            newUser["fullName"] = fullNameText
+            let rating = PFObject(className: "Rating")
+            rating.ACL?.setPublicWriteAccess(true)
+            rating["rating"] = 0
+            rating["ratingCount"] = 0
+            newUser["rating"] = rating
+            
+            
+            // Sign up the user asynchronously
+            newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
                 
-            } else {
-                let OKSignUpAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
-                        self.presentViewController(viewController, animated: true, completion: nil)
-                    })
-                }
-                let successAlertController = UIAlertController(title: "Success", message: "Signed Up! Please verify email.",preferredStyle: .Alert)
-                successAlertController.addAction(OKSignUpAction)
-                self.presentViewController(successAlertController, animated: true) {}
+                if ((error) != nil) {
+                    let errorAlertController = UIAlertController(title: "Error", message: "\(error)",preferredStyle: .Alert)
+                    errorAlertController.addAction(OKAction)
+                    self.presentViewController(errorAlertController, animated: true) {}
+                    
+                } else {
+                    let OKSignUpAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
+                            self.presentViewController(viewController, animated: true, completion: nil)
+                        })
+                    }
+                    let successAlertController = UIAlertController(title: "Success", message: "Signed Up! Please verify email.",preferredStyle: .Alert)
+                    successAlertController.addAction(OKSignUpAction)
+                    self.presentViewController(successAlertController, animated: true) {}
                 }
             })
         }
@@ -82,25 +88,25 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)        
+        view.addGestureRecognizer(tap)
         designHelper.formatButton(signUpButton)
         designHelper.formatButton(cancelButton)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

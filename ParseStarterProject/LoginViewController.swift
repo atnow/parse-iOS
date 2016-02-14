@@ -61,7 +61,7 @@ class LoginViewController: UIViewController{
                 }
                 
                 //Venmo Check
-                if(!Venmo.sharedInstance().isSessionValid() || (Venmo.sharedInstance().session.user.primaryPhone != (user!["phoneNumber"] as! String))){
+                if(!Venmo.sharedInstance().isSessionValid() || Venmo.sharedInstance().session.user==nil || user!["phoneNumber"]==nil || (Venmo.sharedInstance().session.user.primaryPhone != (user!["phoneNumber"] as! String))){
                     //Alert saying @now needs Venmo
                     
                     
@@ -79,11 +79,11 @@ class LoginViewController: UIViewController{
                                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                             self.navigationController?.popViewControllerAnimated(true)
                                             
-                                            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
-                                            self.presentViewController(viewController, animated: true, completion: nil)
-                                            let installation = PFInstallation.currentInstallation()
-                                            installation["user"] = PFUser.currentUser()
-                                            installation.saveInBackground()
+//                                            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
+//                                            self.presentViewController(viewController, animated: true, completion: nil)
+//                                            let installation = PFInstallation.currentInstallation()
+//                                            installation["user"] = PFUser.currentUser()
+//                                            installation.saveInBackground()
 
                                             
                                         })
