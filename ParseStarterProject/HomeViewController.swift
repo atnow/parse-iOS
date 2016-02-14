@@ -90,10 +90,24 @@ class HomeViewController : PFQueryTableViewController {
                 }
             }
             
-            
         }
         
         return cell
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        if(self.objects?.count != 0){
+            return 1;
+            
+        }
+        else{
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+            noDataLabel.text = "No tasks are available at this time"
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            tableView.backgroundView = noDataLabel
+            return 0;
+        }
     }
     
     override func viewDidLoad() {
