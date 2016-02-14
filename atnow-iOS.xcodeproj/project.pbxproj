@@ -19,7 +19,6 @@
 		B52E93491BF8303E00B373D3 /* tabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */; };
 		B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */; };
 		B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */; };
-		B54343491C5B019F005922DA /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54343481C5B019F005922DA /* ProfileFeedViewController.swift */; };
 		B5474A521C4EB3C000E55194 /* atnow_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */; };
 		B54884A21C6A814D004118C1 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54884A11C6A814D004118C1 /* ParseUI.framework */; };
 		B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */; };
@@ -37,6 +36,7 @@
 		B567DF801BEC0FBC00F31E6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */; };
 		B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */; };
 		B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */; };
+		B5B330D31C71115600AD8F35 /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B330D21C71115600AD8F35 /* ProfileFeedViewController.swift */; };
 		B5BA613B1C50222000BA87BA /* atnow_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */; };
 		B5CDE6D51C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */; };
 		B5CDE6D71C61638800B7BB3D /* RequestedTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CDE6D61C61638800B7BB3D /* RequestedTasksTableViewController.swift */; };
@@ -83,7 +83,6 @@
 		B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tabBarControllerViewController.swift; path = ../tabBarControllerViewController.swift; sourceTree = "<group>"; };
 		B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTasksNavigationControllerViewController.swift; sourceTree = "<group>"; };
 		B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTasksNavigationControllerViewController.swift; sourceTree = "<group>"; };
-		B54343481C5B019F005922DA /* ProfileFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFeedViewController.swift; sourceTree = "<group>"; };
 		B5474A4F1C4EB3BF00E55194 /* atnow-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "atnow-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5474A511C4EB3C000E55194 /* atnow_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSTests.swift; sourceTree = "<group>"; };
 		B5474A531C4EB3C000E55194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
+		B5B330D21C71115600AD8F35 /* ProfileFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFeedViewController.swift; sourceTree = "<group>"; };
 		B5BA61381C50222000BA87BA /* atnow-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "atnow-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BA613A1C50222000BA87BA /* atnow_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atnow_iOSUITests.swift; sourceTree = "<group>"; };
 		B5BA613C1C50222000BA87BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,7 +116,6 @@
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C02DEB601C4ED873004A5190 /* atnowUserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = atnowUserTest.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFeedViewController.swift; sourceTree = "<group>"; };
 		C0B167481C459C3400BC045C /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		DEAFF6623AAA449D05092E4E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3293BF138AA72421D44702E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,36 +190,21 @@
 		81BA81471A49DA1800E65899 /* ParseStarterProject */ = {
 			isa = PBXGroup;
 			children = (
-				B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */,
-				B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */,
-				B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */,
-				B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */,
-				C0B167481C459C3400BC045C /* PayViewController.swift */,
-				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF741BEC0FBC00F31E6D /* Main.storyboard */,
-				B5CDE6DA1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift */,
-				B5CDE6D61C61638800B7BB3D /* RequestedTasksTableViewController.swift */,
-				B5CDE6D81C61639E00B7BB3D /* RequestedTasksViewController.swift */,
-				B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */,
-				C06EBFAB1C5FA28E00A6EAEE /* ProfileFeedViewController.swift */,
-				B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */,
-				C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */,
-				B54343481C5B019F005922DA /* ProfileFeedViewController.swift */,
-				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
 				B567DF761BEC0FBC00F31E6D /* MainViewController.swift */,
-				B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */,
-				B5CE33D91BF7FF78003A166D /* DesignHelper.swift */,
-				B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */,
-				B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */,
-				B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */,
-				B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */,
-				B567DF691BEC0FB300F31E6D /* MenuViewController.swift */,
-				B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */,
-				B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */,
-				B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */,
-				B567DF6D1BEC0FB300F31E6D /* now-Bridging-Header.h */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
-				C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */,
+				B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */,
+				B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */,
+				B5CE33D91BF7FF78003A166D /* DesignHelper.swift */,
+				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
+				B567DF6D1BEC0FB300F31E6D /* now-Bridging-Header.h */,
+				B5B330D91C71125400AD8F35 /* Menu */,
+				B5B330D71C71122900AD8F35 /* Task Creation/Flow */,
+				B5B330D61C7111DE00AD8F35 /* Requested */,
+				B5B330D11C7110F200AD8F35 /* Profile */,
+				B5B330D51C7111D400AD8F35 /* Accepted */,
+				B5B330D41C71118000AD8F35 /* Available */,
+				B5B330D01C7110D200AD8F35 /* Login/Signup */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -266,6 +250,76 @@
 				B5474A531C4EB3C000E55194 /* Info.plist */,
 			);
 			path = "atnow-iOSTests";
+			sourceTree = "<group>";
+		};
+		B5B330D01C7110D200AD8F35 /* Login/Signup */ = {
+			isa = PBXGroup;
+			children = (
+				B55888981BEE7EC200ACF3A5 /* SignUpViewController.swift */,
+				B567DF771BEC0FBC00F31E6D /* LoginViewController.swift */,
+			);
+			name = Login/Signup;
+			sourceTree = "<group>";
+		};
+		B5B330D11C7110F200AD8F35 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */,
+				C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */,
+				B5B330D21C71115600AD8F35 /* ProfileFeedViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		B5B330D41C71118000AD8F35 /* Available */ = {
+			isa = PBXGroup;
+			children = (
+				B52E934A1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift */,
+				B567DF781BEC0FBC00F31E6D /* HomeViewController.swift */,
+			);
+			name = Available;
+			sourceTree = "<group>";
+		};
+		B5B330D51C7111D400AD8F35 /* Accepted */ = {
+			isa = PBXGroup;
+			children = (
+				B52E934C1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift */,
+				B55888A31BF271C100ACF3A5 /* MyTasksViewController.swift */,
+				B5CDE6D41C614A8C00B7BB3D /* MyTasksSegmentedControlViewController.swift */,
+			);
+			name = Accepted;
+			sourceTree = "<group>";
+		};
+		B5B330D61C7111DE00AD8F35 /* Requested */ = {
+			isa = PBXGroup;
+			children = (
+				B5CDE6D81C61639E00B7BB3D /* RequestedTasksViewController.swift */,
+				B5CDE6D61C61638800B7BB3D /* RequestedTasksTableViewController.swift */,
+				B5CDE6DA1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift */,
+			);
+			name = Requested;
+			sourceTree = "<group>";
+		};
+		B5B330D71C71122900AD8F35 /* Task Creation/Flow */ = {
+			isa = PBXGroup;
+			children = (
+				B59A68B41BF3DA2500565A87 /* FloatRatingView.swift */,
+				C0B167481C459C3400BC045C /* PayViewController.swift */,
+				B55888A11BF0109C00ACF3A5 /* ConfirmationViewController.swift */,
+				B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */,
+			);
+			name = "Task Creation/Flow";
+			sourceTree = "<group>";
+		};
+		B5B330D91C71125400AD8F35 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */,
+				B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */,
+				B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */,
+				B567DF691BEC0FB300F31E6D /* MenuViewController.swift */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		B5BA61391C50222000BA87BA /* atnow-iOSUITests */ = {
@@ -487,6 +541,7 @@
 				C0DE8EE61C458B5F00714EFB /* (null) in Sources */,
 				B5CDE6DB1C61651D00B7BB3D /* RequestedTasksNavigationControllerViewController.swift in Sources */,
 				B55888A41BF271C100ACF3A5 /* MyTasksViewController.swift in Sources */,
+				B5B330D31C71115600AD8F35 /* ProfileFeedViewController.swift in Sources */,
 				B52E93491BF8303E00B373D3 /* tabBarControllerViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */,
@@ -507,7 +562,6 @@
 				B567DF811BEC0FBC00F31E6D /* HomeViewController.swift in Sources */,
 				B567DF7E1BEC0FBC00F31E6D /* RequestFormViewController.swift in Sources */,
 				B567DF801BEC0FBC00F31E6D /* LoginViewController.swift in Sources */,
-				B54343491C5B019F005922DA /* ProfileFeedViewController.swift in Sources */,
 				B567DF6E1BEC0FB300F31E6D /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
