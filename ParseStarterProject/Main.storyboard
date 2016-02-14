@@ -1128,18 +1128,18 @@
                         <viewControllerLayoutGuide type="bottom" id="hXK-Ng-1Gg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaO-Jw-4au">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="498"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
-                                <rect key="frame" x="236" y="192" width="128" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
+                                <rect key="frame" x="237" y="148" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YeA-TO-gny" secondAttribute="height" multiplier="1:1" id="QVu-v2-v8Q"/>
                                     <constraint firstAttribute="width" constant="128" id="jc8-Yo-4Ul"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
-                                <rect key="frame" x="67" y="83" width="239" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
+                                <rect key="frame" x="180.5" y="39" width="239" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="239" id="Aqj-hu-3RV"/>
                                     <constraint firstAttribute="width" secondItem="CR2-lO-ONW" secondAttribute="height" multiplier="239:47" id="ldX-MG-1Ve"/>
@@ -1155,8 +1155,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
-                                <rect key="frame" x="111" y="145" width="151" height="23"/>
+                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="atnow_iOS" customModuleProvider="target">
+                                <rect key="frame" x="224.5" y="101" width="151" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ya3-3e-bRG" secondAttribute="height" multiplier="151:23" id="mGX-Cg-pPb"/>
                                     <constraint firstAttribute="width" constant="151" id="whj-v0-S2n"/>
@@ -1175,8 +1175,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk" userLabel="Change Picture Button">
-                                <rect key="frame" x="235" y="192" width="128" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk" userLabel="Change Picture Button">
+                                <rect key="frame" x="236" y="148" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="8kh-YO-z77"/>
                                     <constraint firstAttribute="width" secondItem="MIf-oX-9qk" secondAttribute="height" multiplier="1:1" id="AXl-O5-FkK"/>
@@ -1185,30 +1185,8 @@
                                     <action selector="changeProfilePicture:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="krT-jj-bmn"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jae-0e-fBe">
-                                <rect key="frame" x="338" y="349" width="51" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="49" id="cEt-PA-efW"/>
-                                    <constraint firstAttribute="width" secondItem="jae-0e-fBe" secondAttribute="height" multiplier="49:31" id="uhT-LL-zAr"/>
-                                </constraints>
-                                <color key="tintColor" red="0.23921568627450979" green="0.58431372549019611" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="onTintColor" red="0.23921568630000001" green="0.58431372550000005" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="onSwitch:" destination="1Tg-mC-jcl" eventType="valueChanged" id="O9g-AI-NS5"/>
-                                </connections>
-                            </switch>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="venmo-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dBR-mB-U72">
-                                <rect key="frame" x="211" y="354" width="113" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="Oqa-Ix-CAh"/>
-                                    <constraint firstAttribute="width" secondItem="dBR-mB-U72" secondAttribute="height" multiplier="113:22" id="hf1-mh-wbi"/>
-                                </constraints>
-                            </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09M-4K-dyN">
-                                <rect key="frame" x="0.0" y="393" width="375" height="225"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="erL-Z0-Ycs"/>
-                                </constraints>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09M-4K-dyN">
+                                <rect key="frame" x="0.0" y="313" width="600" height="287"/>
                                 <connections>
                                     <segue destination="KPi-Pg-Sb0" kind="embed" identifier="showFeed" id="k4V-Mh-XHK"/>
                                 </connections>
@@ -1218,18 +1196,15 @@
                         <constraints>
                             <constraint firstItem="ya3-3e-bRG" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="4dh-MG-s2t"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" constant="1" id="6PO-3g-prd"/>
+                            <constraint firstItem="09M-4K-dyN" firstAttribute="top" secondItem="MIf-oX-9qk" secondAttribute="bottom" constant="37" id="829-Le-XUf"/>
                             <constraint firstItem="09M-4K-dyN" firstAttribute="width" secondItem="JaO-Jw-4au" secondAttribute="width" id="9fy-AG-UYr"/>
-                            <constraint firstItem="dBR-mB-U72" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" constant="-31.5" id="Jkb-NM-qFL"/>
-                            <constraint firstItem="dBR-mB-U72" firstAttribute="centerY" secondItem="jae-0e-fBe" secondAttribute="centerY" id="OHQ-Lt-zkp"/>
                             <constraint firstItem="MIf-oX-9qk" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="Sea-4f-oZS"/>
-                            <constraint firstItem="jae-0e-fBe" firstAttribute="leading" secondItem="dBR-mB-U72" secondAttribute="trailing" constant="14" id="WAj-Jv-rU8"/>
                             <constraint firstItem="MIf-oX-9qk" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="24" id="b4D-4T-1Ps"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="19" id="cir-O5-Gim"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="24" id="eZI-eN-Xk0"/>
                             <constraint firstItem="09M-4K-dyN" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="rut-uB-z3h"/>
                             <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="15" id="sBO-co-CAN"/>
                             <constraint firstItem="hXK-Ng-1Gg" firstAttribute="top" secondItem="09M-4K-dyN" secondAttribute="bottom" id="yDh-nU-hXK"/>
-                            <constraint firstItem="dBR-mB-U72" firstAttribute="top" secondItem="MIf-oX-9qk" secondAttribute="bottom" constant="34" id="ytc-r2-drG"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="z78-Er-9mJ"/>
                         </constraints>
                     </view>
@@ -1238,13 +1213,11 @@
                         <outlet property="profilePicture" destination="YeA-TO-gny" id="LVb-Vf-f7b"/>
                         <outlet property="starRatings" destination="ya3-3e-bRG" id="huy-Az-2an"/>
                         <outlet property="userFullNameLabel" destination="CR2-lO-ONW" id="nCE-lp-Fjb"/>
-                        <outlet property="venmoLabel" destination="dBR-mB-U72" id="N8d-TX-BNj"/>
-                        <outlet property="venmoSwitch" destination="jae-0e-fBe" id="L8i-TY-YrQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lq-Qn-oRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2765" y="564.5"/>
+            <point key="canvasLocation" x="2987" y="642"/>
         </scene>
         <!--Edit Info View Controller-->
         <scene sceneID="2FH-zc-Ku1">
@@ -1262,7 +1235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNA-Kt-uLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3518" y="674"/>
+            <point key="canvasLocation" x="3714" y="674"/>
         </scene>
         <!--Help Center-->
         <scene sceneID="fdV-1L-nxN">
@@ -1517,18 +1490,18 @@
             <objects>
                 <tableViewController storyboardIdentifier="ProfileFeedViewController" clearsSelectionOnViewWillAppear="NO" id="KPi-Pg-Sb0" customClass="ProfileFeedViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="gmi-iw-gnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="287"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="63" id="h9E-PQ-aQv" customClass="PFTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="63"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9E-PQ-aQv" id="12V-MZ-9Us">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="62.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="62.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skj-PT-2cO">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skj-PT-2cO">
                                             <rect key="frame" x="305" y="22" width="37" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.31764705879999999" green="0.74509803919999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1673,10 +1646,9 @@
         <image name="clock" width="1024" height="1024"/>
         <image name="lifebuoy-24" width="24" height="24"/>
         <image name="settings-icon" width="24" height="24"/>
-        <image name="venmo-icon" width="786" height="149"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="L1l-Ja-sSs"/>
-        <segue reference="4HL-Or-5if"/>
+        <segue reference="mJM-Bd-GXe"/>
     </inferredMetricsTieBreakers>
 </document>

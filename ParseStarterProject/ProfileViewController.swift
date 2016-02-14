@@ -38,7 +38,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
 
 
-        let settingsButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "displaySettings:")
+     //   let settingsButton = UIBarButtonItem(barButtonSystemItem: , target: self, action: "displaySettings:")
+        let settingsButton = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "displaySettings:")
         
         self.navigationItem.rightBarButtonItem = settingsButton
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:
@@ -103,13 +104,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         
                         // Save venmo information in Parse
                         
-  //                      self.user!["venmoPhoneNumber"] = Venmo.sharedInstance().session.user.primaryPhone
+                        self.user!["venmoPhoneNumber"] = Venmo.sharedInstance().session.user.primaryPhone
                         self.user!["venmoAccessToken"] = Venmo.sharedInstance().session.accessToken
                         self.user!.saveInBackground()
                         
                         self.presentViewController(successAlertController, animated: true) {}
                     }
                     else{
+                        self.venmoSwitch.on = false
                         let errorAlertController = UIAlertController(title: "Oops!", message: "Something went wrong while authorizing venmo. Please try again later.", preferredStyle: .Alert)
                         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -120,7 +122,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.presentViewController(errorAlertController, animated: true) {}
                     }
                 }
-            //}
         }
     }
 
@@ -194,18 +195,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     func displaySettings(sender: AnyObject){
+        PFUser.logOut()
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
+            self.presentViewController(viewController, animated: true, completion: nil)
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier=="showFeed"){
             self.feedViewController = segue.destinationViewController as? ProfileFeedViewController
-//            PFUser.currentUser()?.fetchInBackgroundWithBlock({ (currUser, error) -> Void in
-//                if((error) != nil){
-//                    print(error)
-//                }
-//                else{
-//                    self.feedViewController?.user = currUser as? PFUser
-//                }
+
             if self.user?.username==nil || self.user?.username == PFUser.currentUser()?.username{
                     self.feedViewController?.user = PFUser.currentUser()
             } else{
@@ -213,15 +214,4 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Venmo_iOS_SDK
 
 class LoginViewController: UIViewController{
     
@@ -58,6 +59,73 @@ class LoginViewController: UIViewController{
                     self.presentViewController(emailAlertController, animated: true) {}
                     
                 }
+                
+                //Venmo Check
+                if(!Venmo.sharedInstance().isSessionValid() || Venmo.sharedInstance().session.user.primaryPhone == nil){
+                    //Alert saying @now needs Venmo
+                    let venmoAuthAlert = UIAlertController(title: "Venmo Authorization", message: "@now requires users to link their venmo in order to process payments", preferredStyle: .Alert)
+                    
+                    let authAction = UIAlertAction(title: "Authorize", style: .Default) { (action) in
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.navigationController?.popViewControllerAnimated(true)
+                            
+                            // Venmo Auth Flow
+                            Venmo.sharedInstance().requestPermissions(["make_payments", "access_profile", "access_phone"]) { (success, error) -> Void in
+                                if (success){
+                                    let successAlertController = UIAlertController(title: "Success!", message: "All future transactions will go through venmo", preferredStyle: .Alert)
+                                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                            self.navigationController?.popViewControllerAnimated(true)
+                                            
+                                            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
+                                            self.presentViewController(viewController, animated: true, completion: nil)
+                                            let installation = PFInstallation.currentInstallation()
+                                            installation["user"] = PFUser.currentUser()
+                                            installation.saveInBackground()
+
+                                            
+                                        })
+                                    }
+                                    successAlertController.addAction(OKAction)
+                                    
+                                    // Save venmo information in Parse
+                                    
+                                    user!["phoneNumber"] = Venmo.sharedInstance().session.user.primaryPhone
+                                    user!["venmoAccessToken"] = Venmo.sharedInstance().session.accessToken
+                                    user!.saveInBackground()
+                                    
+                                    self.presentViewController(successAlertController, animated: true) {}
+                                }
+                                else{
+                                    let errorAlertController = UIAlertController(title: "Oops!", message: "Something went wrong while authorizing venmo. Please try again later.", preferredStyle: .Alert)
+                                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                            PFUser.logOut()
+                                            self.navigationController?.popViewControllerAnimated(true)
+                                        })
+                                    }
+                                    errorAlertController.addAction(OKAction)
+                                    self.presentViewController(errorAlertController, animated: true) {}
+                                }
+                            }
+                        })
+                    }
+                    
+                    let logoutAction = UIAlertAction(title: "Logout", style: .Default) { (action) in
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            PFUser.logOut()
+                            self.navigationController?.popViewControllerAnimated(true)
+                        })
+                    }
+                    
+                    venmoAuthAlert.addAction(authAction)
+                    venmoAuthAlert.addAction(logoutAction)
+                    
+                    self.presentViewController(venmoAuthAlert, animated: true) {}
+                    
+                }
+                
+                
 
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ContainerViewController")
                 self.presentViewController(viewController, animated: true, completion: nil)
@@ -75,6 +143,7 @@ class LoginViewController: UIViewController{
                 self.presentViewController(errorAlertController, animated: true) {}
             }
         })
+            
         
     }
     
