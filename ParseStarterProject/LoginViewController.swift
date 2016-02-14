@@ -61,8 +61,10 @@ class LoginViewController: UIViewController{
                 }
                 
                 //Venmo Check
-                if(!Venmo.sharedInstance().isSessionValid() || Venmo.sharedInstance().session.user.primaryPhone == nil){
+                if(!Venmo.sharedInstance().isSessionValid() || (Venmo.sharedInstance().session.user.primaryPhone != (user!["phoneNumber"] as! String))){
                     //Alert saying @now needs Venmo
+                    
+                    
                     let venmoAuthAlert = UIAlertController(title: "Venmo Authorization", message: "@now requires users to link their venmo in order to process payments", preferredStyle: .Alert)
                     
                     let authAction = UIAlertAction(title: "Authorize", style: .Default) { (action) in
