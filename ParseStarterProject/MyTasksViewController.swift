@@ -25,6 +25,8 @@ class MyTasksViewController: HomeViewController {
         
         let acceptorQuery = PFQuery(className: "Task")
         acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
+        acceptorQuery.whereKey("expiration", greaterThan: NSDate())
+        
         
         self.query = acceptorQuery
         
@@ -81,6 +83,9 @@ class MyTasksViewController: HomeViewController {
         let userInfo = notification.userInfo! as NSDictionary
         currentTab = userInfo["number"] as! Int
         self.query = PFQuery(className: "Task")
+        self.query!.whereKey("accepter", equalTo: PFUser.currentUser()!)
+        self.query!.whereKey("expiration", greaterThan: NSDate())
+
         switch currentTab {
         case 0:
             self.query!.whereKey("accepted", equalTo: true)

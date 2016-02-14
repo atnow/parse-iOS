@@ -18,20 +18,15 @@ class RequestedTasksTableViewController: HomeViewController {
     var query : PFQuery?
     
     override func queryForTable() -> PFQuery {
-        
-//        let acceptorQuery = PFQuery(className: "Task")
-//        acceptorQuery.whereKey("accepter", equalTo: PFUser.currentUser()!)
-//        
-//        return acceptorQuery
         return self.query!
     }
     
     override func viewDidLoad(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:", name: "tabSelected", object: nil)
-        let requesterQuery = PFQuery(className: "Task")
-        requesterQuery.whereKey("requester", equalTo: PFUser.currentUser()!)
+        self.query = PFQuery(className: "Task")
+        self.query!.whereKey("requester", equalTo: PFUser.currentUser()!)
+        self.query!.whereKey("expiration", greaterThan: NSDate())
         
-        self.query = requesterQuery
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
         if self.objects!.count == 0 {
@@ -45,10 +40,8 @@ class RequestedTasksTableViewController: HomeViewController {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         tableView.sectionHeaderHeight = 2
         let cellIdentifier = "MyTaskCell"
-      
         // Configure the cell to show todo item with a priority at the bottom
         
-            
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "MyTaskCell") as? PFTableViewCell
@@ -86,7 +79,6 @@ class RequestedTasksTableViewController: HomeViewController {
             let svc = segue.destinationViewController as! ConfirmationViewController;
             let selectedIndex = self.tableView.indexPathForCell(sender as! PFTableViewCell)
             svc.selectedTask = self.objectAtIndexPath(selectedIndex)! as PFObject
-            
         }
     }
     
@@ -94,6 +86,9 @@ class RequestedTasksTableViewController: HomeViewController {
         let userInfo = notification.userInfo! as NSDictionary
         currentTab = userInfo["number"] as! Int
         self.query = PFQuery(className: "Task")
+        self.query!.whereKey("requester", equalTo: PFUser.currentUser()!)
+        self.query!.whereKey("expiration", greaterThan: NSDate())
+
         switch currentTab {
             case 0:
                 self.query!.whereKey("accepted", equalTo: false)
@@ -109,33 +104,5 @@ class RequestedTasksTableViewController: HomeViewController {
              break
         }
         self.loadObjects()
-        
-    }
-    
-//    func findRequestedTaskState(task : PFObject) -> Int{
-//        if((task["confirmed"] as! Bool) == true){
-//            return 3
-//        }
-//        else if((task["completed"] as! Bool) == true){
-//            return 2
-//        }
-//        else if((task["accepted"] as! Bool) == true){
-//            return 1
-//        }
-//        else{
-//            return 0
-//        }
-//        
-//    }
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+    }    
 }
