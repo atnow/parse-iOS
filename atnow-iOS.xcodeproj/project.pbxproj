@@ -29,7 +29,6 @@
 		B567DF6F1BEC0FB300F31E6D /* MenuItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */; };
 		B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */; };
 		B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */; };
-		B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */; };
 		B567DF7D1BEC0FBC00F31E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B567DF741BEC0FBC00F31E6D /* Main.storyboard */; };
 		B567DF7E1BEC0FBC00F31E6D /* RequestFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */; };
 		B567DF7F1BEC0FBC00F31E6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567DF761BEC0FBC00F31E6D /* MainViewController.swift */; };
@@ -96,7 +95,6 @@
 		B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		B567DF6D1BEC0FB300F31E6D /* now-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "now-Bridging-Header.h"; sourceTree = "<group>"; };
-		B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B567DF741BEC0FBC00F31E6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B567DF751BEC0FBC00F31E6D /* RequestFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFormViewController.swift; sourceTree = "<group>"; };
 		B567DF761BEC0FBC00F31E6D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				B52E93481BF8303E00B373D3 /* tabBarControllerViewController.swift */,
 				B567DF6C1BEC0FB300F31E6D /* ContainerViewController.swift */,
 				B5CE33D91BF7FF78003A166D /* DesignHelper.swift */,
-				B567DF731BEC0FBC00F31E6D /* SecondViewController.swift */,
 				B567DF6D1BEC0FB300F31E6D /* now-Bridging-Header.h */,
 				B5B330D91C71125400AD8F35 /* Menu */,
 				B5B330D71C71122900AD8F35 /* Task Creation/Flow */,
@@ -554,7 +551,6 @@
 				B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */,
 				B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */,
 				B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */,
-				B567DF7C1BEC0FBC00F31E6D /* SecondViewController.swift in Sources */,
 				B5CDE6D91C61639E00B7BB3D /* RequestedTasksViewController.swift in Sources */,
 				B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */,
 				B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */,
