@@ -289,7 +289,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-CB-B48" userLabel="Title Text Field">
-                                <rect key="frame" x="36" y="192" width="303" height="30"/>
+                                <rect key="frame" x="36" y="177" width="303" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="303" id="Cwt-aY-7Lf"/>
                                     <constraint firstAttribute="width" secondItem="JeG-CB-B48" secondAttribute="height" multiplier="101:10" id="q81-9t-iAO"/>
@@ -298,7 +298,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payment amount ($)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ma9-SD-9TA">
-                                <rect key="frame" x="36" y="248" width="303" height="30"/>
+                                <rect key="frame" x="36" y="222" width="303" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ma9-SD-9TA" secondAttribute="height" multiplier="101:10" id="Med-H5-Rmy"/>
                                     <constraint firstAttribute="width" constant="303" id="Y3J-Vg-gNx"/>
@@ -307,7 +307,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery location (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YmC-WK-rb9">
-                                <rect key="frame" x="36" y="301" width="303" height="30"/>
+                                <rect key="frame" x="36" y="268" width="303" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YmC-WK-rb9" secondAttribute="height" multiplier="101:10" id="W2K-Z7-eez"/>
                                     <constraint firstAttribute="width" constant="303" id="aFt-AV-Ozg"/>
@@ -325,8 +325,42 @@
                                     <!--2015-10-28 22:43:00 +0000-->
                                 </date>
                             </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Further Instructions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sr5-1W-hYp" userLabel="Instructions Text View">
+                                <rect key="frame" x="36" y="315" width="303" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="303" id="BMg-60-NTw"/>
+                                    <constraint firstAttribute="width" secondItem="sr5-1W-hYp" secondAttribute="height" multiplier="303:103" id="KRG-91-LPy"/>
+                                </constraints>
+                                <color key="textColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="o1B-fT-qcF">
+                                <rect key="frame" x="56" y="452.5" width="57.5" height="49.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57.5" id="0zb-Cs-vC7"/>
+                                    <constraint firstAttribute="width" secondItem="o1B-fT-qcF" secondAttribute="height" multiplier="1:1" constant="8" id="xhw-03-Sxz"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="YkN-sW-tgg">
+                                <rect key="frame" x="156" y="442" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="P8D-Dp-TpZ"/>
+                                    <constraint firstAttribute="width" secondItem="YkN-sW-tgg" secondAttribute="height" multiplier="1:1" id="vey-Cv-AwK"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="heavy-lifting" translatesAutoresizingMaskIntoConstraints="NO" id="ULv-nT-Nku">
+                                <rect key="frame" x="258" y="442" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="u0g-a2-1SK"/>
+                                    <constraint firstAttribute="width" secondItem="ULv-nT-Nku" secondAttribute="height" multiplier="1:1" id="wbJ-Ky-Dj6"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOS-UZ-NZg">
-                                <rect key="frame" x="36" y="514" width="303" height="30"/>
+                                <rect key="frame" x="35" y="527" width="303" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="303" id="lHN-MK-FMK"/>
                                     <constraint firstAttribute="width" secondItem="JOS-UZ-NZg" secondAttribute="height" multiplier="101:10" id="weJ-z3-M0I"/>
@@ -336,31 +370,27 @@
                                     <action selector="submitPressed:" destination="avf-gG-YWQ" eventType="touchUpInside" id="W5e-Wv-OAn"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Further Instructions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sr5-1W-hYp" userLabel="Instructions Text View">
-                                <rect key="frame" x="36" y="357" width="303" height="103"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="303" id="BMg-60-NTw"/>
-                                    <constraint firstAttribute="width" secondItem="sr5-1W-hYp" secondAttribute="height" multiplier="303:103" id="KRG-91-LPy"/>
-                                </constraints>
-                                <color key="textColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JOS-UZ-NZg" firstAttribute="centerX" secondItem="7VH-Dw-gDG" secondAttribute="centerX" id="9cg-r6-4IJ"/>
+                            <constraint firstItem="JOS-UZ-NZg" firstAttribute="centerX" secondItem="7VH-Dw-gDG" secondAttribute="centerX" constant="-1" id="9cg-r6-4IJ"/>
+                            <constraint firstItem="o1B-fT-qcF" firstAttribute="leading" secondItem="7VH-Dw-gDG" secondAttribute="leadingMargin" constant="36" id="BOD-rG-jmV"/>
                             <constraint firstItem="YmC-WK-rb9" firstAttribute="centerX" secondItem="7VH-Dw-gDG" secondAttribute="centerX" id="GMB-AD-Akh"/>
                             <constraint firstItem="0sP-qF-Cxe" firstAttribute="centerX" secondItem="7VH-Dw-gDG" secondAttribute="centerX" id="LlI-fg-kAs"/>
                             <constraint firstItem="0sP-qF-Cxe" firstAttribute="top" secondItem="xjH-sY-jAX" secondAttribute="bottom" constant="26" id="T8n-0M-rkK"/>
-                            <constraint firstItem="JeG-CB-B48" firstAttribute="top" secondItem="0sP-qF-Cxe" secondAttribute="bottom" constant="23" id="Ytr-io-B9s"/>
-                            <constraint firstItem="YmC-WK-rb9" firstAttribute="top" secondItem="xjH-sY-jAX" secondAttribute="bottom" constant="281" id="a8X-q9-Wzl"/>
+                            <constraint firstItem="YkN-sW-tgg" firstAttribute="centerY" secondItem="ULv-nT-Nku" secondAttribute="centerY" id="V14-fa-V9G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ULv-nT-Nku" secondAttribute="trailing" constant="36" id="XhA-lQ-p35"/>
+                            <constraint firstItem="JeG-CB-B48" firstAttribute="top" secondItem="0sP-qF-Cxe" secondAttribute="bottom" constant="8" id="Ytr-io-B9s"/>
+                            <constraint firstItem="o1B-fT-qcF" firstAttribute="centerY" secondItem="YkN-sW-tgg" secondAttribute="centerY" constant="4.75" id="ZYe-p9-dV3"/>
+                            <constraint firstItem="YmC-WK-rb9" firstAttribute="top" secondItem="xjH-sY-jAX" secondAttribute="bottom" constant="248" id="a8X-q9-Wzl"/>
                             <constraint firstItem="0sP-qF-Cxe" firstAttribute="centerX" secondItem="7VH-Dw-gDG" secondAttribute="centerX" id="ajA-7a-AFE"/>
-                            <constraint firstItem="sr5-1W-hYp" firstAttribute="top" secondItem="ma9-SD-9TA" secondAttribute="bottom" constant="79" id="f1a-9V-nmQ"/>
-                            <constraint firstItem="ma9-SD-9TA" firstAttribute="top" secondItem="JeG-CB-B48" secondAttribute="bottom" constant="26" id="h3f-m1-IcK"/>
+                            <constraint firstItem="YkN-sW-tgg" firstAttribute="top" secondItem="sr5-1W-hYp" secondAttribute="bottom" constant="24" id="b6E-2i-gHq"/>
+                            <constraint firstItem="YkN-sW-tgg" firstAttribute="centerX" secondItem="sr5-1W-hYp" secondAttribute="centerX" constant="-1.5" id="cDb-df-dE8"/>
+                            <constraint firstItem="sr5-1W-hYp" firstAttribute="top" secondItem="ma9-SD-9TA" secondAttribute="bottom" constant="63" id="f1a-9V-nmQ"/>
+                            <constraint firstItem="ma9-SD-9TA" firstAttribute="top" secondItem="JeG-CB-B48" secondAttribute="bottom" constant="15" id="h3f-m1-IcK"/>
                             <constraint firstItem="ma9-SD-9TA" firstAttribute="centerX" secondItem="7VH-Dw-gDG" secondAttribute="centerX" id="k8l-30-6ut"/>
                             <constraint firstItem="sr5-1W-hYp" firstAttribute="centerX" secondItem="7VH-Dw-gDG" secondAttribute="centerX" id="sir-6i-96v"/>
-                            <constraint firstItem="JOS-UZ-NZg" firstAttribute="top" secondItem="YmC-WK-rb9" secondAttribute="bottom" constant="183" id="tNn-rh-k63"/>
+                            <constraint firstItem="JOS-UZ-NZg" firstAttribute="top" secondItem="YmC-WK-rb9" secondAttribute="bottom" constant="229" id="tNn-rh-k63"/>
                             <constraint firstItem="JeG-CB-B48" firstAttribute="centerX" secondItem="0sP-qF-Cxe" secondAttribute="centerX" id="uDC-YS-fm2"/>
                         </constraints>
                     </view>
@@ -1681,8 +1711,11 @@
         <image name="StarFull" width="22" height="22"/>
         <image name="User Icon" width="25" height="25"/>
         <image name="bell-16" width="16" height="16"/>
+        <image name="car" width="512" height="352"/>
         <image name="chevron" width="512" height="512"/>
         <image name="clock" width="1024" height="1024"/>
+        <image name="credit-card" width="512" height="512"/>
+        <image name="heavy-lifting" width="200" height="200"/>
         <image name="lifebuoy-24" width="24" height="24"/>
         <image name="settings-icon" width="24" height="24"/>
     </resources>
