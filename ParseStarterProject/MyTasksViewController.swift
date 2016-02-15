@@ -79,20 +79,51 @@ class MyTasksViewController: HomeViewController {
         return cell
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        if(self.objects?.count != 0){
+            tableView.backgroundView = nil
+            return 1;
+            
+        }
+        else{
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+            
+            switch currentTab {
+            case 0:
+                noDataLabel.text = "You don't have any tasks to-do"
+            case 1:
+                noDataLabel.text = "No tasks are awaiting confirmation"
+            case 2:
+                noDataLabel.text = "You haven't completed any tasks"
+            default:
+                break
+            }
+
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            noDataLabel.font = UIFont.systemFontOfSize(20)
+            noDataLabel.textColor = UIColor.grayColor()
+            tableView.backgroundView = noDataLabel
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0;
+        }
+    }
+    
     func loadList(notification: NSNotification){
         let userInfo = notification.userInfo! as NSDictionary
         currentTab = userInfo["number"] as! Int
         self.query = PFQuery(className: "Task")
         self.query!.whereKey("accepter", equalTo: PFUser.currentUser()!)
-        self.query!.whereKey("expiration", greaterThan: NSDate())
 
         switch currentTab {
         case 0:
             self.query!.whereKey("accepted", equalTo: true)
             self.query!.whereKey("completed", equalTo: false)
+            self.query!.whereKey("expiration", greaterThan: NSDate())
         case 1:
             self.query!.whereKey("completed", equalTo: true)
             self.query!.whereKey("confirmed", equalTo: false)
+            self.query!.whereKey("expiration", greaterThan: NSDate())
         case 2:
             self.query!.whereKey("confirmed", equalTo: true)
         default:

@@ -74,6 +74,40 @@ class RequestedTasksTableViewController: HomeViewController {
         return cell
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        if(self.objects?.count != 0){
+            tableView.backgroundView = nil
+            return 1;
+            
+        }
+        else{
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+            
+            switch currentTab {
+            case 0:
+                noDataLabel.text = "No unclaimed tasks"
+            case 1:
+                noDataLabel.text = "No tasks in-progress"
+            case 2:
+                noDataLabel.text = "No tasks awaiting your confirmation"
+            case 3:
+                noDataLabel.text = "No complete tasks"
+            default:
+                break
+            }
+            
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            noDataLabel.font = UIFont.systemFontOfSize(20)
+            noDataLabel.textColor = UIColor.grayColor()
+            tableView.backgroundView = noDataLabel
+            
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0;
+        }
+    }
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "requestedTaskDetail") {
             let svc = segue.destinationViewController as! ConfirmationViewController;
@@ -87,17 +121,19 @@ class RequestedTasksTableViewController: HomeViewController {
         currentTab = userInfo["number"] as! Int
         self.query = PFQuery(className: "Task")
         self.query!.whereKey("requester", equalTo: PFUser.currentUser()!)
-        self.query!.whereKey("expiration", greaterThan: NSDate())
 
         switch currentTab {
             case 0:
                 self.query!.whereKey("accepted", equalTo: false)
+                self.query!.whereKey("expiration", greaterThan: NSDate())
             case 1:
                 self.query!.whereKey("accepted", equalTo: true)
                 self.query!.whereKey("completed", equalTo: false)
+                self.query!.whereKey("expiration", greaterThan: NSDate())
             case 2:
                 self.query!.whereKey("completed", equalTo: true)
                 self.query!.whereKey("confirmed", equalTo: false)
+                self.query!.whereKey("expiration", greaterThan: NSDate())
             case 3:
                 self.query!.whereKey("confirmed", equalTo: true)
             default:

@@ -57,17 +57,10 @@ class HomeViewController : PFQueryTableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "TaskCell") as? PFTableViewCell
-            
-            //cell = PFTableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
         
         // Configure the cell to show todo item with a priority at the bottom
         if let object = object {
-//            cell!.textLabel?.text = object["title"] as? String
-//            let priority = object["priority"] as? String
-//            cell!.detailTextLabel?.text = "Priority \(priority)"
-            //cell!.imageView!.frame = CGRectOffset(cell!.frame, 10, 10)
-            
             
             if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
                 let description = object["title"]
@@ -98,6 +91,7 @@ class HomeViewController : PFQueryTableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         if(self.objects?.count != 0){
+            tableView.backgroundView = nil
             return 1;
             
         }
@@ -105,6 +99,8 @@ class HomeViewController : PFQueryTableViewController {
             let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
             noDataLabel.text = "No tasks are available at this time"
             noDataLabel.textAlignment = NSTextAlignment.Center
+            noDataLabel.font = UIFont.systemFontOfSize(20)
+            noDataLabel.textColor = UIColor.grayColor()
             tableView.backgroundView = noDataLabel
             return 0;
         }

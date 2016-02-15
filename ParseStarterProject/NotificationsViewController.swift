@@ -46,6 +46,27 @@ class NotificationsViewController: PFQueryTableViewController  {
         return query
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        if(self.objects?.count != 0){
+            tableView.backgroundView = nil
+            return 1;
+            
+        }
+        else{
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+            noDataLabel.text = "No notifications"
+            
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            noDataLabel.font = UIFont.systemFontOfSize(20)
+            noDataLabel.textColor = UIColor.grayColor()
+            tableView.backgroundView = noDataLabel
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            return 0;
+        }
+    }
+
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         let cellIdentifier = "NotificationCell"
