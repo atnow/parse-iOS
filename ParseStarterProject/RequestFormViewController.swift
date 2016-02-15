@@ -20,10 +20,14 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var submitButton: UIButton!
-    
+    @IBOutlet weak var carIcon: UIImageView!
+    @IBOutlet weak var liftingIcon: UIImageView!
+    @IBOutlet weak var purchaseIcon: UIImageView!
     let designHelper = DesignHelper()
-    
-    
+    var carSelected = false
+    var purchaseSelected = false
+    var liftingSelected = false
+
     
     @IBAction func submitPressed(sender: AnyObject) {
         
@@ -37,6 +41,9 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         newTask["accepted"] = false
         newTask["completed"] = false
         newTask["confirmed"] = false
+        newTask["requiresCar"] = carSelected
+        newTask["requiresPurchase"] = purchaseSelected
+        newTask["requiresLifting"] = liftingSelected
         
         newTask.ACL?.setPublicWriteAccess(true)
         newTask.saveInBackgroundWithBlock {
@@ -91,7 +98,72 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         
         instructionsTextView.delegate = self
         
+        let carImage = UIImage(named: "car")
+        let creditImage = UIImage(named: "credit-card")
+        let liftingImage = UIImage(named: "heavy-lifting")
+        
+        carIcon.image = carImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        purchaseIcon.image = creditImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        liftingIcon.image = liftingImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        
+        carIcon.tintColor = UIColor.lightGrayColor()
+        purchaseIcon.tintColor = UIColor.lightGrayColor()
+        liftingIcon.tintColor = UIColor.lightGrayColor()
+        
+        carIcon.backgroundColor = UIColor.whiteColor()
+        purchaseIcon.backgroundColor = UIColor.whiteColor()
+        liftingIcon.backgroundColor = UIColor.whiteColor()
+        
+        let carTapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("carImageTapped:"))
+        let creditTapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("creditImageTapped:"))
+        let liftingTapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("liftingImageTapped:"))
+        carIcon.userInteractionEnabled = true
+        purchaseIcon.userInteractionEnabled = true
+        liftingIcon.userInteractionEnabled = true
+        carIcon.addGestureRecognizer(carTapGestureRecognizer)
+        purchaseIcon.addGestureRecognizer(creditTapGestureRecognizer)
+        liftingIcon.addGestureRecognizer(liftingTapGestureRecognizer)
+        
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func carImageTapped(img: AnyObject)
+    {
+        // Your action
+        if(carSelected){
+             carIcon.tintColor = UIColor.blackColor()
+             carSelected = false
+        } else{
+            carIcon.tintColor = UIColor.lightGrayColor()
+            carSelected = true
+        }
+        
+    }
+    
+    func creditImageTapped(img: AnyObject)
+    {
+        // Your action
+        if(purchaseSelected){
+            purchaseIcon.tintColor = UIColor.blackColor()
+            purchaseSelected = false
+        } else{
+            purchaseIcon.tintColor = UIColor.lightGrayColor()
+            purchaseSelected = true
+        }
+    }
+    
+    func liftingImageTapped(img: AnyObject)
+    {
+        // Your action
+        if(liftingSelected){
+            liftingIcon.tintColor = UIColor.blackColor()
+            liftingSelected = false
+        } else{
+            liftingIcon.tintColor = UIColor.lightGrayColor()
+            liftingSelected = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,6 +231,8 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
             aTextView.selectedRange = NSMakeRange(0, 0);
         })
     }
+    
+    
     
 
     /*
