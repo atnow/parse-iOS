@@ -36,44 +36,6 @@ class RequestedTasksTableViewController: HomeViewController {
         self.query!.orderByDescending("expiration")
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        tableView.sectionHeaderHeight = 2
-        let cellIdentifier = "MyTaskCell"
-        // Configure the cell to show todo item with a priority at the bottom
-        
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? PFTableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "MyTaskCell") as? PFTableViewCell
-        }
-        
-        if let object = object {
-            if let descriptionLabel = cell!.viewWithTag(100) as? UILabel {
-                let description = object["title"]
-                descriptionLabel.text = "\(description)"
-            }
-            
-            if let priceLabel = cell!.viewWithTag(101) as? UILabel {
-                let price = object["price"]
-                priceLabel.text = "$" + String(price)
-                
-            }
-            if let expirationLabel = cell!.viewWithTag(102) as? UILabel {
-                let exp = object["expiration"] as! NSDate
-                let date = NSDate()
-                let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
-                let days = "\(Int(timeToExpire/1440))" + "d "
-                expirationLabel.text = days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
-                if timeToExpire <= 0 {
-                    expirationLabel.text = "Expired"
-                }
-                
-            }
-            
-        }
-        return cell
-    }
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         if(self.objects?.count != 0){
