@@ -84,19 +84,20 @@ class HomeViewController : PFQueryTableViewController {
             }
             
             var tag = 201
-            if((object["requiresCar"] != nil) && (object["requiresCar"] as! Bool)){
+            if((object["requiresCar"] != nil) && ((object["requiresCar"] as! Bool) == true)){
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
+                imageView.contentMode = UIViewContentMode.ScaleAspectFit
                 imageView.image = UIImage(named: "car")
                 tag++
             }
-            if((object["requiresLifting"] != nil) && (object["requiresLifting"] as! Bool)){
-                let imageView = cell?.viewWithTag(tag) as! UIImageView
-                imageView.image = UIImage(named: "credit-card")
-                tag++
-            }
-            if((object["requiresPurchase"] != nil) && (object["requiresPurchase"] as! Bool)){
+            if((object["requiresLifting"] != nil) && ((object["requiresLifting"] as! Bool) == true)){
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
                 imageView.image = UIImage(named: "heavy-lifting")
+                tag++
+            }
+            if((object["requiresPurchase"] != nil) && ((object["requiresPurchase"] as! Bool) == true)){
+                let imageView = cell?.viewWithTag(tag) as! UIImageView
+                imageView.image = UIImage(named: "credit-card")
             }
             
         }

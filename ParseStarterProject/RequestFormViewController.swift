@@ -35,7 +35,11 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         newTask["title"] = self.titleTextField.text
         newTask["description"] = self.instructionsTextView.text
         newTask["taskLocation"] = self.locationTextField.text
-        newTask["price"] = NSNumber(integer: Int(priceTextField.text!)!)
+        if(priceTextField.text == ""){
+            newTask["price"] = 0
+        } else {
+            newTask["price"] = NSNumber(integer: Int(priceTextField.text!)!)
+        }
         newTask["expiration"] = datePicker.date
         newTask["requester"] = PFUser.currentUser()
         newTask["accepted"] = false
@@ -94,6 +98,7 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         instructionsTextView.layer.borderWidth = 0.5
         instructionsTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         datePicker.layer.cornerRadius = 8
+        datePicker.minimumDate = NSDate()
         instructionsTextView.layer.cornerRadius = 8
         
         instructionsTextView.delegate = self
