@@ -16,7 +16,7 @@ class HomeViewController : PFQueryTableViewController {
     let designHelper = DesignHelper()
     var venmoAuthorized = false
     
-
+    
     override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
         parseClassName = "Task"
@@ -24,7 +24,7 @@ class HomeViewController : PFQueryTableViewController {
         paginationEnabled = true
         objectsPerPage = 25
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         parseClassName = "Task"
@@ -88,16 +88,19 @@ class HomeViewController : PFQueryTableViewController {
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
                 imageView.contentMode = UIViewContentMode.ScaleAspectFit
                 imageView.image = UIImage(named: "car")
+                imageView.alpha = 0.7
                 tag++
             }
             if((object["requiresLifting"] != nil) && ((object["requiresLifting"] as! Bool) == true)){
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
                 imageView.image = UIImage(named: "heavy-lifting")
+                imageView.alpha = 0.7
                 tag++
             }
             if((object["requiresPurchase"] != nil) && ((object["requiresPurchase"] as! Bool) == true)){
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
                 imageView.image = UIImage(named: "credit-card")
+                imageView.alpha = 0.7
             }
             
         }
@@ -125,7 +128,7 @@ class HomeViewController : PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         let MainNC = self.parentViewController!.parentViewController?.parentViewController as! UINavigationController
         MainNC.navigationBarHidden = true
         let composeButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "insertNewTask:")
@@ -139,10 +142,10 @@ class HomeViewController : PFQueryTableViewController {
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
         
         Venmo.sharedInstance().defaultTransactionMethod = VENTransactionMethod.API
-
+        
     }
-
-
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "taskDetail" || segue.identifier == "myTaskDetail" || segue.identifier == "requestedTaskDetail") {
             let svc = segue.destinationViewController as! ConfirmationViewController;
@@ -160,7 +163,7 @@ class HomeViewController : PFQueryTableViewController {
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }
-
+    
     
     func insertNewTask(sender: AnyObject) {
         let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("RequestForm")
