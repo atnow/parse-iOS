@@ -133,10 +133,10 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
     {
         // Your action
         if(carSelected){
-             carIcon.tintColor = UIColor.blackColor()
+             carIcon.tintColor = UIColor.lightGrayColor()
              carSelected = false
         } else{
-            carIcon.tintColor = UIColor.lightGrayColor()
+            carIcon.tintColor = UIColor.blackColor()
             carSelected = true
         }
         
@@ -146,10 +146,10 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
     {
         // Your action
         if(purchaseSelected){
-            purchaseIcon.tintColor = UIColor.blackColor()
+            purchaseIcon.tintColor = UIColor.lightGrayColor()
             purchaseSelected = false
         } else{
-            purchaseIcon.tintColor = UIColor.lightGrayColor()
+            purchaseIcon.tintColor = UIColor.blackColor()
             purchaseSelected = true
         }
     }
@@ -158,10 +158,10 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
     {
         // Your action
         if(liftingSelected){
-            liftingIcon.tintColor = UIColor.blackColor()
+            liftingIcon.tintColor = UIColor.lightGrayColor()
             liftingSelected = false
         } else{
-            liftingIcon.tintColor = UIColor.lightGrayColor()
+            liftingIcon.tintColor = UIColor.blackColor()
             liftingSelected = true
         }
     }
