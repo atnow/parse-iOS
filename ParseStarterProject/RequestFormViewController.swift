@@ -32,12 +32,30 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
     @IBAction func submitPressed(sender: AnyObject) {
         
         let newTask = PFObject(className: "Task")
-        newTask["title"] = self.titleTextField.text
+        if(titleTextField.text == ""){
+            let titleAlertController = UIAlertController(title: "Oops!", message: "Please input a title for your task", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                
+            }
+            titleAlertController.addAction(OKAction)
+            self.presentViewController(titleAlertController, animated: true) {}
+            return
+        }
+        else {
+            newTask["title"] = self.titleTextField.text
+        }
         newTask["description"] = self.instructionsTextView.text
         newTask["taskLocation"] = self.locationTextField.text
         if(priceTextField.text == ""){
-            newTask["price"] = 0
-        } else {
+            let priceAlertController = UIAlertController(title: "Oops!", message: "Please input a price for your task", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                return
+            }
+            priceAlertController.addAction(OKAction)
+            self.presentViewController(priceAlertController, animated: true) {}
+            return
+        }
+        else {
             newTask["price"] = NSNumber(integer: Int(priceTextField.text!)!)
         }
         newTask["expiration"] = datePicker.date
@@ -62,7 +80,6 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
-
                 successAlertController.addAction(OKAction)
                 self.presentViewController(successAlertController, animated: true) {}
                 
