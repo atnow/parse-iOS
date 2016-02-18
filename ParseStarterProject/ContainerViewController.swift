@@ -96,9 +96,10 @@ class ContainerViewController: UIViewController {
     func instanstiateContainer(){
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainNavigationController: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
+        let mainNavigationController = storyboard.instantiateViewControllerWithIdentifier("MainNavigationController") as! MainNavigationController
         let menuViewController: MenuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController")as! MenuViewController
         menuViewController.tableView.tableFooterView = UIView(frame: CGRectZero)
+        mainNavigationController.menuVC = menuViewController
         self.leftViewController = menuViewController
         self.rightViewController = mainNavigationController
     }

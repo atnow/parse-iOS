@@ -16,6 +16,8 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
     private var helpCenterSelectedObserver: NSObjectProtocol?
     private var pictureSelectedObserver: NSObjectProtocol?
     
+    var menuVC: MenuViewController?
+    
     let designHelper = DesignHelper()
     
     override func viewDidLoad() {
@@ -42,6 +44,7 @@ class MainNavigationController: UINavigationController, UINavigationControllerDe
         pictureSelectedObserver = center.addObserverForName(MenuViewController.Notifications.PictureSelected, object: nil, queue: nil) { (notification: NSNotification!) in
             let hvc = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
             hvc.fromMenu = true
+            hvc.menuVC = self.menuVC
             self.setViewControllers([hvc], animated: false)
             
         }

@@ -11,6 +11,8 @@ import UIKit
 import Parse
 
 class MenuViewController: UITableViewController{
+    
+    var pictureChanged: Bool = false
 
     @IBOutlet weak var fullNameLabel: UILabel!
     
@@ -66,13 +68,7 @@ class MenuViewController: UITableViewController{
             else{
                 self.user = PFUser.currentUser()
                 if (self.user?.username != nil){
-                    let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
-                    if(imageFromParse != nil){
-                        imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                            let image: UIImage! = UIImage(data: imageData!)!
-                            self.profileImageView.image = image
-                        })
-                    }
+                    self.loadPicture()
                     print(self.user!["fullName"])
                     self.fullNameLabel.text = self.user!["fullName"] as? String
                     //self.emailAddress.text = self.user!.email as String!
@@ -107,7 +103,18 @@ class MenuViewController: UITableViewController{
         
         let recognizer = UITapGestureRecognizer(target: self, action: "profileShow:")
         self.profileImageView.addGestureRecognizer(recognizer)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pictureChanged:", name: "pictureChanged", object: nil)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("viewWillAppear called")
+        super.viewWillAppear(animated)
+        if(pictureChanged){
+            print("picture has changed")
+            loadPicture()
+        }
+    }
+    
     
     func profileShow(sender: UITapGestureRecognizer) {
         let center = NSNotificationCenter.defaultCenter()
@@ -171,5 +178,21 @@ class MenuViewController: UITableViewController{
         cvc.hideMenu()
     }
     
+    func loadPicture(){
+        user = PFUser.currentUser()
+        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+        if(imageFromParse != nil){
+            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                let image: UIImage! = UIImage(data: imageData!)!
+                self.profileImageView.image = image
+            })
+        }
+    }
+    
+    
+    func pictureChanged(notification: NSNotification){
+        print("pictureChanged was called")
+        pictureChanged=true;
+    }
 
 }
