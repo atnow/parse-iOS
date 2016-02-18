@@ -36,8 +36,6 @@ class PayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         /*set up known info*/
         //picture
         profileImageView.layer.cornerRadius = 0.5 * self.profileImageView.frame.size.width
@@ -59,8 +57,6 @@ class PayViewController: UIViewController {
         //task
         taskTitleLabel.text = "For task \"" + (task!["title"] as? String)! + "\""
         costLabel.text = "$" + "\(task!["price"] as!  NSNumber)"
-        
-        
     }
     
     @IBAction func submitPressed(sender: UIButton) {
@@ -73,7 +69,6 @@ class PayViewController: UIViewController {
                 rating["rating"] = newScore
                 rating["ratingCount"] = (count+1)
                 rating.saveInBackgroundWithBlock { (success, error) -> Void in
-                    
                 }
             }
         }
@@ -99,7 +94,7 @@ class PayViewController: UIViewController {
                 
                 let total = (self.task!["price"] as! UInt)
                 
-                Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: total , note: transactionMessage, audience: transactionAudience)
+                Venmo.sharedInstance().sendPaymentTo(recipientHandle, amount: total*100 , note: transactionMessage, audience: transactionAudience)
                     { (transaction, success, error) -> Void in
                     if(success){
                         print("success")
@@ -111,16 +106,5 @@ class PayViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
