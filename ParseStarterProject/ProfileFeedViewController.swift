@@ -29,7 +29,7 @@ class ProfileFeedViewController: HomeViewController {
             query.cachePolicy = .CacheThenNetwork
         }
         
-        query.whereKey("requester", equalTo: self.user! )
+        query.whereKey("accepter", equalTo: self.user! )
         query.orderByAscending("expiration")
         
         return query
