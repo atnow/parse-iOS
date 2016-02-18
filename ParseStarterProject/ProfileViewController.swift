@@ -35,13 +35,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         
 
-
      //   let settingsButton = UIBarButtonItem(barButtonSystemItem: , target: self, action: "displaySettings:")
-        let settingsButton = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "displaySettings:")
-        
-        self.navigationItem.rightBarButtonItem = settingsButton
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style:
-            UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
         
         imagePicker.delegate = self
@@ -78,6 +73,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if(!isOwnProfile){
             changePictureButton.hidden = true
+        } else {
+            let settingsButton = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "displaySettings:")
+            self.navigationItem.rightBarButtonItem = settingsButton
         }
         
     }
@@ -124,7 +122,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)

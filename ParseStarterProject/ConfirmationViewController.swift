@@ -38,11 +38,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let baseColor = designHelper.baseColor
         acceptButton.layer.cornerRadius = 0.5 * acceptButton.bounds.size.width
-        acceptButton.layer.borderWidth = 2
-        acceptButton.layer.borderColor = baseColor.CGColor
-        acceptButton.setTitleColor(baseColor, forState: .Normal)
+        designHelper.formatButtonAction(acceptButton)
         acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
         acceptButton.titleLabel?.numberOfLines = 2
         acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -111,14 +108,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 print(error)
             }
         }
-        //let date = NSDate()
-       // let expDate = selectedTask!["expiration"] as! NSDate
-       // let timeToExpire = Int(expDate.timeIntervalSinceDate(date)/60)
-       // expirationLabel.text = "Expires: \(Int(timeToExpire/60))" + ":" + "\(timeToExpire%60)"
-       // instructionsView.text = selectedTask!["description"]! as? String
-    
-        // Do any additional setup after loading the view.
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -130,15 +119,14 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 
                 if((selectedTask!["confirmed"] as! Bool) == true){
                     currentState = .confirmed
+                    designHelper.formatButtonNoAction(acceptButton)
                     acceptButton.enabled = false
                     acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    let fadeColor = designHelper.fadeColor
-                    acceptButton.layer.borderColor = fadeColor.CGColor
-                    acceptButton.setTitleColor(fadeColor, forState: .Normal)
                     
                 }
                 else{
                     currentState = .completed
+                    designHelper.formatButtonAction(acceptButton)
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
                     reportButton.setTitle("Report", forState: UIControlState.Normal)
                     reportButton.hidden = false
@@ -160,6 +148,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 acceptButton.enabled = false
                 //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
                 //acceptButton.layer.borderColor = color.CGColor
+                designHelper.formatButtonNoAction(acceptButton)
                 acceptButton.setTitle("Task \r\n accepted", forState: UIControlState.Normal)
                 //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
                 
@@ -193,10 +182,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 let deleteButton = UIBarButtonItem(barButtonSystemItem: .Trash, target: self, action: "cancelTask")
                 self.navigationItem.rightBarButtonItem = deleteButton
                 acceptButton.enabled = false
-                let fadeColor = designHelper.fadeColor
-                acceptButton.layer.borderColor = fadeColor.CGColor
-                acceptButton.setTitleColor(fadeColor, forState: .Normal)
                 currentState = .available
+                designHelper.formatButtonNoAction(acceptButton)
                 acceptButton.setTitle("Task \r\n" + "requested", forState: UIControlState.Normal)
             }
         }
@@ -210,11 +197,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     currentState = .confirmed
                     acceptButton.enabled = false
                     //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
+                    designHelper.formatButtonNoAction(acceptButton)
                     acceptButton.setTitle("Complete", forState: UIControlState.Normal)
-                    let fadeColor = designHelper.fadeColor
-                    acceptButton.layer.borderColor = fadeColor.CGColor
-                    acceptButton.setTitleColor(fadeColor, forState: .Normal)
-                    //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                 }
                     
                 else if((selectedTask!["completed"] as! Bool) == true){
@@ -222,16 +206,14 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     acceptButton.enabled = false
                     //let color = UIColor(red: 255/255, green: 235/255, blue: 61/255, alpha: 1)
                     //acceptButton.layer.borderColor = color.CGColor
+                    designHelper.formatButtonNoAction(acceptButton)
                     acceptButton.setTitle("Waiting \r\n for confirmation", forState: UIControlState.Normal)
-                    let fadeColor = designHelper.fadeColor
-                    acceptButton.layer.borderColor = fadeColor.CGColor
-                    acceptButton.setTitleColor(fadeColor, forState: .Normal)
-                    //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
                     
                 }
                 else{
                     reportButton.hidden = false
                     currentState = .accepted
+                    designHelper.formatButtonAction(acceptButton)
                     acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)
                     //acceptButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
                     //acceptButton.layer.borderColor = UIColor.greenColor().CGColor
@@ -284,6 +266,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 self.presentViewController(errorAlertController, animated: true) {}
             }
             else{
+                self.designHelper.formatButtonNoAction(self.acceptButton)
+                
                 self.navigationController?.popViewControllerAnimated(true)
                 
                 let taskName = self.selectedTask!["title"] as! String
@@ -318,6 +302,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     (success: Bool, error: NSError?) -> Void in
                     if (success) {
                         // The object has been saved.
+                        self.designHelper.formatButtonAction(self.acceptButton)
                     } else {
                         print(error)
                     }

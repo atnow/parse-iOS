@@ -12,7 +12,7 @@ import UIKit
 public class DesignHelper {
     
     let baseColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 1.0)
-    let fadeColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 0.2)
+    let fadeColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 1.0)
     
     let todoColor = UIColor.orangeColor()
     let awaitingConfirmationColor = UIColor.blueColor()
@@ -29,6 +29,17 @@ public class DesignHelper {
         button.setTitleColor(baseColor, forState: .Normal)
         button.layer.backgroundColor = UIColor.whiteColor().CGColor
         
+    }
+    
+    func formatButtonNoAction (button: UIButton){
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.layer.backgroundColor = unclaimedColor.CGColor
+    }
+    
+    func formatButtonAction (button: UIButton){
+        button.backgroundColor = baseColor
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.titleLabel!.font = UIFont.boldSystemFontOfSize(21)
     }
     
     func formatPicture (picture: UIImageView) {
