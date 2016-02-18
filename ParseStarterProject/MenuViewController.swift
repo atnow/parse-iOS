@@ -103,18 +103,8 @@ class MenuViewController: UITableViewController{
         
         let recognizer = UITapGestureRecognizer(target: self, action: "profileShow:")
         self.profileImageView.addGestureRecognizer(recognizer)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pictureChanged:", name: "pictureChanged", object: nil)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        print("viewWillAppear called")
-        super.viewWillAppear(animated)
-        if(pictureChanged){
-            print("picture has changed")
-            loadPicture()
-        }
-    }
-    
+
+    }    
     
     func profileShow(sender: UITapGestureRecognizer) {
         let center = NSNotificationCenter.defaultCenter()
@@ -187,12 +177,6 @@ class MenuViewController: UITableViewController{
                 self.profileImageView.image = image
             })
         }
-    }
-    
-    
-    func pictureChanged(notification: NSNotification){
-        print("pictureChanged was called")
-        pictureChanged=true;
     }
 
 }

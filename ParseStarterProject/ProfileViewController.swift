@@ -116,8 +116,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.user?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
                 if(succeeded == true){
                     self.menuVC?.profileImageView.image = pickedImage
-                    //print("posting")
-                    //NSNotificationCenter.defaultCenter().postNotificationName("pictureChanged", object: self)
+
                 }
                 else{
                     print(error)
