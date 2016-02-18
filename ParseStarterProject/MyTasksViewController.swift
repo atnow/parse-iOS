@@ -37,6 +37,8 @@ class MyTasksViewController: HomeViewController {
         }
         
         self.query!.orderByDescending("expiration")
+        self.query!.whereKey("accepted", equalTo: true)
+        self.query!.whereKey("completed", equalTo: false)
     }
     
     

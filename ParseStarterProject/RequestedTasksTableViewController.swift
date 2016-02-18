@@ -26,6 +26,7 @@ class RequestedTasksTableViewController: HomeViewController {
         self.query = PFQuery(className: "Task")
         self.query!.whereKey("requester", equalTo: PFUser.currentUser()!)
         self.query!.whereKey("expiration", greaterThan: NSDate())
+        self.query!.whereKey("accepted", equalTo: false)
         
         // If no objects are loaded in memory, we look to the cache first to fill the table
         // and then subsequently do a query against the network.
