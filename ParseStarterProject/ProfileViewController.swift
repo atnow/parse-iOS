@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var isOwnProfile : Bool = false
     var feedViewController: ProfileFeedViewController?
     
+    var menuVC:MenuViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -109,17 +111,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let imageData = UIImageJPEGRepresentation(pickedImage, 0.1)
             let imageFile = PFFile(name:"image.png", data: imageData!)
             self.user!["profilePicture"] = imageFile
-            
             self.user?.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
                 if(succeeded == true){
-                    //
+                    self.menuVC?.profileImageView.image = pickedImage
+
                 }
                 else{
                     print(error)
                 }
             })
         }
-        
+            
         dismissViewControllerAnimated(true, completion: nil)
     }
     
