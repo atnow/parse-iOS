@@ -23,9 +23,10 @@ class LoginViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = designHelper.baseColor
         designHelper.formatButton(singUpButton)
         designHelper.formatButton(loginButton)
-        titleLabel.textColor = designHelper.baseColor
+        titleLabel.textColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

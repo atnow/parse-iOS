@@ -17,7 +17,7 @@ public class DesignHelper {
     let todoColor = UIColor.orangeColor()
     let awaitingConfirmationColor = UIColor.blueColor()
     let completeColor = UIColor(red: 17/255, green: 210/255, blue: 3/255, alpha: 1.0)
-    let unclaimedColor = UIColor.grayColor()
+    let unclaimedColor = UIColor.lightGrayColor()
     let inProgressColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 1.0)
 
     
