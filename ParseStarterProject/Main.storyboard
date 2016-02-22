@@ -1523,25 +1523,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.080000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="baker" translatesAutoresizingMaskIntoConstraints="NO" id="Wze-JS-BF0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOE-nz-VD4">
-                                <rect key="frame" x="123" y="126" width="129" height="57"/>
+                                <rect key="frame" x="123" y="98" width="129" height="56.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                 <color key="textColor" red="0.24029873214371644" green="0.94253420035276625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dartmouth.edu email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3LO-nC-KIN">
-                                <rect key="frame" x="43" y="239" width="289" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="dartmouth.edu email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3LO-nC-KIN">
+                                <rect key="frame" x="43" y="231" width="289" height="58"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="289" id="Jft-ab-EPy"/>
+                                    <constraint firstAttribute="width" secondItem="3LO-nC-KIN" secondAttribute="height" multiplier="289:58" id="LW1-F1-RPz"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gvg-eV-axA">
-                                <rect key="frame" x="43" y="284" width="289" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjG-PM-nT1">
-                                <rect key="frame" x="43" y="341" width="289" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjG-PM-nT1">
+                                <rect key="frame" x="43" y="421" width="289" height="54"/>
                                 <color key="backgroundColor" red="0.2402987321" green="0.94253420040000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fjG-PM-nT1" secondAttribute="height" multiplier="289:30" constant="-231.19999999999993" id="Q7u-BU-URT"/>
+                                    <constraint firstAttribute="width" constant="289" id="gEi-Wk-13d"/>
+                                </constraints>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </state>
@@ -1549,9 +1562,13 @@
                                     <action selector="onLogin:" destination="YUS-7a-aql" eventType="touchUpInside" id="r99-wM-7GG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ket-Oi-vC5">
-                                <rect key="frame" x="43" y="396" width="289" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ket-Oi-vC5">
+                                <rect key="frame" x="234" y="559" width="98" height="33"/>
                                 <color key="backgroundColor" red="0.2402987321" green="0.94253420040000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ket-Oi-vC5" secondAttribute="height" multiplier="289:30" constant="-219.89999999999998" id="fL7-Q6-AvT"/>
+                                    <constraint firstAttribute="width" constant="98" id="rus-gO-Geu"/>
+                                </constraints>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </state>
@@ -1560,34 +1577,62 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Task Marketplace for College Students" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF9-Ud-RNs">
-                                <rect key="frame" x="57" y="183" width="261" height="21"/>
+                                <rect key="frame" x="43" y="162" width="289" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="261" id="oBI-dY-kyV"/>
-                                    <constraint firstAttribute="width" secondItem="eF9-Ud-RNs" secondAttribute="height" multiplier="87:7" id="vyk-HG-7GE"/>
+                                    <constraint firstAttribute="width" constant="289" id="oBI-dY-kyV"/>
+                                    <constraint firstAttribute="width" secondItem="eF9-Ud-RNs" secondAttribute="height" multiplier="87:7" constant="28" id="vyk-HG-7GE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New to @now?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-Px-JQE">
+                                <rect key="frame" x="43" y="556" width="171" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hvg-Px-JQE" secondAttribute="height" multiplier="57:7" constant="-122.14285714285711" id="K0g-um-ujm"/>
+                                    <constraint firstAttribute="width" constant="171" id="hTi-SU-e0Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gvg-eV-axA">
+                                <rect key="frame" x="43" y="325" width="289" height="58"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="289" id="P9Z-zm-AXk"/>
+                                    <constraint firstAttribute="width" secondItem="Gvg-eV-axA" secondAttribute="height" multiplier="289:58" id="aHL-nI-cIo"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fjG-PM-nT1" firstAttribute="leading" secondItem="PTv-rh-lYX" secondAttribute="leadingMargin" constant="23" id="8s6-Yb-6l2"/>
-                            <constraint firstItem="ket-Oi-vC5" firstAttribute="top" secondItem="fjG-PM-nT1" secondAttribute="bottom" constant="25" id="DH8-kW-Rm1"/>
-                            <constraint firstItem="Gvg-eV-axA" firstAttribute="top" secondItem="3LO-nC-KIN" secondAttribute="bottom" constant="15" id="EyH-IO-qn4"/>
-                            <constraint firstItem="eF9-Ud-RNs" firstAttribute="top" secondItem="lOE-nz-VD4" secondAttribute="bottom" id="Lxv-Hq-91q"/>
-                            <constraint firstItem="Gvg-eV-axA" firstAttribute="leading" secondItem="PTv-rh-lYX" secondAttribute="leadingMargin" constant="23" id="Yom-Go-Nsf"/>
+                            <constraint firstItem="ket-Oi-vC5" firstAttribute="top" secondItem="fjG-PM-nT1" secondAttribute="bottom" constant="84" id="3V4-tS-Ykp"/>
+                            <constraint firstItem="ket-Oi-vC5" firstAttribute="leading" secondItem="hvg-Px-JQE" secondAttribute="trailing" constant="20" id="5kT-CX-oYF"/>
+                            <constraint firstItem="Wze-JS-BF0" firstAttribute="height" secondItem="PTv-rh-lYX" secondAttribute="height" id="8dA-Z8-dsB"/>
+                            <constraint firstItem="fjG-PM-nT1" firstAttribute="top" secondItem="Gvg-eV-axA" secondAttribute="bottom" constant="38" id="H3U-Zq-NBV"/>
+                            <constraint firstItem="hvg-Px-JQE" firstAttribute="centerY" secondItem="ket-Oi-vC5" secondAttribute="centerY" constant="-1.5" id="Isg-rh-ar8"/>
+                            <constraint firstItem="Wze-JS-BF0" firstAttribute="centerX" secondItem="PTv-rh-lYX" secondAttribute="centerX" id="KqE-XV-qiz"/>
+                            <constraint firstItem="fjG-PM-nT1" firstAttribute="centerX" secondItem="PTv-rh-lYX" secondAttribute="centerX" id="LiH-Q9-5gu"/>
+                            <constraint firstItem="eF9-Ud-RNs" firstAttribute="top" secondItem="lOE-nz-VD4" secondAttribute="bottom" constant="7.5" id="Lxv-Hq-91q"/>
+                            <constraint firstItem="3LO-nC-KIN" firstAttribute="top" secondItem="eF9-Ud-RNs" secondAttribute="bottom" constant="48" id="Mdi-vF-7mz"/>
+                            <constraint firstItem="Gvg-eV-axA" firstAttribute="top" secondItem="3LO-nC-KIN" secondAttribute="bottom" constant="36" id="Nb6-Gp-uIV"/>
                             <constraint firstItem="lOE-nz-VD4" firstAttribute="centerX" secondItem="PTv-rh-lYX" secondAttribute="centerX" id="ZIZ-cE-lJY"/>
+                            <constraint firstItem="Gvg-eV-axA" firstAttribute="centerX" secondItem="PTv-rh-lYX" secondAttribute="centerX" id="ZwE-LV-vLg"/>
                             <constraint firstItem="eF9-Ud-RNs" firstAttribute="centerX" secondItem="PTv-rh-lYX" secondAttribute="centerX" id="aRB-IP-bzh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ket-Oi-vC5" secondAttribute="trailing" constant="23" id="d3z-RG-ONl"/>
-                            <constraint firstItem="ket-Oi-vC5" firstAttribute="leading" secondItem="PTv-rh-lYX" secondAttribute="leadingMargin" constant="23" id="fgU-a3-8SD"/>
-                            <constraint firstItem="3LO-nC-KIN" firstAttribute="top" secondItem="lOE-nz-VD4" secondAttribute="bottom" constant="56" id="fpb-Y5-dGi"/>
-                            <constraint firstItem="fjG-PM-nT1" firstAttribute="top" secondItem="Gvg-eV-axA" secondAttribute="bottom" constant="27" id="jbM-Uq-Www"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fjG-PM-nT1" secondAttribute="trailing" constant="23" id="oWe-pG-ceW"/>
-                            <constraint firstItem="lOE-nz-VD4" firstAttribute="top" secondItem="qcq-ye-AP5" secondAttribute="bottom" constant="106" id="rGM-YL-7rY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3LO-nC-KIN" secondAttribute="trailing" constant="23" id="sCc-SS-xiN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Gvg-eV-axA" secondAttribute="trailing" constant="23" id="yMR-MI-ykO"/>
-                            <constraint firstItem="3LO-nC-KIN" firstAttribute="leading" secondItem="PTv-rh-lYX" secondAttribute="leadingMargin" constant="23" id="zm4-gf-bvU"/>
+                            <constraint firstItem="Wze-JS-BF0" firstAttribute="top" secondItem="qcq-ye-AP5" secondAttribute="bottom" id="lCz-de-FVq"/>
+                            <constraint firstItem="lOE-nz-VD4" firstAttribute="top" secondItem="qcq-ye-AP5" secondAttribute="bottom" constant="78" id="rGM-YL-7rY"/>
+                            <constraint firstItem="ket-Oi-vC5" firstAttribute="centerX" secondItem="PTv-rh-lYX" secondAttribute="centerX" constant="95.5" id="roV-mP-Eiq"/>
+                            <constraint firstItem="Wze-JS-BF0" firstAttribute="width" secondItem="PTv-rh-lYX" secondAttribute="width" id="xEM-vA-1aW"/>
+                            <constraint firstItem="3LO-nC-KIN" firstAttribute="centerX" secondItem="Wze-JS-BF0" secondAttribute="centerX" id="z5g-E8-3tG"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -1834,6 +1879,7 @@
         <image name="StarEmpty" width="22" height="22"/>
         <image name="StarFull" width="22" height="22"/>
         <image name="User Icon" width="25" height="25"/>
+        <image name="baker" width="2274" height="3472"/>
         <image name="bell-16" width="16" height="16"/>
         <image name="car" width="512" height="352"/>
         <image name="chevron" width="512" height="512"/>

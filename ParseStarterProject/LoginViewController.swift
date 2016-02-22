@@ -26,6 +26,12 @@ class LoginViewController: UIViewController{
         self.view.backgroundColor = designHelper.baseColor
         designHelper.formatButton(singUpButton)
         designHelper.formatButton(loginButton)
+        loginEmail.layer.borderColor = UIColor.whiteColor().CGColor
+        loginEmail.layer.borderWidth = 1
+        loginEmail.layer.cornerRadius = 4
+        loginPassword.layer.borderColor = UIColor.whiteColor().CGColor
+        loginPassword.layer.borderWidth = 1
+        loginPassword.layer.cornerRadius = 4
         titleLabel.textColor = UIColor.whiteColor()
     }
 
