@@ -14,6 +14,8 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
     
     let PLACEHOLDER_TEXT = "Further Instructions"
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var instructionsTextView: UITextView!
     @IBOutlet weak var priceTextField: UITextField!
@@ -21,8 +23,14 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var carIcon: UIImageView!
+    
+    @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var liftingIcon: UIImageView!
+    
+    @IBOutlet weak var liftingLabel: UILabel!
+    @IBOutlet weak var purchaseLabel: UILabel!
     @IBOutlet weak var purchaseIcon: UIImageView!
+    
     let designHelper = DesignHelper()
     var carSelected = false
     var purchaseSelected = false
@@ -132,6 +140,10 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         purchaseIcon.tintColor = UIColor.lightGrayColor()
         liftingIcon.tintColor = UIColor.lightGrayColor()
         
+        carLabel.textColor = UIColor.lightGrayColor()
+        purchaseLabel.textColor = UIColor.lightGrayColor()
+        liftingLabel.textColor = UIColor.lightGrayColor()
+        
         carIcon.backgroundColor = UIColor.whiteColor()
         purchaseIcon.backgroundColor = UIColor.whiteColor()
         liftingIcon.backgroundColor = UIColor.whiteColor()
@@ -146,9 +158,17 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         purchaseIcon.addGestureRecognizer(creditTapGestureRecognizer)
         liftingIcon.addGestureRecognizer(liftingTapGestureRecognizer)
         
+        designHelper.formatButtonAction(submitButton)
+        
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.layoutIfNeeded()
+        scrollView.contentSize = contentView.bounds.size
     }
     
     func carImageTapped(img: AnyObject)
@@ -156,9 +176,11 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         // Your action
         if(carSelected){
              carIcon.tintColor = UIColor.lightGrayColor()
+            carLabel.textColor = UIColor.lightGrayColor()
              carSelected = false
         } else{
             carIcon.tintColor = UIColor.blackColor()
+            carLabel.textColor = UIColor.blackColor()
             carSelected = true
         }
         
@@ -169,9 +191,11 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         // Your action
         if(purchaseSelected){
             purchaseIcon.tintColor = UIColor.lightGrayColor()
+            purchaseLabel.textColor = UIColor.lightGrayColor()
             purchaseSelected = false
         } else{
             purchaseIcon.tintColor = UIColor.blackColor()
+            purchaseLabel.textColor = UIColor.blackColor()
             purchaseSelected = true
         }
     }
@@ -181,9 +205,11 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         // Your action
         if(liftingSelected){
             liftingIcon.tintColor = UIColor.lightGrayColor()
+            liftingLabel.textColor = UIColor.lightGrayColor()
             liftingSelected = false
         } else{
             liftingIcon.tintColor = UIColor.blackColor()
+            liftingLabel.textColor = UIColor.blackColor()
             liftingSelected = true
         }
     }
