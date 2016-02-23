@@ -91,6 +91,21 @@ class SignUpViewController: UIViewController {
         view.addGestureRecognizer(tap)
         designHelper.formatButton(signUpButton)
         designHelper.formatButton(cancelButton)
+        fullNameField.layer.borderColor = UIColor.whiteColor().CGColor
+        fullNameField.layer.cornerRadius = 4
+        fullNameField.layer.borderWidth = 1
+        
+        emailField.layer.borderColor = UIColor.whiteColor().CGColor
+        emailField.layer.cornerRadius = 4
+        emailField.layer.borderWidth = 1
+        
+        passwordField.layer.borderColor = UIColor.whiteColor().CGColor
+        passwordField.layer.cornerRadius = 4
+        passwordField.layer.borderWidth = 1
+        
+        confirmPasswordField.layer.borderColor = UIColor.whiteColor().CGColor
+        confirmPasswordField.layer.borderWidth = 1
+        confirmPasswordField.layer.cornerRadius = 4
     }
     
     override func didReceiveMemoryWarning() {
