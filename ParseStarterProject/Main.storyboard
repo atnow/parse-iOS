@@ -1444,6 +1444,7 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pws-6V-LkM">
                                 <rect key="frame" x="30" y="175" width="316" height="48"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="316" id="D8e-gA-xeZ"/>
                                     <constraint firstAttribute="width" secondItem="pws-6V-LkM" secondAttribute="height" multiplier="316:63" constant="75.238095238095241" id="asM-pM-bTL"/>
@@ -1457,18 +1458,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@dartmouth.edu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmU-Uj-0wM">
-                                <rect key="frame" x="188" y="252" width="158" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="JmU-Uj-0wM" secondAttribute="height" multiplier="158:21" id="Y8s-it-1hZ"/>
-                                    <constraint firstAttribute="width" constant="158" id="eyK-YA-6Lw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heb-sL-Nn2">
                                 <rect key="frame" x="30" y="303" width="316" height="46"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="316" id="Jvd-hx-opD"/>
                                     <constraint firstAttribute="width" secondItem="heb-sL-Nn2" secondAttribute="height" multiplier="158:23" id="NRr-jz-qXu"/>
@@ -1484,10 +1476,12 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihb-7T-Qhh">
                                 <rect key="frame" x="29" y="366" width="316" height="46"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ihb-7T-Qhh" secondAttribute="height" multiplier="158:23" id="cwX-wZ-yfJ"/>
                                     <constraint firstAttribute="width" constant="316" id="g6m-DF-eGv"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -1524,11 +1518,12 @@
                                     <segue destination="YUS-7a-aql" kind="show" id="Dbn-CB-jpm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GUS-OK-lQP">
-                                <rect key="frame" x="30" y="240" width="150" height="46"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@dartmouth.edu email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GUS-OK-lQP">
+                                <rect key="frame" x="30" y="240" width="316" height="46"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="GUS-OK-lQP" secondAttribute="height" multiplier="25:8" constant="6.25" id="dSX-h1-xM4"/>
-                                    <constraint firstAttribute="width" constant="150" id="eXt-66-BhL"/>
+                                    <constraint firstAttribute="width" secondItem="GUS-OK-lQP" secondAttribute="height" multiplier="25:8" constant="172.25" id="dSX-h1-xM4"/>
+                                    <constraint firstAttribute="width" constant="316" id="eXt-66-BhL"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -1583,7 +1578,6 @@
                             <constraint firstItem="lMa-6V-MRZ" firstAttribute="centerY" secondItem="heb-sL-Nn2" secondAttribute="centerY" id="1Mk-pL-nck"/>
                             <constraint firstItem="lMa-6V-MRZ" firstAttribute="width" secondItem="lMa-6V-MRZ" secondAttribute="height" multiplier="1:1" id="4zf-eP-PdO"/>
                             <constraint firstItem="pws-6V-LkM" firstAttribute="top" secondItem="Zar-cG-8qj" secondAttribute="bottom" constant="46" id="6Yc-2n-BED"/>
-                            <constraint firstItem="JmU-Uj-0wM" firstAttribute="centerY" secondItem="GUS-OK-lQP" secondAttribute="centerY" id="C9H-Uv-566"/>
                             <constraint firstItem="pws-6V-LkM" firstAttribute="centerX" secondItem="ftq-fj-md0" secondAttribute="centerX" id="FGn-cY-rrt"/>
                             <constraint firstItem="Zar-cG-8qj" firstAttribute="centerX" secondItem="ftq-fj-md0" secondAttribute="centerX" id="IFe-qo-GiN"/>
                             <constraint firstItem="Kk1-Af-mdY" firstAttribute="width" secondItem="Kk1-Af-mdY" secondAttribute="height" multiplier="1:1" id="P3u-qg-7b0"/>
@@ -1598,13 +1592,12 @@
                             <constraint firstItem="ihb-7T-Qhh" firstAttribute="centerX" secondItem="ftq-fj-md0" secondAttribute="centerX" id="dfn-Pe-jHf"/>
                             <constraint firstItem="heb-sL-Nn2" firstAttribute="leading" secondItem="lMa-6V-MRZ" secondAttribute="trailing" constant="-43" id="ejK-3G-sRG"/>
                             <constraint firstItem="Kk1-Af-mdY" firstAttribute="centerY" secondItem="ihb-7T-Qhh" secondAttribute="centerY" id="enD-RL-H90"/>
-                            <constraint firstItem="GUS-OK-lQP" firstAttribute="centerX" secondItem="pws-6V-LkM" secondAttribute="centerX" constant="-83" id="fGM-DS-oIQ"/>
+                            <constraint firstItem="GUS-OK-lQP" firstAttribute="centerX" secondItem="pws-6V-LkM" secondAttribute="centerX" id="fGM-DS-oIQ"/>
                             <constraint firstItem="VlJ-1W-WEr" firstAttribute="top" secondItem="VkY-KN-hdd" secondAttribute="bottom" constant="18" id="fIP-VV-N0p"/>
                             <constraint firstItem="Lfe-IG-h0Q" firstAttribute="centerY" secondItem="GUS-OK-lQP" secondAttribute="centerY" id="hll-GM-3hc"/>
                             <constraint firstItem="pws-6V-LkM" firstAttribute="leading" secondItem="aCM-sM-3LU" secondAttribute="trailing" constant="-43" id="kTc-EI-awq"/>
                             <constraint firstItem="heb-sL-Nn2" firstAttribute="centerX" secondItem="ftq-fj-md0" secondAttribute="centerX" id="pJt-AI-LYa"/>
                             <constraint firstItem="VkY-KN-hdd" firstAttribute="centerX" secondItem="ftq-fj-md0" secondAttribute="centerX" id="pOE-Wv-Bdc"/>
-                            <constraint firstItem="JmU-Uj-0wM" firstAttribute="leading" secondItem="GUS-OK-lQP" secondAttribute="trailing" constant="8" id="r3f-Jd-kfj"/>
                             <constraint firstItem="heb-sL-Nn2" firstAttribute="top" secondItem="GUS-OK-lQP" secondAttribute="bottom" constant="17" id="w4k-az-3eC"/>
                             <constraint firstItem="aCM-sM-3LU" firstAttribute="centerY" secondItem="pws-6V-LkM" secondAttribute="centerY" id="ywn-uN-VlY"/>
                         </constraints>

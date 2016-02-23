@@ -46,11 +46,16 @@ class SignUpViewController: UIViewController {
             alertController.message = "Passwords do not match"
             self.presentViewController(alertController, animated: true) {}
             
+        } else if (!emailText!.containsString("@dartmouth.edu")) {
+            
+            alertController.message = "Email address is not a dartmouth email address"
+            self.presentViewController(alertController, animated: true) {}
+            
         } else{
             
             let newUser = PFUser()
-            newUser.username = emailText!  + "@dartmouth.edu"
-            newUser.email = emailText! +  "@dartmouth.edu"
+            newUser.username = emailText!
+            newUser.email = emailText!
             newUser.password = passwordText
             newUser["fullName"] = fullNameText
             let rating = PFObject(className: "Rating")
