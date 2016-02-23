@@ -18,7 +18,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var fullNameIcon: UIImageView!
     let designHelper = DesignHelper()
+    
+    @IBOutlet weak var emailIcon: UIImageView!
+    @IBOutlet weak var confirmPasswordIcon: UIImageView!
+    @IBOutlet weak var passwordIcon: UIImageView!
     
     @IBAction func onSignUp(sender: UIButton) {
         let fullNameText  = self.fullNameField.text
@@ -91,21 +96,39 @@ class SignUpViewController: UIViewController {
         view.addGestureRecognizer(tap)
         designHelper.formatButton(signUpButton)
         designHelper.formatButton(cancelButton)
-        fullNameField.layer.borderColor = UIColor.whiteColor().CGColor
-        fullNameField.layer.cornerRadius = 4
-        fullNameField.layer.borderWidth = 1
+
+        fullNameField.layer.cornerRadius = 8
+        fullNameField.layer.backgroundColor = designHelper.transparentWhite
+
+        emailField.layer.cornerRadius = 8
+        emailField.layer.backgroundColor = designHelper.transparentWhite
+
+        passwordField.layer.cornerRadius = 8
+        passwordField.layer.backgroundColor = designHelper.transparentWhite
         
-        emailField.layer.borderColor = UIColor.whiteColor().CGColor
-        emailField.layer.cornerRadius = 4
-        emailField.layer.borderWidth = 1
+        confirmPasswordField.layer.cornerRadius = 8
+        confirmPasswordField.layer.backgroundColor = designHelper.transparentWhite
         
-        passwordField.layer.borderColor = UIColor.whiteColor().CGColor
-        passwordField.layer.cornerRadius = 4
-        passwordField.layer.borderWidth = 1
         
-        confirmPasswordField.layer.borderColor = UIColor.whiteColor().CGColor
-        confirmPasswordField.layer.borderWidth = 1
-        confirmPasswordField.layer.cornerRadius = 4
+        let passwordImage = UIImage(named: "lock")
+        let confirmPasswordImage = UIImage(named: "lock")
+        let emailImage = UIImage(named: "email")
+        let fullNameImage = UIImage(named: "name")
+        
+        passwordIcon.image = passwordImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        confirmPasswordIcon.image = confirmPasswordImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        fullNameIcon.image = fullNameImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        emailIcon.image = emailImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        
+        passwordIcon.tintColor = UIColor.whiteColor()
+        confirmPasswordIcon.tintColor = UIColor.whiteColor()
+        fullNameIcon.tintColor = UIColor.whiteColor()
+        emailIcon.tintColor = UIColor.whiteColor()
+        
+        passwordIcon.backgroundColor = UIColor.clearColor()
+        confirmPasswordIcon.backgroundColor = UIColor.clearColor()
+        fullNameIcon.backgroundColor = UIColor.clearColor()
+        emailIcon.backgroundColor = UIColor.clearColor()
     }
     
     override func didReceiveMemoryWarning() {

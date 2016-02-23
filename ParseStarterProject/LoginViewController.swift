@@ -48,8 +48,8 @@ class LoginViewController: UIViewController{
 //        loginPassword.layer.borderWidth = 1
         loginPassword.layer.cornerRadius = 8
     
-        loginEmail.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3).CGColor
-        loginPassword.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3).CGColor
+        loginEmail.layer.backgroundColor = designHelper.transparentWhite
+        loginPassword.layer.backgroundColor = designHelper.transparentWhite
         titleLabel.textColor = UIColor.whiteColor()
         singUpButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         singUpButton.layer.backgroundColor = UIColor.clearColor().CGColor
