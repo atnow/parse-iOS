@@ -33,6 +33,9 @@ class LoginViewController: UIViewController{
         loginPassword.layer.borderWidth = 1
         loginPassword.layer.cornerRadius = 4
         titleLabel.textColor = UIColor.whiteColor()
+        singUpButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        singUpButton.layer.backgroundColor = UIColor.clearColor().CGColor
+        singUpButton.layer.borderColor = UIColor.clearColor().CGColor
     }
 
     override func didReceiveMemoryWarning() {

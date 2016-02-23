@@ -1562,20 +1562,6 @@
                                     <action selector="onLogin:" destination="YUS-7a-aql" eventType="touchUpInside" id="r99-wM-7GG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ket-Oi-vC5">
-                                <rect key="frame" x="234" y="559" width="98" height="33"/>
-                                <color key="backgroundColor" red="0.2402987321" green="0.94253420040000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ket-Oi-vC5" secondAttribute="height" multiplier="289:30" constant="-219.89999999999998" id="fL7-Q6-AvT"/>
-                                    <constraint firstAttribute="width" constant="98" id="rus-gO-Geu"/>
-                                </constraints>
-                                <state key="normal" title="Sign up">
-                                    <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vyx-Rm-61Q" kind="show" id="y2Q-6W-GPV"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Task Marketplace for College Students" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF9-Ud-RNs">
                                 <rect key="frame" x="43" y="162" width="289" height="21"/>
                                 <constraints>
@@ -1583,16 +1569,6 @@
                                     <constraint firstAttribute="width" secondItem="eF9-Ud-RNs" secondAttribute="height" multiplier="87:7" constant="28" id="vyk-HG-7GE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New to @now?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-Px-JQE">
-                                <rect key="frame" x="43" y="556" width="171" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="hvg-Px-JQE" secondAttribute="height" multiplier="57:7" constant="-122.14285714285711" id="K0g-um-ujm"/>
-                                    <constraint firstAttribute="width" constant="171" id="hTi-SU-e0Z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1612,6 +1588,39 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New to @now?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-Px-JQE">
+                                <rect key="frame" x="55" y="556" width="171" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hvg-Px-JQE" secondAttribute="height" multiplier="57:7" constant="-122.14285714285711" id="K0g-um-ujm"/>
+                                    <constraint firstAttribute="width" constant="171" id="hTi-SU-e0Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ket-Oi-vC5">
+                                <rect key="frame" x="234" y="559" width="98" height="33"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ket-Oi-vC5" secondAttribute="height" multiplier="289:30" constant="-219.89999999999998" id="fL7-Q6-AvT"/>
+                                    <constraint firstAttribute="width" constant="98" id="rus-gO-Geu"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sign up">
+                                            <attributes>
+                                                <color key="NSColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="vyx-Rm-61Q" kind="show" id="y2Q-6W-GPV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
