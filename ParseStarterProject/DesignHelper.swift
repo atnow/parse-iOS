@@ -20,7 +20,7 @@ public class DesignHelper {
     let unclaimedColor = UIColor.lightGrayColor()
     let inProgressColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 1.0)
 
-    
+    let transparentWhite = UIColor.whiteColor().colorWithAlphaComponent(0.3).CGColor
     
     func formatButton (button: UIButton){
         button.layer.cornerRadius = 8

@@ -18,7 +18,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var fullNameIcon: UIImageView!
     let designHelper = DesignHelper()
+    
+    @IBOutlet weak var emailIcon: UIImageView!
+    @IBOutlet weak var confirmPasswordIcon: UIImageView!
+    @IBOutlet weak var passwordIcon: UIImageView!
     
     @IBAction func onSignUp(sender: UIButton) {
         let fullNameText  = self.fullNameField.text
@@ -41,11 +46,16 @@ class SignUpViewController: UIViewController {
             alertController.message = "Passwords do not match"
             self.presentViewController(alertController, animated: true) {}
             
+        } else if (!emailText!.containsString("@dartmouth.edu")) {
+            
+            alertController.message = "Email address is not a dartmouth email address"
+            self.presentViewController(alertController, animated: true) {}
+            
         } else{
             
             let newUser = PFUser()
-            newUser.username = emailText!  + "@dartmouth.edu"
-            newUser.email = emailText! +  "@dartmouth.edu"
+            newUser.username = emailText!
+            newUser.email = emailText!
             newUser.password = passwordText
             newUser["fullName"] = fullNameText
             let rating = PFObject(className: "Rating")
@@ -91,6 +101,39 @@ class SignUpViewController: UIViewController {
         view.addGestureRecognizer(tap)
         designHelper.formatButton(signUpButton)
         designHelper.formatButton(cancelButton)
+
+        fullNameField.layer.cornerRadius = 8
+        fullNameField.layer.backgroundColor = designHelper.transparentWhite
+
+        emailField.layer.cornerRadius = 8
+        emailField.layer.backgroundColor = designHelper.transparentWhite
+
+        passwordField.layer.cornerRadius = 8
+        passwordField.layer.backgroundColor = designHelper.transparentWhite
+        
+        confirmPasswordField.layer.cornerRadius = 8
+        confirmPasswordField.layer.backgroundColor = designHelper.transparentWhite
+        
+        
+        let passwordImage = UIImage(named: "lock")
+        let confirmPasswordImage = UIImage(named: "lock")
+        let emailImage = UIImage(named: "email")
+        let fullNameImage = UIImage(named: "name")
+        
+        passwordIcon.image = passwordImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        confirmPasswordIcon.image = confirmPasswordImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        fullNameIcon.image = fullNameImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        emailIcon.image = emailImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        
+        passwordIcon.tintColor = UIColor.whiteColor()
+        confirmPasswordIcon.tintColor = UIColor.whiteColor()
+        fullNameIcon.tintColor = UIColor.whiteColor()
+        emailIcon.tintColor = UIColor.whiteColor()
+        
+        passwordIcon.backgroundColor = UIColor.clearColor()
+        confirmPasswordIcon.backgroundColor = UIColor.clearColor()
+        fullNameIcon.backgroundColor = UIColor.clearColor()
+        emailIcon.backgroundColor = UIColor.clearColor()
     }
     
     override func didReceiveMemoryWarning() {

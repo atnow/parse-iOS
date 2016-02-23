@@ -16,6 +16,8 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var loginEmail: UITextField!
     @IBOutlet weak var loginPassword: UITextField!
     
+    @IBOutlet weak var emailIcon: UIImageView!
+    @IBOutlet weak var passwordIcon: UIImageView!
     @IBOutlet weak var singUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
@@ -23,21 +25,46 @@ class LoginViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let passwordImage = UIImage(named: "lock")
+        let emailImage = UIImage(named: "email")
+        
+        passwordIcon.image = passwordImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        emailIcon.image = emailImage?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        
+        passwordIcon.tintColor = UIColor.whiteColor()
+        emailIcon.tintColor = UIColor.whiteColor()
+        
+        passwordIcon.backgroundColor = UIColor.clearColor()
+        emailIcon.backgroundColor = UIColor.clearColor()
+        
         self.view.backgroundColor = designHelper.baseColor
         designHelper.formatButton(singUpButton)
         designHelper.formatButton(loginButton)
-        loginEmail.layer.borderColor = UIColor.whiteColor().CGColor
-        loginEmail.layer.borderWidth = 1
-        loginEmail.layer.cornerRadius = 4
-        loginPassword.layer.borderColor = UIColor.whiteColor().CGColor
-        loginPassword.layer.borderWidth = 1
-        loginPassword.layer.cornerRadius = 4
+//        loginEmail.layer.borderColor = UIColor.whiteColor().CGColor
+//        loginEmail.layer.borderWidth = 1
+        loginEmail.layer.cornerRadius = 8
+//        loginPassword.layer.borderColor = UIColor.whiteColor().CGColor
+//        loginPassword.layer.borderWidth = 1
+        loginPassword.layer.cornerRadius = 8
+    
+        loginEmail.layer.backgroundColor = designHelper.transparentWhite
+        loginPassword.layer.backgroundColor = designHelper.transparentWhite
         titleLabel.textColor = UIColor.whiteColor()
         singUpButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         singUpButton.layer.backgroundColor = UIColor.clearColor().CGColor
         singUpButton.layer.borderColor = UIColor.clearColor().CGColor
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
-
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
