@@ -35,10 +35,13 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
 //    @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var requesterPicture: UIImageView!
+    @IBOutlet weak var furtherInstructionsTextView: UITextView!
+    @IBOutlet weak var expirationLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        acceptButton.layer.cornerRadius = 0.5 * acceptButton.bounds.size.width
         designHelper.formatButtonAction(acceptButton)
         acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
         acceptButton.titleLabel?.numberOfLines = 2
@@ -60,12 +63,13 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         
         titleLabel.adjustsFontSizeToFitWidth = true
         let priceNum = selectedTask!["price"] as! NSNumber
-        titleLabel.text = (selectedTask!["title"]! as? String)! + " ($\(priceNum))"
+        titleLabel.text = (selectedTask!["title"]! as? String)!
+        priceLabel.text = "($\(priceNum))"
         
         
         let date = NSDate()
-        let exp = selectedTask!["expiration"]
-        let timeToExpire = Int(exp.timeIntervalSinceDate(date)/60)
+        let expDate = selectedTask!["expiration"] as! NSDate
+        let timeToExpire = Int(expDate.timeIntervalSinceDate(date)/60)
         let days = "\(Int(timeToExpire/1440))" + "d "
         var expiration : String
         if timeToExpire <= 0 {
@@ -75,10 +79,18 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
             expiration =  days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
         }
         if (selectedTask!["taskLocation"] != nil && (timeToExpire > 0)){
-            taskLocationLabel.text = "Deliver to " + (selectedTask!["taskLocation"]! as? String)! + " in " + expiration
+            taskLocationLabel.text = "Deliver to " + (selectedTask!["taskLocation"]! as? String)!
         } else {
-            taskLocationLabel.text = expiration
+            taskLocationLabel.text = "N/A"
         }
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .MediumStyle
+        
+        expirationLabel.text = "Complete by " + dateFormatter.stringFromDate(expDate)
+        
+        durationLabel.text = expiration
         taskLocationLabel.adjustsFontSizeToFitWidth=true
         
         let query = PFQuery(className:"_User")

@@ -32,14 +32,15 @@ public class DesignHelper {
     }
     
     func formatButtonNoAction (button: UIButton){
+        button.layer.cornerRadius = 4
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.layer.backgroundColor = unclaimedColor.CGColor
     }
     
     func formatButtonAction (button: UIButton){
+        button.layer.cornerRadius = 4
         button.backgroundColor = baseColor
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.titleLabel!.font = UIFont.boldSystemFontOfSize(21)
     }
     
     func formatPicture (picture: UIImageView) {
