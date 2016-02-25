@@ -32,7 +32,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     @IBOutlet weak var taskLocationLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var grayBar: UIView!
-    @IBOutlet weak var buttonImage: UIImageView!
+//    @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var requesterPicture: UIImageView!
     
@@ -49,10 +49,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         reportButton.setTitleColor(UIColor.redColor(), forState: .Normal)
         reportButton.hidden = true
         
-        buttonImage.hidden = true
-        buttonImage.layer.cornerRadius = 0.5*buttonImage.frame.size.width
-        buttonImage.clipsToBounds = true
-
+//        buttonImage.hidden = true
+//        buttonImage.layer.cornerRadius = 0.5*buttonImage.frame.size.width
+//        buttonImage.clipsToBounds = true
+//
         
         requesterPicture.layer.cornerRadius = 0.5 * self.requesterPicture.frame.size.width
         requesterPicture.clipsToBounds = true
@@ -152,7 +152,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 acceptButton.setTitle("Task \r\n accepted", forState: UIControlState.Normal)
                 //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
                 
-                buttonImage.hidden=false
+ //               buttonImage.hidden=false
                 let accepterQuery = PFQuery(className:"_User")
                 accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                     (user: PFObject?, error: NSError?) -> Void in
@@ -161,8 +161,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                         let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
                         if(imageFromParse != nil){
                             imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                                let image: UIImage! = UIImage(data: imageData!)!
-                                self.buttonImage.image = image
+   //                             let image: UIImage! = UIImage(data: imageData!)!
+   //                             self.buttonImage.image = image
                             })
                         }
                         
@@ -170,9 +170,9 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                         print(error)
                     }
                 }
-                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
-                buttonImage.tag = 2
-                buttonImage.addGestureRecognizer(recognizer)
+    //            let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
+    //            buttonImage.tag = 2
+    //            buttonImage.addGestureRecognizer(recognizer)
                 
                 
             }
@@ -460,27 +460,27 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
 
     }
 
-    @IBAction func infoAction(sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let instructionsVC = storyboard.instantiateViewControllerWithIdentifier("InstructionsViewController")
-        instructionsVC.modalPresentationStyle = .Popover
-        instructionsVC.preferredContentSize = CGSizeMake(400, 300)
-        let popoverVC = instructionsVC.popoverPresentationController
-        popoverVC?.permittedArrowDirections = .Down
-        popoverVC?.delegate = self
-        popoverVC?.sourceView = sender
-        popoverVC?.sourceRect = CGRect(
-            x: sender.frame.width/2,
-            y: sender.frame.height/2,
-            width: 1,
-            height: 1)
-        
-        if let descriptionLabel = instructionsVC.view.viewWithTag(300) as? UITextView {
-            let description = selectedTask!["description"]
-            descriptionLabel.text = "\(description)"
-        }
-        self.presentViewController(instructionsVC, animated: true, completion: nil)
-    }
+//    @IBAction func infoAction(sender: UIButton) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let instructionsVC = storyboard.instantiateViewControllerWithIdentifier("InstructionsViewController")
+//        instructionsVC.modalPresentationStyle = .Popover
+//        instructionsVC.preferredContentSize = CGSizeMake(400, 300)
+//        let popoverVC = instructionsVC.popoverPresentationController
+//        popoverVC?.permittedArrowDirections = .Down
+//        popoverVC?.delegate = self
+//        popoverVC?.sourceView = sender
+//        popoverVC?.sourceRect = CGRect(
+//            x: sender.frame.width/2,
+//            y: sender.frame.height/2,
+//            width: 1,
+//            height: 1)
+//        
+//        if let descriptionLabel = instructionsVC.view.viewWithTag(300) as? UITextView {
+//            let description = selectedTask!["description"]
+//            descriptionLabel.text = "\(description)"
+//        }
+//        self.presentViewController(instructionsVC, animated: true, completion: nil)
+//    }
     
     func adaptivePresentationStyleForPresentationController(
         controller: UIPresentationController) -> UIModalPresentationStyle {
