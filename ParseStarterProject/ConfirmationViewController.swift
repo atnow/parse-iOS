@@ -62,6 +62,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         
         
         titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.sizeToFit()
         let priceNum = selectedTask!["price"] as! NSNumber
         titleLabel.text = (selectedTask!["title"]! as? String)!
         priceLabel.text = "($\(priceNum))"
