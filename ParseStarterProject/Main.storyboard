@@ -396,7 +396,7 @@
                                                             <action selector="submitPressed:" destination="avf-gG-YWQ" eventType="touchUpInside" id="W5e-Wv-OAn"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="1A1D9698-6523-4EFB-AC49-A41AC1D311CF" translatesAutoresizingMaskIntoConstraints="NO" id="o1B-fT-qcF">
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="o1B-fT-qcF">
                                                         <rect key="frame" x="58" y="559" width="58" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,7 +413,7 @@
                                                             <constraint firstAttribute="width" constant="60" id="yP9-e5-W23"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="0A0F8395-B848-40A1-8999-01898E32E8B2" translatesAutoresizingMaskIntoConstraints="NO" id="ULv-nT-Nku">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="heavy-lifting" translatesAutoresizingMaskIntoConstraints="NO" id="ULv-nT-Nku">
                                                         <rect key="frame" x="258" y="549" width="60" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="u0g-a2-1SK"/>
@@ -2198,8 +2198,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0A0F8395-B848-40A1-8999-01898E32E8B2" width="25" height="25"/>
-        <image name="1A1D9698-6523-4EFB-AC49-A41AC1D311CF" width="25" height="25"/>
         <image name="Accepted Tasks" width="25" height="25"/>
         <image name="Feed Icon" width="24" height="24"/>
         <image name="Home Icon" width="35" height="28"/>
