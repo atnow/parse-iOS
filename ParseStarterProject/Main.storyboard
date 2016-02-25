@@ -436,29 +436,29 @@
                                                             <constraint firstAttribute="width" constant="304" id="sw8-qC-Q0C"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" red="0.0039215686274509803" green="0.80392156862745101" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4O-M0-NU0">
                                                         <rect key="frame" x="20" y="355" width="335" height="1"/>
-                                                        <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="Rhc-VP-eJf"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Describe your task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-sj-ePW">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Describe your task" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhg-sj-ePW">
                                                         <rect key="frame" x="20" y="18" width="144" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="144" id="2fz-Ta-vde"/>
                                                             <constraint firstAttribute="height" constant="21" id="GNH-fL-hbU"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                        <color key="textColor" red="0.0039215686274509803" green="0.80392156862745101" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNy-pY-Jb7">
                                                         <rect key="frame" x="20" y="38" width="335" height="1"/>
-                                                        <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="lPq-se-Vo2"/>
                                                         </constraints>
@@ -469,12 +469,12 @@
                                                             <constraint firstAttribute="height" constant="21" id="cS6-OK-8Ex"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" red="0.0039215686274509803" green="0.80392156862745101" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xB0-Sb-mMH">
                                                         <rect key="frame" x="20" y="535" width="335" height="1"/>
-                                                        <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="R1W-hQ-cSq"/>
                                                         </constraints>
@@ -499,7 +499,7 @@
                                                     </label>
                                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9Q-3R-r0h">
                                                         <rect key="frame" x="20" y="644" width="335" height="1"/>
-                                                        <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="335" id="HPH-Qs-Vdp"/>
                                                             <constraint firstAttribute="height" constant="1" id="h0c-Jm-mCd"/>
