@@ -34,8 +34,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     @IBOutlet weak var grayBar: UIView!
 //    @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var reportButton: UIButton!
-    @IBOutlet weak var requesterPicture: UIImageView!
-    @IBOutlet weak var furtherInstructionsTextView: UITextView!
+    @IBOutlet weak var ARPicture: UIImageView!
+    @IBOutlet weak var ARLabel: UILabel!
     @IBOutlet weak var expirationLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -57,8 +57,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
 //        buttonImage.clipsToBounds = true
 //
         
-        requesterPicture.layer.cornerRadius = 0.5 * self.requesterPicture.frame.size.width
-        requesterPicture.clipsToBounds = true
+        ARPicture.layer.cornerRadius = 0.5 * self.ARPicture.frame.size.width
+        ARPicture.clipsToBounds = true
         
         
         titleLabel.adjustsFontSizeToFitWidth = true
@@ -94,37 +94,79 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         durationLabel.text = expiration
         taskLocationLabel.adjustsFontSizeToFitWidth=true
         
+        instructionsView.text = (selectedTask!["description"]! as? String)!
+        
         let query = PFQuery(className:"_User")
         query.includeKey("rating")
-        query.getObjectInBackgroundWithId(selectedTask!["requester"].objectId!!) {
-            (user: PFObject?, error: NSError?) -> Void in
-            if error == nil {
-                self.requester = user as? PFUser
-                self.userFullName.text = user!["fullName"] as? String
-                let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
-                if(imageFromParse != nil){
-                    imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-                        let image: UIImage! = UIImage(data: imageData!)!
-                        self.requesterPicture.image = image
-                        self.designHelper.formatPicture(self.requesterPicture)
-                    })
+        
+        if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
+            myTask = true
+            if((selectedTask!["accepted"] as! Bool) == true){
+                query.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
+                    (user: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        self.ARLabel.text="Accepter"
+                        self.accepter = user as? PFUser
+                        self.userFullName.text = user!["fullName"] as? String
+                        let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+                        if(imageFromParse != nil){
+                            imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                                let image: UIImage! = UIImage(data: imageData!)!
+                                self.ARPicture.image = image
+                                self.designHelper.formatPicture(self.ARPicture)
+                            })
+                        }
+                        
+                        self.ratingStarView.rating = user!["rating"]["rating"] as! Float
+                        
+                        let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
+                        self.grayBar.tag = 1
+                        self.grayBar.addGestureRecognizer(recognizer)
+                        
+                        
+                    } else {
+                        print(error)
+                    }
                 }
-                
-                self.ratingStarView.rating = user!["rating"]["rating"] as! Float
-                
-                let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
-                self.grayBar.tag = 1
-                self.grayBar.addGestureRecognizer(recognizer)
-                
-
-            } else {
-                print(error)
+            }
+            else{
+                grayBar.hidden = true
             }
         }
+        else{ //we are the accepter
+            myTask = false
+            query.getObjectInBackgroundWithId(selectedTask!["requester"].objectId!!) {
+                (user: PFObject?, error: NSError?) -> Void in
+                if error == nil {
+                    self.requester = user as? PFUser
+                    self.userFullName.text = user!["fullName"] as? String
+                    let imageFromParse = user!.objectForKey("profilePicture") as? PFFile
+                    if(imageFromParse != nil){
+                        imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+                            let image: UIImage! = UIImage(data: imageData!)!
+                            self.ARPicture.image = image
+                            self.designHelper.formatPicture(self.ARPicture)
+                        })
+                    }
+                    
+                    self.ratingStarView.rating = user!["rating"]["rating"] as! Float
+                    
+                    let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
+                    self.grayBar.tag = 1
+                    self.grayBar.addGestureRecognizer(recognizer)
+                    
+                    
+                } else {
+                    print(error)
+                }
+            }
+            
+        }
+
     }
     
     override func viewWillAppear(animated: Bool) {
-        if((selectedTask!["requester"] as! PFUser).objectId == PFUser.currentUser()?.objectId){
+        if(myTask){
             myTask = true
             //currentState = .myTask
             
@@ -143,7 +185,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
                     reportButton.setTitle("Report", forState: UIControlState.Normal)
                     reportButton.hidden = false
-                    let accepterQuery = PFQuery(className:"_User")
+                    /*let accepterQuery = PFQuery(className:"_User")
                     accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                         (user: PFObject?, error: NSError?) -> Void in
                         if error == nil {
@@ -152,7 +194,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                         } else {
                             print(error)
                         }
-                    }
+                    }*/
                 }
                 
             }
@@ -166,7 +208,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 //acceptButton.setTitleColor(color, forState: UIControlState.Normal)
                 
  //               buttonImage.hidden=false
-                let accepterQuery = PFQuery(className:"_User")
+                /*let accepterQuery = PFQuery(className:"_User")
                 accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                     (user: PFObject?, error: NSError?) -> Void in
                     if error == nil {
@@ -182,7 +224,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     } else {
                         print(error)
                     }
-                }
+                }*/
     //            let recognizer = UITapGestureRecognizer(target: self, action: "picturePressed:")
     //            buttonImage.tag = 2
     //            buttonImage.addGestureRecognizer(recognizer)
@@ -284,7 +326,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 self.navigationController?.popViewControllerAnimated(true)
                 
                 let taskName = self.selectedTask!["title"] as! String
-                let acceptName = self.selectedTask!["accepter"]!["fullName"] as! String
+                //let acceptName = self.selectedTask!["accepter"]!["fullName"] as! String
+                let acceptName = PFUser.currentUser()?.objectForKey("fullName") as! String
                 let description = "Your task \"" + taskName + "\" was claimed by " + acceptName
                 
                 let notification = PFObject(className:"Notification")
@@ -360,12 +403,12 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         let reporter : PFUser?
         let offender : PFUser?
         if(myTask){
-            reporter = requester
+            reporter = PFUser.currentUser()
             offender = accepter
             
         }
         else{
-            reporter = accepter
+            reporter = PFUser.currentUser()
             offender = requester
         }
         
@@ -516,13 +559,12 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     
     
     func picturePressed(sender:UITapGestureRecognizer){
-        let view = sender.view
-        if(view!.tag == 1){
-            performSegueWithIdentifier("showProfile", sender: requester)
+        if(myTask){
+            performSegueWithIdentifier("showProfile", sender: self.accepter)
         }
         
-        else if(view!.tag == 2){
-            performSegueWithIdentifier("showProfile", sender: accepter)
+        else{
+            performSegueWithIdentifier("showProfile", sender: self.requester)
             
         }
     }
@@ -544,7 +586,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         
         let taskName = self.selectedTask!["title"] as! String
        
-        let requestName = self.requester!["fullName"] as! String
+        //let requestName = self.requester!["fullName"] as! String
+        let requestName = PFUser.currentUser()?.objectForKey("fullName") as! String
         let description = requestName + " confirmed your completion of \"" + taskName + "\""
         
         let notification = PFObject(className:"Notification")

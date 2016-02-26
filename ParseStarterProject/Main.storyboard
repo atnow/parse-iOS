@@ -15,6 +15,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FaP-oG-CvY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="G2q-NV-Wnu" kind="relationship" relationship="rootViewController" id="Oft-2U-acZ"/>
@@ -996,6 +997,7 @@
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="15" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -1094,15 +1096,16 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="ARLabel" destination="3ST-R4-eat" id="v4j-4h-0Ai"/>
+                        <outlet property="ARPicture" destination="G4f-Lr-1gX" id="iXH-1V-JPN"/>
                         <outlet property="acceptButton" destination="tJf-Pw-h2p" id="m3V-UH-2DF"/>
                         <outlet property="durationLabel" destination="Udv-cO-KDq" id="QeS-oB-gye"/>
                         <outlet property="expirationLabel" destination="hrY-7X-ppj" id="bMW-FR-JF0"/>
-                        <outlet property="furtherInstructionsTextView" destination="7nj-ST-plY" id="aaa-vr-DAf"/>
-                        <outlet property="grayBar" destination="woN-pQ-zjP" id="7a4-JP-8wk"/>
+                        <outlet property="grayBar" destination="woN-pQ-zjP" id="oWj-WW-Q5X"/>
+                        <outlet property="instructionsView" destination="7nj-ST-plY" id="91C-SA-YWT"/>
                         <outlet property="priceLabel" destination="ACr-Uh-bHT" id="DGD-8t-xoN"/>
                         <outlet property="ratingStarView" destination="Z1e-Rq-Ewq" id="w38-3N-xzo"/>
                         <outlet property="reportButton" destination="2II-mf-Tpn" id="jVc-io-ToS"/>
-                        <outlet property="requesterPicture" destination="G4f-Lr-1gX" id="FpQ-BE-G6O"/>
                         <outlet property="taskLocationLabel" destination="kcU-Zh-rcz" id="oUU-On-EX7"/>
                         <outlet property="titleLabel" destination="z4C-G4-FWF" id="BJO-Gw-Jum"/>
                         <outlet property="userFullName" destination="tjH-fs-4oY" id="rm5-Yz-HnI"/>
