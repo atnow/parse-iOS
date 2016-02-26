@@ -33,8 +33,10 @@ public class DesignHelper {
     
     func formatButtonNoAction (button: UIButton){
         button.layer.cornerRadius = 4
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.layer.backgroundColor = unclaimedColor.CGColor
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.lightGrayColor().CGColor
+        button.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        button.layer.backgroundColor = UIColor.clearColor().CGColor
     }
     
     func formatButtonAction (button: UIButton){

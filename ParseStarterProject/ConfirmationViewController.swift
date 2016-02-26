@@ -65,7 +65,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         titleLabel.sizeToFit()
         let priceNum = selectedTask!["price"] as! NSNumber
         titleLabel.text = (selectedTask!["title"]! as? String)!
-        priceLabel.text = "($\(priceNum))"
+        priceLabel.text = "$\(priceNum)"
         
         
         let date = NSDate()
@@ -75,12 +75,14 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         var expiration : String
         if timeToExpire <= 0 {
             expiration = "Expired"
+        } else if (Int(timeToExpire/1440) == 0) {
+            expiration =  "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
         }
         else{
             expiration =  days + "\(Int(timeToExpire%1440)/60)" + "h " + "\(timeToExpire%60)" + "m"
         }
-        if (selectedTask!["taskLocation"] != nil && (timeToExpire > 0)){
-            taskLocationLabel.text = "Deliver to " + (selectedTask!["taskLocation"]! as? String)!
+        if ((selectedTask!["taskLocation"] as! String != "") && (timeToExpire > 0)){
+            taskLocationLabel.text = (selectedTask!["taskLocation"]! as? String)!
         } else {
             taskLocationLabel.text = "N/A"
         }
