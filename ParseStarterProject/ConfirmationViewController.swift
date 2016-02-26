@@ -183,8 +183,10 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     currentState = .completed
                     designHelper.formatButtonAction(acceptButton)
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
-                    reportButton.setTitle("Report", forState: UIControlState.Normal)
-                    reportButton.hidden = false
+                    let reportButton = UIBarButtonItem(title: "Not complete?", style: .Plain, target: self, action: "report")
+                    self.navigationItem.rightBarButtonItem = reportButton
+                    /*reportButton.setTitle("Report", forState: UIControlState.Normal)
+                    reportButton.hidden = false*/
                     /*let accepterQuery = PFQuery(className:"_User")
                     accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                         (user: PFObject?, error: NSError?) -> Void in
@@ -267,6 +269,8 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                 }
                 else{
                     reportButton.hidden = false
+                    let releaseButton = UIBarButtonItem(title: "Release", style: .Plain, target: self, action: "unacceptTask")
+                    self.navigationItem.rightBarButtonItem = releaseButton
                     currentState = .accepted
                     designHelper.formatButtonAction(acceptButton)
                     acceptButton.setTitle("Press \r\n when complete", forState: UIControlState.Normal)

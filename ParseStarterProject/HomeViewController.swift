@@ -102,6 +102,7 @@ class HomeViewController : PFQueryTableViewController {
                 imageView.image = UIImage(named: "credit-card")
                 imageView.alpha = 0.7
             }
+            tag=201
             
         }
         

@@ -797,11 +797,11 @@
                         <viewControllerLayoutGuide type="bottom" id="l64-tW-MMd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZLv-VL-aeM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="643"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woN-pQ-zjP" userLabel="grayBar">
-                                <rect key="frame" x="0.0" y="565" width="414" height="78"/>
+                                <rect key="frame" x="0.0" y="545" width="414" height="78"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-Lr-1gX">
                                         <rect key="frame" x="43" y="13" width="50" height="50"/>
@@ -903,7 +903,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nj-ST-plY">
-                                <rect key="frame" x="18" y="309" width="379" height="233"/>
+                                <rect key="frame" x="18" y="309" width="379" height="213"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -1517,7 +1517,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hXK-Ng-1Gg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaO-Jw-4au">
-                        <rect key="frame" x="0.0" y="44" width="414" height="643"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
@@ -2081,18 +2081,18 @@
             <objects>
                 <tableViewController storyboardIdentifier="ProfileFeedViewController" title="Profile Feed Tasks Scene" clearsSelectionOnViewWillAppear="NO" id="KPi-Pg-Sb0" customClass="ProfileFeedViewController" customModule="atnow_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="gmi-iw-gnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="287"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="287"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="63" id="h9E-PQ-aQv" customClass="PFTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="600" height="63"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9E-PQ-aQv" id="12V-MZ-9Us">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skj-PT-2cO">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skj-PT-2cO">
                                             <rect key="frame" x="530" y="22" width="37" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.31764705879999999" green="0.74509803919999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2118,21 +2118,21 @@
                                                 <constraint firstAttribute="height" constant="21" id="RAS-ec-bV0"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j34-JF-4r9">
+                                        <imageView userInteractionEnabled="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j34-JF-4r9">
                                             <rect key="frame" x="454" y="18" width="27" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="j34-JF-4r9" secondAttribute="height" multiplier="1:1" id="HZR-T3-bve"/>
                                                 <constraint firstAttribute="width" constant="27" id="ord-16-tYq"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gl0-r6-zIe">
+                                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl0-r6-zIe">
                                             <rect key="frame" x="489" y="18" width="27" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="gl0-r6-zIe" secondAttribute="height" multiplier="1:1" id="URJ-g4-g44"/>
                                                 <constraint firstAttribute="width" constant="27" id="jx6-b6-GV2"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" tag="203" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-48-pH4">
+                                        <imageView userInteractionEnabled="NO" tag="203" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-48-pH4">
                                             <rect key="frame" x="419" y="18" width="27" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="WPo-48-pH4" secondAttribute="height" multiplier="1:1" id="LeW-wF-wOu"/>
@@ -2298,7 +2298,7 @@
         <image name="settings-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LMe-HV-aCZ"/>
         <segue reference="4HL-Or-5if"/>
-        <segue reference="dQc-Nj-3tw"/>
     </inferredMetricsTieBreakers>
 </document>
