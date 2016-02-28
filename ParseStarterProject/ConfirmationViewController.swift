@@ -31,6 +31,15 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     @IBOutlet weak var instructionsView: UITextView!
     @IBOutlet weak var taskLocationLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
+    
+    @IBOutlet weak var imageView1: UIImageView!
+    
+    @IBOutlet weak var imageView2: UIImageView!
+    @IBOutlet weak var imageView3: UIImageView!
+    
+    @IBOutlet weak var requirementLabel1: UILabel!
+    @IBOutlet weak var requirementLabel2: UILabel!
+    @IBOutlet weak var requirementLabel3: UILabel!
     @IBOutlet weak var grayBar: UIView!
 //    @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var reportButton: UIButton!
@@ -89,12 +98,46 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .MediumStyle
+        dateFormatter.timeStyle = .ShortStyle
         
         expirationLabel.text = "Complete by " + dateFormatter.stringFromDate(expDate)
         
         durationLabel.text = expiration
         taskLocationLabel.adjustsFontSizeToFitWidth=true
+        
+        let imageArray: [UIImageView] = [imageView1, imageView2, imageView3]
+        let labelArray: [UILabel] = [requirementLabel1, requirementLabel2, requirementLabel3]
+        var index = 0
+        if((selectedTask!["requiresPurchase"] != nil) && ((selectedTask!["requiresPurchase"] as! Bool) == true)){
+            let imageView = imageArray[index]
+            imageView.image = UIImage(named: "credit-card")
+            imageView.alpha = 0.7
+            labelArray[index].hidden = false
+            labelArray[index].text = "Purchase"
+            labelArray[index].sizeToFit()
+            index++
+        }
+
+        if((selectedTask!["requiresLifting"] != nil) && ((selectedTask!["requiresLifting"] as! Bool) == true)){
+            let imageView = imageArray[index]
+            imageView.image = UIImage(named: "heavy-lifting")
+            imageView.alpha = 0.7
+            labelArray[index].hidden = false
+            labelArray[index].text = "Physical activity"
+            labelArray[index].sizeToFit()
+            index++
+        }
+
+        if((selectedTask!["requiresCar"] != nil) && ((selectedTask!["requiresCar"] as! Bool) == true)){
+            let imageView = imageArray[index]
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            imageView.image = UIImage(named: "car")
+            imageView.alpha = 0.7
+            labelArray[index].hidden = false
+            labelArray[index].text = "Car"
+            labelArray[index].sizeToFit()
+            index++
+        }
         
         instructionsView.text = (selectedTask!["description"]! as? String)!
         

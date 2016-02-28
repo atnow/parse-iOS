@@ -83,24 +83,33 @@ class HomeViewController : PFQueryTableViewController {
                 }
             }
             
+            
+            (cell?.viewWithTag(201) as! UIImageView).image = nil
+            (cell?.viewWithTag(202) as! UIImageView).image = nil
+            (cell?.viewWithTag(203) as! UIImageView).image = nil
             var tag = 201
-            if((object["requiresCar"] != nil) && ((object["requiresCar"] as! Bool) == true)){
+            if((object["requiresCar"] != nil) && ((object["requiresCar"] as! Bool))){
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
+                imageView.hidden = false
                 imageView.contentMode = UIViewContentMode.ScaleAspectFit
                 imageView.image = UIImage(named: "car")
                 imageView.alpha = 0.7
                 tag++
             }
-            if((object["requiresLifting"] != nil) && ((object["requiresLifting"] as! Bool) == true)){
+            if((object["requiresLifting"] != nil) && ((object["requiresLifting"] as! Bool))){
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
+                imageView.hidden = false
                 imageView.image = UIImage(named: "heavy-lifting")
                 imageView.alpha = 0.7
                 tag++
             }
-            if((object["requiresPurchase"] != nil) && ((object["requiresPurchase"] as! Bool) == true)){
+            (cell?.viewWithTag(tag) as! UIImageView).image = nil
+            if((object["requiresPurchase"] != nil) && ((object["requiresPurchase"] as! Bool))){
                 let imageView = cell?.viewWithTag(tag) as! UIImageView
+                imageView.hidden = false
                 imageView.image = UIImage(named: "credit-card")
                 imageView.alpha = 0.7
+                tag++
             }
             tag=201
             
