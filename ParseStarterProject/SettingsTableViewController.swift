@@ -1,57 +1,32 @@
 //
-//  MenuItemTableViewController.swift
-//  now
+//  SettingsTableViewController.swift
+//  atnow-iOS
 //
-//  Created by Ben Ribovich on 11/2/15.
-//  Copyright © 2015 Ben Ribovich. All rights reserved.
+//  Created by Ben Ribovich on 2/29/16.
+//  Copyright © 2016 Parse. All rights reserved.
 //
 
 import UIKit
-import Parse
-import ParseUI
 
-class MenuItemTableViewController: UITableViewController {
-    
-    let designHelper = DesignHelper()
+class SettingsTableViewController: MenuItemTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = false
-        let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
-        self.navigationItem.leftBarButtonItem = homeButton
-        self.navigationItem.title = self.title
-        tableView.tableFooterView = UIView()
-        
-    }
-    
-    func showMenu(sender: AnyObject){
-        let CVC = self.navigationController?.parentViewController as! ContainerViewController
-        CVC.showMenu()
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let v = view as! UITableViewHeaderFooterView
-        v.backgroundView!.backgroundColor = designHelper.menuBackgroundColor
-        v.textLabel?.font = UIFont.systemFontOfSize(15, weight: UIFontWeightThin)
-    }
 
     // MARK: - Table view data source
 
-    /*
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    /*override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }

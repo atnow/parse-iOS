@@ -17,7 +17,7 @@
                BlueprintIdentifier = "81BA81441A49DA1800E65899"
                BuildableName = "atnow-iOS.app"
                BlueprintName = "atnow-iOS"
-               ReferencedContainer = "container:atnow-iOS.xcodeproj">
+               ReferencedContainer = "container:@now.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "B5474A4E1C4EB3BF00E55194"
                BuildableName = "atnow-iOSTests.xctest"
                BlueprintName = "atnow-iOSTests"
-               ReferencedContainer = "container:atnow-iOS.xcodeproj">
+               ReferencedContainer = "container:@now.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
@@ -50,7 +50,7 @@
                BlueprintIdentifier = "B5BA61371C50222000BA87BA"
                BuildableName = "atnow-iOSUITests.xctest"
                BlueprintName = "atnow-iOSUITests"
-               ReferencedContainer = "container:atnow-iOS.xcodeproj">
+               ReferencedContainer = "container:@now.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -60,7 +60,7 @@
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
             BuildableName = "atnow-iOS.app"
             BlueprintName = "atnow-iOS"
-            ReferencedContainer = "container:atnow-iOS.xcodeproj">
+            ReferencedContainer = "container:@now.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,7 +83,7 @@
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
             BuildableName = "atnow-iOS.app"
             BlueprintName = "atnow-iOS"
-            ReferencedContainer = "container:atnow-iOS.xcodeproj">
+            ReferencedContainer = "container:@now.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -102,7 +102,7 @@
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
             BuildableName = "atnow-iOS.app"
             BlueprintName = "atnow-iOS"
-            ReferencedContainer = "container:atnow-iOS.xcodeproj">
+            ReferencedContainer = "container:@now.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
