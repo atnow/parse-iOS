@@ -59,8 +59,7 @@ class MenuViewController: UITableViewController{
         
         fullNameLabel.textColor = designHelper.baseColor
         
-        let mercuryColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
-        self.tableView.backgroundColor = mercuryColor
+        tableView.backgroundView = nil
         PFUser.currentUser()?.fetchInBackgroundWithBlock({ (user, error) -> Void in
             if((error) != nil){
                 print(error)

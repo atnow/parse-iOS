@@ -11,6 +11,8 @@ import Parse
 import ParseUI
 
 class MenuItemTableViewController: UITableViewController {
+    
+    let designHelper = DesignHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,14 @@ class MenuItemTableViewController: UITableViewController {
         let homeButton = UIBarButtonItem(image: UIImage(named:"reveal-icon"), style: UIBarButtonItemStyle.Plain, target: self, action: "showMenu:")
         self.navigationItem.leftBarButtonItem = homeButton
         self.navigationItem.title = self.title
+        tableView.tableFooterView = UIView()
         
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let v = view as! UITableViewHeaderFooterView
+        v.backgroundView!.backgroundColor = designHelper.menuBackgroundColor
+        v.textLabel?.font = UIFont.systemFontOfSize(15, weight: UIFontWeightThin)
     }
     
     func showMenu(sender: AnyObject){
