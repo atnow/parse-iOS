@@ -58,8 +58,9 @@ class MenuViewController: UITableViewController{
         lifebuoyIcon.tintColor = designHelper.baseColor
         
         fullNameLabel.textColor = designHelper.baseColor
-        tableView.backgroundView = nil
-
+        
+        let mercuryColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+        self.tableView.backgroundColor = mercuryColor
         PFUser.currentUser()?.fetchInBackgroundWithBlock({ (user, error) -> Void in
             if((error) != nil){
                 print(error)

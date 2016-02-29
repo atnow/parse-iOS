@@ -19,7 +19,6 @@ public class DesignHelper {
     let completeColor = UIColor(red: 17/255, green: 210/255, blue: 3/255, alpha: 1.0)
     let unclaimedColor = UIColor.lightGrayColor()
     let inProgressColor = UIColor(red: 81/255, green: 190/255, blue: 248/255, alpha: 1.0)
-    let menuBackgroundColor = UIColor(red: 227/255, green: 227/255, blue: 227/255, alpha: 1.0)
 
     let transparentWhite = UIColor.whiteColor().colorWithAlphaComponent(0.3).CGColor
     

@@ -45,7 +45,6 @@
 		B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C02DEB611C4ED873004A5190 /* atnowUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DEB601C4ED873004A5190 /* atnowUserTest.swift */; };
-		C03DF8861C84D2830045EF4B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03DF8851C84D2830045EF4B /* SettingsTableViewController.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
 		C0B167491C459C3400BC045C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B167481C459C3400BC045C /* PayViewController.swift */; };
 		C0DE8EE61C458B5F00714EFB /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -72,7 +71,7 @@
 		319BCD9A1D9C9C4C72A0B82F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81BA81451A49DA1800E65899 /* @now.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "@now.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81BA81451A49DA1800E65899 /* atnow-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "atnow-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA814A1A49DA1800E65899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BA816B1A49DB6800E65899 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		81BA816C1A49DB6800E65899 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -114,7 +113,6 @@
 		B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C02DEB601C4ED873004A5190 /* atnowUserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = atnowUserTest.swift; sourceTree = "<group>"; };
-		C03DF8851C84D2830045EF4B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C0B167481C459C3400BC045C /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		DEAFF6623AAA449D05092E4E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,7 +178,7 @@
 		81BA81461A49DA1800E65899 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81BA81451A49DA1800E65899 /* @now.app */,
+				81BA81451A49DA1800E65899 /* atnow-iOS.app */,
 				B5474A4F1C4EB3BF00E55194 /* atnow-iOSTests.xctest */,
 				B5BA61381C50222000BA87BA /* atnow-iOSUITests.xctest */,
 			);
@@ -317,7 +315,6 @@
 				B567DF6B1BEC0FB300F31E6D /* MainNavigationController.swift */,
 				B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */,
 				B567DF691BEC0FB300F31E6D /* MenuViewController.swift */,
-				C03DF8851C84D2830045EF4B /* SettingsTableViewController.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -352,7 +349,7 @@
 			);
 			name = "atnow-iOS";
 			productName = ParseStarterProject;
-			productReference = 81BA81451A49DA1800E65899 /* @now.app */;
+			productReference = 81BA81451A49DA1800E65899 /* atnow-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B5474A4E1C4EB3BF00E55194 /* atnow-iOSTests */ = {
@@ -555,7 +552,6 @@
 				B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */,
 				B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */,
 				B5CDE6D91C61639E00B7BB3D /* RequestedTasksViewController.swift in Sources */,
-				C03DF8861C84D2830045EF4B /* SettingsTableViewController.swift in Sources */,
 				B567DF701BEC0FB300F31E6D /* MainNavigationController.swift in Sources */,
 				B55888991BEE7EC200ACF3A5 /* SignUpViewController.swift in Sources */,
 				B567DF7F1BEC0FBC00F31E6D /* MainViewController.swift in Sources */,
@@ -722,7 +718,7 @@
 				);
 				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.parse.atnow;
-				PRODUCT_NAME = "@now";
+				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -759,7 +755,7 @@
 					"-fembed-bitcode",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.parse.atnow;
-				PRODUCT_NAME = "@now";
+				PRODUCT_NAME = "atnow-iOS";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

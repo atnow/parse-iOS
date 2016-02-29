@@ -15,36 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81BA81441A49DA1800E65899"
-               BuildableName = "@now.app"
+               BuildableName = "atnow-iOS.app"
                BlueprintName = "atnow-iOS"
-               ReferencedContainer = "container:atnow-iOS.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5474A4E1C4EB3BF00E55194"
-               BuildableName = "atnow-iOSTests.xctest"
-               BlueprintName = "atnow-iOSTests"
-               ReferencedContainer = "container:atnow-iOS.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5BA61371C50222000BA87BA"
-               BuildableName = "atnow-iOSUITests.xctest"
-               BlueprintName = "atnow-iOSUITests"
                ReferencedContainer = "container:atnow-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -56,12 +28,37 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5474A4E1C4EB3BF00E55194"
+               BuildableName = "atnow-iOSTests.xctest"
+               BlueprintName = "atnow-iOSTests"
+               ReferencedContainer = "container:atnow-iOS.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "atnow_iOSTests/unspecifiedMethod_-[atnow_iOSTests (null)]()">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5BA61371C50222000BA87BA"
+               BuildableName = "atnow-iOSUITests.xctest"
+               BlueprintName = "atnow-iOSUITests"
+               ReferencedContainer = "container:atnow-iOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
-            BuildableName = "@now.app"
+            BuildableName = "atnow-iOS.app"
             BlueprintName = "atnow-iOS"
             ReferencedContainer = "container:atnow-iOS.xcodeproj">
          </BuildableReference>
@@ -84,7 +81,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
-            BuildableName = "@now.app"
+            BuildableName = "atnow-iOS.app"
             BlueprintName = "atnow-iOS"
             ReferencedContainer = "container:atnow-iOS.xcodeproj">
          </BuildableReference>
@@ -98,15 +95,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
-            BuildableName = "@now.app"
+            BuildableName = "atnow-iOS.app"
             BlueprintName = "atnow-iOS"
             ReferencedContainer = "container:atnow-iOS.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
