@@ -2821,7 +2821,7 @@ Tasks that are available to you will be shown through the available tab on the b
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="63" id="h9E-PQ-aQv" customClass="PFTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="63" id="h9E-PQ-aQv" customClass="PFTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="414" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9E-PQ-aQv" id="12V-MZ-9Us">
@@ -2921,9 +2921,6 @@ Tasks that are available to you will be shown through the available tab on the b
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Br3-1p-lPy" secondAttribute="trailing" constant="41" id="zZ3-Zg-3DZ"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="RoC-xa-N4v" kind="show" identifier="profileFeedTaskDetail" id="dQc-Nj-3tw"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -3323,7 +3320,7 @@ Uh-oh! Email us at at.now.team@gmail.com
         <image name="settings-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="LMe-HV-aCZ"/>
         <segue reference="mJM-Bd-GXe"/>
-        <segue reference="dQc-Nj-3tw"/>
     </inferredMetricsTieBreakers>
 </document>
