@@ -37,12 +37,12 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var imageView3: UIImageView!
     
+    @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var requirementLabel1: UILabel!
     @IBOutlet weak var requirementLabel2: UILabel!
     @IBOutlet weak var requirementLabel3: UILabel!
     @IBOutlet weak var grayBar: UIView!
 //    @IBOutlet weak var buttonImage: UIImageView!
-    @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var ARPicture: UIImageView!
     @IBOutlet weak var ARLabel: UILabel!
     @IBOutlet weak var expirationLabel: UILabel!
@@ -55,10 +55,6 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
         acceptButton.titleLabel?.textAlignment = NSTextAlignment.Center
         acceptButton.titleLabel?.numberOfLines = 2
         acceptButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        
-        designHelper.formatButton(reportButton)
-        reportButton.layer.borderColor = UIColor.redColor().CGColor
-        reportButton.setTitleColor(UIColor.redColor(), forState: .Normal)
         reportButton.hidden = true
         
 //        buttonImage.hidden = true
@@ -228,10 +224,7 @@ class ConfirmationViewController: UIViewController, UIPopoverPresentationControl
                     currentState = .completed
                     designHelper.formatButtonAction(acceptButton)
                     acceptButton.setTitle("Completed \r\n" + "Press to Confirm", forState: UIControlState.Normal)
-                    let reportButton = UIBarButtonItem(title: "Not complete?", style: .Plain, target: self, action: "report")
-                    self.navigationItem.rightBarButtonItem = reportButton
-                    /*reportButton.setTitle("Report", forState: UIControlState.Normal)
-                    reportButton.hidden = false*/
+                    self.reportButton.hidden = false
                     /*let accepterQuery = PFQuery(className:"_User")
                     accepterQuery.getObjectInBackgroundWithId(selectedTask!["accepter"].objectId!!) {
                         (user: PFObject?, error: NSError?) -> Void in
