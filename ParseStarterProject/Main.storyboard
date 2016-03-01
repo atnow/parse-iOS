@@ -1846,7 +1846,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hF-Nv-SPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2744" y="1211"/>
+            <point key="canvasLocation" x="2736" y="1282"/>
         </scene>
         <!--Privacy-->
         <scene sceneID="YZG-Lp-hPs">
@@ -2020,7 +2020,7 @@ g. You may not use or otherwise export or re-export the Licensed Application exc
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d18-fg-91P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3992" y="1202"/>
+            <point key="canvasLocation" x="4000" y="1202"/>
         </scene>
         <!--Privacy Policy-->
         <scene sceneID="L4L-5g-B96">
@@ -2086,18 +2086,18 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                         <viewControllerLayoutGuide type="bottom" id="hXK-Ng-1Gg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaO-Jw-4au">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
-                                <rect key="frame" x="144" y="128" width="128" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
+                                <rect key="frame" x="134" y="129" width="110" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YeA-TO-gny" secondAttribute="height" multiplier="1:1" id="QVu-v2-v8Q"/>
-                                    <constraint firstAttribute="width" constant="128" id="jc8-Yo-4Ul"/>
+                                    <constraint firstAttribute="width" constant="110" id="jc8-Yo-4Ul"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
-                                <rect key="frame" x="87" y="19" width="239" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
+                                <rect key="frame" x="68" y="35" width="239" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="239" id="Aqj-hu-3RV"/>
                                     <constraint firstAttribute="width" secondItem="CR2-lO-ONW" secondAttribute="height" multiplier="239:47" id="ldX-MG-1Ve"/>
@@ -2113,8 +2113,8 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="_now" customModuleProvider="target">
-                                <rect key="frame" x="131" y="81" width="151" height="23"/>
+                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="_now" customModuleProvider="target">
+                                <rect key="frame" x="112" y="84" width="151" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ya3-3e-bRG" secondAttribute="height" multiplier="151:23" id="mGX-Cg-pPb"/>
                                     <constraint firstAttribute="width" constant="151" id="whj-v0-S2n"/>
@@ -2133,41 +2133,55 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk" userLabel="Change Picture Button">
-                                <rect key="frame" x="143" y="128" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="8kh-YO-z77"/>
-                                    <constraint firstAttribute="width" secondItem="MIf-oX-9qk" secondAttribute="height" multiplier="1:1" id="AXl-O5-FkK"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="changeProfilePicture:" destination="1Tg-mC-jcl" eventType="touchUpInside" id="krT-jj-bmn"/>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09M-4K-dyN">
-                                <rect key="frame" x="0.0" y="313" width="414" height="287"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09M-4K-dyN">
+                                <rect key="frame" x="0.0" y="319" width="375" height="348"/>
                                 <connections>
                                     <segue destination="KPi-Pg-Sb0" kind="embed" identifier="showFeed" id="k4V-Mh-XHK"/>
                                 </connections>
                             </containerView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone-small" translatesAutoresizingMaskIntoConstraints="NO" id="3eW-aL-LYh">
+                                <rect key="frame" x="95" y="257" width="25" height="25"/>
+                                <color key="backgroundColor" white="0.94961280150000005" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0039215686269999999" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="KZi-yI-4Vc"/>
+                                    <constraint firstAttribute="width" constant="25" id="zuR-41-aw3"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="(303) 947-9387" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uTS-ym-W7U">
+                                <rect key="frame" x="116" y="248" width="144" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="Npa-Of-7U6"/>
+                                    <constraint firstAttribute="height" constant="40" id="ld0-oI-vSW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.94961280153508765" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ya3-3e-bRG" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="4dh-MG-s2t"/>
                             <constraint firstItem="YeA-TO-gny" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" constant="1" id="6PO-3g-prd"/>
-                            <constraint firstItem="09M-4K-dyN" firstAttribute="top" secondItem="MIf-oX-9qk" secondAttribute="bottom" constant="37" id="829-Le-XUf"/>
                             <constraint firstItem="09M-4K-dyN" firstAttribute="width" secondItem="JaO-Jw-4au" secondAttribute="width" id="9fy-AG-UYr"/>
-                            <constraint firstItem="MIf-oX-9qk" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="Sea-4f-oZS"/>
-                            <constraint firstItem="MIf-oX-9qk" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="24" id="b4D-4T-1Ps"/>
-                            <constraint firstItem="CR2-lO-ONW" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="19" id="cir-O5-Gim"/>
-                            <constraint firstItem="YeA-TO-gny" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="24" id="eZI-eN-Xk0"/>
+                            <constraint firstItem="uTS-ym-W7U" firstAttribute="leading" secondItem="3eW-aL-LYh" secondAttribute="trailing" constant="-4" id="GcB-1D-crX"/>
+                            <constraint firstItem="uTS-ym-W7U" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="Nqd-LR-YaJ"/>
+                            <constraint firstItem="uTS-ym-W7U" firstAttribute="top" secondItem="YeA-TO-gny" secondAttribute="bottom" constant="9" id="Oxk-Iv-nPb"/>
+                            <constraint firstItem="uTS-ym-W7U" firstAttribute="centerY" secondItem="3eW-aL-LYh" secondAttribute="centerY" constant="-1.5" id="QY9-Vq-E5i"/>
+                            <constraint firstItem="09M-4K-dyN" firstAttribute="top" secondItem="uTS-ym-W7U" secondAttribute="bottom" constant="31" id="aR8-vY-b3w"/>
+                            <constraint firstItem="CR2-lO-ONW" firstAttribute="top" secondItem="PUb-8O-wLr" secondAttribute="bottom" constant="15" id="cir-O5-Gim"/>
+                            <constraint firstItem="YeA-TO-gny" firstAttribute="top" secondItem="ya3-3e-bRG" secondAttribute="bottom" constant="22" id="eZI-eN-Xk0"/>
                             <constraint firstItem="09M-4K-dyN" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="rut-uB-z3h"/>
-                            <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="15" id="sBO-co-CAN"/>
+                            <constraint firstItem="ya3-3e-bRG" firstAttribute="top" secondItem="CR2-lO-ONW" secondAttribute="bottom" constant="2" id="sBO-co-CAN"/>
                             <constraint firstItem="hXK-Ng-1Gg" firstAttribute="top" secondItem="09M-4K-dyN" secondAttribute="bottom" id="yDh-nU-hXK"/>
                             <constraint firstItem="CR2-lO-ONW" firstAttribute="centerX" secondItem="JaO-Jw-4au" secondAttribute="centerX" id="z78-Er-9mJ"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="changePictureButton" destination="MIf-oX-9qk" id="KcH-7L-UUf"/>
+                        <outlet property="phoneImageView" destination="3eW-aL-LYh" id="a0t-ym-jUa"/>
+                        <outlet property="phoneNumberTextView" destination="uTS-ym-W7U" id="etg-sH-gGf"/>
                         <outlet property="profilePicture" destination="YeA-TO-gny" id="LVb-Vf-f7b"/>
                         <outlet property="starRatings" destination="ya3-3e-bRG" id="huy-Az-2an"/>
                         <outlet property="userFullNameLabel" destination="CR2-lO-ONW" id="nCE-lp-Fjb"/>
@@ -2175,7 +2189,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lq-Qn-oRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2718" y="-262"/>
+            <point key="canvasLocation" x="2605.5" y="-244.5"/>
         </scene>
         <!--Help Center-->
         <scene sceneID="fdV-1L-nxN">
@@ -2833,7 +2847,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GM-7K-IcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2625" y="479"/>
+            <point key="canvasLocation" x="2625" y="526"/>
         </scene>
         <!--Requested Tasks-->
         <scene sceneID="gt7-iU-Ly3">
@@ -2964,6 +2978,19 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
             </objects>
             <point key="canvasLocation" x="3760.5" y="-1735"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="aJ7-OG-pJS">
+            <objects>
+                <viewController id="pEU-nT-y5q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rs7-kN-t72">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0eZ-Q1-WwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Accepted Tasks" width="25" height="25"/>
@@ -2983,6 +3010,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
         <image name="heavy-lifting" width="200" height="200"/>
         <image name="lifebuoy-24" width="24" height="24"/>
         <image name="lock" width="512" height="512"/>
+        <image name="phone-small" width="48" height="48"/>
         <image name="settings-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
