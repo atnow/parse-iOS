@@ -845,7 +845,7 @@
                         <viewControllerLayoutGuide type="bottom" id="l64-tW-MMd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZLv-VL-aeM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="woN-pQ-zjP" userLabel="grayBar">
@@ -1290,33 +1290,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pe-al-Dmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4847" y="-48"/>
-        </scene>
-        <!--Instructions View Controller-->
-        <scene sceneID="RkN-7k-nom">
-            <objects>
-                <viewController storyboardIdentifier="InstructionsViewController" title="Instructions View Controller" id="UjJ-V2-2Fu" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gFz-7k-woW"/>
-                        <viewControllerLayoutGuide type="bottom" id="uWC-h3-phR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="r2w-I3-GIy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="300" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eUL-3y-2V2">
-                                <rect key="frame" x="20" y="20" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="100" height="100"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zO9-8A-X09" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5514" y="-48"/>
         </scene>
         <!--Accepted-->
         <scene sceneID="WpO-db-Ggh">
@@ -2113,17 +2086,17 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                         <viewControllerLayoutGuide type="bottom" id="hXK-Ng-1Gg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JaO-Jw-4au">
-                        <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
                                 <rect key="frame" x="144" y="128" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YeA-TO-gny" secondAttribute="height" multiplier="1:1" id="QVu-v2-v8Q"/>
                                     <constraint firstAttribute="width" constant="128" id="jc8-Yo-4Ul"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-lO-ONW">
                                 <rect key="frame" x="87" y="19" width="239" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="239" id="Aqj-hu-3RV"/>
@@ -2140,7 +2113,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="_now" customModuleProvider="target">
+                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ya3-3e-bRG" customClass="FloatRatingView" customModule="_now" customModuleProvider="target">
                                 <rect key="frame" x="131" y="81" width="151" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ya3-3e-bRG" secondAttribute="height" multiplier="151:23" id="mGX-Cg-pPb"/>
@@ -2160,7 +2133,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk" userLabel="Change Picture Button">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-oX-9qk" userLabel="Change Picture Button">
                                 <rect key="frame" x="143" y="128" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="8kh-YO-z77"/>
@@ -2202,7 +2175,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lq-Qn-oRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2779" y="-62"/>
+            <point key="canvasLocation" x="2718" y="-262"/>
         </scene>
         <!--Help Center-->
         <scene sceneID="fdV-1L-nxN">
@@ -2860,7 +2833,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2GM-7K-IcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2791" y="457.5"/>
+            <point key="canvasLocation" x="2625" y="479"/>
         </scene>
         <!--Requested Tasks-->
         <scene sceneID="gt7-iU-Ly3">
