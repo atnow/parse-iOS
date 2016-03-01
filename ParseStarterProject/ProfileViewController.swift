@@ -93,7 +93,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     func changeProfilePicture() {
+        print("clicked")
         if(isOwnProfile){
+            print("ownprofile")
             let profileChangeMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
             self.imagePicker.allowsEditing = true
             let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) in }

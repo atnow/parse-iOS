@@ -2089,7 +2089,7 @@ if @now is involved in a merger, acquisition, or sale of all or a portion of its
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-TO-gny">
                                 <rect key="frame" x="134" y="129" width="110" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YeA-TO-gny" secondAttribute="height" multiplier="1:1" id="QVu-v2-v8Q"/>
