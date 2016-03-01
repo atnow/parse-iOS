@@ -98,7 +98,7 @@ class LoginViewController: UIViewController{
                 }
                 
                 //Venmo Check
-                if(!Venmo.sharedInstance().isSessionValid() || Venmo.sharedInstance().session.user==nil || user!["phoneNumber"]==nil || (Venmo.sharedInstance().session.user.primaryPhone != (user!["phoneNumber"] as! String))){
+                if(!Venmo.sharedInstance().isSessionValid() || Venmo.sharedInstance().session.user==nil || user!["phone"]==nil || (Venmo.sharedInstance().session.user.primaryPhone != (user!["phone"] as! String))){
                     //Alert saying @now needs Venmo
                     
                     
@@ -129,7 +129,7 @@ class LoginViewController: UIViewController{
                                     
                                     // Save venmo information in Parse
                                     
-                                    user!["phoneNumber"] = Venmo.sharedInstance().session.user.primaryPhone
+                                    user!["phone"] = Venmo.sharedInstance().session.user.primaryPhone
                                     user!["venmoAccessToken"] = Venmo.sharedInstance().session.accessToken
                                     user!.saveInBackground()
                                     
