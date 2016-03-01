@@ -44,6 +44,8 @@
 		B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CE33D91BF7FF78003A166D /* DesignHelper.swift */; };
 		B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */; };
 		C00BF6BA1C84FA360047FAA3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BF6B91C84FA360047FAA3 /* SettingsTableViewController.swift */; };
+		C00BF6BC1C852CA40047FAA3 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BF6BB1C852CA40047FAA3 /* NotificationSettingsViewController.swift */; };
+		C00BF6BE1C853B9B0047FAA3 /* PrivacySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BF6BD1C853B9B0047FAA3 /* PrivacySettingsViewController.swift */; };
 		C00D094B1BF81CFA00E93B97 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */; };
 		C02DEB611C4ED873004A5190 /* atnowUserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DEB601C4ED873004A5190 /* atnowUserTest.swift */; };
 		C04B68791BEE68F500EE3A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */; };
@@ -113,6 +115,8 @@
 		B5CE33D91BF7FF78003A166D /* DesignHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		B5FB40B91C55A7090082CA3F /* EditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		C00BF6B91C84FA360047FAA3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		C00BF6BB1C852CA40047FAA3 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		C00BF6BD1C853B9B0047FAA3 /* PrivacySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacySettingsViewController.swift; sourceTree = "<group>"; };
 		C00D094A1BF81CFA00E93B97 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		C02DEB601C4ED873004A5190 /* atnowUserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = atnowUserTest.swift; sourceTree = "<group>"; };
 		C04B68781BEE68F500EE3A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 				B567DF6A1BEC0FB300F31E6D /* MenuItemTableViewController.swift */,
 				B567DF691BEC0FB300F31E6D /* MenuViewController.swift */,
 				C00BF6B91C84FA360047FAA3 /* SettingsTableViewController.swift */,
+				C00BF6BB1C852CA40047FAA3 /* NotificationSettingsViewController.swift */,
+				C00BF6BD1C853B9B0047FAA3 /* PrivacySettingsViewController.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -549,10 +555,12 @@
 				B5FB40BA1C55A7090082CA3F /* EditInfoViewController.swift in Sources */,
 				B5CE33DA1BF7FF78003A166D /* DesignHelper.swift in Sources */,
 				B5CDE6D71C61638800B7BB3D /* RequestedTasksTableViewController.swift in Sources */,
+				C00BF6BE1C853B9B0047FAA3 /* PrivacySettingsViewController.swift in Sources */,
 				B59A68B51BF3DA2500565A87 /* FloatRatingView.swift in Sources */,
 				B567DF711BEC0FB300F31E6D /* ContainerViewController.swift in Sources */,
 				B55888A21BF0109C00ACF3A5 /* ConfirmationViewController.swift in Sources */,
 				B52E934B1BF832B700B373D3 /* HomeTasksNavigationControllerViewController.swift in Sources */,
+				C00BF6BC1C852CA40047FAA3 /* NotificationSettingsViewController.swift in Sources */,
 				B52E934D1BF832D800B373D3 /* MyTasksNavigationControllerViewController.swift in Sources */,
 				B5CDE6D91C61639E00B7BB3D /* RequestedTasksViewController.swift in Sources */,
 				C00BF6BA1C84FA360047FAA3 /* SettingsTableViewController.swift in Sources */,
