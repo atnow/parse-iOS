@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81BA81441A49DA1800E65899"
-               BuildableName = "atnow-iOS.app"
+               BuildableName = "@now.app"
                BlueprintName = "atnow-iOS"
                ReferencedContainer = "container:atnow-iOS.xcodeproj">
             </BuildableReference>
@@ -58,7 +58,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
-            BuildableName = "atnow-iOS.app"
+            BuildableName = "@now.app"
             BlueprintName = "atnow-iOS"
             ReferencedContainer = "container:atnow-iOS.xcodeproj">
          </BuildableReference>
@@ -81,7 +81,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
-            BuildableName = "atnow-iOS.app"
+            BuildableName = "@now.app"
             BlueprintName = "atnow-iOS"
             ReferencedContainer = "container:atnow-iOS.xcodeproj">
          </BuildableReference>
@@ -100,7 +100,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81BA81441A49DA1800E65899"
-            BuildableName = "atnow-iOS.app"
+            BuildableName = "@now.app"
             BlueprintName = "atnow-iOS"
             ReferencedContainer = "container:atnow-iOS.xcodeproj">
          </BuildableReference>
