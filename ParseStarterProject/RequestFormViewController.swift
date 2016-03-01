@@ -52,7 +52,11 @@ class RequestFormViewController: UIViewController, UITextViewDelegate {
         else {
             newTask["title"] = self.titleTextField.text
         }
+        
         newTask["description"] = self.instructionsTextView.text
+        if (self.instructionsTextView.text == "Further Instructions"){
+            newTask["description"] = ""
+        }
         newTask["taskLocation"] = self.locationTextField.text
         if(priceTextField.text == ""){
             let priceAlertController = UIAlertController(title: "Oops!", message: "Please input a price for your task", preferredStyle: .Alert)
