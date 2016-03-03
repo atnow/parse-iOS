@@ -113,6 +113,14 @@ class HomeViewController : PFQueryTableViewController {
             }
             tag=201
             
+            if( (self.restorationIdentifier == "HomeViewController") && (object["requester"].objectId) == (PFUser.currentUser()?.objectId)!){
+                let label = (cell?.viewWithTag(401) as! UILabel)
+                label.hidden = false
+                label.layer.borderColor = designHelper.baseColor.CGColor
+                label.layer.borderWidth = 0.7
+                
+            }
+            
         }
         
         return cell
