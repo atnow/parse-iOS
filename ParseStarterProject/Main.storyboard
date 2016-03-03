@@ -1300,7 +1300,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="txp-Mh-Lge" customClass="FloatRatingView" customModule="_now" customModuleProvider="target">
-                                    <rect key="frame" x="85" y="177" width="96" height="26"/>
+                                    <rect key="frame" x="85" y="171" width="96" height="26"/>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="txp-Mh-Lge" secondAttribute="height" multiplier="48:13" id="9eW-6B-aQJ"/>
@@ -1324,7 +1324,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-Rk-l67">
-                                    <rect key="frame" x="8" y="142" width="69" height="69"/>
+                                    <rect key="frame" x="8" y="136" width="69" height="69"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="69" id="1JJ-4c-0a8"/>
                                         <constraint firstAttribute="width" secondItem="ee4-Rk-l67" secondAttribute="height" multiplier="1:1" id="HVi-gK-eJU"/>
@@ -1332,7 +1332,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKg-E3-mn8">
-                                    <rect key="frame" x="85" y="147" width="144" height="27"/>
+                                    <rect key="frame" x="85" y="141" width="144" height="27"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="144" id="FKn-b4-AB1"/>
                                         <constraint firstAttribute="width" secondItem="IKg-E3-mn8" secondAttribute="height" multiplier="48:7" constant="-41.142857142857139" id="XAO-uA-sBg"/>
@@ -1345,9 +1345,9 @@
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="txp-Mh-Lge" firstAttribute="top" secondItem="IKg-E3-mn8" secondAttribute="bottom" constant="3" id="3TB-vM-2JR"/>
-                                <constraint firstItem="IKg-E3-mn8" firstAttribute="top" secondItem="EmT-pa-XyD" secondAttribute="top" constant="147" id="BA4-Lq-ji4"/>
+                                <constraint firstItem="IKg-E3-mn8" firstAttribute="top" secondItem="EmT-pa-XyD" secondAttribute="top" constant="141" id="BA4-Lq-ji4"/>
                                 <constraint firstItem="IKg-E3-mn8" firstAttribute="leading" secondItem="ee4-Rk-l67" secondAttribute="trailing" constant="8" id="UTj-fK-m35"/>
-                                <constraint firstItem="ee4-Rk-l67" firstAttribute="top" secondItem="EmT-pa-XyD" secondAttribute="top" constant="142" id="Uv3-2J-x5M"/>
+                                <constraint firstItem="ee4-Rk-l67" firstAttribute="top" secondItem="EmT-pa-XyD" secondAttribute="top" constant="136" id="Uv3-2J-x5M"/>
                                 <constraint firstItem="ee4-Rk-l67" firstAttribute="leading" secondItem="EmT-pa-XyD" secondAttribute="leading" constant="8" id="laU-SF-TQZ"/>
                                 <constraint firstItem="txp-Mh-Lge" firstAttribute="leading" secondItem="ee4-Rk-l67" secondAttribute="trailing" constant="8" id="vL4-Td-3xt"/>
                             </constraints>

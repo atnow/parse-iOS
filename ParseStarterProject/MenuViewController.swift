@@ -102,6 +102,7 @@ class MenuViewController: UITableViewController{
         
         let recognizer = UITapGestureRecognizer(target: self, action: "profileShow:")
         self.profileImageView.addGestureRecognizer(recognizer)
+        
 
     }    
     
